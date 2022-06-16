@@ -2,6 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,12 +12,35 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@iktakahiro/markdown-it-katex": "^4.0.1",
+    "@linaria/babel-preset": "^3.0.0-beta.21",
+    "@linaria/core": "^3.0.0-beta.21",
+    "@linaria/react": "^3.0.0-beta.21",
+    "@linaria/shaker": "^3.0.0-beta.21",
+    "@linaria/webpack-loader": "^3.0.0-beta.21",
+    "contentful": "^9.1.32",
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-imsize": "^2.0.1",
+    "markdown-it-sanitizer": "^0.4.3",
     "next": "12.1.6",
+    "next-linaria": "^1.0.1-beta",
+    "prismjs": "^1.28.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@types/katex": "^0.14.0",
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "18.0.0",
+    "@types/prismjs": "^1.26.0",
     "@types/react": "18.0.13",
     "@types/react-dom": "18.0.5",
     "eslint": "8.17.0",
