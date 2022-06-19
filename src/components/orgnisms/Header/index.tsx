@@ -4,7 +4,7 @@ import React from 'react';
 import { styled } from '@linaria/react';
 import { AnimationLink } from '@/components/atoms/AnimationLink';
 import { css } from '@linaria/core';
-import { BothSideBox } from '../atoms/BothSideBox';
+import { BothSideBox } from '../../atoms/BothSideBox';
 import { sheet } from '@/components/styles/sheet';
 
 const LeftSide: React.FC = () => {

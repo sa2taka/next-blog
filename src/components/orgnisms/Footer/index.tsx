@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 import React from 'react';
-import { AnimationLink } from '../atoms/AnimationLink';
+import { AnimationLink } from '../../atoms/AnimationLink';
 
 export const Footer: React.FC = () => {
   const Footer = styled.footer`
