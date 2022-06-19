@@ -1,7 +1,8 @@
 import { createClient } from '@/plugins/contentful';
-import { MultipleItem, Post } from '@/types/entry';
+import { Category, MultipleItem, Post } from '@/types/entry';
 
 import { CTF_CATEGORY_ID, CTF_POST_ID } from '@/libs/const';
+import { SingleItem } from '../types/entry';
 
 const client = createClient();
 const isProduction = process.env.NODE_ENV === 'production';
@@ -13,7 +14,10 @@ export function fetchCategories() {
   });
 }
 
-export function fetchPosts(page: number, limit: number) {
+export function fetchPosts(
+  page: number,
+  limit: number
+): Promise<MultipleItem<Post>> {
   const queries: Record<string, any> = {
     content_type: CTF_POST_ID,
     order: '-sys.createdAt',
@@ -28,7 +32,7 @@ export function fetchPosts(page: number, limit: number) {
   return client.getEntries(queries);
 }
 
-export function fetchPostsCount() {
+export function fetchPostsCount(): Promise<number> {
   const queries: Record<string, any> = {
     content_type: CTF_POST_ID,
     order: '-sys.createdAt',
@@ -45,7 +49,9 @@ export function fetchPostsCount() {
     .then((posts: MultipleItem<Post>) => posts.total);
 }
 
-export async function fetchPostsCountInCategory(categoryId: string) {
+export async function fetchPostsCountInCategory(
+  categoryId: string
+): Promise<number> {
   const queries: Record<string, any> = {
     content_type: CTF_POST_ID,
     limit: 1000,
@@ -68,7 +74,7 @@ export function fetchPostInCategory(
   categorySlug: string,
   page: number,
   limit: number
-) {
+): Promise<MultipleItem<Category>> {
   const queries: Record<string, any> = {
     content_type: CTF_POST_ID,
     limit,
@@ -85,7 +91,7 @@ export function fetchPostInCategory(
   return client.getEntries(queries);
 }
 
-export function fetchPost(slug: string) {
+export function fetchPost(slug: string): SingleItem<Post> {
   return client
     .getEntries({
       content_type: CTF_POST_ID,

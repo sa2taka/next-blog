@@ -69,12 +69,12 @@ export type FileDetail = {
   };
 };
 
-export interface MultipleItem<Field> {
+export interface MultipleItem<Field extends SingleItem<any>> {
   sys: {
     type: string;
   };
   total: number;
   skip: number;
   limit: number;
-  items: SingleItem<Field>[];
+  items: Field[];
 }
