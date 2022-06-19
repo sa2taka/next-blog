@@ -1,41 +1,41 @@
 import { styled } from '@linaria/react';
 import React from 'react';
+const GuideRoot = styled.div`
+  & p {
+    text-align: left;
+  }
+  & h1,
+  & h2 {
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  & h3,
+  & h4 {
+    margin-top: 24px;
+    margin-bottom: 18px;
+  }
+
+  & th:nth-of-type(n + 2),
+  & td:nth-of-type(n + 2) {
+    padding-left: 8px;
+  }
+
+  & table {
+    margin: auto auto;
+  }
+
+  & caption {
+    margin: 1em auto;
+  }
+
+  & ul {
+    margin: 1em;
+  }
+`;
 
 const Guide = () => {
-  const GuideRoot = styled.div`
-    & p {
-      text-align: left;
-    }
-    & h1,
-    & h2 {
-      text-align: center;
-      margin-top: 48px;
-      margin-bottom: 24px;
-    }
-
-    & h3,
-    & h4 {
-      margin-top: 24px;
-      margin-bottom: 18px;
-    }
-
-    & th:nth-of-type(n + 2),
-    & td:nth-of-type(n + 2) {
-      padding-left: 8px;
-    }
-
-    & table {
-      margin: auto auto;
-    }
-
-    & caption {
-      margin: 1em auto;
-    }
-
-    & ul {
-      margin: 1em;
-    }
-  `;
   return (
     <GuideRoot>
       <h1>当サイト利用について</h1>
