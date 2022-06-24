@@ -1,4 +1,4 @@
-import { Posts } from '@/components/orgnisms/Posts';
+import { Posts } from '@/components/organisms/Posts';
 import { POSTS_LIMIT } from '@/libs/const';
 
 import type { NextPage } from 'next';

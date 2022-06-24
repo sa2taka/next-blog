@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useMemo } from 'react';
 import { PostIndexItem } from '../../src/types/postIndex';
 import { generatePostBreadcrumbsList } from '../../src/libs/breadcrumbsGenerator';
-import { PostArea } from '@/components/orgnisms/PostArea';
+import { PostArea } from '@/components/organisms/PostArea';
 import Head from 'next/head';
 import Script from 'next/script';
 

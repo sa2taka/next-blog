@@ -1,6 +1,6 @@
-import { Information } from '@/components/orgnisms/PostArea/Information';
-import { PostBody } from '@/components/orgnisms/PostArea/PostBody';
-import { PostIndex } from '@/components/orgnisms/PostArea/PostIndex';
+import { Information } from '@/components/organisms/PostArea/Information';
+import { PostBody } from '@/components/organisms/PostArea/PostBody';
+import { PostIndex } from '@/components/organisms/PostArea/PostIndex';
 import { styled } from '@linaria/react';
 import React from 'react';
 import { Post } from '../../../types/entry';

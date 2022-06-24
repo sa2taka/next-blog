@@ -1,4 +1,4 @@
-import { formatPostIndex } from '@/components/orgnisms/PostArea/formatPostIndex';
+import { formatPostIndex } from '@/components/organisms/PostArea/formatPostIndex';
 import { styled } from '@linaria/react';
 import Link from 'next/link';
 import React, { useMemo } from 'react';

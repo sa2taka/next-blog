@@ -54,14 +54,14 @@ export const generatePostBreadcrumbsList = (post: Post) => {
   );
   list[list.length - 1].disabled = false;
 
-  const psotItem: BreadcrumbsItem = {
+  const postItem: BreadcrumbsItem = {
     disabled: true,
     exact: true,
     link: true,
     text: post.fields.title,
     href: `/post/${post.fields.slug}`,
   };
-  list.push(psotItem);
+  list.push(postItem);
 
   return list;
 };

@@ -1,4 +1,4 @@
-import { postBodyStyle } from '@/components/orgnisms/PostArea/postStyle';
+import { postBodyStyle } from '@/components/organisms/PostArea/postStyle';
 import React from 'react';
 
 interface Props {

@@ -1,7 +1,7 @@
 import { Post } from '@/types/entry';
 import React from 'react';
 import { styled } from '@linaria/react';
-import { PostItem } from '@/components/orgnisms/Posts/PostItem';
+import { PostItem } from '@/components/organisms/Posts/PostItem';
 
 interface Props {
   posts: Post[];

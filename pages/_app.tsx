@@ -3,9 +3,9 @@ import { Theme } from '../src/types/theme';
 import { useCallback, useMemo, useState } from 'react';
 import { ThemeContext } from '@/components/contexts/theme';
 import { ThemeContextProps } from '../src/components/contexts/theme';
-import { Header } from '@/components/orgnisms/Header';
+import { Header } from '@/components/organisms/Header';
 import { styled } from '@linaria/react';
-import { Footer } from '@/components/orgnisms/Footer';
+import { Footer } from '@/components/organisms/Footer';
 
 import '../styles/globals.css';
 
