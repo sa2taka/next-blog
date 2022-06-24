@@ -1,6 +1,5 @@
 import { formatPostIndex } from '@/components/organisms/PostArea/formatPostIndex';
 import { styled } from '@linaria/react';
-import Link from 'next/link';
 import React, { useMemo } from 'react';
 import { PostIndexItem } from '../../../types/postIndex';
 

@@ -1,5 +1,8 @@
 import { postBodyStyle } from '@/components/organisms/PostArea/postStyle';
+import { prismTheme } from '@/components/organisms/PostArea/prismTheme';
 import React from 'react';
+
+import './prism.ts';
 
 interface Props {
   rawHtml: string;
@@ -8,7 +11,7 @@ interface Props {
 export const PostBody: React.FC<Props> = ({ rawHtml }) => {
   return (
     <div
-      className={postBodyStyle}
+      className={`${prismTheme} ${postBodyStyle}`}
       dangerouslySetInnerHTML={{ __html: rawHtml }}
     />
   );
