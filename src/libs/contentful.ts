@@ -32,6 +32,19 @@ export function fetchPosts(
   return client.getEntries(queries);
 }
 
+export function fetchAllPost(): Promise<MultipleItem<Post>> {
+  const queries: Record<string, any> = {
+    content_type: CTF_POST_ID,
+    order: '-sys.createdAt',
+  };
+
+  if (isProduction) {
+    queries['fields.public'] = true;
+  }
+
+  return client.getEntries(queries);
+}
+
 export function fetchPostsCount(): Promise<number> {
   const queries: Record<string, any> = {
     content_type: CTF_POST_ID,
@@ -91,7 +104,7 @@ export function fetchPostInCategory(
   return client.getEntries(queries);
 }
 
-export function fetchPost(slug: string): SingleItem<Post> {
+export function fetchPost(slug: string): Post {
   return client
     .getEntries({
       content_type: CTF_POST_ID,

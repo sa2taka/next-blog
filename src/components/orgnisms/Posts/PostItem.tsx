@@ -6,6 +6,7 @@ import { css } from '@linaria/core';
 import { AnimationLink } from '../../atoms/AnimationLink/index';
 import { secondaryText } from '../../styles/text';
 import Link from 'next/link';
+import { formatDate, formatDateForMachine } from '../../../libs/formatDate';
 
 interface Props {
   post: Post;
@@ -69,9 +70,6 @@ const PostCreatedAt = styled.time`
   }
 `;
 
-const fillBy0 = (num: number, length: number) => {
-  return ('0000' + num.toString()).slice(-length);
-};
 export const PostItem: React.FC<Props> = ({ post }) => {
   const categoryHref = useMemo(
     () => `/category/${post.fields.category.fields.slug}`,
@@ -81,19 +79,11 @@ export const PostItem: React.FC<Props> = ({ post }) => {
 
   const formattedDate = useMemo(() => {
     const target = new Date(post.sys.createdAt);
-
-    const year = target.getFullYear();
-    const month = fillBy0(target.getMonth() + 1, 2);
-    const day = fillBy0(target.getDate(), 2);
-    return `${year}/${month}/${day}`;
+    return formatDate(target);
   }, [post.sys.createdAt]);
   const formattedDateForDateTag = useMemo(() => {
     const target = new Date(post.sys.createdAt);
-
-    const year = target.getFullYear();
-    const month = fillBy0(target.getMonth() + 1, 2);
-    const day = fillBy0(target.getDate(), 2);
-    return `${year}-${month}-${day}`;
+    return formatDateForMachine(target);
   }, [post]);
 
   return (

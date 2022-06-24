@@ -1,4 +1,4 @@
-import { PostIndex } from '@/types/postIndex';
+import { PostIndexItem } from '@/types/postIndex';
 
 export const generateIndices = (markdown: string) => {
   const markdownWithoutCode = markdown
@@ -6,7 +6,7 @@ export const generateIndices = (markdown: string) => {
     .replace(/`[\s\S]+?`/g, '');
   const regexp = /^\s*(?<hash>#{1,3})\s*(?<title>.+)\s*$/gm;
 
-  const postIndex: PostIndex[] = [];
+  const postIndex: PostIndexItem[] = [];
 
   let match: RegExpMatchArray | null;
   while ((match = regexp.exec(markdownWithoutCode))) {

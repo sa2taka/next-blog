@@ -55,10 +55,16 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   `;
 
   const Main = styled.main`
-    position: relative;
-    margin: auto 8px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 12px;
 
-    max-width: 864px;
+    @media (min-width: 960px) {
+      & {
+        max-width: 864px;
+      }
+    }
   `;
 
   return (

@@ -1,4 +1,4 @@
-export type PostIndex = {
+export type PostIndexItem = {
   title: string;
   level: number;
 };

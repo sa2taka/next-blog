@@ -1,12 +1,10 @@
-import { PostPagination } from '@/components/orgnisms/PostPagination';
 import { Posts } from '@/components/orgnisms/Posts';
 import { POSTS_LIMIT } from '@/libs/const';
-import { fetchPosts, fetchPostsCount } from '@/libs/contentful';
+
 import type { NextPage } from 'next';
 import { AppContext } from 'next/app';
 import Head from 'next/head';
-import Image from 'next/image';
-import { MultipleItem, Post } from '../src/types/entry';
+import { Post } from '../src/types/entry';
 
 type Props = {
   posts: Post[];
@@ -15,10 +13,11 @@ type Props = {
 };
 
 export const getStaticProps = async (
-  context: AppContext
+  _context: AppContext
 ): Promise<{
   props: Props;
 }> => {
+  const { fetchPosts, fetchPostsCount } = await import('@/libs/contentful');
   const page = 1;
   const limit = POSTS_LIMIT;
 

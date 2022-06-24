@@ -1,12 +1,11 @@
 import { Category, Post } from '@/types/entry';
 
 export interface BreadcrumbsItem {
-  disabled?: boolean;
-  exact?: boolean;
-  href?: string;
-  link?: boolean;
-  text?: string | number;
-  to?: string | object;
+  disabled: boolean;
+  exact: boolean;
+  href: string;
+  link: boolean;
+  text: string;
 }
 
 export type BreadcrumbsList = BreadcrumbsItem[];
@@ -16,7 +15,7 @@ export const topPageItem: BreadcrumbsItem = {
   exact: true,
   link: true,
   text: 'ホーム',
-  to: '/',
+  href: '/',
 };
 
 export const generateCategoriesItem = () => {
@@ -25,7 +24,7 @@ export const generateCategoriesItem = () => {
     exact: true,
     link: true,
     text: 'カテゴリ一覧',
-    to: '/category',
+    href: '/category',
   };
 };
 
@@ -42,7 +41,7 @@ export const generateCategoryBreadcrumbsList = (category: Category) => {
     exact: true,
     link: true,
     text: category.fields.name,
-    to: `/category/${category.fields.slug}`,
+    href: `/category/${category.fields.slug}`,
   };
   list.push(categoryItem);
 
@@ -60,7 +59,7 @@ export const generatePostBreadcrumbsList = (post: Post) => {
     exact: true,
     link: true,
     text: post.fields.title,
-    to: `/post/${post.fields.slug}`,
+    href: `/post/${post.fields.slug}`,
   };
   list.push(psotItem);
 
