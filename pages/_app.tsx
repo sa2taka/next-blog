@@ -27,6 +27,34 @@ const persistTheme = (theme: Theme): void => {
   localStorage.setItem(themeKey, theme);
 };
 
+const Root = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+`;
+const MainContainer = styled.div`
+  display: flex;
+  flex: 1 0 auto;
+  max-width: 100%;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: center;
+  /* for header */
+  padding-top: 72px;
+`;
+
+const Main = styled.main`
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 12px;
+
+  @media (min-width: 960px) {
+    & {
+      max-width: 864px;
+    }
+  }
+`;
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   const [theme, setTheme] = useState(getThemeFromStorage());
   const saveTheme = useCallback((theme: Theme) => {
@@ -40,32 +68,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
     }),
     [saveTheme, theme]
   );
-
-  const Root = styled.div`
-    min-height: 100vh;
-  `;
-  const MainContainer = styled.div`
-    display: flex;
-    flex: 1 0 auto;
-    max-width: 100%;
-    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    justify-content: center;
-    /* for header */
-    padding-top: 72px;
-  `;
-
-  const Main = styled.main`
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 12px;
-
-    @media (min-width: 960px) {
-      & {
-        max-width: 864px;
-      }
-    }
-  `;
 
   return (
     <ThemeContext.Provider value={themeProviderValue}>

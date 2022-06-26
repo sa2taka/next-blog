@@ -5,6 +5,7 @@ import {
 } from '@/components/organisms/CategoryArea';
 import { generateCategoriesBreadcrumbsList } from '@/libs/breadcrumbsGenerator';
 import { Category } from '@/types/entry';
+import { styled } from '@linaria/react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
@@ -37,7 +38,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   };
 };
 
-const CategoryHead: React.FC<{ latex: boolean }> = ({ latex }) => {
+const CategoryHead: React.FC = () => {
   return (
     <Head>
       <title>カテゴリ</title>
@@ -46,12 +47,18 @@ const CategoryHead: React.FC<{ latex: boolean }> = ({ latex }) => {
   );
 };
 
+const Title = styled.h2`
+  text-align: center;
+`;
+
 const CategoryPage: React.FC<Props> = ({ categories }) => {
   const breadcrumbsList = generateCategoriesBreadcrumbsList();
 
   return (
     <>
+      <CategoryHead />
       <Breadcrumbs list={breadcrumbsList} />
+      <Title>カテゴリ</Title>
       <CategoryArea categories={categories} />
     </>
   );

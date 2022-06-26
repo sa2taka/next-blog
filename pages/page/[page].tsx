@@ -21,20 +21,22 @@ export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
   const { fetchAllPost } = await import('@/libs/contentful');
 
   const posts = await fetchAllPost();
-  const allPage = Math.ceil(posts.items.length / POSTS_LIMIT)
+  const allPage = Math.ceil(posts.items.length / POSTS_LIMIT);
 
   return {
-    paths: Array(allPage).fill(undefined).map((_,page) => ({
-      params: {
-        page: (page + 1).toString(),
-      },
-    })),
+    paths: Array(allPage)
+      .fill(undefined)
+      .map((_, page) => ({
+        params: {
+          page: (page + 1).toString(),
+        },
+      })),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-    const { fetchPosts, fetchPostsCount } = await import('@/libs/contentful');
+  const { fetchPosts, fetchPostsCount } = await import('@/libs/contentful');
   if (!context.params || !context.params.page || context.params.page === '') {
     return {
       notFound: true,
@@ -61,7 +63,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   };
 };
 
-
 const Page: NextPage<Props> = ({ count, page, posts }) => {
   return (
     <>
@@ -80,6 +81,5 @@ const Page: NextPage<Props> = ({ count, page, posts }) => {
     </>
   );
 };
-
 
 export default Page;

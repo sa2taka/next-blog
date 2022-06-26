@@ -41,7 +41,7 @@ export const generateCategoryBreadcrumbsList = (category: Category) => {
     exact: true,
     link: true,
     text: category.fields.name,
-    href: `/category/${category.fields.slug}`,
+    href: `/category/${category.fields.slug}/1`,
   };
   list.push(categoryItem);
 
