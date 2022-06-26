@@ -6,6 +6,7 @@ import { AnimationLink } from '@/components/atoms/AnimationLink';
 import { css } from '@linaria/core';
 import { BothSideBox } from '../../atoms/BothSideBox';
 import { sheet } from '@/components/styles/sheet';
+import { DarkThemeSwitch } from '@/components/molecules/DarkThemeSwitch';
 
 const TitleText = styled.h1`
   font-size: 1.2em;
@@ -42,19 +43,33 @@ const LeftSide: React.FC = () => {
   );
 };
 
-const margin = css`
+const rightSideLink = css`
   margin: auto 8px;
+  display: flex;
+  align-items: center;
+`;
+const RightSideNav = styled.nav`
+  display: flex;
+  margin-right: 12px;
+`;
+
+const RightSideRoot = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 const RightSide: React.FC = () => {
   return (
-    <nav>
-      <AnimationLink href="/" className={margin}>
-        Home
-      </AnimationLink>
-      <AnimationLink href="/category" className={margin}>
-        Category
-      </AnimationLink>
-    </nav>
+    <RightSideRoot>
+      <RightSideNav>
+        <AnimationLink href="/" className={rightSideLink}>
+          Home
+        </AnimationLink>
+        <AnimationLink href="/category" className={rightSideLink}>
+          Category
+        </AnimationLink>
+      </RightSideNav>
+      <DarkThemeSwitch />
+    </RightSideRoot>
   );
 };
 

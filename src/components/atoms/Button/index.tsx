@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { useMemo } from 'react';
 import { ReactNode } from 'react';
 import { baseStyle } from './buttonStyles';
@@ -13,7 +13,9 @@ import {
   Content,
 } from './buttonStyles';
 
-interface Props {
+type buttonProps = ComponentProps<'button'>;
+
+interface Props extends buttonProps {
   disabled?: boolean;
   outlined?: boolean;
   small?: boolean;
@@ -23,7 +25,6 @@ interface Props {
   color?: string;
   target?: string;
   rel?: string;
-  ariaLabel?: string;
   className?: string;
   children: ReactNode;
 }
@@ -39,6 +40,7 @@ export const Button: React.FC<Props> = ({
   xSmall,
   className: customClassName,
   children,
+  ...props
 }) => {
   const className = useMemo(() => {
     const className: string[] = [customClassName ?? '', baseStyle];
@@ -68,7 +70,7 @@ export const Button: React.FC<Props> = ({
       </a>
     </Link>
   ) : (
-    <button className={className} disabled={disabled}>
+    <button className={className} disabled={disabled} {...props}>
       <Content>{children}</Content>
     </button>
   );

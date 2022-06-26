@@ -8,24 +8,7 @@ import { styled } from '@linaria/react';
 import { Footer } from '@/components/organisms/Footer';
 
 import '../styles/globals.css';
-
-// TODO: divide file
-const isClient = () => typeof window !== 'undefined';
-const themeKey = 'theme';
-const getThemeFromStorage = (): Theme => {
-  if (!isClient()) {
-    return 'dark';
-  }
-  const theme = localStorage.getItem(themeKey);
-  return theme === 'light' ? 'light' : 'dark';
-};
-
-const persistTheme = (theme: Theme): void => {
-  if (!isClient()) {
-    return;
-  }
-  localStorage.setItem(themeKey, theme);
-};
+import { getThemeFromStorage, persistTheme } from '@/libs/theme';
 
 const Root = styled.div`
   min-height: 100vh;
