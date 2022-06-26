@@ -7,7 +7,7 @@ import { SingleItem } from '../types/entry';
 const client = createClient();
 const isProduction = process.env.NODE_ENV === 'production';
 
-export function fetchCategories() {
+export function fetchCategories(): Promise<MultipleItem<Category>> {
   return client.getEntries({
     content_type: CTF_CATEGORY_ID,
     order: 'fields.sort',

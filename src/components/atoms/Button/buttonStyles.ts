@@ -22,8 +22,12 @@ export const baseStyle = css`
   height: 48px;
   border: none;
 
-  &::before {
-    background-color: currentColor;
+  .theme--dark &::before {
+    background-color: white;
+  }
+
+  .theme--light &::before {
+    background-color: black;
   }
 
   &:hover::before {
@@ -74,10 +78,6 @@ export const defaultStyle = css`
 
 export const outlinedStyle = css`
   background: transparent;
-
-  &::before {
-    background-color: currentColor;
-  }
 
   &:hover::before {
     opacity: 0.12;
