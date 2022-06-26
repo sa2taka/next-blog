@@ -2,12 +2,13 @@ import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
 export const baseStyle = css`
-  align-items: center;
   border-radius: 4px;
   display: inline-flex;
   flex: 0 0 auto;
   font-weight: 500;
   justify-content: center;
+  align-items: center;
+
   outline: 0;
   position: relative;
   text-decoration: none;
@@ -20,6 +21,14 @@ export const baseStyle = css`
   border-radius: 4px;
   height: 48px;
   border: none;
+
+  &::before {
+    background-color: currentColor;
+  }
+
+  &:hover::before {
+    opacity: 0.08;
+  }
 
   &::before {
     border-radius: inherit;
@@ -45,7 +54,6 @@ export const Content = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.9em;
   letter-spacing: 0.5px;
 `;
 
@@ -72,7 +80,7 @@ export const outlinedStyle = css`
   }
 
   &:hover::before {
-    opacity: 0.08;
+    opacity: 0.12;
   }
 
   .theme--dark & {
@@ -121,6 +129,7 @@ export const xSmallStyle = css`
   height: 24px;
 
   & ${Content} {
+    font-size: 9px;
     height: 16px;
     width: 16px;
   }
@@ -131,6 +140,7 @@ export const smallStyle = css`
   height: 32px;
 
   & ${Content} {
+    font-size: 12px;
     height: 24px;
     width: 24px;
   }
@@ -139,5 +149,18 @@ export const smallStyle = css`
 export const disabledStyle = css`
   a& {
     pointer-events: none;
+
+    .theme--dark & {
+      & ${Content} {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .theme--light & {
+      & ${Content} {
+        color: black;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
   }
 `;

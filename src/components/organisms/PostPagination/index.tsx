@@ -2,6 +2,7 @@ import { styled } from '@linaria/react';
 import React from 'react';
 import { useMemo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons"
 import { Button } from '@/components/atoms/Button';
 
 interface Props {
@@ -27,7 +28,7 @@ const Pagination = styled.ul`
     margin: 0 4px;
 
     & > a {
-      font-size: 0.8rem !important;
+      font-size: 14px;
     }
   }
 `;
@@ -69,8 +70,8 @@ export const PostPagination: React.FC<Props> = ({
       <Pagination>
         {!isFirstPage ? (
           <li>
-            <Button icon small href={generatePageLink(currentPage - 1)}>
-              <FontAwesomeIcon icon={'chevron-left'} />
+            <Button icon xSmall href={generatePageLink(currentPage - 1)}>
+              <FontAwesomeIcon icon={faChevronLeft} />
             </Button>
           </li>
         ) : (
@@ -92,8 +93,8 @@ export const PostPagination: React.FC<Props> = ({
 
         {!isLastPage ? (
           <li>
-            <Button icon small href={generatePageLink(currentPage + 1)}>
-              <FontAwesomeIcon icon={'chevron-right'} />
+            <Button icon xSmall href={generatePageLink(currentPage + 1)}>
+              <FontAwesomeIcon icon={faChevronRight} />
             </Button>
           </li>
         ) : (
