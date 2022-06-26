@@ -11,7 +11,7 @@ interface Props {
 export const PostBody: React.FC<Props> = ({ rawHtml }) => {
   return (
     <div
-      className={`${prismTheme} ${postBodyStyle}`}
+      className={`${prismTheme} ${postBodyStyle} post-body`}
       dangerouslySetInnerHTML={{ __html: rawHtml }}
     />
   );
