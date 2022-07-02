@@ -35,7 +35,7 @@ const TooltipContent = styled.div`
   }
 `;
 
-const MARGIN = 24;
+const MARGIN = 4;
 
 export const Tooltip: React.FC<Props> = ({ tooltipContent, children }) => {
   const [display, setDisplay] = useState(false);
@@ -56,9 +56,14 @@ export const Tooltip: React.FC<Props> = ({ tooltipContent, children }) => {
     const position = contentRef.current.getBoundingClientRect();
     const width = contentRef.current.clientWidth;
     const locationX = window.pageXOffset + position.left;
+    console.log({
+      innerWidth: window.innerWidth,
+      width,
+      locationX,
+      MARGIN,
+    });
     if (window.innerWidth < width + locationX + MARGIN) {
-      const diff = width + locationX + MARGIN - window.innerWidth;
-      contentRef.current.setAttribute('style', `left: -${diff}px`);
+      contentRef.current.setAttribute('style', `right: ${MARGIN}px`);
     }
   }, []);
 

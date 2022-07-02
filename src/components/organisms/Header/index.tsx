@@ -12,6 +12,12 @@ const TitleText = styled.h1`
   font-size: 1.2em;
   width: 200px;
   margin-left: 8px;
+
+  @media screen and (max-width: 640px) {
+    & {
+      display: none;
+    }
+  }
 `;
 const title = css`
   display: flex;

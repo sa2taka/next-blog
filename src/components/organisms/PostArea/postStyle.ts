@@ -253,6 +253,10 @@ export const postBodyStyle = css`
       .post-body .message .alert__content p:last-child {
         margin-bottom: 0;
       }
+
+      .post-body iframe {
+        width: 100%;
+      }
     }
   }
 `;

@@ -4,7 +4,7 @@ import { ThemeContext } from '@/components/contexts/theme';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { styled } from '@linaria/react';
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 const NoWrapSpan = styled.span`
   white-space: nowrap;
