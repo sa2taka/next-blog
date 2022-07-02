@@ -1,14 +1,19 @@
-import type { AppProps } from 'next/app';
-import { Theme } from '../src/types/theme';
-import { useCallback, useMemo, useState } from 'react';
 import { ThemeContext } from '@/components/contexts/theme';
-import { ThemeContextProps } from '../src/components/contexts/theme';
+import { Footer } from '@/components/organisms/Footer';
 import { Header } from '@/components/organisms/Header';
 import { styled } from '@linaria/react';
-import { Footer } from '@/components/organisms/Footer';
+import type { AppProps } from 'next/app';
+import { useCallback, useMemo, useState } from 'react';
+import { ThemeContextProps } from '../src/components/contexts/theme';
+import { Theme } from '../src/types/theme';
 
-import '../styles/globals.css';
 import { getThemeFromStorage, persistTheme } from '@/libs/theme';
+import '../styles/globals.css';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { SeoHead } from '@/components/organisms/SeoHead';
+import { BASE_URL } from '@/libs/const';
 
 const Root = styled.div`
   min-height: 100vh;
@@ -38,6 +43,14 @@ const Main = styled.main`
   }
 `;
 
+const DefaultHead = () => {
+  return (
+    <Head>
+      <title>園児ニアの庭園 | sa2taka blog</title>
+    </Head>
+  );
+};
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   const [theme, setTheme] = useState(getThemeFromStorage());
   const saveTheme = useCallback((theme: Theme) => {
@@ -53,17 +66,21 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   );
 
   return (
-    <ThemeContext.Provider value={themeProviderValue}>
-      <Root className={theme === 'light' ? 'theme--light' : 'theme--dark'}>
-        <Header />
-        <MainContainer>
-          <Main>
-            <Component {...pageProps} />
-          </Main>
-        </MainContainer>
-        <Footer />
-      </Root>
-    </ThemeContext.Provider>
+    <>
+      <DefaultHead />
+      <SeoHead />
+      <ThemeContext.Provider value={themeProviderValue}>
+        <Root className={theme === 'light' ? 'theme--light' : 'theme--dark'}>
+          <Header />
+          <MainContainer>
+            <Main>
+              <Component {...pageProps} />
+            </Main>
+          </MainContainer>
+          <Footer />
+        </Root>
+      </ThemeContext.Provider>
+    </>
   );
 };
 
