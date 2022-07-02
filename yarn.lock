@@ -916,6 +916,11 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@corex/deepmerge@^4.0.26":
+  version "4.0.29"
+  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-4.0.29.tgz#af9debf07d7f6b0d2a9d04a266abf2c1418ed2f6"
+  integrity sha512-q/yVUnqckA8Do+EvAfpy7RLdumnBy9ZsducMUtZTvpdbJC7azEf1hGtnYYxm0QfphYxjwggv6XtH64prvS1W+A==
+
 "@emotion/is-prop-valid@^0.8.8":
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
@@ -2797,6 +2802,14 @@ next-linaria@^1.0.1-beta:
   version "1.0.1-beta"
   resolved "https://registry.yarnpkg.com/next-linaria/-/next-linaria-1.0.1-beta.tgz#9ce7599e8f792123c1fcd7faa1db9b0cefce6464"
   integrity sha512-p2+Mud3uTSyDi9keaJeVJ7RvwBNhePzqQqxpNBF0evVXNtgtjaYF9Ab8VDGjAKAQLrJ8NrTU1C5JHg7ArB9IdQ==
+
+next-sitemap@^3.1.7:
+  version "3.1.7"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.7.tgz#601e3436ca732f0b8adb00254e0f79f44b8559b4"
+  integrity sha512-8o+rUftEtZ7d3s2BedBLeN0HZHPAtcvliA/YesP/2o7Llb5svvM/pqVBde17MgTEuGMZpHz6nqruHKGCt53G3Q==
+  dependencies:
+    "@corex/deepmerge" "^4.0.26"
+    minimist "^1.2.6"
 
 next@12.1.6:
   version "12.1.6"
