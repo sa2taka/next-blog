@@ -56,12 +56,6 @@ export const Tooltip: React.FC<Props> = ({ tooltipContent, children }) => {
     const position = contentRef.current.getBoundingClientRect();
     const width = contentRef.current.clientWidth;
     const locationX = window.pageXOffset + position.left;
-    console.log({
-      innerWidth: window.innerWidth,
-      width,
-      locationX,
-      MARGIN,
-    });
     if (window.innerWidth < width + locationX + MARGIN) {
       contentRef.current.setAttribute('style', `right: ${MARGIN}px`);
     }
