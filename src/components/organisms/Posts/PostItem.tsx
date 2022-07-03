@@ -97,7 +97,7 @@ export const PostItem: React.FC<Props> = ({ post }) => {
         </AnimationLink>
       </span>
       <Link href={postHref}>
-        <PostTitle>{post.fields.title}</PostTitle>
+        <PostTitle href={postHref}>{post.fields.title}</PostTitle>
       </Link>
 
       <PostCreatedAt dateTime={formattedDateForDateTag}>

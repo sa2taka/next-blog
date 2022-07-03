@@ -35,7 +35,7 @@ const title = css`
 const LeftSide: React.FC = () => {
   return (
     <Link href="/">
-      <a className={title}>
+      <a className={title} href="/">
         <WebPImage
           file="/icon.webp"
           altFile="/icon.png"

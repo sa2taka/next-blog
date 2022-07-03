@@ -65,7 +65,7 @@ export const Button: React.FC<Props> = ({
 
   return href ? (
     <Link href={href} target={target} rel={rel}>
-      <a className={className}>
+      <a className={className} href={href} target={target} rel={rel}>
         <Content>{children}</Content>
       </a>
     </Link>

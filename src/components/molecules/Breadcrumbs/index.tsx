@@ -106,6 +106,7 @@ export const Breadcrumbs: React.FC<Props> = ({ list }) => {
                 <Link href={item.href}>
                   <BreadcrumbsLink
                     className={item.disabled ? disabledStyle : ''}
+                    href={item.href}
                   >
                     {item.text}
                   </BreadcrumbsLink>
