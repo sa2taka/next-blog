@@ -1,15 +1,14 @@
 const withLinaria = require('next-linaria');
 const withPWA = require('next-pwa');
-const withOffline = require('next-offline');
+const runtimeCaching = require('next-pwa/cache');
 
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   pwa: {
     dest: 'public',
-  },
-  workboxOpts: {
     runtimeCaching: [
+      ...runtimeCaching,
       {
         urlPattern:
           '^https?://images.ctfassets.net/xw0ljpdch9v4/.*.(gif|png|jpg|webp)$',
@@ -49,10 +48,8 @@ const nextConfig = {
     ],
   },
 };
-module.exports = withOffline(
-  withPWA(
-    withLinaria({
-      ...nextConfig,
-    })
-  )
+module.exports = withPWA(
+  withLinaria({
+    ...nextConfig,
+  })
 );
