@@ -2,7 +2,10 @@ import { styled } from '@linaria/react';
 import React from 'react';
 import { useMemo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons"
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { Button } from '@/components/atoms/Button';
 
 interface Props {
@@ -11,7 +14,7 @@ interface Props {
   postsCount: number;
   baseUrl: string;
 }
-const Padding = styled.div`
+const Padding = styled.li`
   width: 32px;
 `;
 const Pagination = styled.ul`
@@ -75,7 +78,7 @@ export const PostPagination: React.FC<Props> = ({
             </Button>
           </li>
         ) : (
-          <Padding />
+          <Padding aria-label="empty area" />
         )}
         {pages.map((page) => (
           <li key={page}>
@@ -98,7 +101,7 @@ export const PostPagination: React.FC<Props> = ({
             </Button>
           </li>
         ) : (
-          <Padding />
+          <Padding aria-label="empty area" />
         )}
       </Pagination>
     </nav>
