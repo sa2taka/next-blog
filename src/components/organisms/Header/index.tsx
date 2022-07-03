@@ -40,7 +40,7 @@ const LeftSide: React.FC = () => {
           file="/icon.webp"
           altFile="/icon.png"
           altText="logo"
-          width={22}
+          width={20.88}
           height={36}
         />
         <TitleText>園児ニアの庭園</TitleText>
