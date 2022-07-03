@@ -4,8 +4,9 @@ const withOffline = require('next-offline');
 
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: true,
   pwa: {
-    dest: 'out',
+    dest: 'public',
   },
   workboxOpts: {
     runtimeCaching: [
