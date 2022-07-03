@@ -3,17 +3,14 @@ import { Footer } from '@/components/organisms/Footer';
 import { Header } from '@/components/organisms/Header';
 import { styled } from '@linaria/react';
 import type { AppProps } from 'next/app';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ThemeContextProps } from '../src/components/contexts/theme';
 import { Theme } from '../src/types/theme';
 
-import { getThemeFromStorage, persistTheme } from '@/libs/theme';
-import '../styles/globals.css';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { SeoHead } from '@/components/organisms/SeoHead';
-import { BASE_URL } from '@/libs/const';
+import { getThemeFromStorage, persistTheme } from '@/libs/theme';
+import Head from 'next/head';
+import '../styles/globals.css';
 
 const Root = styled.div`
   min-height: 100vh;
@@ -52,7 +49,8 @@ const DefaultHead = () => {
 };
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  const [theme, setTheme] = useState(getThemeFromStorage());
+  // HACK: fix error
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const saveTheme = useCallback((theme: Theme) => {
     setTheme(theme);
     persistTheme(theme);
@@ -64,6 +62,10 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
     }),
     [saveTheme, theme]
   );
+
+  useEffect(() => {
+    setTheme(getThemeFromStorage());
+  }, []);
 
   return (
     <>
