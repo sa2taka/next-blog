@@ -98,7 +98,6 @@ const myImgPlugin = (md: MarkdownIt) => {
       return self.renderToken(tokens, idx, options);
     };
   md.renderer.rules.image = (...[tokens, idx, options, env, self]) => {
-    tokens[idx].attrPush(['loading', 'lazy']);
     return defaultRender(tokens, idx, options, env, self);
   };
 };
