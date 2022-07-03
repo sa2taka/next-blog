@@ -12,6 +12,7 @@ const Document: React.FC = () => {
         <link rel="preload" as="image" href="/icon.png" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         {gtmId && <GoogleTagManager googleTagManagerId={gtmId} />}
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>
         <Main />
