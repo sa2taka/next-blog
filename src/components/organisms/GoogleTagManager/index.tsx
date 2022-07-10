@@ -5,7 +5,7 @@ type Props = {
   googleTagManagerId: string;
 };
 
-const GoogleTagManager: React.FC<Props> = ({ googleTagManagerId }) => {
+export const GoogleTagManager: React.FC<Props> = ({ googleTagManagerId }) => {
   return (
     <Script
       id="gtm"
@@ -22,5 +22,3 @@ const GoogleTagManager: React.FC<Props> = ({ googleTagManagerId }) => {
     />
   );
 };
-
-export default GoogleTagManager;

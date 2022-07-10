@@ -11,6 +11,7 @@ import { SeoHead } from '@/components/organisms/SeoHead';
 import { getThemeFromStorage, persistTheme } from '@/libs/theme';
 import Head from 'next/head';
 import '../styles/globals.css';
+import { GoogleTagManager } from '@/components/organisms/GoogleTagManager';
 
 const Root = styled.div`
   min-height: 100vh;
@@ -39,6 +40,8 @@ const Main = styled.main`
     }
   }
 `;
+
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 const DefaultHead = () => {
   return (
@@ -69,6 +72,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
+      {gtmId && <GoogleTagManager googleTagManagerId={gtmId} />}
       <DefaultHead />
       <SeoHead />
       <ThemeContext.Provider value={themeProviderValue}>
