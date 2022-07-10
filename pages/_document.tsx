@@ -13,6 +13,10 @@ const Document: React.FC = () => {
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         {gtmId && <GoogleTagManager googleTagManagerId={gtmId} />}
         <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="icon-152x152.png" />
+        <meta name="theme-color" content="#009688" />
       </Head>
       <body>
         <Main />
