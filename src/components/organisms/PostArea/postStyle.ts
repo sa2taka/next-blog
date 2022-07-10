@@ -82,7 +82,10 @@ export const postBodyStyle = css`
       .post-body img,
       .post-body source[type='image/webp'] {
         display: block;
-        max-width: min(100%, 640px);
+        width: auto;
+        max-width: min(100%, 800px);
+        height: auto;
+        max-height: 640px;
         margin: 0.6em auto;
       }
 

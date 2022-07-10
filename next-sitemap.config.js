@@ -4,6 +4,7 @@ const config = {
   generateRobotsTxt: false,
   changefreq: 'monthly',
   outDir: './out',
+  exclude: ['/page/*', '/category/*', '/category'],
 };
 
 module.exports = config;
