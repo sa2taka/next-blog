@@ -1,31 +1,27 @@
 {
   "labels": ["renovate"],
+  "automerge": true,
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
-      "addLabels": ["major"],
-      "automerge": true
+      "addLabels": ["major"]
     },
     {
       "matchUpdateTypes": ["minor"],
-      "addLabels": ["minor"],
-      "automerge": true
+      "addLabels": ["minor"]
     },
     {
       "matchUpdateTypes": ["patch"],
-      "addLabels": ["patch"],
-      "automerge": true
+      "addLabels": ["patch"]
     },
     {
       "matchDepTypes": ["devDependencies"],
       "addLabels": ["devDependencies"],
-      "excludePackageNames": ["typescript"],
-      "automerge": true
+      "excludePackageNames": ["typescript"]
     },
     {
       "matchDepTypes": ["dependencies"],
-      "addLabels": ["dependencies"],
-      "automerge": true
+      "addLabels": ["dependencies"]
     },
     {
       "matchDepTypes": ["dependencies"],
@@ -34,13 +30,11 @@
     },
     {
       "groupName": "definitelyTyped",
-      "packagePatterns": ["^@types/"],
-      "automerge": true
+      "packagePatterns": ["^@types/"]
     },
     {
       "groupName": "linters",
-      "packagePatterns": ["^eslint", "^@typescript-eslint", "prettier"],
-      "automerge": true
+      "packagePatterns": ["^eslint", "^@typescript-eslint", "prettier"]
     },
     {
       "matchPackageNames": ["husky"],
