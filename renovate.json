@@ -1,0 +1,50 @@
+{
+  "labels": ["renovate"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["major"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["minor"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["patch"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "addLabels": ["devDependencies"],
+      "excludePackageNames": ["typescript"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "addLabels": ["dependencies"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "groupName": "definitelyTyped",
+      "packagePatterns": ["^@types/"],
+      "automerge": true
+    },
+    {
+      "groupName": "linters",
+      "packagePatterns": ["^eslint", "^@typescript-eslint", "prettier"],
+      "automerge": true
+    },
+    {
+      "matchPackageNames": ["husky"],
+      "automerge": false
+    }
+  ]
+}
