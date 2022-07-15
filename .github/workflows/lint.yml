@@ -3,9 +3,7 @@
 
 name: lint
 'on':
-  pull_request:  
-    types: [opened]
-  push:
+  - push
 jobs:
   lint:
     runs-on: ubuntu-latest
