@@ -1,0 +1,14 @@
+name: 'yarn build'
+description: ''
+runs:
+  using: "composite"
+  steps:
+    - name: yarn build
+      env:
+        CTF_CDA_ACCESS_TOKEN: ${{ secrets.CTF_CDA_ACCESS_TOKEN }}
+        CTF_MAIN_AUTHOR_ID: ${{ secrets.CTF_MAIN_AUTHOR_ID }}
+        CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}
+        NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
+      run: |
+        NODE_ENV=production yarn build
+      shell: bash
