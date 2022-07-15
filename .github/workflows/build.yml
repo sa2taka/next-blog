@@ -16,4 +16,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/yarn-prepare
-      - run: yarn lint
+      - uses: ./.github/actions/build
