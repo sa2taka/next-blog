@@ -7,6 +7,9 @@ import imsize from 'markdown-it-imsize';
 import katex from '@iktakahiro/markdown-it-katex';
 // @ts-ignore
 import markdownItContainer from 'markdown-it-container';
+import sizeOf from 'image-size';
+
+import fetchSync from 'sync-fetch';
 
 import { GrammarValue } from 'prismjs';
 import prism from '@/libs/prism';
@@ -91,6 +94,25 @@ const myCodePlugin = (md: MarkdownIt) => {
   };
 };
 
+const imageSizeRenderPlugin = (md: MarkdownIt) => {
+  const defaultRender =
+    md.renderer.rules.image ||
+    function (tokens, idx, options, _, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+
+  md.renderer.rules.image = (...[tokens, idx, options, env, self]) => {
+    const imgSrc = tokens[idx].attrGet('src') as string;
+    const img = fetchSync(imgSrc).arrayBuffer();
+    const size = sizeOf(Buffer.from(img));
+
+    size?.width && tokens[idx].attrPush(['width', size.width.toString()]);
+    size?.height && tokens[idx].attrPush(['height', size.height.toString()]);
+    size?.width && size.height && tokens[idx].attrPush(['loading', 'lazy']);
+    return defaultRender(tokens, idx, options, env, self);
+  };
+};
+
 const myImgPlugin = (md: MarkdownIt) => {
   const defaultRender =
     md.renderer.rules.image ||
@@ -98,7 +120,6 @@ const myImgPlugin = (md: MarkdownIt) => {
       return self.renderToken(tokens, idx, options);
     };
   md.renderer.rules.image = (...[tokens, idx, options, env, self]) => {
-    tokens[idx].attrPush(['loading', 'lazy']);
     return defaultRender(tokens, idx, options, env, self);
   };
 };
@@ -182,4 +203,5 @@ export const markdown = new MarkdownIt({
   .use(myInlineCodePlugin)
   .use(myWebpConvertPlugin)
   .use(myImgPlugin)
+  .use(imageSizeRenderPlugin)
   .use(markdownItContainer, '', containerRender);

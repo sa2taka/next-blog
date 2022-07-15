@@ -7,6 +7,8 @@ import { generatePostBreadcrumbsList } from '../../src/libs/breadcrumbsGenerator
 import { PostArea } from '@/components/organisms/PostArea';
 import Head from 'next/head';
 import Script from 'next/script';
+import { AUTHOR, BASE_URL } from '@/libs/const';
+import { useRouter } from 'next/router';
 
 interface Props {
   post: Post;
@@ -67,10 +69,60 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   };
 };
 
-const PostHead: React.FC<{ latex: boolean }> = ({ latex }) => {
+const getSeoStructureData = (post: Post, path: string) => {
+  const image = BASE_URL + '/logo.png';
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': BASE_URL + path,
+    },
+    headline: post.fields.title,
+    image: [image],
+    datePublished: post.sys.createdAt.toString(),
+    dateModified: post.sys.updatedAt.toString(),
+    author: {
+      '@type': 'Person',
+      name: AUTHOR,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'sa2taka',
+      logo: {
+        '@type': 'ImageObject',
+        url: BASE_URL + '/logo-for-twitter.png',
+      },
+    },
+  };
+};
+const PostHead: React.FC<{ post: Post }> = ({ post }) => {
+  const router = useRouter();
+  const path = router.pathname;
+
   return (
     <Head>
-      {latex && (
+      <title>{post.fields.title}</title>
+      <meta
+        data-hid="description"
+        name="description"
+        content={post.fields.description}
+      />
+      <meta data-hid="og:title" name="og:title" content={post.fields.title} />
+      <meta
+        data-hid="og:description"
+        name="og:description"
+        content={post.fields.description}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getSeoStructureData(post, path)),
+        }}
+      />
+
+      {post.fields.latex && (
         <>
           <link
             rel="stylesheet"
@@ -105,7 +157,7 @@ const PostPage: React.FC<Props> = ({ post, rawBodyHtml, postIndex }) => {
   );
   return (
     <>
-      <PostHead latex={post.fields.latex} />
+      <PostHead post={post} />
       <Breadcrumbs list={breadcrumbsList} />
       <PostArea post={post} rawHtml={rawBodyHtml} index={postIndex} />
     </>

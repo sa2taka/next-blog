@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { useMemo } from 'react';
 import { ReactNode } from 'react';
 import { baseStyle } from './buttonStyles';
@@ -13,7 +13,9 @@ import {
   Content,
 } from './buttonStyles';
 
-interface Props {
+type buttonProps = ComponentProps<'button'>;
+
+interface Props extends buttonProps {
   disabled?: boolean;
   outlined?: boolean;
   small?: boolean;
@@ -23,7 +25,7 @@ interface Props {
   color?: string;
   target?: string;
   rel?: string;
-  ariaLabel?: string;
+  className?: string;
   children: ReactNode;
 }
 
@@ -36,10 +38,12 @@ export const Button: React.FC<Props> = ({
   small,
   target,
   xSmall,
+  className: customClassName,
   children,
+  ...props
 }) => {
   const className = useMemo(() => {
-    const className: string[] = [baseStyle];
+    const className: string[] = [customClassName ?? '', baseStyle];
     if (icon) {
       className.push(iconStyle);
       if (small) {
@@ -56,17 +60,17 @@ export const Button: React.FC<Props> = ({
     if (disabled) {
       className.push(disabledStyle);
     }
-    return className.join(' ');
-  }, [disabled, icon, outlined, small, xSmall]);
+    return className.filter((c) => c).join(' ');
+  }, [customClassName, disabled, icon, outlined, small, xSmall]);
 
   return href ? (
     <Link href={href} target={target} rel={rel}>
-      <a className={className}>
+      <a className={className} href={href} target={target} rel={rel}>
         <Content>{children}</Content>
       </a>
     </Link>
   ) : (
-    <button className={className} disabled={disabled}>
+    <button className={className} disabled={disabled} {...props}>
       <Content>{children}</Content>
     </button>
   );

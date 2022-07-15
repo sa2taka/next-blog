@@ -2,12 +2,20 @@ import { createClient } from '@/plugins/contentful';
 import { Category, MultipleItem, Post } from '@/types/entry';
 
 import { CTF_CATEGORY_ID, CTF_POST_ID } from '@/libs/const';
-import { SingleItem } from '../types/entry';
 
 const client = createClient();
 const isProduction = process.env.NODE_ENV === 'production';
 
-export function fetchCategories() {
+export function fetchCategory(slug: string): Promise<Category> {
+  return client
+    .getEntries({
+      content_type: CTF_CATEGORY_ID,
+      'fields.slug': slug,
+    })
+    .then((categories: MultipleItem<Category>) => categories.items[0]);
+}
+
+export function fetchCategories(): Promise<MultipleItem<Category>> {
   return client.getEntries({
     content_type: CTF_CATEGORY_ID,
     order: 'fields.sort',
@@ -87,11 +95,11 @@ export function fetchPostInCategory(
   categorySlug: string,
   page: number,
   limit: number
-): Promise<MultipleItem<Category>> {
+): Promise<MultipleItem<Post>> {
   const queries: Record<string, any> = {
     content_type: CTF_POST_ID,
     limit,
-    skip: page * limit,
+    skip: (page - 1) * limit,
     order: '-sys.createdAt',
     'fields.category.sys.contentType.sys.id': CTF_CATEGORY_ID,
     'fields.category.fields.slug': categorySlug,

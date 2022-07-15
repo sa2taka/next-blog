@@ -7,7 +7,9 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn build:main && yarn build:post",
+    "build:main": "next build && next export",
+    "build:post": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -23,6 +25,7 @@
     "@linaria/shaker": "^3.0.0-beta.21",
     "@linaria/webpack-loader": "^3.0.0-beta.21",
     "contentful": "^9.1.32",
+    "image-size": "^1.0.1",
     "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.3",
@@ -30,9 +33,11 @@
     "markdown-it-sanitizer": "^0.4.3",
     "next": "12.1.6",
     "next-linaria": "^1.0.1-beta",
+    "next-pwa": "^5.5.4",
     "prismjs": "^1.28.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sync-fetch": "^0.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
@@ -43,8 +48,10 @@
     "@types/prismjs": "^1.26.0",
     "@types/react": "18.0.13",
     "@types/react-dom": "18.0.5",
+    "@types/sync-fetch": "^0.4.0",
     "eslint": "8.17.0",
     "eslint-config-next": "12.1.6",
+    "next-sitemap": "^3.1.7",
     "typescript": "4.7.3"
   }
 }

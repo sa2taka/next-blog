@@ -1,34 +1,59 @@
-import type { AppProps } from 'next/app';
-import { Theme } from '../src/types/theme';
-import { useCallback, useMemo, useState } from 'react';
 import { ThemeContext } from '@/components/contexts/theme';
-import { ThemeContextProps } from '../src/components/contexts/theme';
+import { Footer } from '@/components/organisms/Footer';
 import { Header } from '@/components/organisms/Header';
 import { styled } from '@linaria/react';
-import { Footer } from '@/components/organisms/Footer';
+import type { AppProps } from 'next/app';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { ThemeContextProps } from '../src/components/contexts/theme';
+import { Theme } from '../src/types/theme';
 
+import { SeoHead } from '@/components/organisms/SeoHead';
+import { getThemeFromStorage, persistTheme } from '@/libs/theme';
+import Head from 'next/head';
 import '../styles/globals.css';
+import { GoogleTagManager } from '@/components/organisms/GoogleTagManager';
 
-// TODO: divide file
-const isClient = () => typeof window !== 'undefined';
-const themeKey = 'theme';
-const getThemeFromStorage = (): Theme => {
-  if (!isClient()) {
-    return 'dark';
-  }
-  const theme = localStorage.getItem(themeKey);
-  return theme === 'light' ? 'light' : 'dark';
-};
+const Root = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+`;
+const MainContainer = styled.div`
+  display: flex;
+  flex: 1 0 auto;
+  max-width: 100%;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: center;
+  /* for header */
+  padding-top: 72px;
+`;
 
-const persistTheme = (theme: Theme): void => {
-  if (!isClient()) {
-    return;
+const Main = styled.main`
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 12px;
+
+  @media (min-width: 960px) {
+    & {
+      max-width: 864px;
+    }
   }
-  localStorage.setItem(themeKey, theme);
+`;
+
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+
+const DefaultHead = () => {
+  return (
+    <Head>
+      <title>園児ニアの庭園 | sa2taka blog</title>
+    </Head>
+  );
 };
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  const [theme, setTheme] = useState(getThemeFromStorage());
+  // HACK: fix error
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const saveTheme = useCallback((theme: Theme) => {
     setTheme(theme);
     persistTheme(theme);
@@ -41,44 +66,27 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
     [saveTheme, theme]
   );
 
-  const Root = styled.div`
-    min-height: 100vh;
-  `;
-  const MainContainer = styled.div`
-    display: flex;
-    flex: 1 0 auto;
-    max-width: 100%;
-    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    justify-content: center;
-    /* for header */
-    padding-top: 72px;
-  `;
-
-  const Main = styled.main`
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 12px;
-
-    @media (min-width: 960px) {
-      & {
-        max-width: 864px;
-      }
-    }
-  `;
+  useEffect(() => {
+    setTheme(getThemeFromStorage());
+  }, []);
 
   return (
-    <ThemeContext.Provider value={themeProviderValue}>
-      <Root className={theme === 'light' ? 'theme--light' : 'theme--dark'}>
-        <Header />
-        <MainContainer>
-          <Main>
-            <Component {...pageProps} />
-          </Main>
-        </MainContainer>
-        <Footer />
-      </Root>
-    </ThemeContext.Provider>
+    <>
+      {gtmId && <GoogleTagManager googleTagManagerId={gtmId} />}
+      <DefaultHead />
+      <SeoHead />
+      <ThemeContext.Provider value={themeProviderValue}>
+        <Root className={theme === 'light' ? 'theme--light' : 'theme--dark'}>
+          <Header />
+          <MainContainer>
+            <Main>
+              <Component {...pageProps} />
+            </Main>
+          </MainContainer>
+          <Footer />
+        </Root>
+      </ThemeContext.Provider>
+    </>
   );
 };
 

@@ -1,18 +1,21 @@
 import { css } from '@linaria/core';
 
+// HACK: Add the `post-body` class in addition to the following class.
 export const postBodyStyle = css`
   /* HACK: CSS Selector to increase the specificity */
   :global() {
     #__next {
-      line-height: 1.75;
-      letter-spacing: 0.025em;
-      margin-top: 32px;
+      .post-body {
+        line-height: 1.75;
+        letter-spacing: 0.025em;
+        margin-top: 32px;
+      }
 
-      & * {
+      .post-body * {
         word-wrap: break-word;
       }
 
-      .padding-for-filename {
+      .post-body .padding-for-filename {
         padding-top: 2.6em !important;
       }
 
@@ -27,98 +30,101 @@ export const postBodyStyle = css`
         padding: 3px 6px;
       }
 
-      .theme--dark & strong {
+      .theme--dark .post-body strong {
         /* color: white; */
         background: linear-gradient(transparent 80%, var(--secondary-color) 0%);
       }
 
-      .theme--light & strong {
+      .theme--light .post-body strong {
         /* color: black; */
         background: linear-gradient(transparent 80%, var(--secondary-color) 0%);
       }
 
-      & blockquote {
+      .post-body blockquote {
         padding: 0.6em 1em;
         margin: 2em auto;
         border-left: 3px solid rgba(128, 128, 128, 0.8);
       }
 
-      & p {
+      .post-body p {
         margin-bottom: 1.8em;
       }
 
-      & blockquote blockquote {
+      .post-body blockquote blockquote {
         padding: 0.4em 1em;
         margin: 1.2em auto 0.7em;
         border-left: 3px solid rgba(128, 128, 128, 0.8);
       }
 
-      .theme--dark & blockquote {
+      .theme--dark .post-body blockquote {
         color: #aaa;
       }
 
-      .theme--light & blockquote {
+      .theme--light .post-body blockquote {
         color: #333;
       }
 
-      & ul {
+      .post-body ul {
         margin-bottom: 1.8em;
       }
 
       /* 引用元名 */
-      & blockquote p.author {
+      .post-body blockquote p.author {
         text-align: right;
       }
 
-      & blockquote p.author::before {
+      .post-body blockquote p.author::before {
         content: '―― ';
       }
 
       /* 画像 */
-      & picture,
-      & img,
-      & source[type='image/webp'] {
+      .post-body picture,
+      .post-body img,
+      .post-body source[type='image/webp'] {
         display: block;
-        max-width: min(100%, 640px);
+        width: auto;
+        max-width: min(100%, 800px);
+        height: auto;
+        max-height: 640px;
         margin: 0.6em auto;
       }
 
       /* header */
-      & h2 {
+      .post-body h2 {
         font-size: 2em;
       }
-      .theme--dark & h2,
-      .theme--dark & h3 {
+      .theme--dark .post-body h2,
+      .theme--dark .post-body h3 {
         border-bottom: 1px solid #222;
       }
 
-      .theme--light & h2,
-      .theme--light & h3 {
+      .theme--light .post-body h2,
+      .theme--light .post-body h3 {
         border-bottom: 1px solid #eee;
       }
 
-      & h2 {
+      .post-body h2 {
         margin-top: 64px;
         margin-bottom: 24px;
       }
 
-      & h3 {
+      .post-body h3 {
         margin-top: 58px;
         margin-bottom: 18px;
       }
 
-      & h4,
-      & h5 {
+      .post-body h4,
+      .post-body h5 {
         margin-top: 52px;
         margin-bottom: 20px;
       }
 
-      & hr.footnotes-sep {
+      .post-body hr.footnotes-sep {
         margin-top: 12px;
         margin-bottom: 16px;
       }
 
-      html & code {
+      .post-body code {
         margin: auto auto 1.5em;
         word-wrap: normal;
         white-space: pre;
@@ -132,20 +138,20 @@ export const postBodyStyle = css`
         font-weight: 500;
       }
 
-      & code .token.prompt {
+      .post-body code .token.prompt {
         user-select: none;
         color: #777;
       }
 
-      .theme--light & a {
+      .theme--light .post-body a {
         color: #006256;
       }
 
-      & blockquote p {
+      .post-body blockquote p {
         margin-bottom: 0px !important;
       }
 
-      & code.hljsspan {
+      .post-body code.hljsspan {
         display: inline;
         overflow-x: initial;
         overflow-wrap: break-word;
@@ -157,7 +163,7 @@ export const postBodyStyle = css`
         white-space: normal;
       }
 
-      #app.theme--light & code.hljsspan {
+      .theme--light .post-body code.hljsspan {
         color: #222;
         background: #e0e0e4;
       }
@@ -171,7 +177,13 @@ export const postBodyStyle = css`
         color: #acb3c0;
       }
 
-      & .message {
+      .post-body ul,
+      .post-body ol {
+        margin-left: 1.2em;
+      }
+
+      /* NOTE message can not be styled */
+      .post-body .message {
         padding: 1.2rem 0.8rem;
         margin: 1.5rem 0;
         border-left: 4px solid #2196f3;
@@ -179,38 +191,38 @@ export const postBodyStyle = css`
         position: relative;
       }
 
-      .theme--dark & .message {
+      .theme--dark .post-body .message {
         background: #161624;
       }
 
-      & .message.message__success {
+      .post-body .message.message__success {
         background: #f4f8fa;
         border-left: 4px solid #4caf50;
       }
 
-      .theme--dark & .message.message__success {
+      .theme--dark .post-body .message.message__success {
         background: #161624;
       }
 
-      & .message.message__error {
+      .post-body .message.message__error {
         background: #fdf7f7;
         border-left: 4px solid #f44336;
       }
 
-      .theme--dark & .message.message__error {
+      .theme--dark .post-body .message.message__error {
         background: #241616;
       }
 
-      & .message.message__warning {
+      .post-body .message.message__warning {
         background: #fcf8f2;
         border-left: 4px solid #ff9800;
       }
 
-      .theme--dark & .message.message__warning {
+      .theme--dark .post-body .message.message__warning {
         background: #201612dd;
       }
 
-      & .message .message__icon {
+      .post-body .message .message__icon {
         position: absolute;
         top: 1.2rem;
         left: -16px;
@@ -221,33 +233,32 @@ export const postBodyStyle = css`
         border-radius: 50% 50%;
       }
 
-      & .message.message__success .message__icon {
+      .post-body .message.message__success .message__icon {
         background-color: #4caf50;
       }
 
-      & .message.message__error .message__icon {
+      .post-body .message.message__error .message__icon {
         background-color: #f44336;
       }
 
-      & .message.message__warning .message__icon {
+      .post-body .message.message__warning .message__icon {
         background-color: #ff9800;
       }
 
-      & .message .message__icon svg {
+      .post-body .message .message__icon svg {
         fill: white;
       }
 
-      & .message .alert__content {
+      .post-body .message .alert__content {
         margin-left: 1rem;
       }
 
-      & .message .alert__content p:last-child {
+      .post-body .message .alert__content p:last-child {
         margin-bottom: 0;
       }
 
-      & ul,
-      & ol {
-        margin-left: 1.2em;
+      .post-body iframe {
+        width: 100%;
       }
     }
   }

@@ -77,7 +77,7 @@ const FirstIndex = styled.li`
   &::after {
     position: absolute;
     content: '' !important;
-    top: -4px;
+    top: 0px;
     right: auto;
     left: 18px;
     bottom: auto;
@@ -95,9 +95,9 @@ const FirstIndex = styled.li`
 const SubIndexUl = styled.ul``;
 
 const SecondIndex = styled.li`
-  margin-top: 0.8rem;
-  margin-bottom: 0.8rem;
-  margin-left: 2.5em;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 2em;
   list-style: none;
 
   &::before {

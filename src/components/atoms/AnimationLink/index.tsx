@@ -42,7 +42,12 @@ export const AnimationLink: React.FC<LinkProps> = ({
 
   return (
     <Link {...props}>
-      <a className={`${className} ${animationLink}`}>{children}</a>
+      <a
+        className={`${className} ${animationLink}`}
+        href={props.href.toString()}
+      >
+        {children}
+      </a>
     </Link>
   );
 };

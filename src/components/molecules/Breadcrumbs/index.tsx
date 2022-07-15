@@ -5,6 +5,8 @@ import Link from 'next/link';
 import React from 'react';
 import { BreadcrumbsList } from '../../../libs/breadcrumbsGenerator';
 import { css } from '@linaria/core';
+import { BASE_URL } from '@/libs/const';
+import Head from 'next/head';
 
 interface Props {
   list: BreadcrumbsList;
@@ -59,30 +61,61 @@ const disabledStyle = css`
   pointer-events: none;
 `;
 
+const getSeoStructureData = (list: BreadcrumbsList) => {
+  const items = list.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@id': item.href,
+      '@type': 'ListItem',
+      name: item.text,
+      item: `${BASE_URL}${item.href}`,
+    },
+  }));
+  return {
+    '@context': 'http://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items,
+  };
+};
+
 export const Breadcrumbs: React.FC<Props> = ({ list }) => {
   return (
-    <BreadcrumbsNav>
-      <BreadcrumbsUl>
-        {list.map((item, index) => {
-          return (
-            <BreadcrumbsItem key={item.href}>
-              {index !== 0 && (
-                <FontAwesomeIcon
-                  icon={faChevronCircleRight}
-                  className={arrowMargin}
-                  style={{ marginTop: '1px' }}
-                  height={16}
-                />
-              )}
-              <Link href={item.href}>
-                <BreadcrumbsLink className={item.disabled ? disabledStyle : ''}>
-                  {item.text}
-                </BreadcrumbsLink>
-              </Link>
-            </BreadcrumbsItem>
-          );
-        })}
-      </BreadcrumbsUl>
-    </BreadcrumbsNav>
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getSeoStructureData(list)),
+          }}
+        />
+      </Head>
+      <BreadcrumbsNav>
+        <BreadcrumbsUl>
+          {list.map((item, index) => {
+            return (
+              <BreadcrumbsItem key={item.href}>
+                {index !== 0 && (
+                  <FontAwesomeIcon
+                    icon={faChevronCircleRight}
+                    className={arrowMargin}
+                    style={{ marginTop: '1px' }}
+                    height={16}
+                  />
+                )}
+                <Link href={item.href}>
+                  <BreadcrumbsLink
+                    className={item.disabled ? disabledStyle : ''}
+                    href={item.href}
+                  >
+                    {item.text}
+                  </BreadcrumbsLink>
+                </Link>
+              </BreadcrumbsItem>
+            );
+          })}
+        </BreadcrumbsUl>
+      </BreadcrumbsNav>
+    </>
   );
 };
