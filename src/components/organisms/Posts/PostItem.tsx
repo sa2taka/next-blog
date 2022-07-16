@@ -29,6 +29,7 @@ const PostTitle = styled.a`
   font-weight: 600;
   word-break: break-all;
   margin: 8px 0;
+  text-decoration: none;
 
   .theme--dark & {
     color: #ddd;
