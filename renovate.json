@@ -4,8 +4,10 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
-      "addLabels": ["major"]
+      "addLabels": ["major"],
+      "automerge": false
     },
+
     {
       "matchUpdateTypes": ["minor"],
       "addLabels": ["minor"]
@@ -22,11 +24,6 @@
     {
       "matchDepTypes": ["dependencies"],
       "addLabels": ["dependencies"]
-    },
-    {
-      "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["major"],
-      "automerge": false
     },
     {
       "groupName": "definitelyTyped",
