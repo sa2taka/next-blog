@@ -2,7 +2,7 @@ import { postBodyStyle } from '@/components/organisms/PostArea/postStyle';
 import { prismTheme } from '@/components/organisms/PostArea/prismTheme';
 import React from 'react';
 
-import './prism.ts';
+import '@/libs/prism';
 
 interface Props {
   rawHtml: string;
