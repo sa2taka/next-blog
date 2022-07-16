@@ -13,5 +13,6 @@ import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-regex';
 import 'prismjs/components/prism-csharp';
+import 'prismjs/components/prism-yaml';
 
 export default Prism;
