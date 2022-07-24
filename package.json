@@ -21,7 +21,7 @@
     "@iktakahiro/markdown-it-katex": "^4.0.1",
     "@linaria/babel-preset": "^3.0.0-beta.21",
     "@linaria/core": "^3.0.0-beta.21",
-    "@linaria/react": "^3.0.0-beta.21",
+    "@linaria/react": "^4.0.0",
     "@linaria/shaker": "^3.0.0-beta.21",
     "@linaria/webpack-loader": "^3.0.0-beta.21",
     "contentful": "^9.1.32",
