@@ -19,7 +19,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "@linaria/babel-preset": "^3.0.0-beta.21",
+    "@linaria/babel-preset": "^4.0.0",
     "@linaria/core": "^3.0.0-beta.21",
     "@linaria/react": "^3.0.0-beta.21",
     "@linaria/shaker": "^3.0.0-beta.21",
