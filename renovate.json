@@ -25,13 +25,14 @@
       "matchDepTypes": ["dependencies"],
       "addLabels": ["dependencies"]
     },
-    {
-      "groupName": "definitelyTyped",
-      "packagePatterns": ["^@types/"]
-    },
+
     {
       "groupName": "linters",
       "packagePatterns": ["^eslint", "^@typescript-eslint", "prettier"]
+    },
+    {
+      "groupName": "linaria",
+      "packagePatterns": "^@linaria"
     },
     {
       "matchPackageNames": ["husky"],
