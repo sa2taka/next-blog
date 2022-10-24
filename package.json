@@ -46,7 +46,7 @@
     "@types/markdown-it": "^12.2.3",
     "@types/node": "18.11.4",
     "@types/prismjs": "^1.26.0",
-    "@types/react": "18.0.21",
+    "@types/react": "18.0.22",
     "@types/react-dom": "18.0.6",
     "@types/sync-fetch": "^0.4.0",
     "eslint": "8.26.0",
