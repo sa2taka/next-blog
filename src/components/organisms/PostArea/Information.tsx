@@ -92,7 +92,7 @@ export const Information: React.FC<Props> = ({ post }) => {
         作成日: <time dateTime={createdAtForDateTag}>{createdAt}</time>
       </PostDate>
       <PostDate>
-        作成日: <time dateTime={updatedAtForDateTag}>{updatedAt}</time>
+        更新日: <time dateTime={updatedAtForDateTag}>{updatedAt}</time>
       </PostDate>
     </InformationRoot>
   );
