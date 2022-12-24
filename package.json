@@ -42,7 +42,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
-    "@types/katex": "^0.14.0",
+    "@types/katex": "^0.16.0",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "18.11.4",
     "@types/prismjs": "^1.26.0",
