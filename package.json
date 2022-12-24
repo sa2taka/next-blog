@@ -31,7 +31,7 @@
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-sanitizer": "^0.4.3",
-    "next": "12.3.4",
+    "next": "13.1.1",
     "next-linaria": "^1.0.1-beta",
     "next-pwa": "^5.5.4",
     "prismjs": "^1.28.0",
