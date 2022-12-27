@@ -12,6 +12,8 @@ const TitleText = styled.h1`
   font-size: 1.2em;
   width: 230px;
   margin-left: 8px;
+  display: relative;
+  bottom: 3px;
 
   @media screen and (max-width: 640px) {
     & {
