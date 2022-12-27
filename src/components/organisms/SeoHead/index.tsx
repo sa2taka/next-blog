@@ -22,7 +22,7 @@ export const SeoHead: React.FC<Props> = ({}) => {
       <meta
         data-hid="og:title"
         property="og:title"
-        content="園児ニアの庭園 | sa2taka blog"
+        content="言葉の向こうに世界を見る | sa2taka blog"
       />
       <meta
         data-hid="og:description"
@@ -48,7 +48,7 @@ export const SeoHead: React.FC<Props> = ({}) => {
       <meta
         data-hid="og:site_name"
         property="og:site_name"
-        content="園児ニアの庭園"
+        content="言葉の向こうに世界を見る"
       />
       <meta data-hid="og:url" property="og:url" content={sitePath} />
       <link rel="canonical" href={sitePath} />

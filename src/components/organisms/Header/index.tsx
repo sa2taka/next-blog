@@ -10,7 +10,7 @@ import { DarkThemeSwitch } from '@/components/molecules/DarkThemeSwitch';
 
 const TitleText = styled.h1`
   font-size: 1.2em;
-  width: 200px;
+  width: 230px;
   margin-left: 8px;
 
   @media screen and (max-width: 640px) {
@@ -42,7 +42,7 @@ const LeftSide: React.FC = () => {
         width={20.88}
         height={36}
       />
-      <TitleText>園児ニアの庭園</TitleText>
+      <TitleText>言葉の向こうに世界を見る</TitleText>
     </Link>
   );
 };

@@ -46,7 +46,7 @@ const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 const DefaultHead = () => {
   return (
     <Head>
-      <title>園児ニアの庭園 | sa2taka blog</title>
+      <title>言葉の向こうに世界を見る | sa2taka blog</title>
     </Head>
   );
 };
