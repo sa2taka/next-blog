@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactNode } from 'react';
+import React, { ComponentProps } from 'react';
 import Link from 'next/link';
 import { css } from '@linaria/core';
 
@@ -41,13 +41,12 @@ export const AnimationLink: React.FC<LinkProps> = ({
   `;
 
   return (
-    <Link {...props}>
-      <a
-        className={`${className} ${animationLink}`}
-        href={props.href.toString()}
-      >
-        {children}
-      </a>
+    <Link
+      {...props}
+      href={props.href.toString()}
+      className={`${className} ${animationLink}`}
+    >
+      {children}
     </Link>
   );
 };

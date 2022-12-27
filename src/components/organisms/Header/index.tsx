@@ -34,17 +34,15 @@ const title = css`
 `;
 const LeftSide: React.FC = () => {
   return (
-    <Link href="/">
-      <a className={title} href="/">
-        <WebPImage
-          file="/icon.webp"
-          altFile="/icon.png"
-          altText="logo"
-          width={20.88}
-          height={36}
-        />
-        <TitleText>園児ニアの庭園</TitleText>
-      </a>
+    <Link href="/" className={title}>
+      <WebPImage
+        file="/icon.webp"
+        altFile="/icon.png"
+        altText="logo"
+        width={20.88}
+        height={36}
+      />
+      <TitleText>園児ニアの庭園</TitleText>
     </Link>
   );
 };

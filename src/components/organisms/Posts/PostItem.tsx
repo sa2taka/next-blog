@@ -24,7 +24,7 @@ const postCategory = css`
   display: inline-block;
 `;
 
-const PostTitle = styled.a`
+const titleLink = css`
   font-size: 1.1em;
   font-weight: 600;
   word-break: break-all;
@@ -97,8 +97,8 @@ export const PostItem: React.FC<Props> = ({ post }) => {
           {post.fields.category.fields.name}
         </AnimationLink>
       </span>
-      <Link href={postHref}>
-        <PostTitle href={postHref}>{post.fields.title}</PostTitle>
+      <Link href={postHref} className={titleLink}>
+        {post.fields.title}
       </Link>
 
       <PostCreatedAt dateTime={formattedDateForDateTag}>

@@ -64,10 +64,8 @@ export const Button: React.FC<Props> = ({
   }, [customClassName, disabled, icon, outlined, small, xSmall]);
 
   return href ? (
-    <Link href={href} target={target} rel={rel}>
-      <a className={className} href={href} target={target} rel={rel}>
-        <Content>{children}</Content>
-      </a>
+    <Link href={href} target={target} rel={rel} className={className}>
+      <Content>{children}</Content>
     </Link>
   ) : (
     <button className={className} disabled={disabled} {...props}>
