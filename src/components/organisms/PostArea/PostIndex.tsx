@@ -11,7 +11,7 @@ const PostIndexTitle = styled.span`
   display: flex;
   align-items: center;
   position: relative;
-  top: -8px;
+  top: -0.65em;
   left: 10%;
   width: 10%;
   text-align: center;
@@ -92,12 +92,13 @@ const FirstIndex = styled.li`
   }
 `;
 
-const SubIndexUl = styled.ul``;
+const SubIndexUl = styled.ul`
+  margin-left: 2.5em;
+`;
 
 const SecondIndex = styled.li`
   margin-top: 8px;
   margin-bottom: 8px;
-  margin-left: 2em;
   list-style: none;
 
   &::before {
