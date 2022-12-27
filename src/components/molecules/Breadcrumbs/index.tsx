@@ -40,7 +40,7 @@ const BreadcrumbsItem = styled.li`
   align-items: center;
 `;
 
-const BreadcrumbsLink = styled.a`
+const breadcrumbsLink = css`
   text-decoration: none;
   cursor: pointer;
 
@@ -103,13 +103,8 @@ export const Breadcrumbs: React.FC<Props> = ({ list }) => {
                     height={16}
                   />
                 )}
-                <Link href={item.href}>
-                  <BreadcrumbsLink
-                    className={item.disabled ? disabledStyle : ''}
-                    href={item.href}
-                  >
-                    {item.text}
-                  </BreadcrumbsLink>
+                <Link href={item.href} className={breadcrumbsLink}>
+                  {item.text}
                 </Link>
               </BreadcrumbsItem>
             );
