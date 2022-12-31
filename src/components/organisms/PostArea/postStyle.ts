@@ -68,6 +68,10 @@ export const postBodyStyle = css`
         margin-bottom: 1.8em;
       }
 
+      .post-body ul ul {
+        margin-bottom: 0;
+      }
+
       /* 引用元名 */
       .post-body blockquote p.author {
         text-align: right;
