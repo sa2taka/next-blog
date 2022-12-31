@@ -14,7 +14,7 @@ interface Props {
   postsCount: number;
   baseUrl: string;
 }
-const Padding = styled.li`
+const PaginationItem = styled.li`
   width: 32px;
 `;
 const Pagination = styled.ul`
@@ -72,16 +72,16 @@ export const PostPagination: React.FC<Props> = ({
     <nav aria-label="ページネーションナビゲーション">
       <Pagination>
         {!isFirstPage ? (
-          <li>
+          <PaginationItem>
             <Button icon xSmall href={generatePageLink(currentPage - 1)}>
               <FontAwesomeIcon icon={faChevronLeft} />
             </Button>
-          </li>
+          </PaginationItem>
         ) : (
-          <Padding aria-label="empty area" />
+          <PaginationItem aria-label="empty area" />
         )}
         {pages.map((page) => (
-          <li key={page}>
+          <PaginationItem key={page}>
             <Button
               icon
               outlined
@@ -91,17 +91,17 @@ export const PostPagination: React.FC<Props> = ({
             >
               {page}
             </Button>
-          </li>
+          </PaginationItem>
         ))}
 
         {!isLastPage ? (
-          <li>
+          <PaginationItem>
             <Button icon xSmall href={generatePageLink(currentPage + 1)}>
               <FontAwesomeIcon icon={faChevronRight} />
             </Button>
-          </li>
+          </PaginationItem>
         ) : (
-          <Padding aria-label="empty area" />
+          <PaginationItem aria-label="empty area" />
         )}
       </Pagination>
     </nav>
