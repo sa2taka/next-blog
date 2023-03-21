@@ -38,6 +38,7 @@ const PostTitle = styled.h1`
   font-size: 2em;
   text-align: center;
   margin: 0.4em auto;
+  line-height: 1.4em;
 `;
 
 const PostDate = styled.p`

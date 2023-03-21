@@ -30,6 +30,7 @@ const titleLink = css`
   word-break: break-all;
   margin: 8px 0;
   text-decoration: none;
+  line-height: 1.4em;
 
   .theme--dark & {
     color: #ddd;
