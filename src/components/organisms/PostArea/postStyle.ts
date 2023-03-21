@@ -64,12 +64,12 @@ export const postBodyStyle = css`
         color: #333;
       }
 
-      .post-body ul {
+      .post-body :where(ul, ol) {
         margin-bottom: 1.8em;
       }
 
-      .post-body ul ul {
-        margin-bottom: 0;
+      .post-body li > :is(ul, ol) {
+        margin-bottom: 0.5em;
       }
 
       /* 引用元名 */
