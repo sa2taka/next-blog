@@ -24,7 +24,7 @@
     "@linaria/react": "^4.0.0",
     "@linaria/shaker": "^4.0.0",
     "@linaria/webpack-loader": "^4.0.0",
-    "contentful": "^9.1.32",
+    "contentful": "^10.0.0",
     "image-size": "^1.0.1",
     "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0",
