@@ -18,7 +18,7 @@ export const getStaticProps = async (
 ): Promise<{
   props: Props;
 }> => {
-  const { fetchPosts, fetchPostsCount } = await import('@/libs/data-fetcher');
+  const { fetchPosts, fetchPostsCount } = await import('@/libs/dataFetcher');
   const page = 1;
   const limit = POSTS_LIMIT;
 

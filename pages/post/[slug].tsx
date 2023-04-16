@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-  const { fetchAllPost } = await import('@/libs/data-fetcher');
+  const { fetchAllPost } = await import('@/libs/dataFetcher');
 
   const posts = await fetchAllPost();
 
@@ -32,7 +32,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const { fetchPost } = await import('@/libs/data-fetcher');
+  const { fetchPost } = await import('@/libs/dataFetcher');
 
   if (!context.params || !context.params.slug || context.params.slug === '') {
     return {

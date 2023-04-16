@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
-  const { fetchAllPost } = await import('@/libs/data-fetcher');
+  const { fetchAllPost } = await import('@/libs/dataFetcher');
 
   const posts = await fetchAllPost();
   const allPage = Math.ceil(posts.length / POSTS_LIMIT);
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const { fetchPosts, fetchPostsCount } = await import('@/libs/data-fetcher');
+  const { fetchPosts, fetchPostsCount } = await import('@/libs/dataFetcher');
   if (!context.params || !context.params.page || context.params.page === '') {
     return {
       notFound: true,

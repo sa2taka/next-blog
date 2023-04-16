@@ -23,7 +23,7 @@ type Params = {
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const { fetchCategories, fetchPostsCountInCategory } = await import(
-    '@/libs/data-fetcher'
+    '@/libs/dataFetcher'
   );
 
   const categories = await fetchCategories().then((categories) =>
@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   context
 ) => {
   const { fetchPostInCategory, fetchCategory } = await import(
-    '@/libs/data-fetcher'
+    '@/libs/dataFetcher'
   );
 
   if (!context.params) {

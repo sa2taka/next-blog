@@ -16,7 +16,7 @@ interface Props {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { fetchCategories, fetchPostsCountInCategory } = await import(
-    '@/libs/data-fetcher'
+    '@/libs/dataFetcher'
   );
   return {
     props: {
