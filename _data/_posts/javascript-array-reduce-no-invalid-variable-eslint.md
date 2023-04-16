@@ -2,7 +2,7 @@
 layout:      post
 title:       JavaScriptのArray#Reduceの関数内で第二引数の変数を利用した場合エラーになるESLintのルール
 author:      sa2taka
-category:    TypeScript
+category:    typescript
 tags:        javascript,typescript,eslint
 public:      true
 createdAt:   2022-12-18
