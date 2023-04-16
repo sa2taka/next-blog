@@ -22,12 +22,7 @@ export const getStaticProps = async (
   const page = 1;
   const limit = POSTS_LIMIT;
 
-  const posts = await fetchPosts(page - 1, limit).then((posts) => {
-    return posts.map((item) => {
-      item.body = '';
-      return item;
-    });
-  });
+  const posts = await fetchPosts(page - 1, limit);
 
   const count = await fetchPostsCount();
 

@@ -56,10 +56,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { generateIndices } = await import('@/libs/generateIndices');
   const postIndex = generateIndices(post.body);
 
-  // HACK: post.body does not use after this process.
-  // Delete body to reduce traffic.
-  post.body = '';
-
   return {
     props: {
       post,

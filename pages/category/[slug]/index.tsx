@@ -71,13 +71,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   }
   const categorySlug = context.params.slug;
   const limit = POSTS_LIMIT;
-  const posts = await fetchPostInCategory(categorySlug, 0, limit).then(
-    (posts) =>
-      posts.map((item) => {
-        item.body = '';
-        return item;
-      })
-  );
+  const posts = await fetchPostInCategory(categorySlug, 0, limit);
   const category = await fetchCategory(categorySlug);
 
   const count = posts.length;
