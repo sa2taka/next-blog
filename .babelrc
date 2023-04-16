@@ -2,5 +2,8 @@
   "presets": [
     "next/babel",
     "@linaria"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-static-block"
   ]
 }

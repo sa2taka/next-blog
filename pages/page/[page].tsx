@@ -12,10 +12,10 @@ interface Props {
 }
 
 export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
-  const { fetchAllPost } = await import('@/libs/contentful');
+  const { fetchAllPost } = await import('@/libs/data-fetcher');
 
   const posts = await fetchAllPost();
-  const allPage = Math.ceil(posts.items.length / POSTS_LIMIT);
+  const allPage = Math.ceil(posts.length / POSTS_LIMIT);
 
   return {
     paths: Array(allPage)
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const { fetchPosts, fetchPostsCount } = await import('@/libs/contentful');
+  const { fetchPosts, fetchPostsCount } = await import('@/libs/data-fetcher');
   if (!context.params || !context.params.page || context.params.page === '') {
     return {
       notFound: true,
@@ -40,8 +40,8 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const limit = POSTS_LIMIT;
 
   const posts = await fetchPosts(page - 1, limit).then((posts) => {
-    return posts.items.map((item) => {
-      item.fields.body = '';
+    return posts.map((item) => {
+      item.body = '';
       return item;
     });
   });

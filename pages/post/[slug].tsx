@@ -17,14 +17,14 @@ interface Props {
 }
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-  const { fetchAllPost } = await import('@/libs/contentful');
+  const { fetchAllPost } = await import('@/libs/data-fetcher');
 
   const posts = await fetchAllPost();
 
   return {
-    paths: posts.items.map((post) => ({
+    paths: posts.map((post) => ({
       params: {
-        slug: post.fields.slug,
+        slug: post.slug,
       },
     })),
     fallback: false,
@@ -32,7 +32,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const { fetchPost } = await import('@/libs/contentful');
+  const { fetchPost } = await import('@/libs/data-fetcher');
 
   if (!context.params || !context.params.slug || context.params.slug === '') {
     return {
@@ -52,13 +52,13 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   }
 
   const { markdown } = await import('@/libs/markdown');
-  const rawBodyHtml = markdown.render(post.fields.body);
+  const rawBodyHtml = markdown.render(post.body);
   const { generateIndices } = await import('@/libs/generateIndices');
-  const postIndex = generateIndices(post.fields.body);
+  const postIndex = generateIndices(post.body);
 
-  // HACK: post.fields.body does not use after this process.
+  // HACK: post.body does not use after this process.
   // Delete body to reduce traffic.
-  post.fields.body = '';
+  post.body = '';
 
   return {
     props: {
@@ -79,10 +79,10 @@ const getSeoStructureData = (post: Post, path: string) => {
       '@type': 'WebPage',
       '@id': BASE_URL + path,
     },
-    headline: post.fields.title,
+    headline: post.title,
     image: [image],
-    datePublished: post.sys.createdAt.toString(),
-    dateModified: post.sys.updatedAt.toString(),
+    datePublished: post.createdAt.toString(),
+    dateModified: post.updatedAt.toString(),
     author: {
       '@type': 'Person',
       name: AUTHOR,
@@ -103,17 +103,17 @@ const PostHead: React.FC<{ post: Post }> = ({ post }) => {
 
   return (
     <Head>
-      <title>{post.fields.title}</title>
+      <title>{post.title}</title>
       <meta
         data-hid="description"
         name="description"
-        content={post.fields.description}
+        content={post.description}
       />
-      <meta data-hid="og:title" name="og:title" content={post.fields.title} />
+      <meta data-hid="og:title" name="og:title" content={post.title} />
       <meta
         data-hid="og:description"
         name="og:description"
-        content={post.fields.description}
+        content={post.description}
       />
       <script
         type="application/ld+json"
@@ -122,7 +122,7 @@ const PostHead: React.FC<{ post: Post }> = ({ post }) => {
         }}
       />
 
-      {post.fields.latex && (
+      {post.latex && (
         <>
           <link
             rel="stylesheet"

@@ -1,39 +1,18 @@
-type ChildSys = {
-  sys: {
-    id: string;
-    type: string;
-    linkType: string;
-  };
-};
+import { z } from 'zod';
 
-export type Sys = {
-  space: ChildSys;
-  id: string;
-  type: string;
-  createdAt: string;
-  updatedAt: string;
-  environment: ChildSys;
-  revision: number;
-  contentType: ChildSys;
-  locale: string;
-};
+export const categorySchema = z.object({
+  name: z.string().nonempty(),
+  slug: z.string().nonempty(),
+  sort: z.number().nonnegative(),
+});
 
-export interface SingleItem<Field> {
-  sys: Sys;
-  fields: Field;
-}
+export type Category = z.infer<typeof categorySchema>;
 
-export type Category = SingleItem<{
-  name: string;
-  slug: string;
-  sort: number;
-}>;
-
-export type Author = SingleItem<{
+export type Author = {
   name: string;
   icon: string;
   at: string;
-}>;
+};
 
 export type File = {
   url: string;
@@ -42,39 +21,24 @@ export type File = {
   contentType: string;
 };
 
-export type Image = SingleItem<{
+export type Image = {
   title: string;
   file: File;
-}>;
-
-export type Post = SingleItem<{
-  title: string;
-  description: string;
-  body: string;
-  author: Author;
-  category: Category;
-  slug: string;
-  tags: string[];
-  postImage: Image;
-  public: boolean;
-  releaseDate: string;
-  latex: boolean;
-}>;
-
-export type FileDetail = {
-  size: number;
-  image?: {
-    width: number;
-    height: number;
-  };
 };
 
-export interface MultipleItem<Field extends SingleItem<any>> {
-  sys: {
-    type: string;
-  };
-  total: number;
-  skip: number;
-  limit: number;
-  items: Field[];
-}
+export const postSchema = z.object({
+  title: z.string().nonempty(),
+  slug: z.string().nonempty(),
+  description: z.string(),
+  body: z.string().nonempty(),
+  author: z.string(),
+  category: categorySchema,
+  tags: z.array(z.string()),
+  public: z.boolean(),
+  latex: z.boolean(),
+  // Next.js のシリアライズの関係で、Date型にせずにgetTimeの値を利用する
+  createdAt: z.number(),
+  updatedAt: z.number(),
+});
+
+export type Post = z.infer<typeof postSchema>;

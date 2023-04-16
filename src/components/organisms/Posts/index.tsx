@@ -22,7 +22,7 @@ export const Posts: React.FC<Props> = ({ posts }) => {
   return (
     <PostsUl>
       {posts.map((post) => (
-        <PostItem post={post} key={post.fields.slug} />
+        <PostItem post={post} key={post.slug} />
       ))}
     </PostsUl>
   );

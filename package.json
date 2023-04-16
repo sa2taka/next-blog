@@ -11,7 +11,8 @@
     "build:main": "next build && next export",
     "build:post": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "script": "DOTENV_CONFIG_PATH=.env.local ts-node -r tsconfig-paths/register -r dotenv/config"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -25,6 +26,7 @@
     "@linaria/shaker": "^4.0.0",
     "@linaria/webpack-loader": "^4.0.0",
     "contentful": "^9.1.32",
+    "glob": "^10.1.0",
     "image-size": "^1.0.1",
     "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0",
@@ -37,10 +39,12 @@
     "prismjs": "^1.28.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sync-fetch": "^0.4.1"
+    "sync-fetch": "^0.4.1",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
+    "@babel/plugin-proposal-class-static-block": "^7.21.0",
     "@babel/preset-env": "^7.18.2",
     "@types/katex": "^0.16.0",
     "@types/markdown-it": "^12.2.3",

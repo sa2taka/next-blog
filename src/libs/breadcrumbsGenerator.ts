@@ -40,8 +40,8 @@ export const generateCategoryBreadcrumbsList = (category: Category) => {
     disabled: true,
     exact: true,
     link: true,
-    text: category.fields.name,
-    href: `/category/${category.fields.slug}/1`,
+    text: category.name,
+    href: `/category/${category.slug}/1`,
   };
   list.push(categoryItem);
 
@@ -49,17 +49,15 @@ export const generateCategoryBreadcrumbsList = (category: Category) => {
 };
 
 export const generatePostBreadcrumbsList = (post: Post) => {
-  const list: BreadcrumbsList = generateCategoryBreadcrumbsList(
-    post.fields.category
-  );
+  const list: BreadcrumbsList = generateCategoryBreadcrumbsList(post.category);
   list[list.length - 1].disabled = false;
 
   const postItem: BreadcrumbsItem = {
     disabled: true,
     exact: true,
     link: true,
-    text: post.fields.title,
-    href: `/post/${post.fields.slug}`,
+    text: post.title,
+    href: `/post/${post.slug}`,
   };
   list.push(postItem);
 

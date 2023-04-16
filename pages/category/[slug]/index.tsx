@@ -10,7 +10,6 @@ import Head from 'next/head';
 
 interface Props {
   posts: Post[];
-  page: number;
   count: number;
   category: Category;
   slug: string;
@@ -70,10 +69,9 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
       notFound: true,
     };
   }
-  const page = Number(context.params.page);
   const categorySlug = context.params.slug;
   const limit = POSTS_LIMIT;
-  const posts = await fetchPostInCategory(categorySlug, page - 1, limit).then(
+  const posts = await fetchPostInCategory(categorySlug, 0, limit).then(
     (posts) =>
       posts.map((item) => {
         item.body = '';
@@ -86,7 +84,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 
   return {
     props: {
-      page,
       posts,
       slug: categorySlug,
       category,
@@ -99,20 +96,18 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-const Page: NextPage<Props> = ({ count, page, posts, slug, category }) => {
+const Page: NextPage<Props> = ({ count, posts, slug, category }) => {
   const breadcrumbsList = generateCategoryBreadcrumbsList(category);
   return (
     <>
       <Head>
-        <title>
-          {category.name} カテゴリ {page} ページ目
-        </title>
+        <title>{category.name} カテゴリ</title>
         <meta name="robots" content="noindex,nofollow" />
       </Head>
       <Breadcrumbs list={breadcrumbsList} />
       <PostPagination
         baseUrl={`/category/${slug}`}
-        currentPage={page}
+        currentPage={1}
         limit={POSTS_LIMIT}
         postsCount={count}
       />

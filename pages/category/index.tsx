@@ -16,16 +16,16 @@ interface Props {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const { fetchCategories, fetchPostsCountInCategory } = await import(
-    '@/libs/contentful'
+    '@/libs/data-fetcher'
   );
   return {
     props: {
       categories: await fetchCategories().then((categories) =>
         Promise.all(
-          categories.items.map(async (category) => {
+          categories.map(async (category) => {
             return {
               element: category,
-              count: await fetchPostsCountInCategory(category.sys.id),
+              count: await fetchPostsCountInCategory(category.slug),
             };
           })
         ).then((categoriesWithCount: CategoryWithCount[]) =>
