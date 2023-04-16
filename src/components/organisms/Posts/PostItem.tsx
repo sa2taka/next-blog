@@ -73,18 +73,15 @@ const PostCreatedAt = styled.time`
 `;
 
 export const PostItem: React.FC<Props> = ({ post }) => {
-  const categoryHref = useMemo(
-    () => `/category/${post.fields.category.fields.slug}`,
-    [post]
-  );
-  const postHref = useMemo(() => `/post/${post.fields.slug}`, [post]);
+  const categoryHref = useMemo(() => `/category/${post.category.slug}`, [post]);
+  const postHref = useMemo(() => `/post/${post.slug}`, [post]);
 
   const formattedDate = useMemo(() => {
-    const target = new Date(post.sys.createdAt);
+    const target = new Date(post.createdAt);
     return formatDate(target);
-  }, [post.sys.createdAt]);
+  }, [post.createdAt]);
   const formattedDateForDateTag = useMemo(() => {
-    const target = new Date(post.sys.createdAt);
+    const target = new Date(post.createdAt);
     return formatDateForMachine(target);
   }, [post]);
 
@@ -95,11 +92,11 @@ export const PostItem: React.FC<Props> = ({ post }) => {
           href={categoryHref}
           className={`${postCategory} ${secondaryText}`}
         >
-          {post.fields.category.fields.name}
+          {post.category.name}
         </AnimationLink>
       </span>
       <Link href={postHref} className={titleLink}>
-        {post.fields.title}
+        {post.title}
       </Link>
 
       <PostCreatedAt dateTime={formattedDateForDateTag}>

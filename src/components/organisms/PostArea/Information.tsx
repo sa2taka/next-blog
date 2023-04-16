@@ -56,24 +56,21 @@ const PostDate = styled.p`
 `;
 
 export const Information: React.FC<Props> = ({ post }) => {
-  const postLink = useMemo(
-    () => `/category/${post.fields.category.fields.slug}`,
-    [post]
-  );
+  const postLink = useMemo(() => `/category/${post.category.slug}`, [post]);
   const createdAt = useMemo(
-    () => formatDateWithDay(new Date(post.sys.createdAt)),
+    () => formatDateWithDay(new Date(post.createdAt)),
     [post]
   );
   const updatedAt = useMemo(
-    () => formatDateWithDay(new Date(post.sys.updatedAt)),
+    () => formatDateWithDay(new Date(post.updatedAt)),
     [post]
   );
   const createdAtForDateTag = useMemo(
-    () => formatDateForMachine(new Date(post.sys.createdAt)),
+    () => formatDateForMachine(new Date(post.createdAt)),
     [post]
   );
   const updatedAtForDateTag = useMemo(
-    () => formatDateForMachine(new Date(post.sys.updatedAt)),
+    () => formatDateForMachine(new Date(post.updatedAt)),
     [post]
   );
 
@@ -84,11 +81,11 @@ export const Information: React.FC<Props> = ({ post }) => {
           href={postLink}
           className={`${secondaryText} ${categoryLinkStyle}`}
         >
-          {post.fields.category.fields.name}
+          {post.category.name}
         </AnimationLink>
       </span>
 
-      <PostTitle>{post.fields.title}</PostTitle>
+      <PostTitle>{post.title}</PostTitle>
       <PostDate>
         作成日: <time dateTime={createdAtForDateTag}>{createdAt}</time>
       </PostDate>

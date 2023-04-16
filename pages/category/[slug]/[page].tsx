@@ -23,15 +23,15 @@ type Params = {
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const { fetchCategories, fetchPostsCountInCategory } = await import(
-    '@/libs/contentful'
+    '@/libs/dataFetcher'
   );
 
   const categories = await fetchCategories().then((categories) =>
     Promise.all(
-      categories.items.map(async (category) => {
+      categories.map(async (category) => {
         return {
           element: category,
-          count: await fetchPostsCountInCategory(category.sys.id),
+          count: await fetchPostsCountInCategory(category.slug),
         };
       })
     ).then((categoriesWithCount) =>
@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
         .fill(undefined)
         .map((_, page) => ({
           params: {
-            slug: category.fields.slug,
+            slug: category.slug,
             page: (page + 1).toString(),
           },
         }));
@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   context
 ) => {
   const { fetchPostInCategory, fetchCategory } = await import(
-    '@/libs/contentful'
+    '@/libs/dataFetcher'
   );
 
   if (!context.params) {
@@ -73,13 +73,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   const page = Number(context.params.page);
   const categorySlug = context.params.slug;
   const limit = POSTS_LIMIT;
-  const posts = await fetchPostInCategory(categorySlug, page, limit).then(
-    (posts) =>
-      posts.items.map((item) => {
-        item.fields.body = '';
-        return item;
-      })
-  );
+  const posts = await fetchPostInCategory(categorySlug, page - 1, limit);
   const category = await fetchCategory(categorySlug);
 
   const count = posts.length;
@@ -105,7 +99,7 @@ const Page: NextPage<Props> = ({ count, page, posts, slug, category }) => {
     <>
       <Head>
         <title>
-          {category.fields.name} カテゴリ {page} ページ目
+          {category.name} カテゴリ {page} ページ目
         </title>
         <meta name="robots" content="noindex,nofollow" />
       </Head>
@@ -116,7 +110,7 @@ const Page: NextPage<Props> = ({ count, page, posts, slug, category }) => {
         limit={POSTS_LIMIT}
         postsCount={count}
       />
-      <Title>{category.fields.name}</Title>
+      <Title>{category.name}</Title>
       <Posts posts={posts} />
     </>
   );

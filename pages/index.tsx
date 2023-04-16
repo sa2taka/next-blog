@@ -18,16 +18,11 @@ export const getStaticProps = async (
 ): Promise<{
   props: Props;
 }> => {
-  const { fetchPosts, fetchPostsCount } = await import('@/libs/contentful');
+  const { fetchPosts, fetchPostsCount } = await import('@/libs/dataFetcher');
   const page = 1;
   const limit = POSTS_LIMIT;
 
-  const posts = await fetchPosts(page - 1, limit).then((posts) => {
-    return posts.items.map((item) => {
-      item.fields.body = '';
-      return item;
-    });
-  });
+  const posts = await fetchPosts(page - 1, limit);
 
   const count = await fetchPostsCount();
 

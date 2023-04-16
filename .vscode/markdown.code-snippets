@@ -1,0 +1,50 @@
+{
+  "details": {
+    "prefix": "details",
+    "body": [
+      "<details> <summary> $1 </summary>",
+      "<div>",
+      "",
+      "```$2",
+      "$3",
+      "```",
+      "</div></details>"
+    ]
+  },
+  "category": {
+    "prefix": "new-category",
+    "body": [
+      "---",
+      "layout: category",
+      "name:   $1",
+      "sort:   $2",
+      "---"
+    ]
+  },
+  "post": {
+    "prefix": "new-post",
+    "body": [
+      "---",
+      "layout:      post",
+      "title:       $1",
+      "category:    $2",
+      "author:      sa2taka",
+      "tags:        $3",
+      "public:      false",
+      "createdAt:   $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "updatedAt:   $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "latex:       false",
+      "description:",
+      "  初めてのポエミーな記事。転職について日記レベルのことを書きました。  ",
+      "---",
+      "",
+      "$4"
+    ]
+  },
+  "current-date": {
+    "prefix": "current-data",
+    "body": [
+      "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+    ]
+  }
+}

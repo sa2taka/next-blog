@@ -29,13 +29,13 @@ export const CategoryArea: React.FC<Props> = ({ categories }) => {
     <nav>
       <Categories>
         {categories.map((category) => (
-          <li key={category.element.sys.id}>
+          <li key={category.element.slug}>
             <Button
-              href={`/category/${category.element.fields.slug}/1`}
+              href={`/category/${category.element.slug}/1`}
               outlined
               className={categoryButton}
             >
-              {category.element.fields.name} ({category.count})
+              {category.element.name} ({category.count})
             </Button>
           </li>
         ))}
