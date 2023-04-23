@@ -7,5 +7,5 @@ runs:
       env:
         NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
       run: |
-        NODE_ENV=production yarn build
+        NODE_ENV=production yarn build:all
       shell: bash
