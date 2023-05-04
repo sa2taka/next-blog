@@ -2104,9 +2104,9 @@ contentful-sdk-core@^7.0.2:
     qs "^6.9.4"
 
 contentful@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.npmjs.org/contentful/-/contentful-10.1.0.tgz"
-  integrity sha512-5xhzPQhCirZ0PoC4YFPC4NTKWjf9TU4iricvf/ETWiHiHROQYPm2NdPrHz55IZ7AHH6kvqUeGDEtmxz+Idg2gw==
+  version "10.1.4"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.1.4.tgz#fdec32d61397ca4d95bfa5b67fe68169448ad3c5"
+  integrity sha512-bqZz/+loNM4otOSlkA2vuRtney6mk/Px3H8VHWlppxodPvHqEUv9OiwXFRxXsa73fIWMN/7xKi+EYOt5JnXOEg==
   dependencies:
     "@contentful/rich-text-types" "^16.0.2"
     axios "^0.26.1"
