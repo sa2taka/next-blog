@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@image-manager-server/*": [
+        "./src/*"
+      ]
+    },
+    "baseUrl": "./",
+    "sourceMap": true,
+    "outDir": "./out/",
+    "removeComments": true,
+    "noEmit": false
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
