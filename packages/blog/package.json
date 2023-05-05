@@ -29,7 +29,7 @@
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-sanitizer": "^0.4.3",
-    "next": "13.3.0",
+    "next": "13.4.0",
     "next-linaria": "^1.0.1-beta",
     "next-pwa": "^5.5.4",
     "prismjs": "^1.28.0",
@@ -44,10 +44,10 @@
     "@babel/preset-env": "^7.18.2",
     "@types/katex": "^0.16.0",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "18.15.11",
+    "@types/node": "18.16.4",
     "@types/prismjs": "^1.26.0",
-    "@types/react": "18.0.35",
-    "@types/react-dom": "18.0.11",
+    "@types/react": "18.2.2",
+    "@types/react-dom": "18.2.3",
     "@types/sync-fetch": "^0.4.0"
   },
   "repository": {
