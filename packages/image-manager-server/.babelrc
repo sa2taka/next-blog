@@ -1,0 +1,30 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "extensions": [
+          ".js"
+        ],
+        "root": [
+          "./"
+        ],
+        "alias": {
+          "@image-manager-server": "./out"
+        }
+      }
+    ],
+    [
+      "module-extension-resolver",
+      {
+        "srcExtensions": [
+          ".js",
+          ".cjs",
+          ".mjs",
+          ".ts"
+        ],
+        "dstExtension": ".js"
+      }
+    ]
+  ]
+}

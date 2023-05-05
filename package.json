@@ -10,14 +10,19 @@
     "build": "yarn workspace blog run build",
     "start": "yarn workspace blog run start",
     "lint": "yarn workspaces run lint",
-    "build:all": "yarn workspaces run build"
+    "build:all": "yarn workspaces run build",
+    "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
   },
   "devDependencies": {
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "next-sitemap": "^3.1.7",
     "prettier": "^2.5.1",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5"
   },
   "workspaces": [
     "packages/*"

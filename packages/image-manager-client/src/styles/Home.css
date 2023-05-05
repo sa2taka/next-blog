@@ -1,0 +1,18 @@
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: calc(33% - 0.8rem * 2);
+  margin: 2rem 0.8rem;
+}
+
+.filename {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
