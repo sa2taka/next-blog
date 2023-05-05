@@ -100,7 +100,7 @@ VSCodeの拡張はTypeScriptで書いていますし、作成した拡張２つ�
 
 **基盤から**
 
-![自作キーボードの基盤](https://images.ctfassets.net/xw0ljpdch9v4/4OArQNGFqJMknFOEkAcQMP/4fa74a3ac1b217c92a9e516defcdd7f4/image.png)
+![自作キーボードの基盤](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/my%20keyboard.png)
 
 ブログの記事にしたかったんですが、面倒だったので書いていません。ただ、完全に基盤から自作している記事は思ったより少なかったので、供給に対する需要は少なからずあるかもしれません。
 
