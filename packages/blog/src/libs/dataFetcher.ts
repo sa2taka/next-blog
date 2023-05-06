@@ -134,26 +134,20 @@ export async function fetchCategories(): Promise<Category[]> {
 }
 
 export async function fetchPost(slug: string): Promise<Post> {
-  const memorized = postMemorized[slug];
-  if (memorized) {
-    return memorized;
-  }
-
   const postFilePath = path.join(DATA_ROOT, '_posts', `${slug}.md`);
 
   const file = await readFile(postFilePath);
 
-  return parsePost(getSlug(postFilePath), file?.toString())
-    .then((p) => {
-      isProduction && (postMemorized[slug] = p);
-      return p;
-    })
-    .catch((e) => {
-      throw new ParseError(
-        `[Parse Error]: category "${postFilePath}" cannot parse.`,
-        { cause: e }
-      );
-    });
+  if (!file || !file?.toString()) {
+    throw new ParseError(`[Parse Error]: post "${postFilePath}" cannot parse.`);
+  }
+
+  return parsePost(getSlug(postFilePath), file?.toString()).catch((e) => {
+    throw new ParseError(
+      `[Parse Error]: post "${postFilePath}" cannot parse.`,
+      { cause: e }
+    );
+  });
 }
 
 export async function fetchAllPost(): Promise<Post[]> {
