@@ -1,7 +1,7 @@
 import { getMeta, Image, Meta } from '@image-manager-server/model/image';
 
 import * as path from 'path';
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, stat, writeFile } from 'fs/promises';
 import { glob } from 'glob';
 import imageSize from 'image-size';
 
@@ -14,14 +14,21 @@ export async function fetchAllImages(): Promise<Image[]> {
     path.join(DATA_ROOT, '_images', '*.{png,jpeg,gif}')
   );
   const meta = await fetchImageMeta();
-  return Promise.all(images.map((image) => fetchImage(image, meta)));
+  return (
+    await Promise.all(images.map((image) => fetchImage(image, meta)))
+  ).sort(
+    (a, b) => (b.createdAt?.getTime() ?? 0) - (a.createdAt?.getTime() ?? 0)
+  );
 }
 
 export async function fetchImage(
   filepath: string,
   meta: Meta[]
 ): Promise<Image> {
-  const imageContent = await readFile(filepath);
+  const [imageContent, statInfo] = await Promise.all([
+    readFile(filepath),
+    stat(filepath),
+  ]);
 
   const { width, height } = imageSize(imageContent);
 
@@ -32,6 +39,7 @@ export async function fetchImage(
     height: height ?? 0,
     minifyImageUrl: getMeta(filepath, meta)?.imageUrl ?? undefined,
     webpImageUrl: getMeta(filepath, meta)?.webpImageUrl ?? undefined,
+    createdAt: statInfo.birthtime,
   };
 }
 

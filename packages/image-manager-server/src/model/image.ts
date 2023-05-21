@@ -13,6 +13,7 @@ export type Image = {
   filename: string;
   minifyImageUrl?: string;
   webpImageUrl?: string;
+  createdAt?: Date;
 };
 
 export const getMeta = (
