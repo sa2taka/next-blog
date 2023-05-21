@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 
 import '@image-manager-client/styles/globals.css';
 import '@image-manager-client/styles/Home.css';
+import { ImageUploadArea } from '@image-manager-client/components/ImageUploadArea';
 
 export default async function Home() {
   return (
@@ -10,6 +11,7 @@ export default async function Home() {
       <Suspense>
         {/* @ts-expect-error Server Component */}
         <ImageList />
+        <ImageUploadArea />
       </Suspense>
     </main>
   );
