@@ -1,6 +1,6 @@
 ---
 layout:      post
-title:       ブログって自分で作るもの? : Nuxt.js×Typescript×Contentful×エトセトラで1から作るブログ
+title:       ブログって自分で作るもの? : Nuxt.js × Typescript × Contentful × エトセトラで1から作るブログ
 author:      sa2taka
 category:    typescript
 tags:        nuxt,nuxtjs,typescript,contentful,vue,vuetify

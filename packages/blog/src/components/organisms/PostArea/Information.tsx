@@ -39,6 +39,13 @@ const PostTitle = styled.h1`
   text-align: center;
   margin: 0.4em auto;
   line-height: 1.4em;
+  overflow-wrap: anywhere;
+
+  @media screen and (max-width: 768px) {
+    & {
+      font-size: 1.4em;
+    }
+  }
 `;
 
 const PostDate = styled.p`
