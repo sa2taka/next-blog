@@ -48,7 +48,7 @@ Raycast自身は現時点で、個人で使う場合には無料です[^price]�
 
 おそらくMacのスケジュールを見ているので、例えばGoogleカレンダーを使っている場合は、GoogleカレンダーとMacのスケジュールを連携する必要があると思います。[Google カレンダーの予定を Apple カレンダーに追加する - パソコン - カレンダー ヘルプ](https://support.google.com/calendar/answer/99358?hl=JA)とかが参考になると思います。
 
-![カレンダー](https://images.ctfassets.net/xw0ljpdch9v4/6kIdLBXcfyCn38SSpT7frE/5391c6621923762efb3a37b43011d397/image.png)
+![Raycastのスケジュール表示](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%20Schedule.png)
 
 いい感じのイベントが無かったのでZoomのない適当な予定を作ってしましましたが、直近5分のイベントが自動的に表示されます。もしこれがZoomやGoogle Meet、おそらく他のWeb会議リンクなどが載っていれば**Enterを押すだけで会議に参加できてしまいます**。
 
@@ -63,7 +63,7 @@ Windows10では`Win + v`でいつの間にか使えるようになったクリ�
 
 ただ、デフォルトだとショートカットが設定されていないので、Raycastを開いてから`clip`とか打たないと出てきません。Raycastの最高ポイントの一つとしては、**すべての機能にHotKeyを使える**ことです。僕の場合は下記のように`Cmd + Opt + C`でクリップボードの履歴が出るようになっています。Alfredの名残ですね。
 
-![Raycstのクリップボード](https://images.ctfassets.net/xw0ljpdch9v4/uVFtXWFNRQAA5xwduC3dT/43ad8214b3fb7215a43e1802f4f78cc1/image.png)
+![Raycastのクリップボード](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%20Clip.png)
 
 ## ウィンドウ管理
 
@@ -75,7 +75,7 @@ Raycastにはまたまた**デフォルトで**ウィンドウ管理機能があ
 設定を開いて、`Window Management`で検索すると出てきます。
 僕の場合、基本的には下に半分、上に半分、左に半分、右に半分のみしか使わないので、そこにしかショートカットを振っていませんが（これもAlfred - Divの名残です）、メチャメチャ細かくウィンドウ管理が出来るので、Raycast単体で結構細かいことができるようになります。
 
-![RaycastのWindow管理](https://images.ctfassets.net/xw0ljpdch9v4/3HbrWzP3dEm4L4q2DoaNGS/1cb37e09f1642b8cf5b5eb1065397e93/image.png)
+![RaycastのWindow管理](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%20Window%20management.png)
 
 DivはWorkflowの機能を使っているからだとは思いますが、RaycastはDivより圧倒的にレスポンスが良いので、地味に嬉しいポイントの一つです。Divは動いたのか動いてないのか一瞬分かりづらいので。
 
@@ -102,7 +102,7 @@ RaycastもAlfredもメチャメチャ満足度の高いツールなので、ど�
 
 そのあたりの設定も設定できます。さすが。
 
-![Raycastのアドバンス設定](https://images.ctfassets.net/xw0ljpdch9v4/9PL9Ty7LQ88qPxZlYDk0z/fff66b623c8cd710c498cfe2e2b35fc6/image.png)
+![Raycast Advance Setting](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%20Advance%20Setting.png)
 
 例えば`Show Raycast on`の項目は、ショートカットを押したときの表示位置です。
 
@@ -128,7 +128,7 @@ Raycastも当然のように変えられます。若干分かりづらいです�
 
 Raycastを開いて、普通にコマンドで`fallback`とか打つと`Manage Fallback Commands`というのが出てきます。それをEnterで起動すると、下記の様な画面になります。
 
-![Raycastのフォールバック管理](https://images.ctfassets.net/xw0ljpdch9v4/5qnxSZfcXgXWMBiyRCaoSm/547f753a3f1f6274b14e7623cde59a18/image.png)
+![Raycastのフォールバック管理](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%E3%81%AE%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E7%AE%A1%E7%90%86.png)
 
 デフォルトだとFile Searchが上にあるのですが、正直デフォルトはGoogle検索が欲しいです。なので、いじってみます。パット見ると順番をいじれなさそうですが`Cmd + Alt + ↓↑`で順番を入れ替えられます。EnterキーでEnableとDisableを切り替えられるので、好きなコマンドをfallback時の動作に割り当てられます。
 
@@ -148,8 +148,7 @@ Raycastがデフォルトで出来ずにAlfredでできることは、例えば�
 
 各コマンドにはショートカット以外にも`Alias`を設定できます。6文字と激短い(なので`gcpprod`が入らない)ですが、よく使うコマンドにはAliasを振っておくとメチャメチャはかどります。なので、この設定の場合は`gcp`と打つと何よりも先にGCPのdev環境が開いて、`gcpp`ぐらいまで打つとGCPの本番環境が開きます（もちろん文字を打っただけでは開かないです。Enterを押してください。一応）。
 
-![Raycast QuickLinks](https://images.ctfassets.net/xw0ljpdch9v4/7D0vyvE9MvHS5hmYolS0rI/bf32bcaa19cbc97b240e4223e9275e6a/image.png)
-
+![Raycast Quick Links](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%20Quiklinks.png)
 もちろんQueryも設定できるので、何かの検索なども可能です。
 
 AlfredでBookmarkの中にあるものをコマンド経由でメチャメチャ開いていた人はいちいちQuickLinkを追加しなければ行けないのが大変ですが、一応代替機能にはなるので、できなくなるということは有りません。

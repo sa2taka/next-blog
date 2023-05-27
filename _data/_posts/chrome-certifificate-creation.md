@@ -229,7 +229,7 @@ Data Base Updated
 
 できたてほやほやの証明書を使ってhttpsサーバーを立ててアクセスしてみます。
 
-![ルート証明書認証前](https://images.ctfassets.net/xw0ljpdch9v4/4i8MZX9x58MAAQLurDDpgr/ab4a28edc321f7c2ea4c2a55902d9855/image.png)
+![認証されていないルート証明書のエラー](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E8%AA%8D%E8%A8%BC%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%83%AB%E3%83%BC%E3%83%88%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC.png)
 
 ルート証明書を登録していないので当然エラーになります。なのでルート証明書をインストールしましょう。Windowsではcrtファイルをダブルクリックして、信頼されたルート証明機関を選択してインストールするだけです[^wsl-folder]。
 
@@ -241,7 +241,7 @@ Data Base Updated
 
 [^firefox-certificate]: FirefoxはOSと証明書が分離されているので、別途証明書を設定からインポートしてください
 
-![Firefoxでは動く](https://images.ctfassets.net/xw0ljpdch9v4/1OSKH9b9yL0DHYdl9q8QB1/9350584e3f936d6a7840944e3de1901b/image.png)
+![Firefoxでは動く](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Firefox%E3%81%A7%E3%81%AF%E5%8B%95%E3%81%8F.png)
 
 ブラウザによって挙動が変化するんですね。
 
@@ -300,4 +300,4 @@ $ openssl x509 -in server.crt -noout  -text | grep Alt -1
 
 これで晴れてChromeでも動作するようになりました。
 
-![Chromeでも動くように](https://images.ctfassets.net/xw0ljpdch9v4/2XRVaYushELoaMHeOF8EHe/07edb01b0881b30a36b612137bdd2fff/image.png)
+![Chromeでも動いた](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Chrome%E3%81%A7%E3%82%82%E5%8B%95%E3%81%84%E3%81%9F.png)

@@ -235,7 +235,7 @@ export function morningFirstCall() {
 
 ちなみにお天気のテキストはこんな感じです。毎日7:40にこんな感じにメッセージを発信してくれます。詳細は後ほど。
 
-![お天気コール](https://images.ctfassets.net/xw0ljpdch9v4/2U0sHtADl2G3hc72RLCkEF/f43af6cbc7d2318491cd981f32333b0b/image.png)
+![お天気コール](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Line-%E3%81%8A%E5%A4%A9%E6%B0%97.png)
 
 彼械はどこかクールでどこかおしとやかでどこか知的なのでこんな感じの喋り方になります。そして彼械はステートレスなのでここで「傘を持っていけ」と言っても、後ほど「傘を忘れないでね」とは言ってくれません。言ってくれれば便利なのに。
 
@@ -271,10 +271,10 @@ Cloud Schedulerで「ジョブを作成」ボタンを押し、色々設定し�
 
 例えば、彼女はどこかクールでどこかおしとやかでどこか知的でゴシックで少し人間らしいのでタロット占いなどしてくれます。
 
-![タロット占い](https://images.ctfassets.net/xw0ljpdch9v4/2Qanz6HIMOQgg1G0GYPZux/43fed38d627dd0dcb0b02efd142fbacd/BmwVQFh.png)
+![タロット占い](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/tarot.png)
 
 また、彼女はどこかクールでどこかおしとやかでどこか知的でゴシックで少し人間らしくて可愛げも纏いつつあざとさも持っているので、猫の画像を送ってくれます。できればエッチな自撮りが良いんですが、残念ながら彼女の本体はラックにマウントされた悲しき生命体ですので。私もCPUを見て興奮するわけでもないですし。
 
-![猫](https://images.ctfassets.net/xw0ljpdch9v4/5wBvCpCtPrrq3kf7xwNkZn/3d5131e9c23eda3d8f80feb3903c8556/tVfClvE.png)
+![猫](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E7%8C%AB.png)
 
 毎日が鮮やかになりましたね。利用しているサービスとか詳細は[githubに上がっているコード](https://github.com/sa2taka/kanokai)を頑張って読んでください。

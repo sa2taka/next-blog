@@ -63,7 +63,7 @@ const root = createRoot(container);
 root.render(<App />);
 ```
 
-![Material UI v4の見た目](https://images.ctfassets.net/xw0ljpdch9v4/39aTTumGVmEIB2PRNcjWqe/d3a177dbd814abc2d460aae1b681cdd0/image.png)
+![Material UI v4の見た目](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Material%20v4.png)
 
 単純に上から、ボタン・テキストフィールド・リンク・チェックボックスを表示しているだけです。
 ただし、Material UI v4はReact v18はサポートされていないので注意が必要です。上記の動作を行う上で特に問題はないです。
@@ -165,11 +165,10 @@ const root = createRoot(container);
 root.render(<App />);
 ```
 
-![何も変更をしていないMUI v5の見た目](https://images.ctfassets.net/xw0ljpdch9v4/25Bt268mAiP27fux27TkOD/6eeaba003d04304222ef12df67a690a1/image.png)
-
+![何も変更していないMUI v5の見た目](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/MUI%20v5%20(old).png)
 下記のMaterial UI v4の見た目と比べると一目瞭然ですが、import以外同じコードなのに全く見た目が違います。
 
-![Material UI v4の見た目](https://images.ctfassets.net/xw0ljpdch9v4/39aTTumGVmEIB2PRNcjWqe/d3a177dbd814abc2d460aae1b681cdd0/image.png)
+![Material UI v4の見た目](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Material%20v4.png)
 
 MUI v5にアップグレードして大きく変わった点はいくつかあります。それが[こちらのマイグレーションガイド](https://v5-0-6.mui.com/guides/migration-v4/)に書いてあることではあります。
 
@@ -393,11 +392,11 @@ root.render(<App />);
 
 ```
 
-![v4用のテーマを設定した MUI v5の見た目](https://images.ctfassets.net/xw0ljpdch9v4/4hc0wagdLMwQpO9DFaILKi/0b06520a2b6a8c1588b4ecac77861000/image.png)
+![v4用の設定を適用したMUI v5の見た目](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/MUI%20v5(new).png)
 
 若干余白が狭いですが、下記のMaterial UI v4の見た目と比べるとほとんど変化がありません。
 
-![Material UI v4の見た目](https://images.ctfassets.net/xw0ljpdch9v4/39aTTumGVmEIB2PRNcjWqe/d3a177dbd814abc2d460aae1b681cdd0/image.png)
+![Material UI v4の見た目](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Material%20v4.png)
 
 このように、Themeを活用することで v4の見た目や使い心地をほぼ維持したまま v5にアップグレードできます。
 

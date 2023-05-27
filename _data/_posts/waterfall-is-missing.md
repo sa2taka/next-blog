@@ -35,7 +35,7 @@ description:
   - 下図（b)はドイツ政府関連の開発工程であるV字モデルの表記方法。各テストと設計が1対1で紐付いている点がわかりやすい。**ただし、[Vモデルのドキュメント](http://ftp.tu-clausthal.de/pub/institute/informatik/v-modell-xt/Releases/2.3/Dokumentation/V-Modell-XT-HTML/d45f146fc585bdf.html#toc43)などでは各プロセスの表記は異なる**
 - 名称やその表記方法に揺れこそあるものの、要件定義からリリース・運用までを一気通貫で行うことは共通している
 
-![ウォーターフォールの一般的な図](https://images.ctfassets.net/xw0ljpdch9v4/5ZpkijAfylvGKbmpFIxnA8/243ecfafdbb236f3604ce1048805a6e4/Waterfall__1_.png)
+![ウォーターフォールの一般的な図](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E3%82%A6%E3%82%A9%E3%81%9F%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E3%81%AE%E4%B8%80%E8%88%AC%E7%9A%84%E3%81%AA%E5%9B%B3.png)
 
 表記ゆれ過ぎじゃない、と改めて思いました。
 
@@ -77,7 +77,7 @@ description:
 
 まず最初に例示した例は2つのステップの図です。下記画像は原論文の図です。
 
-![原論文のステップ1枚目](https://images.ctfassets.net/xw0ljpdch9v4/4XAOwfSG2490CFSbGgTccK/6d015b7c271b4ad47e3b0b31565a1a40/image.png)
+![原論文のステップ1枚目](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%8E%9F%E8%AB%96%E6%96%87%E3%81%AE%E3%82%B9%E3%83%86%E3%83%83%E3%83%971%E6%9E%9A%E7%9B%AE.png)
 
 図のキャプションは「社内用の小型のコンピューターシステムを作るための実施手順」となっていますが、本文中では、上記2ステップは**すべてのコンピュータープログラム開発に共通する重要なステップである**と記載があります。解析とコーディングは、言われなくとも分かるものですね。何が必要なのかわからないまま（少なくとも仕事では）プログラムは書きませんし、何が必要なのか分かってもコーディングしなかったら永遠にプログラムは完成しませんしね。
 
@@ -93,7 +93,7 @@ description:
 
 続いて2枚目の図が現れますが、この図こそ、ウォーターフォールはRoyce氏が生み出したと言われる理由の図です。
 
-![原論文のステップ2枚目](https://images.ctfassets.net/xw0ljpdch9v4/3sq7VgozyupXAH6qEqhgtX/2082433460daca0de38c90f494144595/image.png)
+![原論文のステップ2枚目](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%8E%9F%E8%AB%96%E6%96%87%E3%81%AEWaterfall2%E6%9E%9A%E7%9B%AE.png)
 
 2枚目の画像に関する説明は実にあっさりしており、下記の客観的事実のみの記載です。
 
@@ -103,11 +103,11 @@ description:
 
 続く3枚目・4枚目の画像には「理想」と「現実」が書かれています。
 
-![原論文のステップ3枚目・理想](https://images.ctfassets.net/xw0ljpdch9v4/6AIWo1r3vNSPKzVGW6EIa2/a8e7bb3e64343a10afa5db9d70ee58c4/image.png)
+![原論文のステップ3枚目・理想](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%8E%9F%E8%AB%96%E6%96%87%E3%81%AE%E3%82%B9%E3%83%86%E3%83%83%E3%83%973%E6%9E%9A%E7%9B%AE.png)
 
-![原論文のステップ4枚目・現実](https://images.ctfassets.net/xw0ljpdch9v4/5IKz0SJg0EQmXSj5NtdphS/ac3cde0c25cf4650a7e80c2ce0b72ad3/image.png)
+![原論文のステップ4枚目・現実](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%8E%9F%E8%AB%96%E6%96%87%E3%81%AE%E3%82%B9%E3%83%86%E3%83%83%E3%83%974%E6%9E%9A%E7%9B%AE.png)
 
-画像3枚目は「理想的には、行ったり来たり（iterative interaction)するプロセスは連続したステップに限定されています」という理想が記載されています。
+画像3枚目は「理想的には、行ったり来たり(iterative interaction)するプロセスは連続したステップに限定されています」という理想が記載されています。
 
 まずこの時点で世のウォーターフォールとは異なります。世のウォーターフォールは**前のプロセスと行ったり来たりはしません**。あくまでニュアンスレベルな話だとは思いますが、Royse氏はどちらかというと前のプロセスと相互的に・協調をするといった雰囲気があります。世のウォーターフォールとは違い、実装中に（上長の目を盗んで）ちょっとだけ基本設計を直して、といったニュアンスではなさそうです。
 そもそも世のウォーターフォールは設計を基本設計・詳細設計と分割し、テストを単体テスト・結合テスト・総合テストと分割しているのですが、このRoyceの原論文とは異なります。そのため、その点から異なるため、齟齬が発生していると考えます。
@@ -166,8 +166,7 @@ Royce氏は、これらをやること自体にコストこそ掛かるが、こ
 
 最後に、これらをまとめたフローがありますが、これを日本語訳したものを下記に示します。
 
-![Royce氏の開発モデル - 日本語訳](https://images.ctfassets.net/xw0ljpdch9v4/20QWRsgTpp9o3R92AaWBQ8/1c5491c1c9d400316f5c0ad9a95678b1/Royce_.png)
-
+![Royce氏の開発モデル - 日本語訳](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Royce%E6%B0%8F%E3%81%AE%E9%96%8B%E7%99%BA%E3%83%A2%E3%83%87%E3%83%AB.png)
 **僕の知ってるウォーターフォールと、なんか違う**と違和感を覚えること必至です。あっている点は左上から右下までプロセスが配置してあるところと、ドキュメントを作成するところ、ぐらいです。またこの表では表現できていませんが**それぞれのプロセスで顧客を巻き込むこと**も重要視しています。
 
 ## Royce氏の言いたかったこと - 結論

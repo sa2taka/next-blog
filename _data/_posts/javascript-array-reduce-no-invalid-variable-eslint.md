@@ -192,7 +192,7 @@ arr.reduce(function(acc) { return {} }, {});
 
 ルールを適用した上で、上の`addNames`にlintをかけて見ましょう。
 
-![addNamesにlintを書けてみた結果エラーになりました](https://images.ctfassets.net/xw0ljpdch9v4/3BuFjG9vS1aVZxWxAiVYa1/c91555de764b3df3532198bd87e139db/image.png)
+![addNames lint error](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/addNames%20lint%20error.png)
 
 # 作成ノート
 

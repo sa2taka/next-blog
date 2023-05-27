@@ -128,7 +128,7 @@ http://www.keyboard-layout-editor.com/#/gists/af023180a5084944c7839b35cc7a3d5d
 結果的に下記の用になりました。無骨な感じで、プロフェッショナルキーボード感があります。
 ちなみに、側面は真っ黒のマスキングテープを貼ってます。数百円でした。
 
-![自作キーボードの俯瞰図](https://images.ctfassets.net/xw0ljpdch9v4/cwTGatN91U35O1SR39ThN/257ce6b04cdf43923117df510480bb8d/image.png)
+![自作キーボードの俯瞰図](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E8%87%AA%E4%BD%9C%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E4%BF%AF%E7%9E%B0%E5%9B%B3.png)
 
 作成するにあたり下記のサイト・本にお世話になりました。この場でお礼申し上げます。
 

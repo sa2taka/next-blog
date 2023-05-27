@@ -6,7 +6,7 @@ const withPWA = require('next-pwa')({
     ...runtimeCaching,
     {
       urlPattern:
-        '^https?://images.ctfassets.net/xw0ljpdch9v4/.*.(gif|png|jpg|webp)$',
+        '^https://storage.googleapis.com/sa2taka-next-blog.appspot.com/.*.(gif|png|jpg|webp)$',
       handler: 'CacheFirst',
       method: 'GET',
     },

@@ -136,7 +136,7 @@ FIPSには電子署名について記載したものがあり、[FIPS186-4](http
 
 公開鍵暗号は共通鍵暗号の反対です。公開鍵と呼ばれる鍵でメッセージを暗号化し、秘密鍵と呼ばれる鍵でメッセージを復号化できます。イメージとしては下図のとおりです。**あくまでイメージです**。この公開鍵暗号の利点は、公開鍵を公開しても、秘密鍵さえ秘密にしておけば、誰も暗号化したメッセージを解読できない点です。なので公開鍵を街の掲示板に張り出しても、暗号化はみんなできますが、理論上は誰も解読できないのです。
 
-![共通鍵暗号と公開鍵暗号](https://images.ctfassets.net/xw0ljpdch9v4/4RpI8Hq3Np9iA7q200LpMc/49e05a7479742e7a9f208fe3f837c9eb/public-key.png)
+![共通鍵暗号と公開鍵暗号](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%85%B1%E9%80%9A%E9%8D%B5%E6%9A%97%E5%8F%B7%E3%81%A8%E5%85%AC%E9%96%8B%E9%8D%B5%E6%9A%97%E5%8F%B7.png)
 
 なぜイメージであることを強調したのかというと、**上図の方式の公開鍵暗号というのは公開鍵暗号のメジャーな使い方ではありません**。暗号という名前がついている以上、上記の方式が一般的な使われ方と思ってしまいますが、実は違います。というのも、**上図の公開鍵暗号ができるのは**、先程出てきたDSA, RSA, ECDSAのうちでは**RSAのみ**です。
 
@@ -160,7 +160,7 @@ FIPSには電子署名について記載したものがあり、[FIPS186-4](http
 
 「電子署名」と検索して、一般的に説明される仕組みは下記のようなものでしょう。これは**電子署名全体の仕組みではなく、RSAによる電子署名の仕組み**です。**DSA、またはECDSAでは下記のとおりではありません**。
 
-![よく説明される電子署名の仕組み](https://images.ctfassets.net/xw0ljpdch9v4/7AYnPSemqPbZqvVvpYdguI/da4e6c81476226f38005c69b2ff4520e/mistake__2_.png)
+![よく説明される電子署名](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E3%82%88%E3%81%8F%E8%AA%AC%E6%98%8E%E3%81%95%E3%82%8C%E3%82%8B%E9%9B%BB%E5%AD%90%E7%BD%B2%E5%90%8D.png)
 
 電子署名全体の仕組みではない、ということですが、これも立派な電子署名なので細かく見ていきましょう。RSAがなにか、などはまた後ほど記載します。
 
@@ -202,7 +202,7 @@ RSA以外の方式(DSA, ECDSA)でも、大まかな部分は変わりません�
 
 という点は変わりません。
 
-![一般的な電子署名](https://images.ctfassets.net/xw0ljpdch9v4/21U3Yz1J15HKgRD2CFDEen/021bf2f97f2f536dc215c0241ab1956f/common_digital_sign__3_.png)
+![一般化された電子署名](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E4%B8%80%E8%88%AC%E5%8C%96%E3%81%95%E3%82%8C%E3%81%9F%E9%9B%BB%E5%AD%90%E7%BD%B2%E5%90%8D.png)
 
 電子署名のそれぞれの仕組みの大きな違いは、**電子署名の生成方法**と、**電子署名の検証方法**にあります。
 
@@ -217,7 +217,7 @@ $$
 
 ということです。公開鍵暗号と呼ばれるものは、上記の特徴を持つという勘違いがありますが、DSAでは上記の特徴がありません。ちなみに暗号化関数$E(M)$では公開鍵を、復号関数$D(M)$では秘密鍵を用います。
 
-![RSAの場合](https://images.ctfassets.net/xw0ljpdch9v4/FwpqdNKvwpXcOY85XFgus/5125a73aa1bdc8fa1c8b8a6be4bbe16d/rsa__2_.png)
+![RSAの場合](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/rsa.png)
 
 上に示した方法と同じですが、改めて見てみます。
 
@@ -245,7 +245,7 @@ DSAはRSAと異なり、メッセージを秘密鍵で復号化し、公開鍵�
 
 DSAでの電子署名と署名検証は下図のようになります
 
-![DSAの場合](https://images.ctfassets.net/xw0ljpdch9v4/QBbzbYpRTvaNUGIU64Ol3/dc247c18a480ff0f710108e93051009e/dsa__1_.png)
+![DSAの場合](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/DSA.png)
 
 DSAはハッシュ値から秘密鍵により二つの電子署名データを作成し、ハッシュ値、電子署名データの2つ、公開鍵により署名検証用データを作成し、2つある署名データのうちの一つと比較する、大雑把に言えばこんなアルゴリズムです。
 RSAとの大きな違いは、電子署名が2つ現れるところ、そして署名検証の方法です。RSAでは、$D(E(M)) = M$の仕組みにより、ハッシュ値を秘密鍵で署名し、その署名データを公開鍵で戻してあげれば良かったですが、DSAはそういった性質はありません。
@@ -266,7 +266,7 @@ DSAの署名生成方法や検証方法などは[別記事](https://blog.sa2taka
 そういえば、送信経路の中でもう一つ流れるものがあります。**公開鍵は改ざんされたらどうなるのでしょうか**。
 すなわち、下図のような状態に陥ったらどうなるんでしょうか。
 
-![第三者攻撃](https://images.ctfassets.net/xw0ljpdch9v4/7ivDt5zIFBaGN6zy9dYMrK/d5f201fa8fe7f10141799b7320df971e/malcious__1_.png)
+![第三者攻撃](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E7%AC%AC%E4%B8%89%E8%80%85%E6%94%BB%E6%92%83.png)
 
 送信者と受信者の間に攻撃者が居ます。その攻撃者は送られてくるメッセージを改ざんします。メッセージだけを改ざんしたら署名検証で改ざんされたことがバレてしまうため、攻撃者の秘密鍵を用いて電子署名を生成し、秘密鍵に対応する攻撃者の公開鍵を送信します。そうすると、受信者は攻撃者のメッセージ・電子署名・公開鍵を受け取ります。当然その組み合わせは正しいものなので検証は成功してしまいます。
 
@@ -295,13 +295,13 @@ DSAの署名生成方法や検証方法などは[別記事](https://blog.sa2taka
 
 なので、下図のように、主体者（=公開鍵の持ち主）の名前が書いてあるので、主体者が想定しているかどうかを検証すれば問題解決ですね！ 
 
-![電子証明書を利用](https://images.ctfassets.net/xw0ljpdch9v4/2eS7mCZYnnOAbtaqpQGQDp/49fceec44d40b0c960a7ff12c47d172c/malcious2.png)
+![主体者がある場合](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E4%B8%BB%E4%BD%93%E8%80%85%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88.png)
 
 ……本当でしょうか。
 
 ここまで読まれた方なら「**じゃあ攻撃者が電子証明書の主体者を『送信者』として送ったらどうするの?**」と思われる方もいるかもしれません。つまり下図のような場合どうするの? という話です。
 
-![電子証明書も改ざんされた場合](https://images.ctfassets.net/xw0ljpdch9v4/AH2mULdU4SUVPi8UxJbnf/7ab525a53f2a693199237cd4f446be22/malcious3.png)
+![主体者も改ざんされた場合](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E4%B8%BB%E4%BD%93%E8%80%85%E3%82%82%E6%94%B9%E3%81%96%E3%82%93%E3%81%95%E3%82%8C%E3%81%9F%E5%A0%B4%E5%90%88.png)
 
 そう、証明書検証が成功しますね。
 
@@ -321,7 +321,7 @@ DSAの署名生成方法や検証方法などは[別記事](https://blog.sa2taka
 
 電子署名は任意のメッセージに署名をつけることで改ざんを防ぐことができます。つまり、**電子証明書に署名をくっつければ、改ざんを防ぐことができるのではないでしょうか**? つまり下図みたいな感じ。
 
-![証明書チェーン](https://images.ctfassets.net/xw0ljpdch9v4/5bSkpkDEMre1PkDd7woY2K/ce5c0f8201348313b0078f8f491a59c0/certificate_chain.png)
+![証明書チェーン](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3.png)
 
 電子証明書を署名してくれる機関のことを**認証局**または**CA**と呼びます。認証局もまた秘密鍵及び電子証明書を持っています。
 

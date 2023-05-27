@@ -55,9 +55,9 @@ app.get('/api/images', async (req, res) => {
 app.post('/api/upload-to-local', upload.array('images[]'), async (req, res) => {
   await Promise.all(
     Object.values(req.files ?? {}).map(async (file) => {
-      const converted = Buffer.from(file.originalname, 'latin1').toString(
-        'utf8'
-      );
+      const converted = Buffer.from(file.originalname, 'latin1')
+        .toString('utf8')
+        .normalize();
       await uploadImageToStorage(converted);
     })
   );

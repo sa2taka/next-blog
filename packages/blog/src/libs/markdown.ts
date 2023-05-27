@@ -136,13 +136,14 @@ const myWebpConvertPlugin = (md: MarkdownIt) => {
       return imgRender(tokens, idx, options, env, self);
     }
 
-    const m = src.match(/\/\/images\.ctfassets\.net/);
+    const m = src.match(
+      /\/\/storage\.googleapis\.com\/sa2taka-next-blog\.appspot\.com/gi
+    );
     if (!m) {
       return imgRender(tokens, idx, options, env, self);
     }
 
-    const token = src.includes('?') ? '&' : '?';
-    const webp = `${src}${token}fm=webp`;
+    const webp = src.replace(/\.[^.]+$/, '.webp');
     const imgTag = imgRender(tokens, idx, options, env, self);
     const webpTag = `<source srcset="${webp}" type="image/webp"/>`;
     return `<picture>${webpTag}${imgTag}</picture>`;

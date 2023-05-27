@@ -16,7 +16,7 @@ description:
 はじめまして。晴れてブログを作成することが出来ました、とっぷらです。
 
 突然ですが、これがトップページのLighthouseの結果だ!
-![my blog lighthouse result](https://images.ctfassets.net/xw0ljpdch9v4/3XDsPCImwrpilLYuzpIBoD/72e539b3564a77be14949f082e5b1468/image.png?h=250)
+![全て100点のLighthouseの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%85%A8%E3%81%A6100%E7%82%B9%E3%81%AELighthouse%E3%81%AE%E7%B5%90%E6%9E%9C.png)
 
 本ブログのトップページ画面にて、見事花火を上げることが出来ました!
 
@@ -44,7 +44,8 @@ description:
 
 一応画像に起こしてみましたが、あまり大した構成ではないですね。
 
-![ブログのアーキテクチャ](https://images.ctfassets.net/xw0ljpdch9v4/4lWL6sKIFIkr1HooFBDxdK/e4d187996ce6cefeb79cc294ab349868/D67pDOs.png?w=640)
+![ブログのアーキテクチャ](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/blog%20architecture.png)
+
 ## Nuxt.js
 
 [Nuxt.js](https://ja.nuxtjs.org)は、Vue.jsのフレームワークの一つです。Vueの機能を使いつつ、より便利な機能やルールを追加したフレームワークです。具体的に言うと、Vue-routerやVue-loader、Vuexなどの主要ライブラリがデフォルトでくっついてきたり、SPAだけではなく、SSRや静的ページの生成などもサポートしています。
@@ -167,13 +168,13 @@ GAEは未だにNode v12で実行できないのが痛いですが、デプロイ
 
 # Lighthouseのパフォーマンスの対応
 
-![LighthouseのPerformanceの結果](https://i.imgur.com/io3D7Fz.png)
+![Lighthouseのパフォーマンスの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Lighthouse%E3%81%AE%E3%83%8F%E3%82%9A%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%81%AE%E7%B5%90%E6%9E%9C.png)
 
 Lighthouseのパフォーマンスですが、実はあまり大したことはやってません。おそらくNuxtがデフォルトでよしなにやってくれるのとGAEがそれなりに早いこと、そしてあまり複雑な処理がまだないためだと考えられます。
 
 ちなみに完成直後はこんな感じ。何もしてなくても、結構点数が高いですね。
 
-![lighthouseの完成直後の結果](https://i.imgur.com/fVgppiQ.png)
+![改善前のLighthouseの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E6%94%B9%E5%96%84%E5%89%8D%E3%81%AELighthouse%E3%81%AE%E7%B5%90%E6%9E%9C.png)
 
 ## ファイル・バンドルサイズの削減
 
@@ -191,7 +192,7 @@ Lighthouseのパフォーマンスですが、実はあまり大したことは�
 
 まずは何もしない場合、`yarn build --analyze`を行った結果です[^nuxt-analyze]。
 
-![何もしてないhighlight.jsのバンドルサイズ](https://i.imgur.com/pFBJotG.png)
+![highlight.jsが占める割合が大きい](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/highlight.js%E3%81%8B%E3%82%99%E5%8D%A0%E3%82%81%E3%82%8B%E5%89%B2%E5%90%88%E3%81%8B%E3%82%99%E5%A4%A7%E3%81%8D%E3%81%84.png)
 
 少し小さくて見づらいですが、なんとhighlight.jsだけで1.04MBあります。でかすぎる。Gzipで圧縮しても245kB。
 流石にこれは考えたほうがいいですね。今後mathematicaやisbl、gmlを使ったブログを書く気はおそらくありませんもの。
@@ -247,7 +248,7 @@ import hljs from './hljs';
 
 #### 結果
 
-![バンドルサイズを小さくしたhighlight.js](https://i.imgur.com/cNWUBNS.png)
+![改善した結果highlight.jsを97%削減](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E6%94%B9%E5%96%84%E3%81%97%E3%81%9F%E7%B5%90%E6%9E%9Chighlight.js%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%B9%E3%82%99%E3%82%92%E5%A4%A7%E5%B9%85%E5%89%8A%E6%B8%9B.png)
 
 58.65kB、gzipで圧縮すると7.98kBまで圧縮されました! 
 元のファイルから97%程削減した、と考えると凄まじい効果ですね。
