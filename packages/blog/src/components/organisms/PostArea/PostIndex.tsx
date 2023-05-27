@@ -92,26 +92,6 @@ const FirstIndex = styled.li`
   }
 `;
 
-const SubIndexUl = styled.ul`
-  margin-left: 2.5em;
-`;
-
-const SecondIndex = styled.li`
-  margin-top: 8px;
-  margin-bottom: 8px;
-  list-style: none;
-
-  &::before {
-    width: 6px;
-    height: 6px;
-    top: 0.5em;
-    content: '';
-    border-radius: 50%;
-    left: -12px;
-    margin: auto;
-  }
-`;
-
 export const PostIndex: React.FC<Props> = ({ index }) => {
   const formattedPostIndex = useMemo(() => formatPostIndex(index), [index]);
   return (
@@ -121,18 +101,6 @@ export const PostIndex: React.FC<Props> = ({ index }) => {
         {formattedPostIndex.map((level1) => (
           <FirstIndex key={`${level1.level}-${level1.title}`}>
             <IndexLink href={`#${level1.title}`}>{level1.title}</IndexLink>
-
-            {level1.child.length !== 0 && (
-              <SubIndexUl>
-                {level1.child.map((level2) => (
-                  <SecondIndex key={`${level2.level}-${level2.title}`}>
-                    <IndexLink href={`#${level2.title}`}>
-                      {level2.title}
-                    </IndexLink>
-                  </SecondIndex>
-                ))}
-              </SubIndexUl>
-            )}
           </FirstIndex>
         ))}
       </PostIndexOl>
