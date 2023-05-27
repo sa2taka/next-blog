@@ -1,17 +1,32 @@
+'use client';
+
 import { Image } from 'packages/image-manager-client/src/model/image';
-import React from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { ImageInfo } from './ImageInfo';
 
-export const ImageList = async ({}) => {
-  const images: Image[] = (
-    await (await fetch('http://localhost:10010/api/images')).json()
-  ).result;
+export const ImageList: React.FC<{ images: Image[] }> = ({ images }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const displayImages = useMemo(
+    () => images.filter(({ filename }) => filename.includes(searchQuery)),
+    [images, searchQuery]
+  );
+
+  const onChangeInput = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchQuery(e.target.value);
+    },
+    []
+  );
 
   return (
-    <div className="image-list">
-      {images.map((image) => (
-        <ImageInfo image={image} key={image.filepath} />
-      ))}
-    </div>
+    <>
+      <input value={searchQuery} onChange={onChangeInput} />
+      <div className="image-list">
+        {displayImages.map((image) => (
+          <ImageInfo image={image} key={image.filepath} />
+        ))}
+      </div>
+    </>
   );
 };
