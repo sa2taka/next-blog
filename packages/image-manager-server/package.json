@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@types/cors": "^2.8.13",
-    "@types/node": "18.16.16",
+    "@types/node": "18.16.17",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "eslint": "8.42.0",
