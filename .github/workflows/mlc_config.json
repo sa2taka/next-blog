@@ -8,12 +8,19 @@
     },
     {
       "pattern": "^https?://localhost"
+    },
+    {
+      "pattern": "^[^/h]"
     }
   ],
   "replacementPatterns": [
     {
       "pattern": "^/",
       "replacement": "https://blog.sa2taka.com/"
+    },
+    {
+      "pattern": "）.+$",
+      "replacement": ""
     }
   ],
   "timeout": "20s",
