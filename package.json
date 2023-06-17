@@ -10,19 +10,26 @@
     "build": "yarn workspace blog run build",
     "start": "yarn workspace blog run start",
     "lint": "yarn workspaces run lint",
+    "lint:post": "yarn textlint _data/_post",
+    "lint:post:deadlink": "yarn textlint --rule no-dead-link _data/_post",
     "build:all": "yarn workspaces run build",
     "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
   },
   "devDependencies": {
-    "eslint": "8.43.0",
-    "eslint-config-next": "13.4.6",
-    "next-sitemap": "^4.0.0",
-    "prettier": "^2.5.1",
-    "typescript": "5.0.4",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "8.43.0",
+    "eslint-config-next": "13.4.6",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5"
+    "eslint-plugin-import": "^2.27.5",
+    "next-sitemap": "^4.0.0",
+    "prettier": "^2.5.1",
+    "textlint": "^13.3.2",
+    "textlint-filter-rule-allowlist": "^4.0.0",
+    "textlint-rule-no-dead-link": "^5.1.2",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0",
+    "textlint-rule-preset-jtf-style": "^2.3.13",
+    "typescript": "5.0.4"
   },
   "workspaces": [
     "packages/*"
