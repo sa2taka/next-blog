@@ -11,7 +11,6 @@
     "start": "yarn workspace blog run start",
     "lint": "yarn workspaces run lint",
     "lint:post": "yarn textlint _data/_posts",
-    "lint:post:deadlink": "yarn textlint --rule no-dead-link _data/_posts",
     "build:all": "yarn workspaces run build",
     "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
   },
@@ -26,7 +25,6 @@
     "prettier": "^2.5.1",
     "textlint": "^13.3.2",
     "textlint-filter-rule-allowlist": "^4.0.0",
-    "textlint-rule-no-dead-link": "^5.1.2",
     "textlint-rule-preset-ja-technical-writing": "^7.0.0",
     "textlint-rule-preset-jtf-style": "^2.3.13",
     "typescript": "5.0.4"
