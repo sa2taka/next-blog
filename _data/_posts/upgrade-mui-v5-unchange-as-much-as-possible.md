@@ -14,7 +14,7 @@ description:
 
 ハローワールド
 
-Material UIはReactの著名なUIフレームワークの一つです。
+Material UIはReactの著名なUIフレームワークの1つです。
 2021年9月、バージョン5に上がったタイミングで[MUI](https://mui.com/)に名前も変わりました。
 すでに一年経っており、しかもMaterial UI v4はReact v18に対応してないのもあり、早急なアップデートが必要です。
 
@@ -70,7 +70,7 @@ root.render(<App />);
 
 # V5へアップグレード
 
-MUI v5へのアップグレードは、[丁寧なマイグレーションガイドもあり](https://mui.com/material-ui/migration/migration-v4/)、codemodがあるため大量にコンポーネントがある場合もコマンド一つで変更できます。
+MUI v5へのアップグレードは、[丁寧なマイグレーションガイドもあり](https://mui.com/material-ui/migration/migration-v4/)、codemodがあるため大量にコンポーネントがある場合もコマンド1つで変更できます。
 
 [MUI v4 から v5 の移行に役立つツール codemods](https://www.gaji.jp/blog/2022/07/12/10437/)で紹介されていますが、下記のコマンドを実行することでインポートが変化します。
 
@@ -101,7 +101,7 @@ $ npx @mui/codemod v5.0.0/top-level-imports path/to/component/root
 
 MUIにはstyledという機能があります。これはemotionとかにある `styled` と同じで、コンポーネントに特定のスタイルを設定でき、それを使いまわることが出来る機能です。
 
-このstyledですが、特定のpropsを付与することができます。例えば、下記は `fontSize`を指定できる機能です。
+このstyledですが、特定のpropsを付与できます。例えば、下記は `fontSize`を指定できる機能です。
 下記はMaterial UI v4では動作します。
 
 ```typescript
@@ -191,7 +191,7 @@ v4の動作のほうが楽だし、いちいち `underline="hover"` なんてつ
 MUIのThemeはカラーパレットなどを変えられるだけではなく、コンポーネントの動作を変えることができます。
 例えばデフォルトのpropsの値や、見た目のオーバーライドができます。例えば `Link` コンポ―ネントの `underline` のデフォルト値を `hover` に変えることも簡単です。
 
-下記は v4の動作に可能な限り戻したテーマの設定です。
+下記はv4の動作に可能な限り戻したテーマの設定です。
 
 ```typescript
 // v4のデフォルトの値です
@@ -398,6 +398,6 @@ root.render(<App />);
 
 ![Material UI v4の見た目](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Material%20v4.png)
 
-このように、Themeを活用することで v4の見た目や使い心地をほぼ維持したまま v5にアップグレードできます。
+このように、Themeを活用することでv4の見た目や使い心地をほぼ維持したままv5にアップグレードできます。
 
 余白に関しては、あまり見た目に拘っているわけでもないのと、気づくレベルではないので、違いを受容してそのままにしています。そのため余白も完璧に一致させたい場合は、上記のテーマをさらに修正する必要があります。

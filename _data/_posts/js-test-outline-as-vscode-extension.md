@@ -23,7 +23,7 @@ VSCodeでテストを書く時、どんなdescribeがあるか、どんなtest(i
 # 完成品
 
 https://marketplace.visualstudio.com/items?itemName=sa2taka.js-test-outline
-コード: https://github.com/sa2taka/js-test-outline
+コード： https://github.com/sa2taka/js-test-outline
 
 ![JS Test Outlineのプレビュー](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/simple-test-outline.png)
 
@@ -71,7 +71,7 @@ TreeItemクラスを継承することでTreeViewのItemとして実装できま
 
 まず `name` はTreeViewに表示される名前です。
 `description`は `name` の右側に薄く表示されるものです。
-`children` はその名の通り、項目の子供です。自分自身と同じ型の配列を取り、TreeView上で一つ下のインデントとして表現されます。
+`children` はその名の通り、項目の子供です。自分自身と同じ型の配列を取り、TreeView上で1つ下のインデントとして表現されます。
 `iconPath`はTreeViewに表示するアイコンのパスです。指定しなければ何も表示されません。また今回は後術しますがVSCodeにデフォルトで存在するIconを利用するので`TreeItem`というクラスを利用します。
 最後に`command`ですが、これはクリックしたときに発動するコマンドを表します。今回は、クリックしたテストの定義場所に遷移したいので、そのコマンドを記載してます。
 
@@ -139,11 +139,11 @@ export const activate = async (context: ExtensionContext) => {
 }
 ```
 
-viewsの説明は [VSCodeのAPI](https://code.visualstudio.com/api/references/contribution-points#contributes.views)に記載されているとおりです。上記の設定をした後 コマンドパレットから `Focus on <name> view` というコマンドを実行するとViewが表示されます。
+viewsの説明は [VSCodeのAPI](https://code.visualstudio.com/api/references/contribution-points#contributes.views)に記載されているとおりです。上記の設定をした後コマンドパレットから `Focus on <name> view` というコマンドを実行するとViewが表示されます。
 
 ## TreeViewを更新する
 
-上記だけだと、一回表示したきりTreeViewは更新されません。今回で言えばファイルが編集されるたびにTreeViewは更新したいです。
+上記だけだと、1回表示したきりTreeViewは更新されません。今回で言えばファイルが編集されるたびにTreeViewは更新したいです。
 
 [VSCodeに記載されている方法](https://code.visualstudio.com/api/extension-guides/tree-view#updating-tree-view-content)を参考にすれば好きなタイミングで更新できます。
 
@@ -223,7 +223,7 @@ const guessKind = (config: { isReact: boolean; isJs: boolean }): ScriptKind => {
 };
 ```
 
-`typescript`内にある`createSourceFile`によりASTを取得することが出来ます。第一引数がファイル名、第二引数がコード本体、第三引数がターゲット、第四引数がASTに`parent`を付与するか(という意味合いだと思いますが、trueにしておかないと実行時エラーが発生する処理があるので、true推奨だと思われます)、第五引数がコードが何であるかを表します(今回はJS、TS、React対応を一応しています)。
+`typescript`内にある`createSourceFile`によりASTを取得することが出来ます。第一引数がファイル名、第二引数がコード本体、第三引数がターゲット、第四引数がASTに`parent`を付与するか（という意味合いだと思いますが、trueにしておかないと実行時エラーが発生する処理があるので、true推奨だと思われます）、第五引数がコードが何であるかを表します（今回はJS、TS、React対応を一応しています）。
 
 TypeScriptのASTの結果は[TypeScript AST Viewer](https://ts-ast-viewer.com/#)で確認できます。
 
@@ -300,7 +300,7 @@ export const activate = async (context: ExtensionContext) => {
 
 まずVSCodeで移動をするのにはbuilt-in commandの[goToLocations](https://code.visualstudio.com/api/references/commands#:~:text=editor.action.goToLocations)を利用します。
 
-今回はシンプルに対象に遷移したかっただけなので、第三(コマンドの第二)引数の`start`に値を入れるだけです。
+今回はシンプルに対象に遷移したかっただけなので、第三（コマンドの第二）引数の`start`に値を入れるだけです。
 
 `start`は`Position`クラスであり、`Position`クラスは`line`と`character`、つまり何行目の何文字目かを表すものを指定します。
 
@@ -321,4 +321,4 @@ export const activate = async (context: ExtensionContext) => {
 それを何行目、何文字目かに変換するのが`SourceFile#getLineAndCharacterOfPosition`です。
 
 ただし、`tsNode.start`を引数に渡すと想定していない場所が返ってきます。というのも`tsNode.start`は空白や改行を含んだ場所を返します。
-なので、そういった空白や改行を含んだものではなく、ちゃんと式(など)が始まる場所を取得する場合は`Node#getStart`を利用しましょう。
+なので、そういった空白や改行を含んだものではなく、ちゃんと式（など）が始まる場所を取得する場合は`Node#getStart`を利用しましょう。

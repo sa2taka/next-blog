@@ -48,7 +48,7 @@ Java Silverの模試みたいなのを解いてみて（前職では積極的に
 
 ## PlayFramework
 
-Java/ScalaのWebフレームワークです。個人的には[以前調査した時](https://blog.sa2taka.com/post/jvm-languages-as-server-side)には悪くないフレームワークだなぁと思っていました。
+Java/ScalaのWebフレームワークです。個人的には[以前調査した時](https://blog.sa2taka.com/post/jvm-languages-as-server-side/)には悪くないフレームワークだなぁと思っていました。
 いざ触ってみると
 
 - 日本語版のドキュメントがだいぶ前のもの
@@ -101,7 +101,7 @@ Powershellは.NET系のライブラリは何でも使えるという特性があ
 
 ## 電子署名
 
-1月～3月は、特にマイナンバーカードとの対決でした。色々紆余曲折していましたが、[DigestInfoとだけ言われた私への手向け歌](https://blog.sa2taka.com/post/digestinfo-journey)とか[電子署名について一歩踏み込んで知る](https://blog.sa2taka.com/post/digital-signature-foundation)みたいな記事を記載するぐらいにはちゃんとやってました。
+1月～3月は、特にマイナンバーカードとの対決でした。色々紆余曲折していましたが、[DigestInfoとだけ言われた私への手向け歌](https://blog.sa2taka.com/post/digestinfo-journey/)とか[電子署名について一歩踏み込んで知る](https://blog.sa2taka.com/post/digital-signature-foundation/)みたいな記事を記載するぐらいにはちゃんとやってました。
 
 この頑張りを分かってもらえる人が多くないのがツラミポイント。
 
@@ -127,7 +127,7 @@ TypeScript単体では、個人開発でも全然高いレベルまで学べて�
 
 フロントエンドはReact・Next.jsを利用しており、転職前までは正直そこまでReact書いていたわけではないのですが（あんまり個人開発をしていなかった）、勉強していた分すんなり入れています。後、社内用ツールみたいな立ち位置なので見た目に高いこだわりが無いのと、僕に割り振られている処理がほぼ裏のドメイン処理なので、そこまで書いてないのはありますが。
 
-React自体はv16.8のReact Hooksという弾丸を授かった後に勉強をしだしたので、まだClass-basedなコンポーネントが残る現状のソースコード、読みづらい部分がある。昔からReact触っていた人からしたらこういう人がいるんだなぁと思われるでしょうし、私自身もVue3しか知らない人がいたら同じような驚きを持つ気がします。Vue3は正式版になってから1ヶ月と立ってないけど……。
+React自体はv16.8のReact Hooksという弾丸を授かった後に勉強をしだしたので、まだClass-basedなコンポーネントが残る現状のソースコード、読みづらい部分がある。昔からReact触っていた人からしたらこういう人がいるんだなぁと思われるでしょうし、私自身もVue3しか知らない人がいたら同じような驚きを持つ気がします。Vue3は正式版になってから1か月と立ってないけど……。
 
 SuspnedやServer-side RenderingやNextのSSR Streamingなどどんどん新機能が追加されていく中、なんとか追いかけていけているなぁと思っています。
 

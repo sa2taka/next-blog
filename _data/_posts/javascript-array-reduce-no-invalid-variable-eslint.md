@@ -94,17 +94,17 @@ const addNames = (animalNames: AnimalNames, data: Info[]) => {
 
 上記に関してはモデルが悪いとか操作の方法が悪いとかあると思います。また、単純に`reduce`を使うのが悪いということで、[reduceを禁じるlint](https://www.npmjs.com/package/eslint-plugin-no-array-reduce)なんかもあったりします。for-ofとかで代用できるよね、ということで。
 
-しかし、個人的にはreduceはあんまり禁じたくないです。なので、「**reduceの第二引数に指定された初期値を、第一引数の関数内で利用されたら問題とする**」というlintを作成すれば上記を回避できるのでは? と考え、今回lintを作成しました。
+しかし、個人的にはreduceはあんまり禁じたくないです。なので、「**reduceの第二引数に指定された初期値を、第一引数の関数内で利用されたら問題とする**」というlintを作成すれば上記を回避できるのでは？　と考え、今回lintを作成しました。
 
 # Reduceの第二引数に指定された初期値を、第一引数の関数内で利用されているかを検知するルール
 
-上記の問題を検知するためのルールを作成したのが下記です。ちなみに、下記をインストールしても、特にESLintで動くとかない(そもそもライブラリを公開していない)ので、あくまでコードの参考となれば。
+上記の問題を検知するためのルールを作成したのが下記です。ちなみに、下記をインストールしても、特にESLintで動くとかない（そもそもライブラリを公開していない）ので、あくまでコードの参考となれば。
 
 https://github.com/sa2taka/no-invalid-reduce-variable-eslint-rule
 
 上記のコードのテスト[^test-code]を確認すれば、どの場合にエラーになるかなどがわかります。
 
-[^test-code]: テストコードがarrow function(`() => { }`)でなくて普通の匿名関数(`function () { }`)を利用している理由は、なぜかarrow functiondだとテストが動かないからです。lintとして動かす場合は問題なく動きます
+[^test-code]: テストコードがarrow function(`() => { }`)でなくて普通の匿名関数（`function () { }`)を利用している理由は、なぜかarrow functiondだとテストが動かないからです。lintとして動かす場合は問題なく動きます
 
 ## Fail
 
@@ -132,7 +132,7 @@ arr.reduce(function(acc) { return { count: count1 } }, { count: count1 })
 arr.reduce(function(acc) { return obj.count }, obj)
 ```
 
-第二引数がプロパティ参照(Member Expression)の場合は、Member Expression全体が一致しているかを確認します
+第二引数がプロパティ参照（Member Expression)の場合は、Member Expression全体が一致しているかを確認します
 
 ```typescript
 arr.reduce(function(acc) { return obj.count }, obj.count)
@@ -209,4 +209,4 @@ arr.reduce(function(acc) { return {} }, {});
 
 https://github.com/sa2taka/no-invalid-reduce-variable-eslint-rule/blob/main/src/visit.ts
 
-動作を見るとすごーく単純で、`for-in`を利用し、対象のプロパティをすべて調べます。その中でNodeっぽい値(具体的にはオブジェクトでプロパティ`type`が空文字以外の文字列の場合)に関して、同じことを行います。ESLintの場合は特殊で`parent`に親の情報が詰まっているので、それを省いています。
+動作を見るとすごーく単純で、`for-in`を利用し、対象のプロパティをすべて調べます。その中でNodeっぽい値（具体的にはオブジェクトでプロパティ`type`が空文字以外の文字列の場合）に関して、同じことを行います。ESLintの場合は特殊で`parent`に親の情報が詰まっているので、それを省いています。

@@ -24,7 +24,7 @@ description:
 
 証明書関連の文脈上に出てくるAPIであることと、昔この単語を聞いた覚えがあったのもあり、証明書関連の単語であり、おそらく署名対象のデータを表すものであることはすぐに分かりました。
 
-最終的には下記のバイト列(正確にはそれをBase64エンコードしたもの)を送るのが正解だったのですが、`DigestInfo`とだけ言われてから下記のバイト列まで行き着くまでの道程は非常に濃いものとなったため、今後似たような経験に遭遇した人たちのための標となることを祈って書き残し、私への手向けとします。
+最終的には下記のバイト列（正確にはそれをBase64エンコードしたもの）を送るのが正解だったのですが、`DigestInfo`とだけ言われてから下記のバイト列まで行き着くまでの道程は非常に濃いものとなったため、今後似たような経験に遭遇した人たちのための標となることを祈って書き残し、私への手向けとします。
 
 ```
 30 31 30 0d 06 09 60 86
@@ -58,7 +58,7 @@ PKCS #7は公開鍵の標準を示したPKCS(Public-Key Cryptography Standards)�
 
 [^x.680]: https://www.itu.int/itu-t/recommendations/rec.aspx?rec=x.680
 
-ASN.1には基本の型があり、例えば可視可能文字列(PrintableString)や整数型(INTEGER)、後ほど出てきますが何もないことを表すNULL型(NULL)などがあります。上記の`DigestInfo`の定義で出てくる`SEQUENCE`も基本形であり、これは順序を持った複数の値(型)を表すものです。つまり、`DigestInfo`は`DigestAlgorithmIdentifier`という型の`digestAlgorithm`と`Digest`という型を持った`digest`が連続した値、ということを表しています。
+ASN.1には基本の型があり、例えば可視可能文字列（PrintableString)や整数型（INTEGER)、後ほど出てきますが何もないことを表すNULL型（NULL)などがあります。上記の`DigestInfo`の定義で出てくる`SEQUENCE`も基本形であり、これは順序を持った複数の値（型）を表すものです。つまり、`DigestInfo`は`DigestAlgorithmIdentifier`という型の`digestAlgorithm`と`Digest`という型を持った`digest`が連続した値、ということを表しています。
 
 では`DigestAlgorithmIdentifier`と`Digest`は一体何なんだと言うことです。どちらもX.680では規定されていないため、どこかに定義が記載されているはずです。
 
@@ -73,7 +73,7 @@ Digest ::= OCTET STRING
 `OCTET STRING`はX.680にも規定があり、簡単に言えばバイト列を表すものです。なのでDigestは単純なバイト列であることがわかります。  
 当然、ただのバイト配列では駄目で、`digest is the result of the message-digesting process.`と記載されています。つまり**Digestはメッセージのハッシュ化した結果のバイト列**であることがここでわかります。
 
-ちなみに、オクテットとは8bitのことであり(octoは8って意味ですね)、現在は事実上1byteと同じ意味です。昔は1byteが4bitだったり6bitだったり環境依存だったらしいので、8bitの固定長を表すのにオクテットが利用されていました。本記事では今後バイト(byte)と記載します。
+ちなみに、オクテットとは8bitのことであり（octoは8って意味ですね）、現在は事実上1byteと同じ意味です。昔は1byteが4bitだったり6bitだったり環境依存だったらしいので、8bitの固定長を表すのにオクテットが利用されていました。本記事では今後バイト（byte)と記載します。
 
 ## DigestAlgorithmIdentifier
 
@@ -97,9 +97,9 @@ DigestAlgorithmIdentifier ::= AlgorithmIdentifier
 ここではX.509ではなく、X.509の証明書などについて記載された[RFC5280](https://tools.ietf.org/html/rfc5280)[^RFC5280][^RFC5280-japanese]を確認してみます。
 
 [^RFC5280]: https://tools.ietf.org/html/rfc5280
-[^RFC5280-japanese]: RFC5280は有名なRFCの一つでもあるので、日本語訳も存在します。IPAからも出ているため(https://www.ipa.go.jp/security/rfc/RFC5280-00JA.html)こちらを読むのもいいでしょう。
+[^RFC5280-japanese]: RFC5280は有名なRFCの1つでもあるので、日本語訳も存在します。IPAからも出ているため（https://www.ipa.go.jp/security/rfc/RFC5280-00JA.html)こちらを読むのもいいでしょう。
 
-[Section 4.1.1.2](https://tools.ietf.org/html/rfc5280#section-4.1.1.2)にビンゴな定義が記載されています。
+[Section 4.1.1.2](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.1.2)にビンゴな定義が記載されています。
 
 ```
 AlgorithmIdentifier  ::=  SEQUENCE  {
@@ -107,10 +107,10 @@ AlgorithmIdentifier  ::=  SEQUENCE  {
         parameters              ANY DEFINED BY algorithm OPTIONAL  }
 ```
 
-`AlgorithmIdentifier`は`OBJECT IDENTIFIER`の`algorithm`と`algorithm`で定義されている`OPTIONAL`(省略可能)な`ANY`(何でも入れていい型)であることがわかります。`algorithm`はさておきとして、`parameter`はその名の通りアルゴリズムに指定するパラメーターなのでしょう。
+`AlgorithmIdentifier`は`OBJECT IDENTIFIER`の`algorithm`と`algorithm`で定義されている`OPTIONAL`(省略可能）な`ANY`(何でも入れていい型）であることがわかります。`algorithm`はさておきとして、`parameter`はその名の通りアルゴリズムに指定するパラメーターなのでしょう。
 
 さて`OBJECT IDENTIFIER`ですが、これはoidとも呼ばれるもので、ituが定めたオブジェクトを識別するためのIDのことを言っています。[Wikipediaの記事](https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E8%AD%98%E5%88%A5%E5%AD%90)の記載が詳しいです。  
-この`OBJECT IDENTIFIER`、実はX.680の定義にも記載があるため、基本の型の一つです。
+この`OBJECT IDENTIFIER`、実はX.680の定義にも記載があるため、基本の型の1つです。
 
 今回はハッシュ化アルゴリズムを指定します。OIDでは、ハッシュ化アルゴリズムは`2.16.840.1.101.3.4.2`に定義されています。[OID Repository](http://oid-info.com/get/2.16.840.1.101.3.4.2)[^oidrepository]というサイトで検索してみると22個のハッシュ化アルゴリズムがあることがわかります。例えば、SHA256のOIDは`2.16.840.1.101.3.4.2.1`であることがわかります。
 
@@ -134,7 +134,7 @@ DigestInfo ::= SEQUENCE {
      digest OCTET STRING }
 ```
 
-この時`algorithm`はハッシュアルゴリズムを指定します。例えばSHA256であれば`{joint-iso-itu-t(2) country(16) us(840) organization(1) gov(101) csor(3) nistAlgorithms(4) hashalgs(2) sha256(1)}`ということですね。そして、`digest`は、そのハッシュアルゴリズムでハッシュ化した値(署名対象データ)であることが必須です。
+この時`algorithm`はハッシュアルゴリズムを指定します。例えばSHA256であれば`{joint-iso-itu-t(2) country(16) us(840) organization(1) gov(101) csor(3) nistAlgorithms(4) hashalgs(2) sha256(1)}`ということですね。そして、`digest`は、そのハッシュアルゴリズムでハッシュ化した値（署名対象データ）であることが必須です。
 
 ここまで来ると`DigestInfo`がどういったデータなのかはわかったかと思います。
 
@@ -142,11 +142,11 @@ DigestInfo ::= SEQUENCE {
 
 ここまで来て何を送れば良いのかはわかりましたが、**どうやって送れば良いのか**、それに関しては仕様書には一切記載がありません。この仕様書だけでどうやって俺はデータを送れば良いんだよ。
 
-幸いデータ例があったので、これは**DER**(正確にはBERかもしれない)で変換して送信することがわかりました。
+幸いデータ例があったので、これは**DER**(正確にはBERかもしれない）で変換して送信することがわかりました。
 
 ## DER
 
-証明書関連でPEMという言葉がよく出てきます。これは証明書のエンコーディングの一つです。このPEMは大体下記のような形式です。
+証明書関連でPEMという言葉がよく出てきます。これは証明書のエンコーディングの1つです。このPEMは大体下記のような形式です。
 
 ``` plaintext:certificate.epm
 -----BEGIN PUBLIC KEY-----
@@ -163,7 +163,7 @@ dwIDAQAB
 
 ASN.1形式のデータをDERで変換する際、基本的にTAG + LENGTH + VALUEの3つのバイト列を連結して1つのデータを表します。
 
-TAGというのは、ASN.1の型です。例えば`OCTET STRING`であればタグは`04`(16進数)です。また、`SEQUENCE`は、タグ自体は`10`(16進数)ですが、構造を持つ型なので、6bit目に1が立ちます。結果として、タグは`30`(16進数)となります。[ANS.1 のタグ一覧](https://tex2e.github.io/blog/protocol/ans1-tags)に全体がまとまっているため詳細はお任せいたします。
+TAGというのは、ASN.1の型です。例えば`OCTET STRING`であればタグは`04`(16進数）です。また、`SEQUENCE`は、タグ自体は`10`(16進数）ですが、構造を持つ型なので、6bit目に1が立ちます。結果として、タグは`30`(16進数）となります。[ANS.1 のタグ一覧](https://tex2e.github.io/blog/protocol/ans1-tags)に全体がまとまっているため詳細はお任せいたします。
 
 LENGTHはその名の通りVALUEの長さを表します。VALUEの長さが128byte未満であれば、LENGTHにはその数字が入ります。128byte以上であれば、まず1byte目にLENGTHを表すのに利用するbyteを記載し、2byte目以降にVALUEのLENGTHを記載します。その際最初のbyteのbit8を1とします。
 
@@ -175,11 +175,11 @@ DigestInfoにはoidである`algorithm`があります。oidをDERで表現す�
 
 具体的には[C#でASN.1のObject Identifierのエンコードを行う](https://qiita.com/sukkyxp/items/69e142d07aa92aaa09c2#oid%E3%81%AE%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%89%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)に詳しいのですが、VALUEが素直にOIDをバイト列に直したものではないのです。
 
-OIDは最初は必ず、0, 1, 2のどれかなので、最初の値に40(=0x28)をかけ(つまり1なら40, 2なら80)、そこにOIDの2つ目の値を足し合わせます。  
+OIDは最初は必ず、0, 1, 2のどれかなので、最初の値に40(=0x28)をかけ（つまり1なら40, 2なら80)、そこにOIDの2つ目の値を足し合わせます。  
 例えばSHA256のOIDの最初2つは`2.16`です。なので$2 * 40 + 16 = 96 = 0\text{x}60$となります。
 
 また、SHA256ではOIDの中に840と128より大きな値があります。128より大きな値を記載する場合は、まず2進数で7bitごとに分割し、最後のbyteを除いてbit8の1を立てます。  
-例えば840では7bitづつに分割して(0b00000110 0b01001000 = 0x06 0x48)、最後のbyte以外のbit8を立てる(0b10000110 0b01001000 = 0x86 0x48)ということなので、最終的には`86 48`となります。
+例えば840では7bitづつに分割して（0b00000110 0b01001000 = 0x06 0x48)、最後のbyte以外のbit8を立てる（0b10000110 0b01001000 = 0x86 0x48)ということなので、最終的には`86 48`となります。
 
 それ以外は普通にバイトの値として組み合わせればいいので、SHA256を表すoid`2.16.840.1.101.3.4.2.1`はDERでエンコードすると`60 86 48 01 65 03 04 02 01`の9byteとなります。
 
@@ -199,7 +199,7 @@ DigestInfo ::= SEQUENCE {
      digest OCTET STRING }
 ```
 
-先程`algorithm`は作りました。`parameters`は`OPTIONAL`で不要でしょう(そしてこれが後ほど間違いとして時間をつぶすことになります)。
+先程`algorithm`は作りました。`parameters`は`OPTIONAL`で不要でしょう（そしてこれが後ほど間違いとして時間をつぶすことになります）。
 
 `SEQUENCE`のTAGは先程記載したとおり`30`です。そして中身は`algorithm`だけなのでVALUEの9byte + TAGとLENGTHの2byteで長さは11 = 0x0bです。なので`digestAlgorithm`は
 
@@ -249,15 +249,15 @@ DigestInfo ::= SEQUENCE {
       bb f0 36 7b 4d 1e 44 8d
 ```
 
-となります(実は違いました)。
+となります（実は違いました）。
 
 ## parametersの仕様
 
-上記の値でテストを行ってみたところ何故か動かないのです。実は `digestAlgorithm` の `parameters` の指定に罠(自分で勝手に引っかかった)がありました。
+上記の値でテストを行ってみたところ何故か動かないのです。実は `digestAlgorithm` の `parameters` の指定に罠（自分で勝手に引っかかった）がありました。
 
-実はPKCS #1のRFCである[RFC8017](https://tools.ietf.org/html/rfc8017#appendix-A.2.4)[^rfc8017]のAppendix A.2.4にはDigestInfoの定義が書いてあります。上記に記載されているものとは**異なります**。
+実はPKCS #1のRFCである[RFC8017](https://datatracker.ietf.org/doc/html/rfc8017#appendix-A.2.4)[^rfc8017]のAppendix A.2.4にはDigestInfoの定義が書いてあります。上記に記載されているものとは**異なります**。
 
-[^rfc8017]: https://tools.ietf.org/html/rfc8017
+[^rfc8017]: https://datatracker.ietf.org/doc/html/rfc8017
 
 ```
 DigestInfo ::= SEQUENCE {
@@ -289,10 +289,10 @@ PKCS1-v1-5DigestAlgorithms    ALGORITHM-IDENTIFIER ::= {
 >When id-sha1, id-sha224, id-sha256, id-sha384, id-sha512, id-sha512-224, and id-sha512-256 are used in an AlgorithmIdentifier, the parameters (which are optional) SHOULD be omitted, but if present, they SHALL have a value of type NULL. However, implementations MUST accept AlgorithmIdentifier values both without parameters and with NULL parameters.
 >> AlgorithmIdentifier に id-sha1、id-sha224、id-sha256、id-sha384、id-sha512、id-sha512-224、id-sha512-256 を使用する場合、(オプションである) **パラメータは省略すべきである**（SHOULD）が、存在する場合は NULL タイプの値を持たなければならない(SHALL)。ただし、実装ではAlgorithmIdentifierの値を、**パラメータなしでもNULLパラメータ付きでも受け入れなければなりません**（MUST）。
 
-と記載もあります(強調は筆者)。
+と記載もあります（強調は筆者）。
 
 ::: warning
-SHA2シリーズの暗号関連上での構文の定義が記載されている[RFC5754](https://tools.ietf.org/html/rfc5754#section-2)[^rfc5754]では、こんな記載があります。
+SHA2シリーズの暗号関連上での構文の定義が記載されている[RFC5754](https://datatracker.ietf.org/doc/html/rfc5754#section-2)[^rfc5754]では、こんな記載があります。
 
 >  Implementations MUST generate SHA2 AlgorithmIdentifiers with absent parameters.
 > > 実装では、パラメータが存在しない SHA2 AlgorithmIdentifiers を生成しなければならない(MUST)。
@@ -305,11 +305,11 @@ SHA2シリーズの暗号関連上での構文の定義が記載されている[
 様々なRFCでふわっふわした定義となっていますが、APIの利用者的にはRFCがどうこうというよりかは、最終的にAPIの挙動次第となっていまいますね。上記RFCではざっくり歴史的な経緯によりこうなっていると記載があるので、時間が解決してくれる問題かもしれません。
 :::
 
-[^rfc5754]: https://tools.ietf.org/html/rfc5754
+[^rfc5754]: https://datatracker.ietf.org/doc/html/rfc5754
 
 RFC的には入れても入れなくても問題はないようですが、結局動かないものは動かないのでparameterにNULLを入れて送らなければならないようです。
 
-nullと空では、実はDER形式では少し異なります。 DER形式ではNULL型という型があります。TAGは`05`、通常はLENGTHを`00`(つまりVALUEが空のデータ)として表現するようです。
+nullと空では、実はDER形式では少し異なります。 DER形式ではNULL型という型があります。TAGは`05`、通常はLENGTHを`00`(つまりVALUEが空のデータ）として表現するようです。
 
 ## 最終的なDERで変換したDigestInfo
 
@@ -342,10 +342,10 @@ DigestInfo ::= SEQUENCE {
 
 # さいごに
 
-DigestInfoという単語(とたった一つのデータ例)から正しいデータ列をいつでも生成する力を手に入れることができました。
+DigestInfoという単語（とたった1つのデータ例）から正しいデータ列をいつでも生成する力を手に入れることができました。
 こういった証明書やPKIなどでは、RFCやX.509などの定義を参照していればほぼ問題がないと思っていましたが、今回の例のように歴史的な経緯が買ったり、またバージョンによって大幅な転換があったりと、一筋縄では決して行かない難しさを感じました。
 
-とはいえ、ASN.1やDERといった知識はこういった部分では必須知識と考えて問題はないと思います。詳しく知ることができたこの(余り親切ではない)設計書に感謝ですね。
+とはいえ、ASN.1やDERといった知識はこういった部分では必須知識と考えて問題はないと思います。詳しく知ることができたこの（余り親切ではない）設計書に感謝ですね。
 
 # 参考文献
 
@@ -355,5 +355,5 @@ DigestInfoという単語(とたった一つのデータ例)から正しいデ�
 - [抽象記法](http://www5d.biglobe.ne.jp/stssk/asn1/basic.html)
 - [ANS.1 のタグ一覧 | 晴耕雨読](https://tex2e.github.io/blog/protocol/ans1-tags)
 - [C#でASN.1のObject Identifierのエンコードを行う - Qiita](https://qiita.com/sukkyxp/items/69e142d07aa92aaa09c2#3%E3%83%90%E3%82%A4%E3%83%88%E7%9B%AE%E4%BB%A5%E9%99%8D2b-06-01-02-01-01-05%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
-- [rfc8017](https://tools.ietf.org/html/rfc8017)
-- [rfc5754](https://tools.ietf.org/html/rfc5754)
+- [rfc8017](https://datatracker.ietf.org/doc/html/rfc8017)
+- [rfc5754](https://datatracker.ietf.org/doc/html/rfc5754)

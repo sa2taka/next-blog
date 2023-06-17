@@ -229,7 +229,7 @@ export function morningFirstCall() {
 
 次に`weatherText`関数ですが、内容が長すぎるので、詳細は[github](https://github.com/sa2taka/kanokai/blob/master/src/call.ts#L21-L108)です。
 
-今回天気APIとして利用しているのはweatherbitによる[Weather](https://api.rakuten.net/weatherbit/api/weather/endpoints)です。Rakuten Rapid APIのAPIの一つで、人気度、レスポンス速度、無料枠の量どれをとっても一級品です。様々な天気APIがあるので色々調べると良いかと思います。[^weather-yodan]。
+今回天気APIとして利用しているのはweatherbitによる[Weather](https://api.rakuten.net/weatherbit/api/weather/endpoints)です。Rakuten Rapid APIのAPIの1つで、人気度、レスポンス速度、無料枠の量どれをとっても一級品です。様々な天気APIがあるので色々調べると良いかと思います。[^weather-yodan]。
 
 [^weather-yodan]: 余談ですが、[今どきJSONPを返すAPI](https://api.rakuten.net/community/api/open-weather-map)なんかもあるので色々試してみると良いと思います。
 

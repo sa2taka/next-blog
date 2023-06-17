@@ -20,9 +20,9 @@ PWA[^pwa]、という単語も今では珍しい単語ではないと思われ�
 
 [^pwa]: Progressive Web Appの略。Webサイトをネイティブアプリのように扱える技術、とまとめられることが多い。Googleが主体となって動いてることもあり、Androidでの恩恵は高い。
 
-[本サイトはNuxtで出来ていますが](https://blog.sa2taka.com/post/blog-created-with-nuxt-typescript-contentful-and-etc#Nuxt.js)、Nuxtには[@nuxt/pwa](https://pwa.nuxtjs.org/)というライブラリがあり、数行の設定だけで簡単にPWAを利用することが出来ます。
+[本サイトはNuxtで出来ていますが](https://blog.sa2taka.com/post/blog-created-with-nuxt-typescript-contentful-and-etc/#Nuxt.js)、Nuxtには[@nuxt/pwa](https://pwa.nuxtjs.org/)というライブラリがあり、数行の設定だけで簡単にPWAを利用することが出来ます。
 
-そんな@nuxt/pwaですが、内部のモジュールに[Workbox](https://developers.google.com/web/tools/workbox)を利用しています。
+そんな@nuxt/pwaですが、内部のモジュールに[Workbox](https://developer.chrome.com/docs/workbox/)を利用しています。
 WorkboxはGoogle謹製のライブラリです。
 
 > JavaScript Libraries for adding offline support to web apps
@@ -32,7 +32,7 @@ WorkboxはGoogle謹製のライブラリです。
 
 # Workbox
 
-オフラインサポート、つまりオフラインでもWebアプリを利用するためにはどうすれば良いのか。これは(言うのは)非常に簡単で、必要なデータをキャッシュすれば良いのです。
+オフラインサポート、つまりオフラインでもWebアプリを利用するためにはどうすれば良いのか。これは（言うのは）非常に簡単で、必要なデータをキャッシュすれば良いのです。
 
 これを可能にしているのがService Worker。[MDNのService Workerの説明](https://developer.mozilla.org/ja/docs/Web/API/Service_Worker_API)がありますので、詳細はMDNに任せるとします。
 
@@ -40,11 +40,11 @@ Service WorkerはMDNで下記のように記載されています。
 
 > JavaScript ファイルの形を取り、ナビゲーションやリソースへのリクエストを横取りや改変したり細かい粒度でリソースをキャッシュすることで関連付けられたウェブページやサイトを制御し、それぞれの状況（もっとも顕著な例は、ネットワークが利用できないとき）にアプリがどのように振舞うかを完全に制御することができます
 
-個人的に好きな言い回しは「Service Worker は合法 MITM[^mitm] のような技術」です([「2020 年、 React 軸で学ぶべき技術」のブログ記事より引用](https://mizchi.hatenablog.com/entry/2020/01/04/172041))
+個人的に好きな言い回しは「Service Workerは合法MITM[^mitm] のような技術」です（[「2020 年、 React 軸で学ぶべき技術」のブログ記事より引用](https://mizchi.hatenablog.com/entry/2020/01/04/172041))
 
-[^mitm]: Man In The Middle attack.日本語では中間者攻撃と呼ばれる。盗聴の方法の一つである。通信の途中に攻撃者が入り込み、お互いの通信を盗み取る方式である。MITMの説明だけで500wordsぐらいのブログ記事はかけそうなので説明は行わないが、Service Worker以外の合法MITMとしてSSLインスペクションを挙げておく。
+[^mitm]: Man In The Middle attack.日本語では中間者攻撃と呼ばれる。盗聴の方法の1つである。通信の途中に攻撃者が入り込み、お互いの通信を盗み取る方式である。MITMの説明だけで500wordsぐらいのブログ記事はかけそうなので説明は行わないが、Service Worker以外の合法MITMとしてSSLインスペクションを挙げておく。
 
-しかしながら、Service Workerは設定がそれなりに面倒くさいです(残念ながらやったこと無いので、周りの意見です)。
+しかしながら、Service Workerは設定がそれなりに面倒くさいです（残念ながらやったこと無いので、周りの意見です）。
 その面倒くさい設定を**肩代わりしてくれる**のが**Workbox**です。
 
 ```javascript
@@ -59,11 +59,11 @@ workbox.routing.registerRoute(
 
 ## Workboxのキャッシュ戦略
 
-Workboxには[キャッシュ戦略](https://developers.google.com/web/tools/workbox/modules/workbox-strategies)と呼ばれるものがあります。全部で5つ(実質4つ)あります。キャッシュ戦略の説明は様々な記事で行われてるのでここではあえて触れることはしませんが、`Stale-While-Revalidate`戦略だけ説明します。本稿のタイトルにも登場していますから。
+Workboxには[キャッシュ戦略](https://developer.chrome.com/docs/workbox/)と呼ばれるものがあります。全部で5つ（実質4つ）あります。キャッシュ戦略の説明は様々な記事で行われてるのでここではあえて触れることはしませんが、`Stale-While-Revalidate`戦略だけ説明します。本稿のタイトルにも登場していますから。
 
 # Stale-While-Revalidate戦略
 
-[公式の説明によると](https://developers.google.com/web/tools/workbox/modules/workbox-strategies#stale-while-revalidate)、
+[公式の説明によると](https://developer.chrome.com/docs/workbox/#stale-while-revalidate)、
 
 > The stale-while-revalidate pattern allows you to respond to the request as quickly as possible with a cached response if available, falling back to the network request if it’s not cached. The network request is then used to update the cache.
 > > stale-while-revalidateパターンでは、キャッシュされている場合はキャッシュされたレスポンスで、キャッシュされていない場合はネットワークリクエストを行い、可能な限り迅速にリクエストに応答することができます。その後、ネットワークリクエストのレスポンスによってキャッシュを更新します。
@@ -74,17 +74,17 @@ Workboxの主とも言える戦略であり、キャッシュによる高速化�
 
 ## 本ブログのStale-While-Revalidate戦略
 
-Stale-While-Revalidates戦略は本ブログでも利用しています。特に本ブログでは**Contentfulから取得するデータ**においてStale-While-Revalidate戦略を利用しています。Contentfulから取得するデータ、特に記事一覧なんかは(私のやる気次第ですが)本ブログの中で最も更新が激しい箇所と言えます。
+Stale-While-Revalidates戦略は本ブログでも利用しています。特に本ブログでは**Contentfulから取得するデータ**においてStale-While-Revalidate戦略を利用しています。Contentfulから取得するデータ、特に記事一覧なんかは（私のやる気次第ですが）本ブログの中で最も更新が激しい箇所と言えます。
 
 画像のほどに大きなデータではないとは思いますが、Network FirstではなくStale-While-Revalidates戦略を利用しています。
 
-そんなStale-While-Revalidates戦略ですが、弱点としては裏側でネットワークからデータを引っ張ってきてるとはいえ、Cache First戦略と同じで見えるデータはキャッシュにあるものです。もちろんキャッシュは更新されるので、もう一回リロードすれば最新データになるんですが(おそらく)、せっかく裏側でキャッシュをとってきているなら、データが更新されたら、それを利用して再描画したいじゃないですか。
+そんなStale-While-Revalidates戦略ですが、弱点としては裏側でネットワークからデータを引っ張ってきてるとはいえ、Cache First戦略と同じで見えるデータはキャッシュにあるものです。もちろんキャッシュは更新されるので、もう1回リロードすれば最新データになるんですが（おそらく）、せっかく裏側でキャッシュをとってきているなら、データが更新されたら、それを利用して再描画したいじゃないですか。
 
 そうすれば、Cache Fristのような描画の高速化と、Network Firstのようなデータの最新化を**真に**行っていると言えるでしょう。
 
 # Stale-While-Revalidateのデータ更新イベントを取得
 
-こういった要望は比較的多いと考え、ネットワークの海に山程ドキュメントがあるだろうと思いましたが、実態はそうでもなかったです。多分そんな事するんだったらNetwork Firstにするわ、って人が多かったんでしょうか(適当)。
+こういった要望は比較的多いと考え、ネットワークの海に山程ドキュメントがあるだろうと思いましたが、実態はそうでもなかったです。多分そんな事するんだったらNetwork Firstにするわ、って人が多かったんでしょうか（適当）。
 
 結論からいうと、今回行う作業は
 
@@ -96,7 +96,7 @@ Stale-While-Revalidates戦略は本ブログでも利用しています。特に
 
 ## WorkboxのBroad Cast Update Pluginを有効にする
 
-WorkboxもデフォルトではStale-While-Revalidateのデータ更新イベントを吐いているわけで(おそらく)無いようなので、プラグインを利用して吐かせます。
+WorkboxもデフォルトではStale-While-Revalidateのデータ更新イベントを吐いているわけで（おそらく）無いようなので、プラグインを利用して吐かせます。
 
 NuxtのPWA、特にWorkboxは下記のような設定を行えます。
 
@@ -161,7 +161,7 @@ workbox.routing.registerRoute(
 
 > BroadcastChannel インターフェイスは、特定のオリジンの閲覧コンテキストが購読できる名前付きチャネルを表します。 それは、同じオリジンの異なるドキュメント間（異なるウィンドウ、タブ、フレーム、iframe）の通信を可能にします。 メッセージは、チャンネルをリッスンしているすべての BroadcastChannel オブジェクトで発生する message イベントを介して放送されます。
 
-とのことです。WorkboxのbroadcastUpdateプラグインもこのBroadcast Channelに対してイベント(メッセージ)を送信します。
+とのことです。WorkboxのbroadcastUpdateプラグインもこのBroadcast Channelに対してイベント（メッセージ）を送信します。
 
 なので、下記のようにしました。ちなみにここは`created`メソッドの中です。
 
@@ -172,7 +172,7 @@ updatesChannel.addEventListener('message', event => {
 });
 ```
 
-eventには下記のようなデータが入っています(更新したデータは入ってないのであしからず)。
+eventには下記のようなデータが入っています（更新したデータは入ってないのであしからず）。
 
 ```json
 data: {

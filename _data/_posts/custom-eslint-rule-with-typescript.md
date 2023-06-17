@@ -27,7 +27,7 @@ ESLintは、JavaScriptやTypeScript、特にReactやVue、Angularなどモダン
 話は変わって私事ですが、Node.jsのプログラムを作成しているときに環境によって動作を変更したい場面がありました。
 テストならテスト用のDBを、開発なら開発用のデータを、本番なら本番のデータを、触る・入れるみたいな場面ですね。よくある。
 
-こういった場合、Node.js の環境であれば基本的にはこう書かれるでしょう。
+こういった場合、Node.jsの環境であれば基本的にはこう書かれるでしょう。
 
 ```typescript
 if(process.env.NODE_ENV = 'development') { 
@@ -376,7 +376,7 @@ if(process.env.NODE_ENV === "development") {
 
 ASTの説明だけでお腹いっぱいですが、本来の目的はカスタムESLintルールを作るところです。
 
-create関数は このASTのNodeが来たらこういう処理をします（結果としてエラーとなるコードだったらエラーをレポートします） というオブジェクトを返すと言いました。これをコードで書くとこうなります。
+create関数はこのASTのNodeが来たらこういう処理をします（結果としてエラーとなるコードだったらエラーをレポートします）というオブジェクトを返すと言いました。これをコードで書くとこうなります。
 
 ```typescript
 const rule = {
@@ -492,7 +492,7 @@ module.exports = rule;
 説明は上記コードのコメントを参照していただければ、ある程度理解できるコードかと思います。
 
 ただ、TypeScriptの都合で、型関連のコードが増えています。
-[本家のno-process-envの実装](https://github.com/eslint/eslint/blob/main/lib/rules/no-process-env.js)と比較すると（こちらのほうが確認するものが一つ増えているとはいえ）圧倒的に違いますね。
+[本家のno-process-envの実装](https://github.com/eslint/eslint/blob/main/lib/rules/no-process-env.js)と比較すると（こちらのほうが確認するものが1つ増えているとはいえ）圧倒的に違いますね。
 
 ## 完成品
 
@@ -730,7 +730,7 @@ custom-eslint-demo/src/index.ts
 ✖ 1 problem (1 error, 0 warnings)
 ```
 
-ちゃんとエラーが出てますね！！！ やったね。
+ちゃんとエラーが出てますね！！！　やったね。
 
 ## 完璧...? 
 

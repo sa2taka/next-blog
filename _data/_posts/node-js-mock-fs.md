@@ -14,7 +14,7 @@ description:
 
 ハローワールド
 
-[JavaScript/TypeScriptでテスト・コード間を移動するwith VSCode拡張の作り方](https://blog.sa2taka.com/post/javascript-typescript-jump-between-test-and-code-with-vscode)で紹介をしましたが、現在私はJavaScript/TypeScriptで通常のコードとテストコードを行き来するためのVSCode拡張を作成しています。
+[JavaScript/TypeScriptでテスト・コード間を移動するwith VSCode拡張の作り方](https://blog.sa2taka.com/post/javascript-typescript-jump-between-test-and-code-with-vscode/)で紹介をしましたが、現在私はJavaScript/TypeScriptで通常のコードとテストコードを行き来するためのVSCode拡張を作成しています。
 
 現在v0.2系となり、テストファイルがなかった場合はテストファイルを作成するようになりました。ただし、開発者特権で一部のファイルの書き方のみの対応です。
 
@@ -23,7 +23,7 @@ description:
 
 # なぜテストがなかったのか
 
-Railsは通常のコードに対して、テストのパスは一意に決まります: `app/controllers/users_controller.rb`であれば`spec/controllers/users_controller_spec.rb` (RSpecの場合)。
+Railsは通常のコードに対して、テストのパスは一意に決まります： `app/controllers/users_controller.rb`であれば`spec/controllers/users_controller_spec.rb` (RSpecの場合）。
 
 しかしながら、JavaScript/TypeScriptは単純ではありません。
 例えば、著名なテストライブラリである[jest](https://jestjs.io/ja/)では、デフォルトでテストファイルは`__tests__`以下にあるファイルか、`.test.ts`または`.spec.ts`とつくものです。また、この設定は簡単に変えることができるので`tests`フォルダ以下にあるものでもいいですし、`_my_test.ts`がつくファイルにしてもいいわけです。
@@ -31,8 +31,8 @@ Railsは通常のコードに対して、テストのパスは一意に決まり
 上記の拡張では、流石にその無限にもあるファイルには対応できないので、一般的に利用されている多くのパターンに対応しています。
 例えば`src/domein/models/user.ts`に対しては、下記が変換できます[^config][^hit-many]。
 
-[^config]: もちろんある程度の設定は可能で、テストのルートフォルダ(`__tests__`など)の名前やテストのファイル名のプリフィックス(デフォルト`.test`)を変えることができます。
-[^hit-many]: 複数ヒットする場合はソースコードの実装に依存してどれか一つが選ばれます。基本的には同じフォルダ内にあるプリフィクス付きのテストファイルが最優先され、ファイルがある場所に近い方の__tests__フォルダが優先されます。なので表の下から優先的に選ばれます。
+[^config]: もちろんある程度の設定は可能で、テストのルートフォルダ（`__tests__`など）の名前やテストのファイル名のプリフィックス（デフォルト`.test`)を変えることができます。
+[^hit-many]: 複数ヒットする場合はソースコードの実装に依存してどれか1つが選ばれます。基本的には同じフォルダ内にあるプリフィクス付きのテストファイルが最優先され、ファイルがある場所に近い方の__tests__フォルダが優先されます。なので表の下から優先的に選ばれます。
 
 - `__tests__/domain/models/user.ts`
 - `__tests__/domain/models/user.test.ts`
@@ -70,7 +70,7 @@ mock({
 
 ## ルートフォルダ
 
-単純にmockをした時、勝手にルート(`/` or `C:\`)を起点に作成されると勝手に思っていました。
+単純にmockをした時、勝手にルート（`/` or `C:\`)を起点に作成されると勝手に思っていました。
 ドキュメントを読むと、しっかり`process.cwd()`を起点にする、と書いてありました。
 
 下記のコードを実行してみると、`process.cwd()`下に作られていることが分かります。
@@ -128,9 +128,9 @@ root/path/to error
 root/path/to/test error
 ```
 
-どうやらこう書くと`root`フォルダの下に`path/to/test`フォルダ(ファイル)が出来上がるようです(`/`がフォルダ区切りじゃなくなっている)。
+どうやらこう書くと`root`フォルダの下に`path/to/test`フォルダ（ファイル）が出来上がるようです（`/`がフォルダ区切りじゃなくなっている）。
 
-これは2つの解消の方法があり、僕は前者で行いましたが、明らかに後者の方が賢いです(この記事書くときに調べて分かりました)。
+これは2つの解消の方法があり、僕は前者で行いましたが、明らかに後者の方が賢いです（この記事書くときに調べて分かりました）。
 
 ### 1ネスト1フォルダにする(not オススメ)
 
@@ -210,7 +210,7 @@ export const mockFiles = (...filePaths: string[]): void => {
 ### ネストをしない
 
 この記事を書くときに調査をしたら、ネストをせずにわたすと、どうやらフォルダを作成してくれるようです。
-ちなみに、バグっぽい動きなんでIssueを立てようとして、建てる前にIssueを検索したら既存の物がありました: https://github.com/tschaub/mock-fs/issues/354 。ちゃんと調べないとだめですね。
+ちなみに、バグっぽい動きなんでIssueを立てようとして、建てる前にIssueを検索したら既存の物がありました： https://github.com/tschaub/mock-fs/issues/354 。ちゃんと調べないとだめですね。
 
 ```javascript
 mockFs({
@@ -263,6 +263,6 @@ globモジュールは内部的にfsモジュールを利用しているよう�
 
 ## 終わりに
 
-単純にファイルを利用する(画像を読み込むとか、変換して保存する)などの場合にももちろん使えますし、フォルダ構造が重要なときは特に真価を発揮するかなぁと思うので、fs-mock使ってみてください。
+単純にファイルを利用する（画像を読み込むとか、変換して保存する）などの場合にももちろん使えますし、フォルダ構造が重要なときは特に真価を発揮するかなぁと思うので、fs-mock使ってみてください。
 
 あと、[js go to test](https://marketplace.visualstudio.com/items?itemName=sa2taka.js-go-to-test)も使ってみてください。

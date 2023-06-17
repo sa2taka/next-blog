@@ -24,15 +24,15 @@ Reactでコードを書いていると色々と困るのがファイル構成。
 
 # Reactのファイル構成
 
-以前、私は`Component.tsx`を作ったら同じ階層に`Component.scss`、`Component.test.tsx`、`Component.stoires.tsx`を作成するようなルールにしていました(Testing、Storybookを採用した場合)。
+以前、私は`Component.tsx`を作ったら同じ階層に`Component.scss`、`Component.test.tsx`、`Component.stoires.tsx`を作成するようなルールにしていました（Testing、Storybookを採用した場合）。
 
-上記ルールの問題は、一つの階層にコンポーネント数 * 4のファイルが出来上がるのですごく見通しが悪くなります。
+上記ルールの問題は、1つの階層にコンポーネント数 * 4のファイルが出来上がるのですごく見通しが悪くなります。
 テストファイルやStorybookファイルを別フォルダに分け、更にCSS in JSを採用すれば実質解決しますが、どれも一長一短ではあるのでここでは上記の方法を利用したいと考えました。
 
 そのため、今回はフォルダをそれぞれ作って、その中に`index.tsx`、`index.scss`...を作るルールにしました。Webpackのルールではフォルダ名を指定すると、自動的にindex.jsを探してくれるので[^webpack-return-index.js]、`Component/index.js`は`Component`指定でimportできるので**名前の指定自体は以前と変わりません**。
 またその中でしか利用しない子コンポーネントは同じ階層に入れる用にもしています。
 
-[^webpack-return-index.js]: [実際は色々ルールが存在するようです](https://fringe.co.jp/webpack%E3%81%8C%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%AEimport%E3%82%92%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E4%BB%95%E7%B5%84%E3%81%BF/)。またECMAScriptの仕様ではありません。ちなみにですが、近年のWebサーバーではディレクトリを指定すると勝手にindex.htmlへリダイレクト(参照)してくれますが、index.htmlをディレクトリのデフォルトにしたのは[1993年頃が最初らしいです](http://www.koikikukan.com/archives/2014/08/19-005555.php)。
+[^webpack-return-index.js]: [実際は色々ルールが存在するようです](https://fringe.co.jp/webpack%E3%81%8C%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%AEimport%E3%82%92%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E4%BB%95%E7%B5%84%E3%81%BF/)。またECMAScriptの仕様ではありません。ちなみにですが、近年のWebサーバーではディレクトリを指定すると勝手にindex.htmlへリダイレクト（参照）してくれますが、index.htmlをディレクトリのデフォルトにしたのは[1993年頃が最初らしいです](https://www.koikikukan.com/archives/2014/08/19-005555.php)。
 
 例えば、LayoutHeaderは中にTitleLogoコンポーネントを利用しています。今回はLayoutHeaderコンポーネント内でしか使われないと仮定します。
 そうした場合、下記のようなフォルダ構成になります。
@@ -58,7 +58,7 @@ LayoutHeader/
 
 ## スニペットで作成したいファイル内容
 
-今回はワンコマンド(ワンスニペット)で下記のファイルを作成したいのです(例えばReact関数コンポーネントの場合)。
+今回はワンコマンド（ワンスニペット）で下記のファイルを作成したいのです（例えばReact関数コンポーネントの場合）。
 
 ```typescript:Component/index.tsx
 import React from 'react';
@@ -71,10 +71,10 @@ export const Component: React.FC<Props> = (props) => {
 };
 ```
 
-ファイル内容に関しては人それぞれだと思いますが、特に欲しいのは**コンポーネントをnamed exportにする部分**です[^named-export]。default exportでは別に名前なんてなんでも良いですが、名前付きエクスポートではコンポーネントを表す名前を付けたいです(Buttonとか、Calendarとか)。そうすることでVSCodeの自動インポートが機能するのですごくDeveloper Experienceが高いです。
+ファイル内容に関しては人それぞれだと思いますが、特に欲しいのは**コンポーネントをnamed exportにする部分**です[^named-export]。default exportでは別に名前なんてなんでも良いですが、名前付きエクスポートではコンポーネントを表す名前を付けたいです（Buttonとか、Calendarとか）。そうすることでVSCodeの自動インポートが機能するのですごくDeveloper Experienceが高いです。
 まぁ、`import { Component } from '@/src/Component'`みたいな気持ち悪い感じになっちゃいますけどね。
 
-[^named-export]: javascriptではエクスポートの方法がデフォルトエクスポートと名前付きエクスポートの２つあります。Reactコンポーネントは大体の場合デフォルトエクスポートになっていると思いますが、VSCodeのデフォルトで名前付きエクスポートのみが自動インポートの対象になっているようなので名前付きエクスポートを利用しています。
+[^named-export]: javascriptではエクスポートの方法がデフォルトエクスポートと名前付きエクスポートの2つあります。Reactコンポーネントは大体の場合デフォルトエクスポートになっていると思いますが、VSCodeのデフォルトで名前付きエクスポートのみが自動インポートの対象になっているようなので名前付きエクスポートを利用しています。
 
 ではここで、`Component`の中だけで使う`Other`コンポーネントを作りたくなりました。
 
@@ -139,7 +139,7 @@ VSCodeのスニペットでは**様々な変数が利用可能**です。[具体
 .*[\/\\]([^\/\\]+)[\/\\]index\.tsx$|.*[\/\\](.*?)(?:\.[^.]*)$
 ```
 
-[Brainf*ck](http://www.kmonos.net/alang/etc/brainfuck.php)かな?
+[Brainf*ck](http://www.kmonos.net/alang/etc/brainfuck.php)かな？
 
 正規表現の可視化サイトを利用してわかりやすくしてみましょう。
 
@@ -156,7 +156,7 @@ VSCodeではグループを`$1`、`$2`という感じで利用できます。そ
 
 更に、VSCodeでは`\`をエスケープしてやらないといけません。
 
-これを踏まえて再度上記のスニペットを見てみましょう(一部抜粋です)。
+これを踏まえて再度上記のスニペットを見てみましょう（一部抜粋です）。
 
 ```json/typescriptreact.json
 "import React from 'react';",

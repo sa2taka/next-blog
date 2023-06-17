@@ -16,24 +16,24 @@ description:
 
 [Node.js](https://nodejs.org/ja/)は今はJavaScript界隈で知らない人はいない程有名だと思います。
 [V8 JavaScriptエンジン](https://v8.dev/)で動作する[^node-with-chackra]JavaScript環境で、ネットワークアプリケーションを作成するのを主として、今やデスクトップアプリやIoTデバイスとしても動いています。
-そんな、Node.js、2018年にNode.jsの作者であるRyan Dahl氏が「[Node.jsに関する10の反省点](https://www.youtube.com/watch?v=M3BM9TB-8yA)」(邦題)というタイトルのセッションを行っています。
+そんな、Node.js、2018年にNode.jsの作者であるRyan Dahl氏が「[Node.jsに関する10の反省点](https://www.youtube.com/watch?v=M3BM9TB-8yA)」(邦題）というタイトルのセッションを行っています。
 具体的な内容は、いくつか翻訳や説明記事が出ているのでそちらに任せるとして、その中で「Deno」というプロダクトについて言及しています。
 
-あくる日か、枝の節々(Node)を食べる恐竜(Deno)が現れるのでしょうか。調べていきましょう。
+あくる日か、枝の節々（Node)を食べる恐竜（Deno)が現れるのでしょうか。調べていきましょう。
 
-[^node-with-chackra]: Chackra Coreで動くNode.jsなどもあります(https://github.com/nodejs/node-chakracore)
+[^node-with-chackra]: Chackra Coreで動くNode.jsなどもあります（https://github.com/nodejs/node-chakracore)
 
 # Deno
 
-[Deno](https://deno.land/)は`A secure runtime for JavaScript and TypeScript.`の説明の通り、JavaScript、および**TypeScript**の実行環境です。
+[Deno](https://deno.com/runtime)は`A secure runtime for JavaScript and TypeScript.`の説明の通り、JavaScript、および**TypeScript**の実行環境です。
 何を隠そう、このDenoの作成者はNode.jsの作成者でもあるRyan Dahl氏が作成したプロダクトです。NodeとDeno...見比べると、似ていますもんね。
 
-そんなDenoですが、2020年5月13日に[Deno1.0](https://deno.land/v1)がリリースされました。
+そんなDenoですが、2020年5月13日に[Deno1.0](https://deno.com/blog/v1)がリリースされました。
 正直に言うと、Deno1.0のニュースを見て初めて知ったのですが、これを機にDenoについて色々調べて行きたいと思います。
 
 ## Denoの特徴
 
-DenoはNode.jsと同じでV8 JavaScriptエンジン上で動作するJavaScriptおよび**TypeScript**環境で、[公式サイト](https://deno.land/)によると以下の特徴があります。
+DenoはNode.jsと同じでV8 JavaScriptエンジン上で動作するJavaScriptおよび**TypeScript**環境で、[公式サイト](https://deno.com/runtime)によると以下の特徴があります。
 
 >- Secure by default. No file, network, or environment access, unless explicitly enabled.
 Supports TypeScript out of the box.
@@ -51,7 +51,7 @@ Supports TypeScript out of the box.
 
 ## Node.jsとの違い
 
-[DenoのManualの"Comparison to Node.js"](https://deno.land/manual#comparison-to-nodejs)によると、下記の違いがあります。
+[DenoのManualの"Comparison to Node.js"](https://deno.com/manual@v1.34.3/introduction#comparison-to-nodejs)によると、下記の違いがあります。
 
 - npmを利用しません -- URLまたはファイル参照として指定されるモジュールを利用します
 - package.jsonをモジュール解決アルゴリズムとして使用しません
@@ -65,7 +65,7 @@ import * as log from "https://deno.land/std/log/mod.ts";
 
 - Denoのすべての非同期アクションはPromiseを返します。したがって、DenoはNodeとは異なるAPIを提供します。
 
-現在のNode.jsはPromiseを利用できますが、かなり昔(といっても数年前でしょうか)はCallback地獄とも呼ばれる、callbackに次ぐcallbackの連鎖によって非同期アクションを行っていました。正直、私がJavaScriptを真面目にやりだしたのはここ最近なので、いわゆるレガシーなJavaScriptのお作法なんかはわからないので、あまり言及しないことにします。
+現在のNode.jsはPromiseを利用できますが、かなり昔（といっても数年前でしょうか）はCallback地獄とも呼ばれる、callbackに次ぐcallbackの連鎖によって非同期アクションを行っていました。正直、私がJavaScriptを真面目にやりだしたのはここ最近なので、いわゆるレガシーなJavaScriptのお作法なんかはわからないので、あまり言及しないことにします。
 Denoでは全てPromiseを返すので、地獄を見ないで済むようです。
 
 - Denoでは、ファイル、ネットワーク、および環境へのアクセスに明示的な権限が必要です。
@@ -87,7 +87,7 @@ Denoでは全てPromiseを返すので、地獄を見ないで済むようです
 
 ## インストール
 
-[Installation](https://deno.land/manual/getting_started/setup_your_environment)のページを参考にしてインストールします。
+[Installation](https://deno.com/manual@v1.34.3/getting_started/setup_your_environment)のページを参考にしてインストールします。
 
 Windowsに入れようと思いましたが、まだNode.jsあたりのエコシステムに頼っている節があるので、Node.jsが入っているWSLのUbuntuの中に入れました。Windowsでもmac OSでも簡単に入れられるので、上記ページを参考にしてください。
 
@@ -97,7 +97,7 @@ $ curl -fsSL https://deno.land/x/install/install.sh | sh
 unzip: not found
 ```
 
-あ、はい...
+あ、はい..。
 
 ```bash
 $ sudo apt install unzip
@@ -124,7 +124,7 @@ typescript 3.9.2
 
 ## 環境セットアップ
 
-[Setup your environment](https://deno.land/manual/getting_started/setup_your_environment)を参照して環境のセットアップを行います。
+[Setup your environment](https://deno.com/manual@v1.34.3/getting_started/setup_your_environment)を参照して環境のセットアップを行います。
 
 ### 補完(Completions)の設定
 
@@ -159,6 +159,6 @@ Hello, Deno!!🦕
 ```
 
 これだけ。
-気づきました? TypeScriptがなんの設定もなしで動くの。感動しますね。
+気づきました？　TypeScriptがなんの設定もなしで動くの。感動しますね。
 
-今回はハローワールドまで!　こんな単純なプログラムではなくって、もう少し一歩先に進んだプログラムを今後書いて投稿して行きたいと思います。
+今回はハローワールドまで！　こんな単純なプログラムではなくって、もう少し一歩先に進んだプログラムを今後書いて投稿して行きたいと思います。

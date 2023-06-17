@@ -17,7 +17,7 @@ description:
 
 引き続きivoryを作成していきます。
 
-[2日目ではtailwind.cssを導入しました](https://blog.sa2taka.com/post/tailwind-css-react-ivory-2)
+[2日目ではtailwind.cssを導入しました](https://blog.sa2taka.com/post/tailwind-css-react-ivory-2/)
 
 本日はまだツール群の構築。storybookとjest、そしてvscodeのスニペットの設定です。
 
@@ -206,15 +206,15 @@ import '@/style/tailwind.css';
 
 ![after storybook header](https://i.imgur.com/GFme1zc.png)
 
-OKですね!
+OKですね！
 
 # Test
 
-お次にテストです。今回は`jest`と`enzyme`の鉄板セット(?)を使ってテスト環境を構築していきます。
+お次にテストです。今回は`jest`と`enzyme`の鉄板セット（?)を使ってテスト環境を構築していきます。
 
 ## 導入
 
-[jestのwebpack用の設定](https://jestjs.io/docs/ja/webpack)ページを参考に作っていきます。
+[jestのwebpack用の設定](https://jestjs.io/ja/docs/webpack)ページを参考に作っていきます。
 
 まず、`jest`と`enzyme`に必要なデータをゴリゴリ集めていきます。
 
@@ -247,7 +247,7 @@ jestではファイルの取り扱いが面倒くさいです。なのでfile用
 module.exports = 'test-file-stub';
 ```
 
-また、上記のjestの設定ファイルに`setupFilesAfterEnv`というパラメータが指定されてしますが、これは環境を作成した後(テストを実行する前)に実行されるファイルです。ここで大体全体で利用する設定を行います。ちなみにこれはドキュメントに書いてないので、もしかしたら推奨されないやり方かも知れませんので悪しからず。
+また、上記のjestの設定ファイルに`setupFilesAfterEnv`というパラメータが指定されてしますが、これは環境を作成した後（テストを実行する前）に実行されるファイルです。ここで大体全体で利用する設定を行います。ちなみにこれはドキュメントに書いてないので、もしかしたら推奨されないやり方かも知れませんので悪しからず。
 
 ```typescript:src/plugins/setupJestTest.ts
 import { configure } from 'enzyme';
@@ -308,7 +308,7 @@ Done in 2.52s.
 
 Reactではファイル構成が割と十人十色というか、あまり決まりきったルールがあるわけではないのですが、私の場合は`Component.tsx`を作ったら同じ階層に`Component.scss`、`Component.test.tsx`、`Component.stoires.tsx`を作成するようなルールにしています。
 
-上記ルールの問題は、一つの階層にコンポーネント数 * 4のファイルが出来上がるのですごく見通しが悪くなります。
+上記ルールの問題は、1つの階層にコンポーネント数 * 4のファイルが出来上がるのですごく見通しが悪くなります。
 
 なので今回はフォルダをそれぞれ作って、その中に`index.tsx`、`index.scss`...を作るルールにしました。またその中でしか利用しない子コンポーネントは同じ階層に入れる用にもしています。
 
@@ -361,7 +361,7 @@ VSCodeのスニペット機能は、特定の入力を行うことで事前に�
 ![ES7 React/Redux/GraphQL/React-Native snippets
 のスニペット機能](https://i.imgur.com/9JH6YUI.gif)
 
-これは[ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)のスニペットの一つである`rfc`を入力した際の動きです。この場合はReactのFunctional Componentを入力してくれるスニペットですね。
+これは[ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)のスニペットの1つである`rfc`を入力した際の動きです。この場合はReactのFunctional Componentを入力してくれるスニペットですね。
 
 見ていただいたとおり関数名が`index`になっています。まぁdefault exportなので問題はないですが、VSCodeでの自動インポート機能が全く効かなくなるので、できるだけデフォルトエクスポートは避けています。
 ちなみにこの`index`はファイル名から拡張子を抜いた名前です。
@@ -380,7 +380,7 @@ VSCodeのスニペットでは**様々な変数が利用できます**。例え�
 .*[\/\\]([^\/\\]+)[\/\\]index\.tsx$|.*[\/\\](.*?)(?:\.[^.]*)$
 ```
 
-[Brainf*ck](http://www.kmonos.net/alang/etc/brainfuck.php)かな?
+[Brainf*ck](http://www.kmonos.net/alang/etc/brainfuck.php)かな？
 
 正規表現の可視化サイトを利用してわかりやすくしてみましょう。
 
@@ -414,7 +414,7 @@ VSCodeではグループを`$1`、`$2`という感じで利用できます。そ
 },
 ```
 
-ちなみにバックスラッシュはエスケープのために２つ重ねないと行けないので大変なことになっています。
+ちなみにバックスラッシュはエスケープのために2つ重ねないと行けないので大変なことになっています。
 
 ## やってみた
 

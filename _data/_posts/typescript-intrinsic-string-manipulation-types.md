@@ -73,7 +73,7 @@ type SnakeCaseUncapitalize = Uncapitalize<SnakeCaseCapitalize>
 
 # `intrinsic`というキーワード
 
-上記の型は、型定義を見ると`intrinstic`(組み込みの・固有の)というものになっています[^lib.d.ts]。`intrinstic`は現在上記で紹介した4つの型のみに使われています。
+上記の型は、型定義を見ると`intrinstic`(組み込みの・固有の）というものになっています[^lib.d.ts]。`intrinstic`は現在上記で紹介した4つの型のみに使われています。
 
 [^lib.d.ts]: `lib.d.ts`、今回の例は`lib.es5.d.ts`というファイルはTypeScript本体がが持っているJavaScriptランタイムやDOMなどに関する型を持つファイルです。
 
@@ -161,7 +161,7 @@ const foo = (data: ApiInterface) => {
 
 TypeScript 4.1で同時に実装されたTemplate Literal Stringと同時に採用すると結構いろんな事ができます。
 
-例えば、下記のようなURLを持っているとします(あくまでイメージ)。
+例えば、下記のようなURLを持っているとします（あくまでイメージ）。
 
 ```
 https://sa2taka.example.com/animal/friendly-dog
@@ -235,7 +235,7 @@ type Test = KebabToLowerCamelCase<"hoge-fuga-foo-bar">
 // ^? type Test = "hogeFugaFooBar"
 ```
 
-詳細は説明するのが難しいので「TypeScript 再帰」とかで検索すると色々出てきますので気になったらしらべていただければ幸いです。
+詳細は説明するのが難しいので「TypeScript再帰」とかで検索すると色々出てきますので気になったらしらべていただければ幸いです。
 兎にも角にも`KebabToLowerCamelCase`の型パラメータにkebab-caseを突っ込むとlowerCamelCaseが現れてきます。
 
 上記をちょっと書き直してみるとこんな感じになります。

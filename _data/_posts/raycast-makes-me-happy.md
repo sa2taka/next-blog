@@ -24,7 +24,7 @@ description:
 # Raycast紹介
 
 [Raycast](https://www.raycast.com/)はいわゆるSpotlightのようなランチャーツールです。SpotlightはMacに最初からいるやつですが、似たアプリとしてはAlfredが挙げられます。
-SpotlightやAlfredもそうですが、任意のコマンド（`Ctrl + Space`とか`Opt + Space`とか)で開いて、そこからアプリを開いたり色々できるってやつですね。
+SpotlightやAlfredもそうですが、任意のコマンド（`Ctrl + Space`とか`Opt + Space`とか）で開いて、そこからアプリを開いたり色々できるってやつですね。
 
 Raycast自身はAlfredと比べるとUIこそ大きく違いますが、無料版のAlfredでできることは代替できて、有料のPowerPackの機能もほとんど入ってます。それでいてRaycast自身はほぼ全てが無料で使えるのが強いです。
 
@@ -61,13 +61,13 @@ Windows10では`Win + v`でいつの間にか使えるようになったクリ�
 
 ですが、Raycastは**デフォルトで**その機能があります。Raycastを開いて`Cmd + ,`で設定を開いて、Extensionsを見るとどんな機能があるのか見れますが、`clip`とかで検索すると出てきます。
 
-ただ、デフォルトだとショートカットが設定されていないので、Raycastを開いてから`clip`とか打たないと出てきません。Raycastの最高ポイントの一つとしては、**すべての機能にHotKeyを使える**ことです。僕の場合は下記のように`Cmd + Opt + C`でクリップボードの履歴が出るようになっています。Alfredの名残ですね。
+ただ、デフォルトだとショートカットが設定されていないので、Raycastを開いてから`clip`とか打たないと出てきません。Raycastの最高ポイントの1つとしては、**すべての機能にHotKeyを使える**ことです。僕の場合は下記のように`Cmd + Opt + C`でクリップボードの履歴が出るようになっています。Alfredの名残ですね。
 
 ![Raycastのクリップボード](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%20Clip.png)
 
 ## ウィンドウ管理
 
-僕がAlfredで利用していた機能の一つとしてウィンドウ管理があります。これまたAlfredの有料機能PowerPackにて使えるWorkflowを使った拡張の一つの[Div](https://github.com/pawelgrzybek/div)を利用することで可能です。
+僕がAlfredで利用していた機能の1つとしてウィンドウ管理があります。これまたAlfredの有料機能PowerPackにて使えるWorkflowを使った拡張の1つの[Div](https://github.com/pawelgrzybek/div)を利用することで可能です。
 Macには他のウィンドウ管理ツールがあるので、無理にこだわることはないですが、特に理由もなくDivも使っていました。
 
 Raycastにはまたまた**デフォルトで**ウィンドウ管理機能があります。
@@ -77,13 +77,13 @@ Raycastにはまたまた**デフォルトで**ウィンドウ管理機能があ
 
 ![RaycastのWindow管理](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%20Window%20management.png)
 
-DivはWorkflowの機能を使っているからだとは思いますが、RaycastはDivより圧倒的にレスポンスが良いので、地味に嬉しいポイントの一つです。Divは動いたのか動いてないのか一瞬分かりづらいので。
+DivはWorkflowの機能を使っているからだとは思いますが、RaycastはDivより圧倒的にレスポンスが良いので、地味に嬉しいポイントの1つです。Divは動いたのか動いてないのか一瞬分かりづらいので。
 
 ## 完全キーボード操作可能
 
-僕自身は多分他人に比べて異常なぐらいマウス(トラックパッド)を使うユーザーなので、キーボード操作に対する強い渇望はないですが、Vimが好きな人は多分好きだと思います。あ、ただ、hjklで移動できないので、そうでもないかも。Emacs好きなら良いと思います。
+僕自身は多分他人に比べて異常なぐらいマウス（トラックパッド）を使うユーザーなので、キーボード操作に対する強い渇望はないですが、Vimが好きな人は多分好きだと思います。あ、ただ、hjklで移動できないので、そうでもないかも。Emacs好きなら良いと思います。
 
-キーボードから手を離したくないって人はメチャメチャ良いかもしれないです。設定すら全部キーボード操作可能です。どのボタン押せばいいか分かりづらいですが（もしかしたらAlfredもそうかも？ 知らないです）。
+キーボードから手を離したくないって人はメチャメチャ良いかもしれないです。設定すら全部キーボード操作可能です。どのボタン押せばいいか分かりづらいですが（もしかしたらAlfredもそうかも？　知らないです）。
 
 # Alfredから乗り換える
 
@@ -98,7 +98,7 @@ RaycastもAlfredもメチャメチャ満足度の高いツールなので、ど�
 
 [^screen-config]: この記事を書くために調べて初めて知りましたが、初見でこれを見つけられる気がしないところに設定がありました。Alfredで設定したい場合は[Alfredを複数ディスプレイで使うときに表示するスクリーンを選ぶ方法 | Rriver](https://parashuto.com/rriver/tools/alfred-on-multiple-displays)とかを参考にやってみてください。
 
-また、Raycastでなにか動作をしたあと、すぐに開くと以前のコマンドが残っています。すぐに開くことはめったにないのですが、個人的にはチョット気になりました。Alfredでは以前のコマンドを残すような設定は出来なさそう？ ですが、個人的にはその動作で構わないです。
+また、Raycastでなにか動作をしたあと、すぐに開くと以前のコマンドが残っています。すぐに開くことはめったにないのですが、個人的にはチョット気になりました。Alfredでは以前のコマンドを残すような設定は出来なさそう？　ですが、個人的にはその動作で構わないです。
 
 そのあたりの設定も設定できます。さすが。
 
@@ -138,7 +138,7 @@ Raycastがデフォルトで出来ずにAlfredでできることは、例えば�
 
 例えば僕はブックマークに`GCP`があります。AlfredはPowerPackがなくても`GCP`と打ち込めば勝手にブックマークにあるGCPのURLをブラウザで開いてくれます。
 
-一応Raycastにも、上記に記載した[ブラウザのブックマークランチャー](https://www.raycast.com/raycast/browser-bookmarks)がありますが、これは一回ブラウザのブックマークランチャーコマンド(例えば`bookmark`)を打ってから`GCP`と打たないと出てきません。
+一応Raycastにも、上記に記載した[ブラウザのブックマークランチャー](https://www.raycast.com/raycast/browser-bookmarks)がありますが、これは1回ブラウザのブックマークランチャーコマンド（例えば`bookmark`)を打ってから`GCP`と打たないと出てきません。
 
 ですが、Raycastには`Quick Links`という、Alfredでいう`Web Search`みたいな機能があります。
 
@@ -146,7 +146,7 @@ Raycastがデフォルトで出来ずにAlfredでできることは、例えば�
 
 例えば、GCPのdev環境とprod環境を追加してみたり。
 
-各コマンドにはショートカット以外にも`Alias`を設定できます。6文字と激短い(なので`gcpprod`が入らない)ですが、よく使うコマンドにはAliasを振っておくとメチャメチャはかどります。なので、この設定の場合は`gcp`と打つと何よりも先にGCPのdev環境が開いて、`gcpp`ぐらいまで打つとGCPの本番環境が開きます（もちろん文字を打っただけでは開かないです。Enterを押してください。一応）。
+各コマンドにはショートカット以外にも`Alias`を設定できます。6文字と激短い（なので`gcpprod`が入らない）ですが、よく使うコマンドにはAliasを振っておくとメチャメチャはかどります。なので、この設定の場合は`gcp`と打つと何よりも先にGCPのdev環境が開いて、`gcpp`ぐらいまで打つとGCPの本番環境が開きます（もちろん文字を打っただけでは開かないです。Enterを押してください。一応）。
 
 ![Raycast Quick Links](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Raycast%20Quiklinks.png)
 もちろんQueryも設定できるので、何かの検索なども可能です。
@@ -157,10 +157,10 @@ AlfredでBookmarkの中にあるものをコマンド経由でメチャメチャ
 
 Alfred PowerPackの大きな特徴はやはりWorkflowでしょう。他人の拡張機能のインストールが面倒くさいのはありますが、自分で色々やる分には結構便利です。僕自身はそこまで使っているわけでは有りませんでしたが、Raycastで使えなくなったものは有りました。
 
-Raycast自身も自分で拡張することは出来ますが、方法の1つはReactを用いて拡張を作ることです（ https://developers.raycast.com/ ）。
+Raycast自身も自分で拡張することは出来ますが、方法の1つはReactを用いて拡張を作ることです（https://developers.raycast.com/）。
 私自身はReactなんだ、やったぜ、という感じですがWorkflowほど万人が使えるものでもなければ、Workflowほど簡単に強力なものは作れないかもしれません（試してないのでなんとも言えないです）。
 
-ですが、もう一つ、簡単なスクリプトもかけます。
+ですが、もう1つ、簡単なスクリプトもかけます。
 
 - Bash
 - AppleScript
@@ -214,7 +214,7 @@ AlfredのWorkflowが強力だったのはこのファイル名を、「デスク
 - githubの検索
    - Workflow: https://github.com/gharlan/alfred-github-workflow
    - Raycast: https://www.raycast.com/raycast/github
-       - の Search Repositories
+       - のSearch Repositories
 - Emoji検索
     - Workflow: https://github.com/jsumners/alfred-emoji
     - Raycast: https://www.raycast.com/FezVrasta/emoji
@@ -227,11 +227,11 @@ AlfredのWorkflowが強力だったのはこのファイル名を、「デスク
 
 - サウンドの環境設定（入出力デバイスの変更）
     - Workflow: https://www.packal.org/workflow/audio-switch
-    - Raycast: デフォルトでできる(!)
+    - Raycast: デフォルトでできる（!)
     - 最近は出社してないですが、オフィスではAirpods、家ではディスプレイ（から伸びてるヘッドフォン）、リモート会議中はMacgookと出力デバイスを切り替えています。
     - WorkflowもRaycastも読み込み時間が若干かかるので、あんまり使ってない機能ではあります。ただAlfredで`input`と打つと、サジェストにGoogle入力のアンインストールが現れるのが面倒くさかった記憶だけは強いです。
 
-他にも、リマインダーとかはデフォルトでありますし、Empty Trushとかそういったシステム的な機能もデフォルトであります。Jiraとか著名（で開発者が使ってそう）なツール系も豊富にあるので、オレオレWorkflowをふんだんに使っていない限り乗り換えは難しくなさそうだなぁと。（TrelloはRaycastになくてWorkflowにありそうっすね。）
+他にも、リマインダーとかはデフォルトでありますし、Empty Trushとかそういったシステム的な機能もデフォルトであります。Jiraとか著名（で開発者が使ってそう）なツール系も豊富にあるので、オレオレWorkflowをふんだんに使っていない限り乗り換えは難しくなさそうだなぁと。（TrelloはRaycastになくてWorkflowにありそうっすね）
 
 # まとめ
 

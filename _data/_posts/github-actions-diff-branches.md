@@ -61,8 +61,8 @@ runs:
 
 ざっくり、下記のような戦略を取ります。
 
-1. 現在のブランチ(HEAD)でビルドして、ビルドした結果をアップロードします
-2. 現在のブランチの派生元ブランチ(Renovateの場合はmain|masterしかありませんが)でビルドして、ビルドした結果をアップロードします
+1. 現在のブランチ（HEAD)でビルドして、ビルドした結果をアップロードします
+2. 現在のブランチの派生元ブランチ（Renovateの場合はmain|masterしかありませんが）でビルドして、ビルドした結果をアップロードします
 3. ビルドした2つの結果のハッシュを比較します。
 
 Github ActionsのWorkflowではこんな感じです。`current-build`が1.にあたり、`source-build`が2.にあたります。どちらも成功したら3.にあたる`diff`を実行します。
@@ -247,7 +247,7 @@ source-build:
           fetch-depth: '0'
 ```
 
-続いて、派生元のブランチ(というかコミット)にswitch(というかcheckout)する必要があります。
+続いて、派生元のブランチ（というかコミット）にswitch(というかcheckout)する必要があります。
 派生元のブランチを特定する方法は [Gitで今のブランチの派生元ブランチを特定する - Qiita](https://qiita.com/upinetree/items/0b74b08b64442f0a89b9) を参考にしました。
 今回は、派生元の**リモートブランチ**を特定する必要があるので、少しだけコマンドが変わって `git show-branch -a`を利用しています。
 
@@ -255,7 +255,7 @@ source-build:
  - name: switch to source branch  
         run: git checkout $(git show-branch -a | grep '*' | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -1 | awk -F'[]~^[]' '{print $2}')
 ```
-最後にアップロードのnameが変わっています。上記の理由と同様に コミットハッシュに `-source`をつけています。
+最後にアップロードのnameが変わっています。上記の理由と同様にコミットハッシュに `-source`をつけています。
 
 ```yaml
       - name: Upload output file

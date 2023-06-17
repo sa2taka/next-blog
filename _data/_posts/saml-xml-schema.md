@@ -39,12 +39,12 @@ XML Schemaには登場人物が主に3人いると考えていただくとわか
 - 要素型
 
 これらのうち、「要素」と「属性」はXMLに直接関係するものです。残りの「要素型」はその名の通り「要素」の「型」となるものです。
-XML Schemaではこの「要素型」を継承したりすることで定義を行うことができ、「要素型」を「要素」にマッピングすることで、初めて「要素」をXML中で利用することができる、というイメージです。XML Schemaはこの「要素型」を作成し、「要素」として名前を与えることを目的とした文章と言っても過言ではないです。
+XML Schemaではこの「要素型」を継承したりすることで定義を行うことができ、「要素型」を「要素」にマッピングすることで、初めて「要素」をXML中で利用できる、というイメージです。XML Schemaはこの「要素型」を作成し、「要素」として名前を与えることを目的とした文章と言っても過言ではないです。
 
 比較的わかりやすい図が [Part1 - Schema Components Diagram (non-normative)](https://www.w3.org/TR/xmlschema-1/#element-sequence) に乗っているため引用します。
 
-下記図のうち`Complex Type Definition` および `Simple Type Definition` が要素型と考えると、要素の定義である `Element Declaration` は 要素系と紐付いています(`Identifiy−constraint` というのがありますが、SAMLの定義では出てないと思います)。
-一方でXML Schemaの主人公とも呼べる存在は`Complex Type`ですが、これは`Element`を複数持ったもの(図中では`particle`と名前が付いています)と`Attribute Use`つまり属性などから作成されており、要素型は(必ずではないが)要素を持ち、要素もまた(必ずではないが)要素型を持っているという関係になっています。
+下記図のうち`Complex Type Definition` および `Simple Type Definition` が要素型と考えると、要素の定義である `Element Declaration` は要素系と紐付いています（`Identifiy−constraint` というのがありますが、SAMLの定義では出てないと思います）。
+一方でXML Schemaの主人公とも呼べる存在は`Complex Type`ですが、これは`Element`を複数持ったもの（図中では`particle`と名前が付いています）と`Attribute Use`つまり属性などから作成されており、要素型は（必ずではないが）要素を持ち、要素もまた（必ずではないが）要素型を持っているという関係になっています。
 
 ![XML Schema Part1 Schema Components Diagram (non-normative)から引用。XMLの構造のクラス図](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Schema%20Components%20Diagram%20(non-normative).gif)
 
@@ -113,7 +113,7 @@ XML Schema自身もXMLで記載されているため、1行目はXML宣言から
 
 `xmlns`から始まる属性がありますが、これはxmlのnamespaceを表すものです。XML SchemaではなくXMLに定義されているものです。XHTMLとか知っているならば、見たことあるかもしれません。
 
-`xmlns`のみの属性は、その名前空間に属する要素をプレフィックス無しで使うことが出来ます。今回では`http://www.w3.org/2001/XMLSchema`が指定されていますが、つまりXML Schemaの要素(`schema`や`import`, `annotation`など)をプレフィックス無しで指定することが出来ます。
+`xmlns`のみの属性は、その名前空間に属する要素をプレフィックス無しで使うことが出来ます。今回では`http://www.w3.org/2001/XMLSchema`が指定されていますが、つまりXML Schemaの要素（`schema`や`import`, `annotation`など）をプレフィックス無しで指定することが出来ます。
 
 :::info
 http://www.w3.org/2001/XMLSchema にはXML Schemaの定義が入っていますが、こちらはDTDという形式で書かれています。
@@ -122,7 +122,7 @@ XML Schemaは自分自身を自分自身で書けるため、XML Schemaで書い
 
 ### targetNameSpace
 
-`targetNameSpace`属性は自分自身の名前空間を表すものです。`RequestAbstractType`の名前空間は `urn:oasis:names:tc:SAML:2.0:protocol` ということになります。`xmlns`で`urn:oasis:names:tc:SAML:2.0:protocol`を指定する(または要素を利用する場合に毎回毎回 `<urn:oasis:names:tc:SAML:2.0:protocol:Request>`と書く)ことをすれば利用できるようになります。
+`targetNameSpace`属性は自分自身の名前空間を表すものです。`RequestAbstractType`の名前空間は `urn:oasis:names:tc:SAML:2.0:protocol` ということになります。`xmlns`で`urn:oasis:names:tc:SAML:2.0:protocol`を指定する（または要素を利用する場合に毎回毎回 `<urn:oasis:names:tc:SAML:2.0:protocol:Request>`と書く）ことをすれば利用できるようになります。
 
 ### その他の属性
 
@@ -133,7 +133,7 @@ XML Schemaは自分自身を自分自身で書けるため、XML Schemaで書い
 
 簡単に言えばほぼ意味の無い値です。
 
-その他の属性(`elementForDefault`, `elementFormDefault`, `blockDefault`)についても下記の記載があります。
+その他の属性（`elementForDefault`, `elementFormDefault`, `blockDefault`)についても下記の記載があります。
 
 > The blockDefault, finalDefault, attributeFormDefault, elementFormDefault and targetNamespace attributes are appealed to in the sub-sections above, as they provide global information applicable to many representation/component correspondences. 
 > > blockDefault, finalDefault, attributeFormDefault, elementFormDefault 及び targetNamespace 属性は、多くの表現とコンポーネントの対応に適用できるグローバルな情報を提供するため、上記のサブセクション(訳注:他のコンポーネントについての定義)にて説明する。
@@ -146,11 +146,11 @@ XML Schemaは自分自身を自分自身で書けるため、XML Schemaで書い
 
 ## annotation 要素
 
-`annotation` 要素 はその名の通り注釈です。人間やコンピューターに対して、説明や注釈、その他特記事項を記載するための場所です。小子供には、`doucmentation` 要素と`appinfo`要素を持つことができ、前者が人間用、後者がコンピューター用の情報です。
+`annotation` 要素はその名の通り注釈です。人間やコンピューターに対して、説明や注釈、その他特記事項を記載するための場所です。小子供には、`doucmentation` 要素と`appinfo`要素を持つことができ、前者が人間用、後者がコンピューター用の情報です。
 
 ## complexType 要素
 
-XML Schemaの最も重要な要素の一つ、`complexType`要素です。これはその名の通り複雑な型を表すものであり、XMLの構造を定義する型の一つでもあります。その他には`simpleType`があります。`simpleType`は文字列や数字などに制約を加えるために使わます。一方で`complexType` は子要素や属性などを自由に付け加えることが出来ます。
+XML Schemaの最も重要な要素の1つ、`complexType`要素です。これはその名の通り複雑な型を表すものであり、XMLの構造を定義する型の1つでもあります。その他には`simpleType`があります。`simpleType`は文字列や数字などに制約を加えるために使わます。一方で`complexType` は子要素や属性などを自由に付け加えることが出来ます。
 
 `name`属性は要素の名前となります。
 
@@ -161,7 +161,7 @@ XML Schemaの最も重要な要素の一つ、`complexType`要素です。これ
 `complexType`要素の子供で重要な子供は、属性を表す`attribute`要素と、要素を表す`all`, `choice`, そして`sequence`要素です。
 今回出現しているのは `sequence`要素ですね。
 
-`sequence`要素は 子供の要素がそれぞれ指定した通りの順番で出現することを想定しています。子供に、実際にどの要素が現れるかを表し、SAMLの場合は基本的に `element`要素を指定します。今回もそうですね。それ以外にも`choice`要素が指定される場合もあります。
+`sequence`要素は子供の要素がそれぞれ指定した通りの順番で出現することを想定しています。子供に、実際にどの要素が現れるかを表し、SAMLの場合は基本的に `element`要素を指定します。今回もそうですね。それ以外にも`choice`要素が指定される場合もあります。
 
 ## element要素
 
@@ -178,7 +178,7 @@ XML Schemaの最も重要な要素の一つ、`complexType`要素です。これ
 
 `name`属性および`type`属性は、これもまたその通りです。それぞれ要素の名前と要素の型を表します。
 
-`use`属性も見ただけでわかると思いますが、`required`が指定されれば属性として指定必須となり、`optional`では指定しなくてもよいという意味になります。デフォルトでは `optional`です。その他にも`prohibited`があります(ちゃんと調べてないですが、多分禁止するものです。型を拡張するときに使うのだと思います)。
+`use`属性も見ただけでわかると思いますが、`required`が指定されれば属性として指定必須となり、`optional`では指定しなくてもよいという意味になります。デフォルトでは `optional`です。その他にも`prohibited`があります（ちゃんと調べてないですが、多分禁止するものです。型を拡張するときに使うのだと思います）。
 
 ## どのような要素になるのか
 
@@ -251,7 +251,7 @@ type="unsignedShort" use="optional"/>
 `element`要素には大きく2つの存在があります。それが「グローバル」と「ローカル」です。
 `schema`要素の直下に存在する場合は「グローバル」として定義されます。正確にはいくつか制限があり、例えば`ref`形式が利用できないなどあります。それ以外の要素は「ローカル」となります。
 
-「グローバル」の`element`要素は、別のスキーマから参照することができるため、プログラム的に言えば外部に`export`するためのものです。
+「グローバル」の`element`要素は、別のスキーマから参照できるため、プログラム的に言えば外部に`export`するためのものです。
 
 例えば`AuthnRequest`では下記の定義がされています。
 
@@ -267,7 +267,7 @@ type="unsignedShort" use="optional"/>
 `AuthnRequest`は`RequestAbstractType`を継承して型を作成しています。そのためには`complexContent`要素と`extension`要素を利用しています。
 
 `complexContent`要素は特定の`complexType`を「拡張」または「制限」するために利用するための要素です。
-子供の要素に`extension`要素を置くと「拡張」(本記事では継承と呼ぶ)ことになり、`restriction`要素を置くと「制限」することができます。
+子供の要素に`extension`要素を置くと「拡張」(本記事では継承と呼ぶ）ことになり、`restriction`要素を置くと「制限」できます。
 
 `extension`要素は `base` 属性に指定した型に子要素と型を加えます。子要素は既存の型の末尾に追加のみ許されています。ちなみに[将来のバージョンでは様々な拡張方法が追加される](https://www.w3.org/TR/xmlschema-1/#element-complexContent..extension:~:text=Future%20versions%20may%20allow%20more%20kinds%20of%20extension%2C%20requiring%20more%20complex%20transformations%20to%20effect%20casting.)ようですね。楽しみです。
 
@@ -287,7 +287,7 @@ SAMLに`complexType`および`complexContent`と`restriction`要素を利用し�
 `SimpleType`要素は子要素も属性も存在しない要素型です。子要素が存在しないと言うと意味が分かりづらいですが、文字列を表す型という感じです。
 
 SAMLでは認可に関する状態を表す`AuthzDecisionStatement`という要素があり、その要素の属性に`Decision`属性というのがあります。
-この`Decision`属性は`Permit`, `Deny`, `Indenterminate`の3つあります。認可に`Indenterminate`が合って良いのかわからないですが(SAMLは認可フレームワークじゃないんで良いってことだと思います)、この`Decision`の型をどうやって定義するか。このときに`restriction`要素が必要です。
+この`Decision`属性は`Permit`, `Deny`, `Indenterminate`の3つあります。認可に`Indenterminate`が合って良いのかわからないですが（SAMLは認可フレームワークじゃないんで良いってことだと思います）、この`Decision`の型をどうやって定義するか。このときに`restriction`要素が必要です。
 
 実際の型は下記となっています。
 `restriction`の`base`を`string`とし、制限する際には`enumeration`で利用可能な値を定義していきます。

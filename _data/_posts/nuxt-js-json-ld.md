@@ -19,7 +19,7 @@ description:
 
 このブログは別に収益化をする気も人を集める気もないやる気のないものですが、SEOに関してそれなりに設定されています。今回はSEO[^seo]についてのお話です。
 
-[^seo]: Search Engine Optimizationの略。日本語では直訳で検索エンジン最適化。Googleを始めとした検索エンジンの検索結果に働きかける設定を行うこと。主に検索結果の上位に表示されることを目的とすると記載されているが、実際はクリック数を上げる、さらにはコンバージョン率を上げることがよく目的に含まれる。一般的にはSEO対策と呼ばれているが、正確にはSEO対応なのでは? と思う節がある。。
+[^seo]: Search Engine Optimizationの略。日本語では直訳で検索エンジン最適化。Googleを始めとした検索エンジンの検索結果に働きかける設定を行うこと。主に検索結果の上位に表示されることを目的とすると記載されているが、実際はクリック数を上げる、さらにはコンバージョン率を上げることがよく目的に含まれる。一般的にはSEO対策と呼ばれているが、正確にはSEO対応なのでは？　と思う節がある。。
 
 本ブログでは主にアクセシビリティの向上の副次効果としてSEOの向上がされていますので、実際はあまりSEOとしての設定をちゃんと行っているわけではありません。
 今回はほぼ初めて「SEO」に関して向き合った設定を行いました。と言っても、大したことはやっていませんが。
@@ -28,25 +28,25 @@ description:
 
 本題に入る前に構造化データについて。
 
-[Googleの構造化データに関するドキュメント](https://developers.google.com/search/docs/guides/intro-structured-data?hl=ja)には下記のように構造化データを説明しています。
+[Googleの構造化データに関するドキュメント](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data?hl=ja)には下記のように構造化データを説明しています。
 
 >  構造化データとは、ページに関する情報を提供し、ページ コンテンツを分類するために使用される、標準化されたデータ形式です。
 
-上記ページの例ではレシピページが示されていますが、例えばブログの記事(Article)やパンくずリスト、Videoなどの機能が用意されています。全ての機能は[検索ギャラリーを見る](https://developers.google.com/search/docs/guides/search-gallery?hl=ja)に記載があります。
+上記ページの例ではレシピページが示されていますが、例えばブログの記事（Article)やパンくずリスト、Videoなどの機能が用意されています。全ての機能は[検索ギャラリーを見る](https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=ja)に記載があります。
 
 この構造化データは検索エンジンがコンテンツを分類することにより検索結果の表示を特別なものにすることが可能です。この特別な表示を**リッチリザルト**と呼びます。
 
-リッチリザルトの表示は先程の[検索ギャラリーを見る](https://developers.google.com/search/docs/guides/search-gallery?hl=ja)にまとまっていますが、例えばgoogleで検索すると下記の様な表示がされることがあります。
+リッチリザルトの表示は先程の[検索ギャラリーを見る](https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=ja)にまとまっていますが、例えばgoogleで検索すると下記の様な表示がされることがあります。
 
 ![Googleによるオムライスの検索結果(2020年12月27日)](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Google%E3%81%AB%E3%82%88%E3%82%8B%E3%82%AA%E3%83%A0%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C_20201227.png)
 
-「オムライス」を検索した結果様々なレシピが表示されます。また作り方の動画が表示されたりするかもしれません。これらがリッチリザルトです。こうすることで通常の検索結果より、より高いクリック率が得られる可能性が増えます(多分)。
+「オムライス」を検索した結果様々なレシピが表示されます。また作り方の動画が表示されたりするかもしれません。これらがリッチリザルトです。こうすることで通常の検索結果より、より高いクリック率が得られる可能性が増えます（多分）。
 
 この様なリッチリザルトを提供するために構造化データは重要となり、すなわちSEOにおいても重要な立場となっています。
 
 ## JSON-LD形式
 
-この構造化データ、3つのデータ構造があります: [JSON-LD](https://json-ld.org/)、[HTML Microdata](https://www.w3.org/TR/microdata/)、[RDFa](https://www.w3.org/TR/rdfa-core/)(公式ページが証明書エラーを起こすので仕様)。これら3つの違いはGoogleでも簡単に触れられていたり様々なところでより詳しい説明がされているので省くとして、ここではJSON-LDについて簡単に見ていきたいと思います。
+この構造化データ、3つのデータ構造があります： [JSON-LD](https://json-ld.org/)、[HTML Microdata](https://www.w3.org/TR/microdata/)、[RDFa](https://www.w3.org/TR/rdfa-core/)(公式ページが証明書エラーを起こすので仕様）。これら3つの違いはGoogleでも簡単に触れられていたり様々なところでより詳しい説明がされているので省くとして、ここではJSON-LDについて簡単に見ていきたいと思います。
 
 JSON-LDはJSON for Linking Dataの略で[公式ページ](https://json-ld.org/)では下記のような説明がなされています。
 
@@ -55,9 +55,9 @@ JSON-LDはJSON for Linking Dataの略で[公式ページ](https://json-ld.org/)�
 
 Linked Dataという概念が実は登場しますが、流石に話が重いのでここでは省きます。
 
-簡単に言えばJSON-LD自体がデータをつなぐための形式の一つで、JSON-LDの名の通り、JSONでデータを表現します。
+簡単に言えばJSON-LD自体がデータをつなぐための形式の1つで、JSON-LDの名の通り、JSONでデータを表現します。
 
-GoogleのJSON-LDのサンプル(レシピデータ)は下記のようになっています
+GoogleのJSON-LDのサンプル（レシピデータ）は下記のようになっています
 
 ```json
 <script type="application/ld+json">
@@ -96,13 +96,13 @@ JSONではありますが、なんとなく人間にもそれぞれ何を意味�
 つまりこのレシピ通り作業するための準備時間は20分ということがわかりますね。
 
 ただし、Googleでは完全にschema.orgに準拠しておらず、例えばレシピであれば
-[developers.google.comのレシピページ](https://developers.google.com/search/docs/data-types/recipe?hl=ja)の定義を確認する必要があります。
+[developers.google.comのレシピページ](https://developers.google.com/search/docs/appearance/structured-data/recipe?hl=ja)の定義を確認する必要があります。
 
 # 本ブログでの対応
 
 というわけで本題。
 
-[検索ギャラリーを見る](https://developers.google.com/search/docs/guides/search-gallery?hl=ja)で機能を見ると、本ブログではお飾り程度のパンくずリストと記事が構造化データとして記載できそうですね。
+[検索ギャラリーを見る](https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=ja)で機能を見ると、本ブログではお飾り程度のパンくずリストと記事が構造化データとして記載できそうですね。
 
 ではまずNuxt.jsでJSON-LD形式の構造化データを埋め込んでみましょう。
 
@@ -110,7 +110,7 @@ JSONではありますが、なんとなく人間にもそれぞれ何を意味�
 
 Nuxt.jsのコンポーネントには`head()`という特別なメソッドを定義することによりhtmlのheadタグの内部を定義することが可能です[^nuxt-head]。
 
-[^nuxt-head]: ちなみに私の勘違いで`head()`はpageコンポーネントにしか無理だと思っていましたが、実はどこで定義しても問題ないことを知りました。こんな勘違いしている人他にも...いない?
+[^nuxt-head]: ちなみに私の勘違いで`head()`はpageコンポーネントにしか無理だと思っていましたが、実はどこで定義しても問題ないことを知りました。こんな勘違いしている人他にも...いない？
 
 そのため、JSON-LDを埋め込むのは下記のようになります。
 
@@ -158,7 +158,7 @@ __dangerouslyDisableSanitizersByTagID: {
 
 そのため、今回はscriptの構造化データのJSONのサニタイズを無効化しています。
 
-結果としてこんな感じになります(中身のデータについては後術)。ただし中身のjsonは実際はスペースや改行がなくなり最適化されています。
+結果としてこんな感じになります（中身のデータについては後術）。ただし中身のjsonは実際はスペースや改行がなくなり最適化されています。
 
 ```typescript
 <script data-n-head="ssr" data-hid="article" type="application/ld+json">
@@ -195,7 +195,7 @@ __dangerouslyDisableSanitizersByTagID: {
 
 あとは上記の`head`メソッドの中の`seoStructureData`のデータを生成してあげればいいだけですね。
 
-まずは`BlogPosting`です。[GoogleのArticle機能のページ](https://developers.google.com/search/docs/data-types/article?hl=ja#amp)を確認して見ます。ただし、本blogは非ampですが、ampの必須、推奨プロパティを実装してみます。
+まずは`BlogPosting`です。[GoogleのArticle機能のページ](https://developers.google.com/search/docs/appearance/structured-data/article?hl=ja#amp)を確認して見ます。ただし、本blogは非ampですが、ampの必須、推奨プロパティを実装してみます。
 
 そして出来上がったメソッドがこちら。本ブログのソースコードをそのまま持ってきています。
 
@@ -230,11 +230,11 @@ get seoStructureData() {
 
 何個か意味不明なところはありますが、パッと見て理解が可能なデータ構造なので解説は省きます[^blog-posting-data]。
 
-[^blog-posting-data]: 1. datePublishedとdateModifiedは実際は+9:00などのタイムゾーンを記載したほうがいいと思うが、javascriptのDateにそんなものがなく、面倒なのでtoString()でお茶を濁している(Googleもそのへんは考えてるでしょ)。2. `/logo-for-twitter.png`はちょうどロゴにピッタリのロゴがtwitter用のロゴだったから。
+[^blog-posting-data]: 1. datePublishedとdateModifiedは実際は+9:00などのタイムゾーンを記載したほうがいいと思うが、javascriptのDateにそんなものがなく、面倒なのでtoString()でお茶を濁している（Googleもそのへんは考えてるでしょ）。2. `/logo-for-twitter.png`はちょうどロゴにピッタリのロゴがtwitter用のロゴだったから。
 
 ## パンくずリスト
 
-パンくずリストも[Googleの機能ページ](https://developers.google.com/search/docs/data-types/breadcrumb?hl=ja)に記載があるとおりに作成します。
+パンくずリストも[Googleの機能ページ](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb?hl=ja)に記載があるとおりに作成します。
 ただし、機能ページでは`@id`が指定されていませんが、[リッチリザルトテストページ](https://search.google.com/test/rich-results)では必須と怒られるので入れています。
 
 ```typescript:breadcrumbs.vue

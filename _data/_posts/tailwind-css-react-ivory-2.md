@@ -19,15 +19,15 @@ description:
 [1日目ではプロジェクトを開始しました](/post/ivory-1)。
 
 本日はCSSフレームワークの設定を行います。
-ReactにはVuetify程(僕に)刺さるUIコンポーネントフレームワークがないので、正直利用するたびに変わります。
+ReactにはVuetify程（僕に）刺さるUIコンポーネントフレームワークがないので、正直利用するたびに変わります。
 
 なので、今回は[tailwind.css](https://tailwindcss.com/)を利用しようと思います。
 
 # Tailwind CSS
 tailwind.cssのコアコンピタンスには[Utilify First](https://tailwindcss.com/docs/utility-first)といったものがあります。
 
-少し話はそれますが、tailwind.cssの作者は[CSSユーティリティクラスと「関心の分離」](https://yuheiy.hatenablog.com/entry/2020/05/25/021342)(リンク先記事は日本語訳記事)というタイトルでCSSとHTMLの分離についての考え方を述べています。
-HTML5になり、よりセマンティックなマークアップとCSSによるデザインを分けるためには、という「関心の分離」について議論が重ねられている分野においての一つの回答ですが、非常にタメになる考え方でした。
+少し話はそれますが、tailwind.cssの作者は[CSSユーティリティクラスと「関心の分離」](https://yuheiy.hatenablog.com/entry/2020/05/25/021342)(リンク先記事は日本語訳記事）というタイトルでCSSとHTMLの分離についての考え方を述べています。
+HTML5になり、よりセマンティックなマークアップとCSSによるデザインを分けるためには、という「関心の分離」について議論が重ねられている分野においての1つの回答ですが、非常にタメになる考え方でした。
 
 私もBEMなどよりはこちらのほうが好きなので非常に興味がそそられたのと、UIフレームワークに頼らないデザインを作成したいという感情が現れたので今回はtailwind.cssを採用することになりました。
 
@@ -78,7 +78,7 @@ module: {
 
 ```
 
-最後にrenderer.tsx(redererのentryファイル)を下記のようにします[^atmark]。
+最後にrenderer.tsx(redererのentryファイル）を下記のようにします[^atmark]。
 
 [^atmark]: `import '@/style/tailwind.css';`となっていますが、これはwebpackのresolve機能を利用しています。create-react-appとかだと利用できないみたいですが、設定自体は簡単なのでやってみてください。
 
@@ -97,6 +97,6 @@ ReactDOM.render(<p className="text-6xl">Hello, World!</p>, app);
 
 ![big size hello world](https://i.imgur.com/THZDbut.png)
 
-`text-6xl`クラスはtailwind.cssのクラスの一つで、文字の大きさをすげぇでかくしてくれます。tailwind.cssがインストールできましたね。
+`text-6xl`クラスはtailwind.cssのクラスの1つで、文字の大きさをすげぇでかくしてくれます。tailwind.cssがインストールできましたね。
 
-短いですが、本日はここまで。次はReactよくばりセット、Storybookとテストフレームワーク(jestの予定)のセットアップを行う予定です。
+短いですが、本日はここまで。次はReactよくばりセット、Storybookとテストフレームワーク（jestの予定）のセットアップを行う予定です。

@@ -72,9 +72,9 @@ IPに対する証明書の発行は難しいので、URL(サーバーのFQDN)に
 
 そのため、今回はhostsを利用します。今回受け側はWindowsなので、`C:\Windows\System32\drivers\etc\hosts`を編集します。**管理者権限が必要であり、更には重要なファイルなので自己責任で編集を行ってください**。
 
-管理者権限で編集する必要があります。スタートボタンの検索窓で「メモ帳」を検索して、右クリックから管理者で実行し、上のフォルダへいきhostsを選択れば(デフォルトでは.txtでフィルターが掛かっているので、全てのファイルに変更すること)、編集が可能です。
+管理者権限で編集する必要があります。スタートボタンの検索窓で「メモ帳」を検索して、右クリックから管理者で実行し、上のフォルダへいきhostsを選択れば（デフォルトでは.txtでフィルターが掛かっているので、全てのファイルに変更すること）、編集が可能です。
 
-後は下記のように編集しましょう(FQDNを`test.sa2taka.com`とする場合)
+後は下記のように編集しましょう（FQDNを`test.sa2taka.com`とする場合）
 
 ``` plaintext:hosts
 ...(中略)
@@ -143,7 +143,7 @@ $ openssl x509 -req -in root.csr -signkey root.key -days 3650 -out root.crt
 
 ## CAフォルダ
 
-opensslはCA(認証局)に簡単になれる機能が存在します。そのためにはいくつかフォルダを作成する必要があります。
+opensslはCA(認証局）に簡単になれる機能が存在します。そのためにはいくつかフォルダを作成する必要があります。
 
 ```bash
 $ cat /etc/ssl/openssl.cnf  | grep dir -n3
@@ -215,7 +215,7 @@ to be sent with your certificate request
 A challenge password []:
 An optional company name []:
 ```
-3. CAで署名(openssl x509ではなくcaを利用する)
+3. CAで署名（openssl x509ではなくcaを利用する）
 ```bash
 $ openssl ca -in server.csr -out server.crt
 (中略)
@@ -254,9 +254,9 @@ $ openssl x509 -in server.crt -noout -subject
 subject=C = jp, ST = sa2taka, O = sa2taka, CN = test.sa2taka.com
 ```
 
-しかしChromeではCommon Nameを見なくなりました。[Chrome 58での非推奨・削除項目](https://developers.google.com/web/updates/2017/03/chrome-58-deprecations#remove_support_for_commonname_matching_in_certificates)(2017年!)を見ると、下記のようないくつかの理由でCommonNameを見なくなりました。
+しかしChromeではCommon Nameを見なくなりました。[Chrome 58での非推奨・削除項目](https://developer.chrome.com/blog/chrome-58-deprecations/#remove_support_for_commonname_matching_in_certificates)(2017年！)を見ると、下記のようないくつかの理由でCommonNameを見なくなりました。
 
-- commonNameへのフォールバックは[RFC2818](https://datatracker.ietf.org/doc/html/rfc2818)[^rfc2818] (2000年(!)発行)で非推奨とされている[^rfc2818-deprecated]
+- commonNameへのフォールバックは[RFC2818](https://datatracker.ietf.org/doc/html/rfc2818)[^rfc2818] (2000年（!)発行）で非推奨とされている[^rfc2818-deprecated]
 - commonNameは曖昧であるため、脆弱性の原因となっている
 - commonNameを削除することによる互換性のリスクは低い
 
@@ -265,7 +265,7 @@ subject=C = jp, ST = sa2taka, O = sa2taka, CN = test.sa2taka.com
     >> Common Name の使用は既存の慣行であるが、これは非推奨であり、認証局は代わりに dNSName の利用を推奨する
     encourage: 励ます、勧める、推奨する
 
-では何を見るのか? 上記のブログにも記載はありますが、`subjectAlternativeName`(通称SAN)を見ます。
+では何を見るのか？　上記のブログにも記載はありますが、`subjectAlternativeName`(通称SAN)を見ます。
 
 ### 証明書の新規作成
 

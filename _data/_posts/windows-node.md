@@ -18,7 +18,7 @@ description:
 
 # Node.jsのダウンロード
 
-[Node.jsのホームページ](https://nodejs.org/ja/download/)から最新版をダウンロード。
+[Node.jsのホームページ](https://nodejs.org/ja/download)から最新版をダウンロード。
 
 ダウンロード後インストール。
 
@@ -27,7 +27,7 @@ $ node -v
 v10.20.1
 ```
 
-...あれ? もう既にnode入ってたみたい
+...あれ？　もう既にnode入ってたみたい
 
 ```powershell
 $ where node
@@ -36,7 +36,7 @@ C:\Program Files\nodejs\node.exe
 ```
 
 Win+Rで`appwiz.cpl`を打ってプログラムと機能の一覧を見てみる。無い。
-エクスプローラーで開いてみる。5/10。10日前のことなのに覚えてない。多分Windows版のGitをインストールしたら勝手についてくるんだろう(あいつbashもくっついてくるから)。削除。
+エクスプローラーで開いてみる。5/10。10日前のことなのに覚えてない。多分Windows版のGitをインストールしたら勝手についてくるんだろう（あいつbashもくっついてくるから）。削除。
 
 # yarnのダウンロード
 

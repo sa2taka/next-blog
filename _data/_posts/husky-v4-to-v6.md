@@ -70,16 +70,16 @@ $ yarn husky install
 ```
 
 ::: info
-`package.json`の`prepare`スクリプトは特別なスクリプトの一つです。
+`package.json`の`prepare`スクリプトは特別なスクリプトの1つです。
 
 npmドキュメントの[scripts](https://docs.npmjs.com/cli/v7/using-npm/scripts)に記載がありますが、
 
 > Runs on local npm install without any arguments
 > > ローカル環境で引数無しで`npm install`を実行した時
 
-のタイミング(他にもあります)で`prepare`スクリプトが実行されます。
+のタイミング（他にもあります）で`prepare`スクリプトが実行されます。
 
-また、いわゆるYarn v1でも[package.json](https://classic.yarnpkg.com/en/docs/package-json/)に下記の記載があるため動作します(強調は筆者)。
+また、いわゆるYarn v1でも[package.json](https://classic.yarnpkg.com/en/docs/package-json/)に下記の記載があるため動作します（強調は筆者）。
 
 > Certain script names are special. If defined, the preinstall script is called by yarn before your package is installed. For compatibility reasons, scripts called install, postinstall, prepublish, and prepare will all be called after your package has finished installing.
 >> 特定のスクリプト名は特別です。preinstall スクリプトが定義されている場合、パッケージがインストールされる前に yarn によって呼び出されます。互換性の理由から、install、postinstall、prepublish、**prepare**と呼ばれるスクリプトはすべて、パッケージのインストールが完了した後に呼び出されます。 
@@ -101,13 +101,13 @@ npmドキュメントの[scripts](https://docs.npmjs.com/cli/v7/using-npm/script
 
 実際に、例えば`.git/hooks/pre-commit`などを見てもらえば上記の定義となっているかと思います。
 
-そこで`husky.sh`を読んでみると、今度は最終的に`yarn run husky-run $hookName`($hookNameは例えばpre-commitなど)を実行しているような動きでした。しかしながら、これでは実行するものがなくてもすべてのhookが動いていまいます。何も動かないならまだしも、必ず`yarn run husky-run`を動かすわけですね。
+そこで`husky.sh`を読んでみると、今度は最終的に`yarn run husky-run $hookName`($hookNameは例えばpre-commitなど）を実行しているような動きでした。しかしながら、これでは実行するものがなくてもすべてのhookが動いていまいます。何も動かないならまだしも、必ず`yarn run husky-run`を動かすわけですね。
 
 そして[git 2.9](https://github.blog/2016-06-13-git-2-9-has-been-released/)がやってきました。
 
 > You can now specify a custom path for hooks
 
 `yarn husky install`ではこのhooksのカスタムパス機能を利用して`.husky`フォルダをhooksのパスとして登録します。
-今まで`.git/hooks`という亜空間で定義していたものが`.husky`というフォルダに移ってきました。こうすることで無駄なくgit hooksを定義することができます。
+今まで`.git/hooks`という亜空間で定義していたものが`.husky`というフォルダに移ってきました。こうすることで無駄なくgit hooksを定義できます。
 
-`.husky`ってフォルダ名が嫌だ、とか「じゃあhusky要らなくない?」とかいった疑問も[Why husky has dropped conventional JS config - but](https://blog.typicode.com/husky-git-hooks-javascript-config/#but)に記載があるので気になった方は読んでみてください。
+`.husky`ってフォルダ名が嫌だ、とか「じゃあhusky要らなくない？」とかいった疑問も[Why husky has dropped conventional JS config - but](https://blog.typicode.com/husky-git-hooks-javascript-config/#but)に記載があるので気になった方は読んでみてください。

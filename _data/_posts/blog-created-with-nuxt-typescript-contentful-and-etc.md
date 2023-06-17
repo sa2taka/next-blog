@@ -15,10 +15,10 @@ description:
 ハローワールド。
 はじめまして。晴れてブログを作成することが出来ました、とっぷらです。
 
-突然ですが、これがトップページのLighthouseの結果だ!
+突然ですが、これがトップページのLighthouseの結果だ！
 ![全て100点のLighthouseの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%85%A8%E3%81%A6100%E7%82%B9%E3%81%AELighthouse%E3%81%AE%E7%B5%90%E6%9E%9C.png)
 
-本ブログのトップページ画面にて、見事花火を上げることが出来ました!
+本ブログのトップページ画面にて、見事花火を上げることが出来ました！
 
 今回はこのブログについて、構成とLighthouseのパフォーマンスの紹介できればと思います。
 1からブログを作ってみたい、というかなり狭いターゲットにおすすめの記事です。
@@ -30,13 +30,13 @@ description:
 このブログを作ったのは一体誰なんだ、自己紹介がてらスペックを記載します。
 大した人間が作ってるわけじゃない、というのが分かれば幸いです。
 
-- 名前: とっぷら/sa2taka
-- よく書く/書ける言語: Ruby、TypeScript、Powershell(Windowsバッチはまかせろ)
-- プログラミング歴: 高専出身ですが、まともに書き出したのは今(2020)から3年ほど前。
-- Vue歴: 2年
-- Nuxt歴: 今回が初めて。なんですか、JavaScriptでSSRって
-- 本業: インフラ。インフラが苦手な、インフラ
-- 趣味: 認証認可。最近サボリ気味
+- 名前： とっぷら/sa2taka
+- よく書く/書ける言語： Ruby、TypeScript、Powershell(Windowsバッチはまかせろ）
+- プログラミング歴： 高専出身ですが、まともに書き出したのは今（2020)から3年ほど前。
+- Vue歴： 2年
+- Nuxt歴： 今回が初めて。なんですか、JavaScriptでSSRって
+- 本業： インフラ。インフラが苦手な、インフラ
+- 趣味： 認証認可。最近サボリ気味
 
 # ブログ構成
 
@@ -48,11 +48,11 @@ description:
 
 ## Nuxt.js
 
-[Nuxt.js](https://ja.nuxtjs.org)は、Vue.jsのフレームワークの一つです。Vueの機能を使いつつ、より便利な機能やルールを追加したフレームワークです。具体的に言うと、Vue-routerやVue-loader、Vuexなどの主要ライブラリがデフォルトでくっついてきたり、SPAだけではなく、SSRや静的ページの生成などもサポートしています。
+[Nuxt.js](https://ja.nuxtjs.org)は、Vue.jsのフレームワークの1つです。Vueの機能を使いつつ、より便利な機能やルールを追加したフレームワークです。具体的に言うと、Vue-routerやVue-loader、Vuexなどの主要ライブラリがデフォルトでくっついてきたり、SPAだけではなく、SSRや静的ページの生成などもサポートしています。
 
 今回Nuxt.jsを選定した理由ですが2点あります。
 - どちらかというとReactよりVueが好き
-- ブログと言えばSSRだろ(という根拠のない認識)
+- ブログと言えばSSRだろ（という根拠のない認識）
 
 Vue×SSRといえばNuxt、ということなので今回はNuxtで作成しました。あまりこだわった選定ではないことがわかりますね。
 
@@ -97,9 +97,9 @@ Nuxt×TypeScriptの記事は色々ありますが、バージョンの違いな�
 まぁ、必要かと言われると怪しい部分はありますが、割と注釈に書くことが多いため、注釈のある・なしは私の中では重要だったりもします。
 
 markdown-itでは[markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote)を利用することで簡単に対応することが出来ます。
-markedも機能を拡張することも出来ますが、markdown-itと拡張のやり方が根本的に異なるので、(挑戦こそしませんが)注釈機能の追加は難しいのではないかな、と思います。
+markedも機能を拡張することも出来ますが、markdown-itと拡張のやり方が根本的に異なるので、(挑戦こそしませんが）注釈機能の追加は難しいのではないかな、と思います。
 
-[^marked-does-not-have-footnote]: 脚注自体はマークダウンの正式な機能ではないため、というのが公式の見解([Issue](https://github.com/markedjs/marked/issues/714))
+[^marked-does-not-have-footnote]: 脚注自体はマークダウンの正式な機能ではないため、というのが公式の見解（[Issue](https://github.com/markedjs/marked/issues/714))
 
 ### highlight.js
 
@@ -149,8 +149,8 @@ export default {
 
 ## Contentful
 
-[Contentful](https://www.contentful.com/)はHeadless CMSの一つです。CMS、というとWordpressなどを想像しますが、Headless CMSはAPIファースト(というかAPIオンリー)のCMSと呼べると思います。
-WordpressなどのCMSでは(私は触ったこと無いので詳しくは知りませんが)、例えばブログであれば、ブログの管理ページとブログの表示ページがあります。しかし、Contentfulでは管理ページしかなく、コンテンツはAPIを通して取得することが可能です。
+[Contentful](https://www.contentful.com/)はHeadless CMSの1つです。CMS、というとWordpressなどを想像しますが、Headless CMSはAPIファースト（というかAPIオンリー)のCMSと呼べると思います。
+WordpressなどのCMSでは（私は触ったこと無いので詳しくは知りませんが）、例えばブログであれば、ブログの管理ページとブログの表示ページがあります。しかし、Contentfulでは管理ページしかなく、コンテンツはAPIを通して取得することが可能です。
 
 今回はブログ、画像の管理とストレージみたいな利用方法です。無料で5000アイテムまで作れるので、まぁ、私がそれを使い切ることはまぁそうそうないでしょう。
 
@@ -161,7 +161,7 @@ WordpressなどのCMSでは(私は触ったこと無いので詳しくは知り�
 普段、私はSPAばかり書いているため、FirebaseのHosting機能を主に使ってアプリケーションを公開していました。しかし、このブログはSSR。ということで、何かしらのPaaSへホスティングすることを検討する必要がありました。
 今回は特に理由もないですがGAEを採用しました。Herokuでも良かったですが、Herokuはもうすでに使っちゃってるので...。
 
-Nuxtでは公式が様々なサービス上にデプロイする方法を記載しています。GAEへのデプロイ方法についても記載があり([Google App Engine へデプロイするには？](https://ja.nuxtjs.org/faq/appengine-deployment))特に難しいことなく行うことが出来ました。
+Nuxtでは公式が様々なサービス上にデプロイする方法を記載しています。GAEへのデプロイ方法についても記載があり（[Google App Engine へデプロイするには？](https://ja.nuxtjs.org/faq/appengine-deployment))特に難しいことなく行うことが出来ました。
 
 GAEは未だにNode v12で実行できないのが痛いですが、デプロイがめちゃくちゃ簡単でとても良かったです。
 今回はGithub Actionsを利用してmasterブランチへpushされたら自動的にGAEへデプロイするような仕組みまで作り上げたので、そのあたりもいつか記事にできればと思います。
@@ -250,7 +250,7 @@ import hljs from './hljs';
 
 ![改善した結果highlight.jsを97%削減](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E6%94%B9%E5%96%84%E3%81%97%E3%81%9F%E7%B5%90%E6%9E%9Chighlight.js%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%B9%E3%82%99%E3%82%92%E5%A4%A7%E5%B9%85%E5%89%8A%E6%B8%9B.png)
 
-58.65kB、gzipで圧縮すると7.98kBまで圧縮されました! 
+58.65kB、gzipで圧縮すると7.98kBまで圧縮されました！ 
 元のファイルから97%程削減した、と考えると凄まじい効果ですね。
 
 [^nuxt-analyze]: [nuxtのビルドオプションの一つ](https://ja.nuxtjs.org/api/configuration-build/#analyze)。[webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)を使ってwebpackのバンドルサイズを視覚的に表示してくれる
@@ -272,7 +272,7 @@ import hljs from './hljs';
 VuetifyのCSSサイズを減らすつもりで導入したのに、VuetifyのCSSが消し飛ぶ本末転倒の事態に。
 
 なので、今回は下記のような設定にしました。
-具体的には`whitelistPatternsChildren`の項目が重要です。`v-`から始まるクラス(Vuetifyのクラス)と`hljs`から始まるクラス(highlight.jsのクラス)を消さないような設定としています。
+具体的には`whitelistPatternsChildren`の項目が重要です。`v-`から始まるクラス（Vuetifyのクラス）と`hljs`から始まるクラス（highlight.jsのクラス）を消さないような設定としています。
 
 ```typescript:nuxt.ts
 export default {
@@ -328,9 +328,9 @@ f4eeb70f6ebba6ca810c.css   3.41 KiB  pages/post/_slug
 fdef3d62246149f316be.css  361 bytes  pages/category/_slug
 ```
 
-...あれ、あんまり変わってなくない? と思いますが、上から4行目のvendors.appの部分が70KiBも削減されています。大体24%の削減ですね。
+...あれ、あんまり変わってなくない？　と思いますが、上から4行目のvendors.appの部分が70KiBも削減されています。大体24%の削減ですね。
 
-残念ながら`v-`から始まるクラスを全部削除できないのでvuetifyにも無駄なクラスが残っていますが、多少は減りましたので問題ないでしょう(適当)。
+残念ながら`v-`から始まるクラスを全部削除できないのでvuetifyにも無駄なクラスが残っていますが、多少は減りましたので問題ないでしょう（適当）。
 # 参考
 
 パフォーマンスに関して非常に参考になったサイトがこちらです。

@@ -341,7 +341,7 @@ function changeSelectedToCamel() {
 といっても、[Publishing Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)の通りなのですが。
 
 公開自体は簡単なのですが、そのためにはMicrosoftのアカウントが必要です。
-[Azure DevOps](https://dev.azure.com/)にてOrganizationを作る必要があるのですが、そのタイミングで利用します。
+[Azure DevOps](https://azure.microsoft.com/en-us/products/devops/?nav=min)にてOrganizationを作る必要があるのですが、そのタイミングで利用します。
 
 Organizationを作成したなら、下記画像の通りPersonal Access Token生成ページへ移動します。
 

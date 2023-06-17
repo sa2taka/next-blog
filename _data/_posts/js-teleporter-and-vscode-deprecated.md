@@ -14,12 +14,12 @@ description:
 
 ハローワールド。
 
-以前[JavaScript/TypeScriptでテスト・コード間を移動するwith VSCode拡張の作り方](https://blog.sa2taka.com/post/javascript-typescript-jump-between-test-and-code-with-vscode/)というファイルで、私謹製の js-to-to-test という拡張を作成した話をしました。
+以前[JavaScript/TypeScriptでテスト・コード間を移動するwith VSCode拡張の作り方](https://blog.sa2taka.com/post/javascript-typescript-jump-between-test-and-code-with-vscode/)というファイルで、私謹製のjs-to-to-testという拡張を作成した話をしました。
 これはJavaScript/TypeScriptのコードとテストをいい感じに行き来してくれる拡張です。
 
 # 強化ポイント
 
-訳合って、拡張の名前が変わっています(理由は後術)。
+訳合って、拡張の名前が変わっています（理由は後術）。
 
 [JS Teleporter - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=sa2taka.js-teleporter)
 

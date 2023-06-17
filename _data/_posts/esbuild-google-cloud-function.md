@@ -14,7 +14,7 @@ description:
 
 ハローワールド
 
-[ESBuild](https://github.com/evanw/esbuild)はここ最近で注目されているバンドラー[^bundler]の一つです。
+[ESBuild](https://github.com/evanw/esbuild)はここ最近で注目されているバンドラー[^bundler]の1つです。
 
 Go製のバンドラーであり、特に**高速であること**を特徴にしています。上記Githubの公式ページから画像を引用しますが、他と比べると**100倍以上のスピード**でビルドされることがわかります。
 
@@ -24,7 +24,7 @@ Go製のバンドラーであり、特に**高速であること**を特徴に�
 
 # セットアップ
 
-今回はESBuild × TypeScriptでやってみます。特に設定をせずともTypeScriptが動くのが嬉しいですね(とは言っても、型チェックはしないので、別途tscは必要です)。
+今回はESBuild × TypeScriptでやってみます。特に設定をせずともTypeScriptが動くのが嬉しいですね（とは言っても、型チェックはしないので、別途tscは必要です）。
 
 というわけでセットアップしていきましょう。
 
@@ -35,7 +35,7 @@ $ yarn init
 $ yarn add -D esbuild typescript
 ```
 
-今回は[GCPのドキュメント](https://cloud.google.com/functions/docs/writing/http?hl=ja)にあるコードをdeployします。ただし、書き方はモダンっぽく。
+今回は[GCPのドキュメント](https://cloud.google.com/functions/docs/writing/write-http-functions?hl=ja)にあるコードをdeployします。ただし、書き方はモダンっぽく。
 
 ```typescript:src/index.ts
 import { Request, Response } from 'express';
@@ -58,9 +58,9 @@ yarn add -D express @types/express @types/escape-html
 
 - 実行環境はnodeである
 - 一応targetはesnextで
-- GCFはcommonjs形式である(多分)
+- GCFはcommonjs形式である（多分）
 
-上記のコードはES6形式でモジュールを書いていますが、GCFは`exports.functionName = ...`で記載するcommonjs形式である必要があります(多分)。
+上記のコードはES6形式でモジュールを書いていますが、GCFは`exports.functionName = ...`で記載するcommonjs形式である必要があります（多分）。
 
 上記を踏まえてビルドコマンドは下記のようになります。
 
@@ -79,7 +79,7 @@ $ yarn esbuild --bundle --outdir=dist --minify --sourcemap --format=cjs --platfo
 - --sourcemap
 `--sourcemap`はいわゆるsourcemapを作ってくれます。
 - --format
-`--format`は出力先のモジュール形式を選べます。`iief`(即時実行関数式)、`esm`(ES6 Module)、`cjs`(Common JS形式)のいずれかを選べます。今回はCommon JSです
+`--format`は出力先のモジュール形式を選べます。`iief`(即時実行関数式）、`esm`(ES6 Module)、`cjs`(Common JS形式）のいずれかを選べます。今回はCommon JSです
 - --platform
 `--platform`は実行するプラットフォームを選択します。`brwoser`または`node`のどちらかを選べ、今回は`node`です。
 - src/index.js
@@ -94,7 +94,7 @@ $ .../esbuild-gcloud-functions-test/node_modules/.bin/esbuild --bundle --outdir=
 Done in 0.31s.
 ```
 
-**0.31sでビルドができました**(後でwebpackと比較します)。
+**0.31sでビルドができました**(後でwebpackと比較します）。
 
 # デプロイ
 
@@ -104,7 +104,7 @@ Done in 0.31s.
 $ gcloud functions deploy test --entry-point helloHttp --runtime nodejs12 --trigger-http --region asia-northeast1 --source dist
 ```
 
-`gcloud`の詳細は別途調べてください(放棄)。
+`gcloud`の詳細は別途調べてください（放棄）。
 
 しばらくするとデプロイが完了します。今回は`--triger-http`を利用しているので、httpで関数を呼び出すことが可能です。呼んでみましょう。
 
@@ -195,7 +195,7 @@ Entrypoint main = index.js index.js.map
 Done in 11.36s.
 ```
 
-11.36s。esbuildの0.31sと比べると、想像以上になげぇ...
+11.36s。esbuildの0.31sと比べると、想像以上になげぇ..。
 
 
 ## 型チェックを除く
@@ -234,7 +234,7 @@ Done in 8.34s.
 
 それでも8.34sかかるみたいですね...。
 
-[^bundler]:JavaScriptでは複数のモジュールや依存解決を解決し、一つ、または機能単位にまとめるツールのことで、Webpackが代表的なツールの一つです。
+[^bundler]:JavaScriptでは複数のモジュールや依存解決を解決し、1つ、または機能単位にまとめるツールのことで、Webpackが代表的なツールの1つです。
 
 ## ファイル容量
 
@@ -264,6 +264,6 @@ total 12
 
 と、中々パワフルな結果を残してくれました。
 
-もちろん一朝一夕でwebpackに取って代われる程に強くはなく、エコシステムもまだまだ貧弱ですが、今後注目していきたいツールの一つには違いがないようです。
+もちろん一朝一夕でwebpackに取って代われる程に強くはなく、エコシステムもまだまだ貧弱ですが、今後注目していきたいツールの1つには違いがないようです。
 
 最後に、上記のプログラムは[Githubにアップロード](https://github.com/sa2taka/esbuild-gcloud-functions-test)しました。ブログ記載以上のことは書いていないですが、試したい場合などはご利用ください。
