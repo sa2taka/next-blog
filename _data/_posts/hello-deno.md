@@ -16,12 +16,12 @@ description:
 
 [Node.js](https://nodejs.org/ja/)は今はJavaScript界隈で知らない人はいない程有名だと思います。
 [V8 JavaScriptエンジン](https://v8.dev/)で動作する[^node-with-chackra]JavaScript環境で、ネットワークアプリケーションを作成するのを主として、今やデスクトップアプリやIoTデバイスとしても動いています。
-そんな、Node.js、2018年にNode.jsの作者であるRyan Dahl氏が「[Node.jsに関する10の反省点](https://www.youtube.com/watch?v=M3BM9TB-8yA)」(邦題）というタイトルのセッションを行っています。
+そんな、Node.js、2018年にNode.jsの作者であるRyan Dahl氏が「[Node.jsに関する10の反省点](https://www.youtube.com/watch?v=M3BM9TB-8yA)」（邦題）というタイトルのセッションを行っています。
 具体的な内容は、いくつか翻訳や説明記事が出ているのでそちらに任せるとして、その中で「Deno」というプロダクトについて言及しています。
 
-あくる日か、枝の節々（Node)を食べる恐竜（Deno)が現れるのでしょうか。調べていきましょう。
+あくる日か、枝の節々（Node）を食べる恐竜（Deno）が現れるのでしょうか。調べていきましょう。
 
-[^node-with-chackra]: Chackra Coreで動くNode.jsなどもあります（https://github.com/nodejs/node-chakracore)
+[^node-with-chackra]: Chackra Coreで動くNode.jsなどもあります（https://github.com/nodejs/node-chakracore）
 
 # Deno
 

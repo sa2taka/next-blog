@@ -1,7 +1,33 @@
 {
   "plugins": {},
   "rules": {
-    "preset-ja-technical-writing": {},
+    "preset-ja-technical-writing": {
+      "ja-no-weak-phrase": false,
+      "no-exclamation-question-mark": false,
+      "ja-no-successive-word": {
+        "allow": [
+          "!",
+          "！",
+          "?",
+          "？",
+          "毎日",
+          "など",
+          "…",
+          "て",
+          "そう",
+          "・"
+        ]
+      },
+      "sentence-length": {
+        "max": 200
+      },
+      "max-kanji-continuous-len": false,
+      "no-double-negative-ja": false,
+      "no-doubled-joshi": false,
+      "no-hankaku-kana": false,
+      "ja-unnatural-alphabet": false,
+      "max-comma": false
+    },
     "preset-jtf-style": {
       "max": 200,
       "ja-no-weak-phrase": false,
@@ -13,7 +39,23 @@
     "allowlist": {
       "allow": [
         ".NET",
-        "github.io"
+        "github.io",
+        // 箇条書きやコード前などに文章を挟む場合にエラーが発生しないように
+        "/[^。]\\n+\\s*-/",
+        "/[^。]\\n+\\s*```/",
+        "/[^。]\\n+\\s*>/",
+        "/[^。]\\n+\\s*\\$\\$/",
+        // 特殊なmarkdown気法に関しては除外
+        ":::",
+        "/\\$\\$[\\s\\S]*?\\$\\$/m",
+        "/\\$.+\\$/",
+        // 引用の場合は元の文章をそのまま残すため除外
+        "/^>.+/m",
+        // <> のルールに引っかかるため除外
+        "->",
+        "=>",
+        // 何故かエラーになるため除外,
+        "/（https?://[^）].+）/"
       ]
     }
   }

@@ -13,11 +13,11 @@ description:
 ---
 
 
-ハローワールド
+ハローワールド。
 
 タイトル通りの内容です。
 
-Vuetify[^vuetify]では[Click Outside](https://vuetifyjs.com/ja/directives/click-outside/)として機能があるので、Reactでも似たような感じでできないものかと作りました
+Vuetify[^vuetify]では[Click Outside](https://vuetifyjs.com/ja/directives/click-outside/)として機能があるので、Reactでも似たような感じでできないものかと作りました。
 
 [^vuetify]: https://vuetifyjs.com/ja/ Vueのコンポーネントフレームワーク
 

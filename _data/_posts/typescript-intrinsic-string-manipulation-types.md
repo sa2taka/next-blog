@@ -12,7 +12,7 @@ description:
   「私が」知らなかった`Uppercase`などの文字列に関連する組み込み文字列操作型について活用方法等をセットで記載しています。  
 ---
 
-ハローワールド
+ハローワールド。
 
 知られざる、というのはあくまで「僕が」という話ですが、最近知った組み込み型、[Intrinsic String Manipulation Types(組み込み文字列操作型)](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#intrinsic-string-manipulation-types)を紹介します。
 
@@ -73,9 +73,9 @@ type SnakeCaseUncapitalize = Uncapitalize<SnakeCaseCapitalize>
 
 # `intrinsic`というキーワード
 
-上記の型は、型定義を見ると`intrinstic`(組み込みの・固有の）というものになっています[^lib.d.ts]。`intrinstic`は現在上記で紹介した4つの型のみに使われています。
+上記の型は、型定義を見ると`intrinstic`（組み込みの・固有の）というものになっています[^lib.d.ts]。`intrinstic`は現在上記で紹介した4つの型のみに使われています。
 
-[^lib.d.ts]: `lib.d.ts`、今回の例は`lib.es5.d.ts`というファイルはTypeScript本体がが持っているJavaScriptランタイムやDOMなどに関する型を持つファイルです。
+[^lib.d.ts]: `lib.d.ts`、今回の例は`lib.es5.d.ts`というファイルはTypeScript本体が持っているJavaScriptランタイムやDOMなどに関する型を持つファイルです。
 
 ```typescript:lib.es5.d.ts
 /**
@@ -261,7 +261,7 @@ const test = convertPathParameterToItemKey("friendly-dog");
 ```
 
 こうすると`PathParameter`と`ItemKey`に相関が現れるため、`PathParameter`に追加したのに`ItemKey`に追加し忘れちゃった、みたいな凡ミスもなくなります。
-また、`convertPathParameterToItemKey`の引数と戻り値にも相関を与えたので、引数が`PathParameter`の特定の文字列の場合は、ちゃんとそれに対応した`ItemKey`の値が現れます
+また、`convertPathParameterToItemKey`の引数と戻り値にも相関を与えたので、引数が`PathParameter`の特定の文字列の場合は、ちゃんとそれに対応した`ItemKey`の値が現れます。
 
 ::: info
 ```typescript

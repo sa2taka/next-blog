@@ -12,7 +12,7 @@ description:
   社内の制限などでMicrosoft Storeが使えない環境でのWSL導入手順に関するチラシの裏です。  
 ---
 
-ハローワールド
+ハローワールド。
 
 2022/04/02追記： どうやら`wsl`というコマンドが追加されたようで、簡単に追加できるようになっていたようです。詳細：[WSL のインストール | Microsoft Docs](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 下記は、`wsl`コマンドがないような環境で利用できますが、まずは上記の方法を試してみてください。
@@ -28,7 +28,7 @@ WSLでUbuntuを動かすまでを記載していきます。
 ## WSLの有効化
 
 1. Win + rで`appwiz.cpl`と入力して、プログラムと機能を表示（もしくはコンパネからプログラムと機能を表示）
-2. 左の"Windowsの機能の有効化または無効化"を開く。
+2. 左の"Windowsの機能の有効化または無効化"を開く
 3. Windows Subsystem for Linuxのチェックボックスを入れる
 
 ![Windows Subsystem for Linuxの有効化](https://i.imgur.com/EWTK0DE.png)
@@ -38,7 +38,7 @@ WSLでUbuntuを動かすまでを記載していきます。
 ## Ubuntuを手に入れる
 
 1. [Windowsの公式ページ](https://learn.microsoft.com/ja-jp/windows/wsl/install-manual)にディストリビューションがあるので、好きなものを選択してダウンロード
-2. ダウンロードしたら下記コマンドをPowershellに流し込む。
+2. ダウンロードしたら下記コマンドをPowershellに流し込む
 
 ```powershell
 $ Add-AppxPackage .\<ダウンロードしたファイル>.appx

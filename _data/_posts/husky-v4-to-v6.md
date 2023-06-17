@@ -12,7 +12,7 @@ description:
   Huskyをv6に上げたらcommitできなくなったので、解決方法とその理由について調べてみました。  
 ---
 
-ハローワールド
+ハローワールド。
 
 この前弊blogのライブラリ群をとにかく`$ yarn upgrade --latest`でアップデートしたところ、諸々動かなくなりまして。
 基本的にはwebpack5関連で、なんとか動いたとcommitをしようとしたところ、エラーが発生してcommitできませんでした。
@@ -101,7 +101,7 @@ npmドキュメントの[scripts](https://docs.npmjs.com/cli/v7/using-npm/script
 
 実際に、例えば`.git/hooks/pre-commit`などを見てもらえば上記の定義となっているかと思います。
 
-そこで`husky.sh`を読んでみると、今度は最終的に`yarn run husky-run $hookName`($hookNameは例えばpre-commitなど）を実行しているような動きでした。しかしながら、これでは実行するものがなくてもすべてのhookが動いていまいます。何も動かないならまだしも、必ず`yarn run husky-run`を動かすわけですね。
+そこで`husky.sh`を読んでみると、今度は最終的に`yarn run husky-run $hookName`（$hookNameは例えばpre-commitなど）を実行しているような動きでした。しかしながら、これでは実行するものがなくてもすべてのhookが動いていまいます。何も動かないならまだしも、必ず`yarn run husky-run`を動かすわけですね。
 
 そして[git 2.9](https://github.blog/2016-06-13-git-2-9-has-been-released/)がやってきました。
 

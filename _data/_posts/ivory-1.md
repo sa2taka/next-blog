@@ -12,7 +12,7 @@ description:
   マストドンクライアントを作ろう。そう思い立った翌日に、彼は荒野の中にいた。――Electronの環境構築って、案外面倒くさいんだな。彼は呟きながら、徹夜明けの耳に鳥の囀りを聞いた  
 ---
 
-ハローワールド
+ハローワールド。
 
 マストドンクライアントを作ろう。
 
@@ -167,7 +167,7 @@ $ yarn tsc --init
 
 僕の手元の`create-react-app`製の`tsconfig.ts`では`noEmit: true`が入っていました。なんででしょうか[^noEmit-true]。
 
-[^noEmit-true]: tscで--noEmitオプションを指定すると出力せずに、型チェックだけを行います。webpackのts-loaderで型チェックを行わずにビルドを早くしつつ、tscで型チェックを行う、という使い方はよくある方式です。が、なんでtsconfig.tsにnoEmitオプションが付いているのでしょうか
+[^noEmit-true]: tscで `--noEmit` オプションを指定すると出力せずに、型チェックだけを行います。webpackのts-loaderで型チェックを行わずにビルドを早くしつつ、tscで型チェックを行う、という使い方はよくある方式です。が、なんでtsconfig.tsにnoEmitオプションが付いているのでしょうか
 
 # Webpackの設定
 
@@ -310,13 +310,13 @@ Error: Electron failed to install correctly, please delete node_modules/electron
 eval("/*中略*/var pathFile = path.join(__dirname, 'path.txt'/*略*/
 ...
 ```
-4. ここにある`var pathFile`をファイルパスとして、fs.existsSyncを利用してファイルの存在確認をしている。ただ、`main.js`の__dirnameは`<ソースパス>/dist`であり、`<ソースパス>/dist/path.txt`は当然存在しない。
+4. ここにある`var pathFile`をファイルパスとして、fs.existsSyncを利用してファイルの存在確認をしている。ただ、`main.js`の__dirnameは`<ソースパス>/dist`であり、`<ソースパス>/dist/path.txt`は当然存在しない
 5. パスが存在しない場合、インストールしてくれ、という文言が出るようになっている。つまり、今回はwebpackでまとめたせいでこのエラーが起きている
 
 
 ## 解決方法
 
-[Webpack公式](https://webpack.js.org/concepts/targets/)でelectron用のtargetがあった。
+[Webpack公式](https://webpack.js.org/concepts/targets/)でelectron用のtargetがありました。
 
 なので、こんな感じのwebpackのコンフィグを設定してみた。
 
@@ -414,4 +414,4 @@ $ yarn start
 
 まだ何も設定してないので空のままですね。
 
-ここまで記載して、朝の4時。不安の残るスタートとなった。
+ここまで記載して、朝の4時。不安の残るスタートとなりました。

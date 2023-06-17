@@ -31,8 +31,8 @@ description:
 大した人間が作ってるわけじゃない、というのが分かれば幸いです。
 
 - 名前： とっぷら/sa2taka
-- よく書く/書ける言語： Ruby、TypeScript、Powershell(Windowsバッチはまかせろ）
-- プログラミング歴： 高専出身ですが、まともに書き出したのは今（2020)から3年ほど前。
+- よく書く/書ける言語： Ruby、TypeScript、Powershell（Windowsバッチはまかせろ）
+- プログラミング歴： 高専出身ですが、まともに書き出したのは今（2020）から3年ほど前
 - Vue歴： 2年
 - Nuxt歴： 今回が初めて。なんですか、JavaScriptでSSRって
 - 本業： インフラ。インフラが苦手な、インフラ
@@ -59,12 +59,13 @@ Vue×SSRといえばNuxt、ということなので今回はNuxtで作成しま�
 僕はVue公式ツールである[Vue-Cli](https://github.com/vuejs/vue-cli)[^vue-cli]が非常にお気に入りということもあり、Nuxtには触れてきたことがありませんでした。そのため、SSR特有の癖や、NuxtとVue-Cliの絶妙な違いに悩まされることが非常に多かったです。
 
 [^vue-cli]: Vueの公式の環境構築ツール。TypeScript対応やVuex、Vue-router、Lintの設定やTesingツールの構成まで自動的にやってくれるすぐれものです。またプラグインの追加や設定なんかもVue-Cli上で出来てしまうという優れもの。
+
 ### NuxtとTypescriptの相性
 
 今回のブログを作成する上で、言語はTypeScriptを選定しました。
 理由はVueをTypeScriptでやる快感と、VSCodeの恩恵をフルに感じたかったからです。それだけです。
 
-[^vue-cli-typescript]: Vue-Cliではcreateコマンドのオプションを設定することで、面倒な設定を何も行わずにTypeScriptでVueの大航海を行うことが可能です。
+[^vue-cli-typescript]: Vue-Cliではcreateコマンドのオプションを設定することで、面倒な設定を何も行わずにTypeScriptでVueの大航海が可能です。
 
 Nuxtとの相性ですが、結論から言うと、Vue-Cliほどの親和性はありませんでした[^vue-cli-typescript]。
 
@@ -84,7 +85,7 @@ Nuxt×TypeScriptの記事は色々ありますが、バージョンの違いな�
 ## markedown-it
 今回のブログでは、ブログの管理部分に後術するContentfulを利用しています。Contentfulではブログ本文をマークダウンで記載しているため[^contentful-markdown]、ブログではマークダウンをHTMLに変換する必要があります。
 
-今回最終的に利用したマークダウンパーサーは[markdown-it](https://github.com/markdown-it/markdown-it)です。JavaScript製のマークダウンパーサーで、プラグインという概念を用いてマークダウンパーサーとしての機能を拡張することが可能です。
+今回最終的に利用したマークダウンパーサーは[markdown-it](https://github.com/markdown-it/markdown-it)です。JavaScript製のマークダウンパーサーで、プラグインという概念を用いてマークダウンパーサーとしての機能を拡張できます。
 独自でプラグインを作ることも簡単で、私も簡単にですが自作のプラグインで拡張しています。
 
 [^contentful-markdown]: Contentfulのマークダウンエディタにプレビュー機能がないため、マークダウン自体は[HackMD](https://hackmd.io/)を使っていたりします
@@ -97,9 +98,9 @@ Nuxt×TypeScriptの記事は色々ありますが、バージョンの違いな�
 まぁ、必要かと言われると怪しい部分はありますが、割と注釈に書くことが多いため、注釈のある・なしは私の中では重要だったりもします。
 
 markdown-itでは[markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote)を利用することで簡単に対応することが出来ます。
-markedも機能を拡張することも出来ますが、markdown-itと拡張のやり方が根本的に異なるので、(挑戦こそしませんが）注釈機能の追加は難しいのではないかな、と思います。
+markedも機能を拡張することも出来ますが、markdown-itと拡張のやり方が根本的に異なるので（挑戦もしません）、注釈機能の追加は難しいのではないかなと思います。
 
-[^marked-does-not-have-footnote]: 脚注自体はマークダウンの正式な機能ではないため、というのが公式の見解（[Issue](https://github.com/markedjs/marked/issues/714))
+[^marked-does-not-have-footnote]: 脚注自体はマークダウンの正式な機能ではないため、というのが公式の見解（[Issue](https://github.com/markedjs/marked/issues/714)）
 
 ### highlight.js
 
@@ -149,8 +150,8 @@ export default {
 
 ## Contentful
 
-[Contentful](https://www.contentful.com/)はHeadless CMSの1つです。CMS、というとWordpressなどを想像しますが、Headless CMSはAPIファースト（というかAPIオンリー)のCMSと呼べると思います。
-WordpressなどのCMSでは（私は触ったこと無いので詳しくは知りませんが）、例えばブログであれば、ブログの管理ページとブログの表示ページがあります。しかし、Contentfulでは管理ページしかなく、コンテンツはAPIを通して取得することが可能です。
+[Contentful](https://www.contentful.com/)はHeadless CMSの1つです。CMS、というとWordpressなどを想像しますが、Headless CMSはAPIファースト（というかAPIオンリー）のCMSと呼べると思います。
+WordpressなどのCMSでは（私は触ったこと無いので詳しくは知りませんが）、例えばブログであれば、ブログの管理ページとブログの表示ページがあります。しかし、Contentfulでは管理ページしかなく、コンテンツはAPIを通して取得できます。
 
 今回はブログ、画像の管理とストレージみたいな利用方法です。無料で5000アイテムまで作れるので、まぁ、私がそれを使い切ることはまぁそうそうないでしょう。
 
@@ -161,7 +162,7 @@ WordpressなどのCMSでは（私は触ったこと無いので詳しくは知�
 普段、私はSPAばかり書いているため、FirebaseのHosting機能を主に使ってアプリケーションを公開していました。しかし、このブログはSSR。ということで、何かしらのPaaSへホスティングすることを検討する必要がありました。
 今回は特に理由もないですがGAEを採用しました。Herokuでも良かったですが、Herokuはもうすでに使っちゃってるので...。
 
-Nuxtでは公式が様々なサービス上にデプロイする方法を記載しています。GAEへのデプロイ方法についても記載があり（[Google App Engine へデプロイするには？](https://ja.nuxtjs.org/faq/appengine-deployment))特に難しいことなく行うことが出来ました。
+Nuxtでは公式が様々なサービス上にデプロイする方法を記載しています。GAEへのデプロイ方法についても記載があり（[Google App Engine へデプロイするには？](https://ja.nuxtjs.org/faq/appengine-deployment)）特に難しいことなく行うことが出来ました。
 
 GAEは未だにNode v12で実行できないのが痛いですが、デプロイがめちゃくちゃ簡単でとても良かったです。
 今回はGithub Actionsを利用してmasterブランチへpushされたら自動的にGAEへデプロイするような仕組みまで作り上げたので、そのあたりもいつか記事にできればと思います。
@@ -257,7 +258,7 @@ import hljs from './hljs';
 
 ### purgeCSSの導入
 
-[purgeCSS](https://purgecss.com/)は使っていないCSSを削除してCSSのサイズを減らしてくれるライブラリです
+[purgeCSS](https://purgecss.com/)は使っていないCSSを削除してCSSのサイズを減らしてくれるライブラリです。
 
 具体的には実際のコンテンツとCSSスタイルシートを見比べ、使っていないCSSを削除してくれます。
 

@@ -12,7 +12,7 @@ description:
   SAMLの定義も読みづらいが、XML Schemの定義もなかなか読みづらい。正確性はもはや保証できないですが、XML Schemaのいくつかの定義を調べてみました。  
 ---
 
-ハローワールド
+ハローワールド。
 
 SAMLはXMLを利用した認証のための規格です。SAMLではXML Schemaと呼ばれるXMLの構造・内容などを定義する方法でSAMLで利用するXMLを定義します。
 
@@ -39,12 +39,12 @@ XML Schemaには登場人物が主に3人いると考えていただくとわか
 - 要素型
 
 これらのうち、「要素」と「属性」はXMLに直接関係するものです。残りの「要素型」はその名の通り「要素」の「型」となるものです。
-XML Schemaではこの「要素型」を継承したりすることで定義を行うことができ、「要素型」を「要素」にマッピングすることで、初めて「要素」をXML中で利用できる、というイメージです。XML Schemaはこの「要素型」を作成し、「要素」として名前を与えることを目的とした文章と言っても過言ではないです。
+XML Schemaではこの「要素型」を継承したりすることで定義でき、「要素型」を「要素」にマッピングすることで、初めて「要素」をXML中で利用できる、というイメージです。XML Schemaはこの「要素型」を作成し、「要素」として名前を与えることを目的とした文章と言っても過言ではないです。
 
 比較的わかりやすい図が [Part1 - Schema Components Diagram (non-normative)](https://www.w3.org/TR/xmlschema-1/#element-sequence) に乗っているため引用します。
 
-下記図のうち`Complex Type Definition` および `Simple Type Definition` が要素型と考えると、要素の定義である `Element Declaration` は要素系と紐付いています（`Identifiy−constraint` というのがありますが、SAMLの定義では出てないと思います）。
-一方でXML Schemaの主人公とも呼べる存在は`Complex Type`ですが、これは`Element`を複数持ったもの（図中では`particle`と名前が付いています）と`Attribute Use`つまり属性などから作成されており、要素型は（必ずではないが）要素を持ち、要素もまた（必ずではないが）要素型を持っているという関係になっています。
+下記図のうち`Complex Type Definition` および `Simple Type Definition` が要素型と考えると、要素の定義である `Element Declaration` は要素系と紐付いています（`Identifiy−constraint` というのはありますが、SAMLの定義では出てないと思います）。
+一方でXML Schemaの主人公とも呼べる存在は`Complex Type`です。これは`Element`を複数持ったもの（図中では`particle`と名前が付いています）と`Attribute Use`つまり属性などから作成されており、要素型は要素を持ち（必ずではない）、要素もまた）要素型を持っている（これもまた必ずではない）という関係になっています。
 
 ![XML Schema Part1 Schema Components Diagram (non-normative)から引用。XMLの構造のクラス図](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Schema%20Components%20Diagram%20(non-normative).gif)
 
@@ -122,7 +122,7 @@ XML Schemaは自分自身を自分自身で書けるため、XML Schemaで書い
 
 ### targetNameSpace
 
-`targetNameSpace`属性は自分自身の名前空間を表すものです。`RequestAbstractType`の名前空間は `urn:oasis:names:tc:SAML:2.0:protocol` ということになります。`xmlns`で`urn:oasis:names:tc:SAML:2.0:protocol`を指定する（または要素を利用する場合に毎回毎回 `<urn:oasis:names:tc:SAML:2.0:protocol:Request>`と書く）ことをすれば利用できるようになります。
+`targetNameSpace`属性は自分自身の名前空間を表すものです。`RequestAbstractType`の名前空間は `urn:oasis:names:tc:SAML:2.0:protocol` ということになります。`xmlns`で`urn:oasis:names:tc:SAML:2.0:protocol`を指定する（または要素を利用する場合に毎回 `<urn:oasis:names:tc:SAML:2.0:protocol:Request>`と書く）ことをすれば利用できるようになります。
 
 ### その他の属性
 
@@ -133,7 +133,7 @@ XML Schemaは自分自身を自分自身で書けるため、XML Schemaで書い
 
 簡単に言えばほぼ意味の無い値です。
 
-その他の属性（`elementForDefault`, `elementFormDefault`, `blockDefault`)についても下記の記載があります。
+その他の属性（`elementForDefault`, `elementFormDefault`, `blockDefault`）についても下記の記載があります。
 
 > The blockDefault, finalDefault, attributeFormDefault, elementFormDefault and targetNamespace attributes are appealed to in the sub-sections above, as they provide global information applicable to many representation/component correspondences. 
 > > blockDefault, finalDefault, attributeFormDefault, elementFormDefault 及び targetNamespace 属性は、多くの表現とコンポーネントの対応に適用できるグローバルな情報を提供するため、上記のサブセクション(訳注:他のコンポーネントについての定義)にて説明する。
@@ -260,20 +260,20 @@ type="unsignedShort" use="optional"/>
 ```
 
 これは外部に`AuthnRequest`という名前で定義しています。要素の型は`samlp:AuthnRequestType`となりますね。
-この定義を行うことで、外部で`AuthnRequest`要素を利用することが出来ます。
+この定義をすることで、外部で`AuthnRequest`要素を利用することが出来ます。
 
 ## complexContent要素とextension要素で型を継承する
 
 `AuthnRequest`は`RequestAbstractType`を継承して型を作成しています。そのためには`complexContent`要素と`extension`要素を利用しています。
 
 `complexContent`要素は特定の`complexType`を「拡張」または「制限」するために利用するための要素です。
-子供の要素に`extension`要素を置くと「拡張」(本記事では継承と呼ぶ）ことになり、`restriction`要素を置くと「制限」できます。
+子供の要素に`extension`要素を置くと「拡張」（本記事では継承と呼ぶ）ことになり、`restriction`要素を置くと「制限」できます。
 
 `extension`要素は `base` 属性に指定した型に子要素と型を加えます。子要素は既存の型の末尾に追加のみ許されています。ちなみに[将来のバージョンでは様々な拡張方法が追加される](https://www.w3.org/TR/xmlschema-1/#element-complexContent..extension:~:text=Future%20versions%20may%20allow%20more%20kinds%20of%20extension%2C%20requiring%20more%20complex%20transformations%20to%20effect%20casting.)ようですね。楽しみです。
 
 今回は `RequestAbstractType`が`base`要素に指定されているため、[XML-Schemaの基本](#XML-Schemaの基本)で記載した要素を拡張するということですね。
 
-例えば、既存の子要素は `saml:Issuer`, `ds:Signature`, `samlp:Extensions`の3つですが、それに加え`saml:Subject`, `samlp:NameIDPolicy`などの5つが追加されます。全て`minOccurs`が0なので、存在しなくても問題ないですが、`sequence`で定義されているため、存在する場合は順番はかえてはいけません。
+例えば、既存の子要素である `saml:Issuer`・`ds:Signature`・`samlp:Extensions`の3つに加え`saml:Subject`・`samlp:NameIDPolicy`などの5つが追加されます。全て`minOccurs`が0なので存在しなくても問題ないですが、`sequence`で定義されているため、存在する場合は順番はかえてはいけません。
 
 # 文字列を制限する
 
@@ -281,7 +281,7 @@ SAMLでは一部制限する型が出てきます。すでに記載したとお�
 紹介した時は`complexType`及び`complexContent`要素を利用しましたが、その他にSAMLに登場するパターンを確認してみます。
 
 :::info
-SAMLに`complexType`および`complexContent`と`restriction`要素を利用した方法がありますが、「任意の子要素と特定の属性を持たなければならない」という `SubjectConfirmationDataType`要素型、および「任意の子要素を設定できる」`SubjectConfirmationDataType`要素型の「子要素を`ds:KeyInfo`に制限する」という`KeyInfoConfirmationDataType`要素にしか使われていないので、詳しい説明は省きます。
+SAMLに`complexType`および`complexContent`と`restriction`要素を利用した方法があります。「任意の子要素と特定の属性を持たなければならない」という `SubjectConfirmationDataType`要素型・「任意の子要素を設定できる」`SubjectConfirmationDataType`要素型の「子要素を`ds:KeyInfo`に制限する」という`KeyInfoConfirmationDataType`要素。これらにしか使われていないので、詳しい説明は省きます。
 :::
 
 `SimpleType`要素は子要素も属性も存在しない要素型です。子要素が存在しないと言うと意味が分かりづらいですが、文字列を表す型という感じです。

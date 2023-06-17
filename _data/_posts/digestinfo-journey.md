@@ -12,7 +12,7 @@ description:
   DigestInfoとだけ書かれた仕様から始まる、様々な仕様を経由した色の濃い道程について記載します。  
 ---
 
-ハローワールド
+ハローワールド。
 
 会社でプログラムを書いていたところ、とあるAPIの仕様書に
 
@@ -58,7 +58,7 @@ PKCS #7は公開鍵の標準を示したPKCS(Public-Key Cryptography Standards)�
 
 [^x.680]: https://www.itu.int/itu-t/recommendations/rec.aspx?rec=x.680
 
-ASN.1には基本の型があり、例えば可視可能文字列（PrintableString)や整数型（INTEGER)、後ほど出てきますが何もないことを表すNULL型（NULL)などがあります。上記の`DigestInfo`の定義で出てくる`SEQUENCE`も基本形であり、これは順序を持った複数の値（型）を表すものです。つまり、`DigestInfo`は`DigestAlgorithmIdentifier`という型の`digestAlgorithm`と`Digest`という型を持った`digest`が連続した値、ということを表しています。
+ASN.1には基本の型があり、例えば可視可能文字列（PrintableString）や整数型（INTEGER）、後ほど出てきますが何もないことを表すNULL型（NULL）などがあります。上記の`DigestInfo`の定義で出てくる`SEQUENCE`も基本形であり、これは順序を持った複数の値（型）を表すものです。つまり、`DigestInfo`は`DigestAlgorithmIdentifier`という型の`digestAlgorithm`と`Digest`という型を持った`digest`が連続した値、ということを表しています。
 
 では`DigestAlgorithmIdentifier`と`Digest`は一体何なんだと言うことです。どちらもX.680では規定されていないため、どこかに定義が記載されているはずです。
 
@@ -73,7 +73,7 @@ Digest ::= OCTET STRING
 `OCTET STRING`はX.680にも規定があり、簡単に言えばバイト列を表すものです。なのでDigestは単純なバイト列であることがわかります。  
 当然、ただのバイト配列では駄目で、`digest is the result of the message-digesting process.`と記載されています。つまり**Digestはメッセージのハッシュ化した結果のバイト列**であることがここでわかります。
 
-ちなみに、オクテットとは8bitのことであり（octoは8って意味ですね）、現在は事実上1byteと同じ意味です。昔は1byteが4bitだったり6bitだったり環境依存だったらしいので、8bitの固定長を表すのにオクテットが利用されていました。本記事では今後バイト（byte)と記載します。
+ちなみに、オクテットとは8bitのことであり（octoは8って意味ですね）、現在は事実上1byteと同じ意味です。昔は1byteが4bitだったり6bitだったり環境依存だったらしいので、8bitの固定長を表すのにオクテットが利用されていました。本記事では今後バイト（byte）と記載します。
 
 ## DigestAlgorithmIdentifier
 
@@ -97,7 +97,7 @@ DigestAlgorithmIdentifier ::= AlgorithmIdentifier
 ここではX.509ではなく、X.509の証明書などについて記載された[RFC5280](https://tools.ietf.org/html/rfc5280)[^RFC5280][^RFC5280-japanese]を確認してみます。
 
 [^RFC5280]: https://tools.ietf.org/html/rfc5280
-[^RFC5280-japanese]: RFC5280は有名なRFCの1つでもあるので、日本語訳も存在します。IPAからも出ているため（https://www.ipa.go.jp/security/rfc/RFC5280-00JA.html)こちらを読むのもいいでしょう。
+[^RFC5280-japanese]: RFC5280は有名なRFCの1つでもあるので、日本語訳も存在します。IPAからも出ているため（https://www.ipa.go.jp/security/rfc/RFC5280-00JA.html）こちらを読むのもいいでしょう。
 
 [Section 4.1.1.2](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.1.2)にビンゴな定義が記載されています。
 
@@ -107,7 +107,7 @@ AlgorithmIdentifier  ::=  SEQUENCE  {
         parameters              ANY DEFINED BY algorithm OPTIONAL  }
 ```
 
-`AlgorithmIdentifier`は`OBJECT IDENTIFIER`の`algorithm`と`algorithm`で定義されている`OPTIONAL`(省略可能）な`ANY`(何でも入れていい型）であることがわかります。`algorithm`はさておきとして、`parameter`はその名の通りアルゴリズムに指定するパラメーターなのでしょう。
+`AlgorithmIdentifier`は`OBJECT IDENTIFIER`の`algorithm`と`algorithm`で定義されている`OPTIONAL`（省略可能）な`ANY`（何でも入れていい型）であることがわかります。`algorithm`はさておきとして、`parameter`はその名の通りアルゴリズムに指定するパラメーターなのでしょう。
 
 さて`OBJECT IDENTIFIER`ですが、これはoidとも呼ばれるもので、ituが定めたオブジェクトを識別するためのIDのことを言っています。[Wikipediaの記事](https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E8%AD%98%E5%88%A5%E5%AD%90)の記載が詳しいです。  
 この`OBJECT IDENTIFIER`、実はX.680の定義にも記載があるため、基本の型の1つです。
@@ -142,7 +142,7 @@ DigestInfo ::= SEQUENCE {
 
 ここまで来て何を送れば良いのかはわかりましたが、**どうやって送れば良いのか**、それに関しては仕様書には一切記載がありません。この仕様書だけでどうやって俺はデータを送れば良いんだよ。
 
-幸いデータ例があったので、これは**DER**(正確にはBERかもしれない）で変換して送信することがわかりました。
+幸いデータ例があったので、これは**DER**（正確にはBERかもしれない）で変換して送信することがわかりました。
 
 ## DER
 
@@ -163,7 +163,7 @@ dwIDAQAB
 
 ASN.1形式のデータをDERで変換する際、基本的にTAG + LENGTH + VALUEの3つのバイト列を連結して1つのデータを表します。
 
-TAGというのは、ASN.1の型です。例えば`OCTET STRING`であればタグは`04`(16進数）です。また、`SEQUENCE`は、タグ自体は`10`(16進数）ですが、構造を持つ型なので、6bit目に1が立ちます。結果として、タグは`30`(16進数）となります。[ANS.1 のタグ一覧](https://tex2e.github.io/blog/protocol/ans1-tags)に全体がまとまっているため詳細はお任せいたします。
+TAGというのは、ASN.1の型です。例えば`OCTET STRING`であればタグは`04`（16進数）です。また、`SEQUENCE`は、タグ自体は`10`（16進数）ですが、構造を持つ型なので6bit目に1が立ちます。結果として、タグは`30`（16進数）となります。[ANS.1 のタグ一覧](https://tex2e.github.io/blog/protocol/ans1-tags)に全体がまとまっているため詳細はお任せいたします。
 
 LENGTHはその名の通りVALUEの長さを表します。VALUEの長さが128byte未満であれば、LENGTHにはその数字が入ります。128byte以上であれば、まず1byte目にLENGTHを表すのに利用するbyteを記載し、2byte目以降にVALUEのLENGTHを記載します。その際最初のbyteのbit8を1とします。
 
@@ -175,11 +175,11 @@ DigestInfoにはoidである`algorithm`があります。oidをDERで表現す�
 
 具体的には[C#でASN.1のObject Identifierのエンコードを行う](https://qiita.com/sukkyxp/items/69e142d07aa92aaa09c2#oid%E3%81%AE%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%89%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)に詳しいのですが、VALUEが素直にOIDをバイト列に直したものではないのです。
 
-OIDは最初は必ず、0, 1, 2のどれかなので、最初の値に40(=0x28)をかけ（つまり1なら40, 2なら80)、そこにOIDの2つ目の値を足し合わせます。  
+OIDは最初は必ず、0, 1, 2のどれかなので、最初の値に40(=0x28)をかけ（つまり1なら40, 2なら80）、そこにOIDの2つ目の値を足し合わせます。  
 例えばSHA256のOIDの最初2つは`2.16`です。なので$2 * 40 + 16 = 96 = 0\text{x}60$となります。
 
 また、SHA256ではOIDの中に840と128より大きな値があります。128より大きな値を記載する場合は、まず2進数で7bitごとに分割し、最後のbyteを除いてbit8の1を立てます。  
-例えば840では7bitづつに分割して（0b00000110 0b01001000 = 0x06 0x48)、最後のbyte以外のbit8を立てる（0b10000110 0b01001000 = 0x86 0x48)ということなので、最終的には`86 48`となります。
+例えば840では7bitづつに分割して（0b00000110 0b01001000 = 0x06 0x48）、最後のbyte以外のbit8を立てる（0b10000110 0b01001000 = 0x86 0x48）ということなので、最終的には`86 48`となります。
 
 それ以外は普通にバイトの値として組み合わせればいいので、SHA256を表すoid`2.16.840.1.101.3.4.2.1`はDERでエンコードすると`60 86 48 01 65 03 04 02 01`の9byteとなります。
 
@@ -309,7 +309,7 @@ SHA2シリーズの暗号関連上での構文の定義が記載されている[
 
 RFC的には入れても入れなくても問題はないようですが、結局動かないものは動かないのでparameterにNULLを入れて送らなければならないようです。
 
-nullと空では、実はDER形式では少し異なります。 DER形式ではNULL型という型があります。TAGは`05`、通常はLENGTHを`00`(つまりVALUEが空のデータ）として表現するようです。
+nullと空では、実はDER形式では少し異なります。 DER形式ではNULL型という型があります。TAGは`05`、通常はLENGTHを`00`（つまりVALUEが空のデータ）として表現するようです。
 
 ## 最終的なDERで変換したDigestInfo
 
@@ -343,7 +343,7 @@ DigestInfo ::= SEQUENCE {
 # さいごに
 
 DigestInfoという単語（とたった1つのデータ例）から正しいデータ列をいつでも生成する力を手に入れることができました。
-こういった証明書やPKIなどでは、RFCやX.509などの定義を参照していればほぼ問題がないと思っていましたが、今回の例のように歴史的な経緯が買ったり、またバージョンによって大幅な転換があったりと、一筋縄では決して行かない難しさを感じました。
+こういった証明書やPKIなどでは、RFCやX.509などの定義を参照していればほぼ問題がないと思っていました。しかし今回の例のように歴史的な経緯があったり、またバージョンによって大幅な転換があったりと、一筋縄では決して行かない難しさを感じました。
 
 とはいえ、ASN.1やDERといった知識はこういった部分では必須知識と考えて問題はないと思います。詳しく知ることができたこの（余り親切ではない）設計書に感謝ですね。
 

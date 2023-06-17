@@ -12,7 +12,7 @@ description:
   Firefoxでは動くけどChromeでは動かない証明書が完成したので直しました。SANが重要だそうです。  
 ---
 
-ハローワールド
+ハローワールド。
 
 本記事では**Chromeで使える**サーバー証明書を作成します。
 
@@ -29,7 +29,7 @@ OpenSSL 1.1.1f  31 Mar 2020
 
 # 事前準備
 
-証明書を作成する前にいくつか事前準備を行います。
+証明書を作成する前にいくつか事前準備します。
 
 まず証明書を配置するフォルダを作成しましょう。
 
@@ -70,7 +70,7 @@ https
 
 IPに対する証明書の発行は難しいので、URL(サーバーのFQDN)に対する証明書を発行したいですが、そうすると今度はURLとIPアドレスを誰も紐付けてくれません。
 
-そのため、今回はhostsを利用します。今回受け側はWindowsなので、`C:\Windows\System32\drivers\etc\hosts`を編集します。**管理者権限が必要であり、更には重要なファイルなので自己責任で編集を行ってください**。
+そのため、今回はhostsを利用します。今回受け側はWindowsなので、`C:\Windows\System32\drivers\etc\hosts`を編集します。**管理者権限が必要であり、更には重要なファイルなので自己責任で編集してください**。
 
 管理者権限で編集する必要があります。スタートボタンの検索窓で「メモ帳」を検索して、右クリックから管理者で実行し、上のフォルダへいきhostsを選択れば（デフォルトでは.txtでフィルターが掛かっているので、全てのファイルに変更すること）、編集が可能です。
 
@@ -143,7 +143,7 @@ $ openssl x509 -req -in root.csr -signkey root.key -days 3650 -out root.crt
 
 ## CAフォルダ
 
-opensslはCA(認証局）に簡単になれる機能が存在します。そのためにはいくつかフォルダを作成する必要があります。
+opensslはCA＊認証局）に簡単になれる機能が存在します。そのためにはいくつかフォルダを作成する必要があります。
 
 ```bash
 $ cat /etc/ssl/openssl.cnf  | grep dir -n3
@@ -256,7 +256,7 @@ subject=C = jp, ST = sa2taka, O = sa2taka, CN = test.sa2taka.com
 
 しかしChromeではCommon Nameを見なくなりました。[Chrome 58での非推奨・削除項目](https://developer.chrome.com/blog/chrome-58-deprecations/#remove_support_for_commonname_matching_in_certificates)(2017年！)を見ると、下記のようないくつかの理由でCommonNameを見なくなりました。
 
-- commonNameへのフォールバックは[RFC2818](https://datatracker.ietf.org/doc/html/rfc2818)[^rfc2818] (2000年（!)発行）で非推奨とされている[^rfc2818-deprecated]
+- commonNameへのフォールバックは[RFC2818](https://datatracker.ietf.org/doc/html/rfc2818)[^rfc2818]（2000年（!）発行）で非推奨とされている[^rfc2818-deprecated]
 - commonNameは曖昧であるため、脆弱性の原因となっている
 - commonNameを削除することによる互換性のリスクは低い
 

@@ -29,12 +29,12 @@ description:
 
 説明するほどもないですが、いまやオブジェクト指向言語の代名詞とも呼ばれる存在です。25年前（年上ですね）に誕生してから、Java Applet、Java Servletから始まり、Android、JavaFXと様々な世界を広げました［要検証］。世界一使われている言語の1つと行っても過言ではない言語でしょう。
 
-一時期Webの脆弱性診断を行っていたのですが、診断を行ったサーバーサイドの言語としてはPHPとJavaの二択といった状況でした。もちろん企業のバックエンドによるのでしょうが、やはりサーバーサイドといえばPHPとJavaの二択なんだなと感じました。
+一時期Webの脆弱性診断していたのですが、診断したサーバーサイドの言語としてはPHPとJavaの二択といった状況でした。もちろん企業のバックエンドによるのでしょうが、やはりサーバーサイドといえばPHPとJavaの二択なんだなと感じました。
 
 ## Javaのサーバーサイド
 
 JavaでサーバーサイドといえばJava ServletとJSP、あとTomcatでカリカリと書いている印象が僕の中で割とあります。まぁ、最近ではフレームワーク、おそらくSpringをバリバリ利用している例が多いと想像できますが。あるいはセキュリティ的によく話題になるApache Strutsを利用するのでしょうか（Apache Struts2を使ってるところ、あんまりみたことないですけど）。
-もちろん様々なフレームワークがありますが、おそらくJavaでサーバーサイドというならJava Servletでカリカリ、もしくはSpringを利用する例が多いのかと存じます。(JavaServer Faces? 知らない子ですね）
+もちろん様々なフレームワークがありますが、おそらくJavaでサーバーサイドというならJava Servletでカリカリ、もしくはSpringを利用する例が多いのかと存じます。（JavaServer Faces? 知らない子ですね）
 
 ちなみにPlay Frameworkは[Scala](#Scala)の章で詳しく記載するつもりです。
 
@@ -42,7 +42,7 @@ JavaでサーバーサイドといえばJava ServletとJSP、あとTomcatでカ�
 
 Java ServletはJavaのエンタープライズ向けAPI仕様であるJavaEE(Jakarta EE?)の一機能です。おそらく。
 
-Wikipedia(https://ja.wikipedia.org/wiki/Java_Servlet)を参照すると、MVCアーキテクチャの図が載っています。おそらくアーキテクチャに依存はしていないのでしょうが、ControllerをServlet、ViewをJSP、ModelをJava Beansが携わる形が多いということでしょうか。
+Wikipedia（https://ja.wikipedia.org/wiki/Java_Servlet）を参照すると、MVCアーキテクチャの図が載っています。おそらくアーキテクチャに依存はしていないのでしょうが、ControllerをServlet、ViewをJSP、ModelをJava Beansが携わる形が多いということでしょうか。
 
 コードの例示などは行いませんが、今から始めようと思ってこの形を採用することはないと思うので、今回はご紹介まで（公式、と呼べる文章を探し出せなかったのは秘密）。
 
@@ -55,7 +55,7 @@ Wikipedia(https://ja.wikipedia.org/wiki/Java_Servlet)を参照すると、MVCア
 
 私はSpringはWebのフレームワークだと思ってましたが、Microservice、Reactive、Cloud、Web App、Serverless、Event Driven、Batchと多岐に渡るようですね。
 
-私、全然Springのこと知らない！　ということに気づいていましました。では、習うより慣れろの格言に従い、まずはプロジェクトを実行してみましょう。そんなのどうでもいいという方は[Springとは?](#Springとは?) 項を見ていただければ
+私、全然Springのこと知らない！ということに気づいてしまいました。では、習うより慣れろの格言に従い、まずはプロジェクトを実行してみましょう。そんなのどうでもいいという方は[Springとは?](#Springとは?) 項を見ていただければ。
 
 ### Getting Started!
 
@@ -72,16 +72,16 @@ OpenJDK 64-Bit Server VM (build 14.0.1+7, mixed mode, sharing)
 
 OpenJDKの14を入れてみました。ちなみにOSは`macOS 10.15.4`です。
 
-次に[Spring Initializr](https://start.spring.io/)(initialzerの誤字ではないです）でSpringの初期プロジェクトを作ってみます。
+次に[Spring Initializr](https://start.spring.io/)（initialzerの誤字ではないです）でSpringの初期プロジェクトを作ってみます。
 
 設定項目は
-- Project(MavenがGradleか）
+- Project（MavenがGradleか）
 - Language
 - Spring Bootのバージョン
 - Projectのメタデータ
 - Packaging(jarかwar?)
 - Javaのバージョン
-- Dependencies(ライブラリ）
+- Dependencies（ライブラリ）
 
 です。SpringはJava以外にもScala、Kotlinでも利用できるようで、Languageではそれぞれの言語を選択できます。それぞれの言語で紹介しますので、ここではここまでにしておきます。
 
@@ -292,7 +292,7 @@ public class DemoApplication {
 
 Scalaで有名なサーバーサイドの話といえば、TwitterがScalaで実装されているという話があります[^twitter-scala]。
 
-[^twitter-scala]: TwitterはもともとRuby on Railsで作られていましたが、Twitterのリアルタイム処理という部分に関してRuby on Rails、ひいてはRubyでは耐えられないほどになったことで、JVMへ移行したという話があります（https://www.youtube.com/watch?v=ohHdZXnsNi8)。
+[^twitter-scala]: TwitterはもともとRuby on Railsで作られていましたが、Twitterのリアルタイム処理という部分に関してRuby on Rails、ひいてはRubyでは耐えられないほどになったことで、JVMへ移行したという話があります（https://www.youtube.com/watch?v=ohHdZXnsNi8）。
 
 そんなScala、先程紹介したようにSpringフレームワークも使えますが、ここではPlay Frameworkについて調べてみました。
 
@@ -302,11 +302,11 @@ Scalaで有名なサーバーサイドの話といえば、TwitterがScalaで実
 
 Play Frameworkに関する要点をまとめると下記のようになります。
 
-- (Spring Boot誕生前のSpringやJ2EEに比べて）簡単で独自性の高いWebフレームワークとして誕生
+- （Spring Boot誕生前のSpringやJ2EEに比べて）簡単で独自性の高いWebフレームワークとして誕生
 - Play Framework 2系はScalaによって書かれている
 
 Springと同じように歴史があり、PlayFrameworkはWebフレームワークが求められた中で生まれ、またScalaのコミュニティといち早くマッチしたというのが特徴です。PlayFrameworkはもちろんJavaでも利用できますが、Scalaを書いている人たちが作っているフレームワークなので、当然Scalaとの親和性が高いということでしょう。
-またJ2EEの問題を解決しようとしたSpringと違いRuby on RailsなどのWebフレームワークを目指して作られた点というのもSpringとの違いとして大きいところでしょう。
+加えてJ2EEの問題を解決しようとしたSpringと違いRuby on RailsなどのWebフレームワークを目指して作られた点というのもSpringとの違いとして大きいところでしょう。
 
 百聞は一見にしかずという格言に従い、Scalaへの第一歩、そしてPlay Frameworkの第一歩を進んでみましょう。
 
@@ -378,7 +378,7 @@ target                   → Generated stuff
 test                     → source folder for unit or functional tests
 ```
 
-(上記は[公式ページ](https://www.playframework.com/documentation/2.8.x/Anatomy)より引用です）
+（上記は[公式ページ](https://www.playframework.com/documentation/2.8.x/Anatomy)より引用です）
 
 詳しいことは上記ページを読んでいただければいいのですが、パット見てどのフォルダがどの役割を果たしているのか、非常にわかりやすいですね。
 
@@ -441,7 +441,7 @@ Google検索の人気度で調べてみましょう。
 
 ![Kotlin Frameworks](https://i.imgur.com/fdtkxHb.png)
 
-(スクショで申し訳ないですが）こんな感じ。SpringとMicronautはJavaのフレームワークの側面が強かったのでKotlinと入れています。Micronaut単独では最近出たということもあり人気度は高かったのですが、Kotlinとの組み合わせはあまり人気がないようです。
+（スクショで申し訳ないですが）こんな感じ。SpringとMicronautはJavaのフレームワークの側面が強かったのでKotlinと入れています。Micronaut単独では最近出たということもあり人気度は高かったのですが、Kotlinとの組み合わせはあまり人気がないようです。
 
 これを見ただけだとKotlin Spring、ついでKtorという人気でしょうか。Javalinも強いですが、Kotlinとの組み合わせではKtorに比べると人気度は低くなってしまいます。
 
@@ -636,7 +636,7 @@ fun main(args: Array<String>) {
 ScalaはPlay Frameworkが実質的なスタンダードだと感じました。もしくはSpring Bootとの二強という感じでしょうか。何れにせよどちらもドキュメントの豊富さも感じられましたしScalaはかなり強力な選択肢の1つになりうるかと思いました。
 
 KotlinはSpring Boot以外のフレームワーク、KtorやHTTP4kはドキュメントの豊富さ、また日本語での情報の少なさというのがまだまだ成長中であると感じました。
-また採用事例などを調べてもSpring Bootが多く見受けられますね。
+採用事例などを調べてもSpring Bootが多く見受けられますね。
 
 おそらくScalaを採用する場合はPlay Framework、KotlinではSpring Bootでしょうか。あとはScalaを触ってみて、Kotlinを触ってみて、どっちが好きかというのを考えるだけでしょうか。
 

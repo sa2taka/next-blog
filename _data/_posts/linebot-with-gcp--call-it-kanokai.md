@@ -181,7 +181,7 @@ function handleEvent(event: WebhookEvent) {
 今回は先程も申し上げたとおり、GCP、Google Cloud Functionsを利用します。
 また、今回はwebhookとするので「--trigger-http」にする必要があります。
 
-それ以外は特に気にすることはないかと思います。一応デプロイ用のコマンド例を載せて起きます。gcloudコマンドの詳細はまた別途調べてください...。
+それ以外は特に気にすることはないと思います。一応デプロイ用のコマンド例を載せて起きます。gcloudコマンドの詳細はまた別途調べてください...。
 
 ```bash
 $ gcloud functions deploy webohook --entry-point webhook --runtime nodejs12 --trigger-http --region asia-northeast1 --source dist

@@ -172,7 +172,7 @@ const rule: Rule.RuleModule = {
 }
 ```
 
-と、しないかというと。
+と、しないのかというと。
 
 何故か`@types/eslint`の`Rule.RuleModule`の`meta`の型である`RuleMetaData`に`hasSuggestions`という値がないからです。今回はこの`hasSuggestions`という値を利用するので、`as Rule.RuleModule`で最低限、型が効くようにしています。
 
@@ -263,7 +263,7 @@ JavaScript以外の文脈でもASTというのは用いられています。例�
 
 ASTはソースコードをツリー表現したものです。treeって書いてありますもんね。百聞不如一見と言いますので、実際に見てもらったほうが理解は早いでしょう。
 
-[AST Explorer](https://astexplorer.net/)は簡単にASTを見れるのでオススメです[^parser]。
+[AST Explorer](https://astexplorer.net/)は簡単にASTを見られるのでオススメです[^parser]。
 
 [^parser]: より正確に確認したいなら、上の（おそらく）デフォルトの`acron`となっているパーサーの部分を適当なパーサーに置き換えたほうがいいでしょう。`@typescript-eslint/parser`が順当でしょう。
 
@@ -333,7 +333,7 @@ if(process.env.NODE_ENV === "development") {
 
 今回特に重要なのは左項の`MemberExpression`です。この`MemberExpression`は`node.env.NODE_ENV`のASTです。つまり、今回はこの形式のASTが現れたらエラーをレポートするようにしたいのです。
 
-`MemberExpression`は（おそらく）その名の通り、オブジェクトのMemberであることを表します。例えば`process.env`や`console.log`がそうですね。今回は関係ないのあまり調べてないですが、例えば`get computed () => { ... }`という感じでgetter形式で書かれる場合`computed: true`となるんだと思います。
+`MemberExpression`は（おそらく）その名の通り、オブジェクトのMemberであることを表します。例えば`process.env`や`console.log`がそうですね。今回は関係ないのあまり調べてないですが、`get computed () => { ... }`という感じでgetter形式で書かれる場合`computed: true`となるんだと思います。
 
 `MemberExpression`はプロパティを持つの`object`とアクセスプロパティを表す`property`の2つを持ちます。
 

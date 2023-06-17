@@ -12,7 +12,7 @@ description:
   非常にシンプルなJestのoutlineのVSCode拡張を作成しました。シンプルですが、TreeItemのAPIやTypeScriptのコンパイラなどの理解が深まりました。その備忘録です。  
 ---
 
-ハローワールド
+ハローワールド。
 
 VSCodeでテストを書く時、どんなdescribeがあるか、どんなtest(it)があるかをひと目で知りたいな、と思いました。
 
@@ -107,7 +107,7 @@ export class OutlineProvider implements TreeDataProvider<SymbolNode> {
 
 ## TreeViewの登録
 
-`extension.ts`で下記のような実装を行うことで、上記で実装した仕組みを利用してTreeViewを表示することが出来ます
+`extension.ts`で下記のような実装することで、上記で実装した仕組みを利用してTreeViewを表示することが出来ます
 
 ```typescript:extension.ts
 export const activate = async (context: ExtensionContext) => {
@@ -223,7 +223,7 @@ const guessKind = (config: { isReact: boolean; isJs: boolean }): ScriptKind => {
 };
 ```
 
-`typescript`内にある`createSourceFile`によりASTを取得することが出来ます。第一引数がファイル名、第二引数がコード本体、第三引数がターゲット、第四引数がASTに`parent`を付与するか（という意味合いだと思いますが、trueにしておかないと実行時エラーが発生する処理があるので、true推奨だと思われます）、第五引数がコードが何であるかを表します（今回はJS、TS、React対応を一応しています）。
+`typescript`内にある`createSourceFile`によりASTを取得することが出来ます。第一引数がファイル名・第二引数がコード本体・第三引数がターゲット・第四引数がASTに`parent`を付与するか（という意味合いだと思いますがtrueにしておかないと実行時エラーが発生する処理があるのでtrue推奨だと思われます）、第五引数がコードが何であるかを表します（今回はJS、TS、React対応を一応しています）。
 
 TypeScriptのASTの結果は[TypeScript AST Viewer](https://ts-ast-viewer.com/#)で確認できます。
 

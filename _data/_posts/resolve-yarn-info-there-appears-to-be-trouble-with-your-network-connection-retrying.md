@@ -6,13 +6,13 @@ category:    memo
 tags:        yarn ,エラー解決
 public:      true
 createdAt:   2020-05-22
-updatedAt:   2020-07-05
+updatedAt:   2020-06-18
 latex:       undefined
 description:
   yarnを行うと「info There appears to be trouble with your network connection. Retrying...」が出てくるので解決した。  
 ---
 
-ハローワールド
+ハローワールド。
 
 # 事象
 
@@ -38,5 +38,3 @@ $ yarn config set network-timeout 1000000
 # or
 $ yarn install --network-timeout 1000000
 ```
-
-`Ubuntu on WSL`と書いてありますが、おそらくどこだって同じだと思います。

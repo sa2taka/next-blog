@@ -12,7 +12,7 @@ description:
   配列のメソッド、Reduceに関して、バグを短期間で二回も埋め込んでしまいました。それを回避するため、reduce用のLintを書いたので紹介です。  
 ---
 
-ハローワールド
+ハローワールド。
 
 JavaScript/TypeScriptに関わらず、現在のモダン言語には配列の操作の関数/メソッドとして `reduce` が存在します。
 
@@ -81,7 +81,7 @@ console.log(newNames);
 //    }
 ```
 
-原因は下記の通り、`accAnimalNames`を使うべきところに`animalNames`を使ってしまっていることです。すなわち、初期値に対して毎回毎回更新を行っており、それ以前の更新処理はすべて失われてしまっています。
+原因は下記の通り、`accAnimalNames`を使うべきところに`animalNames`を使ってしまっていることです。すなわち、初期値に対して毎回更新しており、それ以前の更新処理はすべて失われてしまっています。
 
 ```typescript
 const addNames = (animalNames: AnimalNames, data: Info[]) => {
@@ -104,7 +104,7 @@ https://github.com/sa2taka/no-invalid-reduce-variable-eslint-rule
 
 上記のコードのテスト[^test-code]を確認すれば、どの場合にエラーになるかなどがわかります。
 
-[^test-code]: テストコードがarrow function(`() => { }`)でなくて普通の匿名関数（`function () { }`)を利用している理由は、なぜかarrow functiondだとテストが動かないからです。lintとして動かす場合は問題なく動きます
+[^test-code]: テストコードがarrow function(`() => { }`)でなくて普通の匿名関数（`function () { }`）を利用している理由は、なぜかarrow functiondだとテストが動かないからです。lintとして動かす場合は問題なく動きます
 
 ## Fail
 
@@ -132,7 +132,7 @@ arr.reduce(function(acc) { return { count: count1 } }, { count: count1 })
 arr.reduce(function(acc) { return obj.count }, obj)
 ```
 
-第二引数がプロパティ参照（Member Expression)の場合は、Member Expression全体が一致しているかを確認します
+第二引数がプロパティ参照（Member Expression）の場合は、Member Expression全体が一致しているかを確認します
 
 ```typescript
 arr.reduce(function(acc) { return obj.count }, obj.count)
@@ -203,7 +203,7 @@ arr.reduce(function(acc) { return {} }, {});
 ## 子供を再帰的に探索する方法がわからなかった
 
 上記のルールを作成する際ですが、一番困ったのが再帰的に子供を読んでいく動作です。
-今回は`CallExpression`をキャッチして検知を行うのですが、第一引数の関数を掘っていき、変数名などを取得していく方法がわかりませんでした。
+今回は`CallExpression`をキャッチして検知するのですが、第一引数の関数を掘っていき、変数名などを取得していく方法がわかりませんでした。
 
 色々調べると、その動作のことを`visit`と呼ぶことがわかりましたが、それ用のライブラリがあんまりありませんでした。パッと見つかった処理参考にして、完成したのが下記です。
 

@@ -10,8 +10,8 @@
     "build": "yarn workspace blog run build",
     "start": "yarn workspace blog run start",
     "lint": "yarn workspaces run lint",
-    "lint:post": "yarn textlint _data/_post",
-    "lint:post:deadlink": "yarn textlint --rule no-dead-link _data/_post",
+    "lint:post": "yarn textlint _data/_posts",
+    "lint:post:deadlink": "yarn textlint --rule no-dead-link _data/_posts",
     "build:all": "yarn workspaces run build",
     "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
   },

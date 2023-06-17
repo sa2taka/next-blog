@@ -12,11 +12,11 @@ description:
   非常にニッチなGithub Actionsの紹介。「ベースブランチがmainブランチなどにマージされたら、依存元のブランチもReady for Review状態にする」を自動化した。  
 ---
 
-ハローワールド
+ハローワールド。
 
 非常にニッチなGithub Actionsの紹介です。
 
-Github(などのGit管理サービス）でのPull Requestの運用は千差万別だと思います。
+Github（などのGit管理サービス）でのPull Requestの運用は千差万別だと思います。
 弊チームではPRの粒度はある程度細かくする文化があります。そして、その結果として、1つの大きなまとまりを複数のPRに意味のある単位に分割することがよくあります。
 
 例えば、1つの処理を作成する上で`firestoreからデータを取得する処理`、`データを変換する処理`、`変換したデータをAPIでデータを返す処理`みたいな感じに分割し、PRが3つ作成されます。流石にこの程度だと1つのPRにする可能性もありますが、1つ1つの処理が大きく、それぞれ意味的に分割できるのであれば分割します。
@@ -70,7 +70,7 @@ on:
 
 上記はトリガーです。今回はPull Requestが編集されたら実行されます。
 
-Githubではベースブランチがマージされたら、自動でベースブランチが変更されるという挙動があります（参考： [[GitHub] Pull RequestのBaseブランチが自動で変更されるようになっていた | DevelopersIO](https://dev.classmethod.jp/articles/base-branch-of-pull-request-was-supposed-to-be-changed-automatically-in-github/))。この挙動のときも上記のトリガーはちゃんと動作します。そのため、ほぼ自動で上記のActionが発生します。
+Githubではベースブランチがマージされたら、自動でベースブランチが変更されるという挙動があります（参考： [[GitHub] Pull RequestのBaseブランチが自動で変更されるようになっていた | DevelopersIO](https://dev.classmethod.jp/articles/base-branch-of-pull-request-was-supposed-to-be-changed-automatically-in-github/)）。この挙動のときも上記のトリガーはちゃんと動作します。そのため、ほぼ自動で上記のActionが発生します。
 
 ## permission
 
@@ -112,11 +112,11 @@ draft状態をreview可能状態にするためには、`pull-requests`以外に
           REPOSITORY: ${{ github.repository }}
 ```
 
-いろんなドキュメントを参考にすると[github/scripts](https://github.com/actions/github-script)を利用する例が見られます。が、github/scriptsはGithubのREST APIを実行します（正確には[octokit/rest.js](https://octokit.github.io/rest.js))。
-ですが、REST APIではなぜかDraft状態を更新できない（作成はできるのに）。困った。
+いろんなドキュメントを参考にすると[github/scripts](https://github.com/actions/github-script)を利用する例が見られます。が、github/scriptsはGithubのREST APIを実行します（正確には[octokit/rest.js](https://octokit.github.io/rest.js)）。
+ですが、REST APIではなぜかDraft状態を更新できない（作成はできるのに）。困りましたね。
 
 ということで`gh`コマンドを利用することで代替します。ghコマンドはGithubのCLIであり、Githubの [GraphQL API](https://docs.github.com/ja/graphql)を利用します。そのため、こっちだとDraft状態を更新できます。
 
-具体的な利用方法は `env`に`GITHUB_TOKEN`として `${{ secrets.GITHUB_TOKEN }}`を保存する、だけです。`gh`コマンドは特に何もしなくても動きます。`runs-on`次第かもしれませんが。
+具体的な利用方法は `env`に`GITHUB_TOKEN` として `${{ secrets.GITHUB_TOKEN }}`を保存するだけです。`gh`コマンドは特に何もしなくても動きます。`runs-on`次第かもしれませんが。
 
-また、この`GITHUB_TOKEN` は [自動トークン認証のページ](https://docs.github.com/ja/actions/security-guides/automatic-token-authentication)に記載されていますが、ワークスペースの設定または`permission`の権限を持つようになります。今回は`permission`で最低限の設定を行っています。
+また、この`GITHUB_TOKEN` は [自動トークン認証のページ](https://docs.github.com/ja/actions/security-guides/automatic-token-authentication)に記載されていますが、ワークスペースの設定または`permission`の権限を持つようになります。今回は`permission`で最低限の設定しています。

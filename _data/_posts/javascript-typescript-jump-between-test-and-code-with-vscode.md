@@ -12,7 +12,7 @@ description:
   JavaScript/TypeScriptでテスト・コード間を移動するVSCode拡張が見つからなかったので自作しました。ついでに作り方も。  
 ---
 
-ハローワールド
+ハローワールド。
 
 TDD(Test Driven Development)、つまりテスト駆動開発は、今や説明不要なプログラミングプラクティスの1つです。
 元々はXP(eXtream Programming)の12個のプラクティスの1つで、他にはペアプログラミングなどが有名ですね。
@@ -24,7 +24,7 @@ TDD(Test Driven Development)、つまりテスト駆動開発は、今や説明�
 [^rails-test-path]: Rails4あたりの話なので、今とは異なるかもしれません。minitestであれば`test`、RSpecであれば`spec`以下に`app`フォルダを除いたファイルパスと、ファイル名の末尾に`_test`または`_spec`を付けたものです。例： `app/controllers/users_controller.rb`であれば`spec/controllers/users_controller_spec.rb`（RSpecの場合）。
 
 しかし、私の主戦場はJavaScript/TypeScriptです。個人開発ならまだしも、今は会社でカタカタしているのもTypeScriptです。テストもしっかり書かねばなりません。なのでTDDを活用しようと思いましたが、VSCodeでテストを移動するのは、`Cmd-Shift-P`でファイル検索をして移動するのが、おそらく一番はやい方法かと思います。
-でも、いちいちファイル名を打ち込むのも面倒くさいし、Railsほどではないにしろ、大体の場合はファイル名の規則は一緒なはずです。でも、探しても、探しても、JavaScript/TypeScriptでそんなことをする拡張はない。いや、絶対あるはずなんですが、少なくとも僕には見つけられませんでした。
+でも、いちいちファイル名を打ち込むのも面倒くさいし、Railsほどではないにしろ、大体の場合はファイル名の規則は一緒なはずです。ただ、探しても、探しても、JavaScript/TypeScriptでそんなことをする拡張はない。いや、絶対あるはずなんですが、少なくとも僕には見つけられませんでした。
 
 なので、今回そんな拡張を作りました。作りました、という報告では寂しいので、今回はn番煎じとなるVSCode拡張の作り方も記載します。
 作り方を見たい方は [拡張を作る](#拡張を作る) に記載します。
@@ -166,7 +166,7 @@ export function deactivate() { }
 vscode.window.showInformationMessage('Hello World from To Camel Case!');
 ```
 
-が表示を行う部分というのはわかりますが、`Hello World`と打ったら実行します、とはコードに書いてませんよね。
+が表示する部分というのはわかりますが、`Hello World`と打ったら実行します、とはコードに書いてませんよね。
 
 実は、`package.json`に記載があります。
 
@@ -190,7 +190,7 @@ package.jsonから、設定っぽいものを抜き出してみましょう。
   },
 ```
 
-まず、`activationEvents`ですが、これは簡単に言えば`特定のイベントが起きたときはどんなことを起こすか`というか感じのことを記載します。。例えば上記は、`onCommand`、つまりコマンドが打たれた場合です。それ以外にも特定の言語のファイルが開かれたとき、特定のファイルがワークスペースに存在した場合、などなど。一覧は[Activation Events](https://code.visualstudio.com/api/references/activation-events)に記載されています。
+まず、`activationEvents`ですが、これは簡単に言えば`特定のイベントが起きたときはどんなことを起こすか`というか感じのことを記載します。例えば上記は、`onCommand`、つまりコマンドが打たれた場合です。それ以外にも特定の言語のファイルが開かれたとき、特定のファイルがワークスペースに存在した場合、などなど。一覧は[Activation Events](https://code.visualstudio.com/api/references/activation-events)に記載されています。
 
 `contributes`は更に詳しく`activationEvents`を記載したもの、みたいなイメージでしょう（activationEventsいらない気がするけど）。今回の場合は`commands`の中に`to-camel-case.helloWorld`という`command`があり、その`title`が`Hello World`だったということですね。
 
@@ -203,7 +203,7 @@ let disposable = vscode.commands.registerCommand('to-camel-case.helloWorld', () 
 ```
 
 これは`to-camel-case.helloWorld`というコマンドと、右下に通知を表示するという動作を登録する、という感じの動きです。
-上記の設定と組み合わせて考えると、`Hello World`というタイトルのコマンドを実行することで、内部では`to-camel-case.helloWorld`というコマンドを実行し、その動作が、右下に`Hello World from To Camel Case!`と通知することだった、という感じですね。
+上記の設定と組み合わせて考えると、`Hello World`というタイトルのコマンドを実行することで、内部では`to-camel-case.helloWorld`というコマンドを実行し、その動作が右下に`Hello World from To Camel Case!`と通知することだったという感じですね。
 
 察しのいい皆さまならここまで記載する必要もなかったかもしれません。
 

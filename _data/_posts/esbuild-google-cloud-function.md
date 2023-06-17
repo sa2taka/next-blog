@@ -12,7 +12,7 @@ description:
   話題のバンドラ、ESBuildでビルドして、Google Cloud Functionで実行してみました。  
 ---
 
-ハローワールド
+ハローワールド。
 
 [ESBuild](https://github.com/evanw/esbuild)はここ最近で注目されているバンドラー[^bundler]の1つです。
 
@@ -79,7 +79,7 @@ $ yarn esbuild --bundle --outdir=dist --minify --sourcemap --format=cjs --platfo
 - --sourcemap
 `--sourcemap`はいわゆるsourcemapを作ってくれます。
 - --format
-`--format`は出力先のモジュール形式を選べます。`iief`(即時実行関数式）、`esm`(ES6 Module)、`cjs`(Common JS形式）のいずれかを選べます。今回はCommon JSです
+`--format`は出力先のモジュール形式を選べます。`iief`（即時実行関数式）、`esm`(ES6 Module)、`cjs`（Common JS形式）のいずれかを選べます。今回はCommon JSです
 - --platform
 `--platform`は実行するプラットフォームを選択します。`brwoser`または`node`のどちらかを選べ、今回は`node`です。
 - src/index.js
@@ -94,7 +94,7 @@ $ .../esbuild-gcloud-functions-test/node_modules/.bin/esbuild --bundle --outdir=
 Done in 0.31s.
 ```
 
-**0.31sでビルドができました**(後でwebpackと比較します）。
+**0.31sでビルドができました**（後でwebpackと比較します）。
 
 # デプロイ
 
@@ -109,7 +109,7 @@ $ gcloud functions deploy test --entry-point helloHttp --runtime nodejs12 --trig
 しばらくするとデプロイが完了します。今回は`--triger-http`を利用しているので、httpで関数を呼び出すことが可能です。呼んでみましょう。
 
 ![Hello sa2taka](https://i.imgur.com/2vASigY.png)
-※ URLは実在しません
+※ URLは実在しません。
 
 というわけで実際に動くのが確認できました。
 
@@ -159,6 +159,7 @@ $ yarn add -D ts-loader
 
 ```bash
 $ tsc init
+
 ```
 
 設定はこんなので大丈夫でしょう。
@@ -256,7 +257,7 @@ total 12
 
 # 簡単なまとめ
 
-今回はesbuildというツールを利用して、google cloud funtionにアップロードできる形式のファイルをビルドしてみました。またwebpackとの比較を行いました。
+今回はesbuildというツールを利用して、google cloud funtionにアップロードできる形式のファイルをビルドしてみました。またwebpackとの比較しました。
 
 今回のwebpackとの比較の結果は
 - 速度は**20倍以上**

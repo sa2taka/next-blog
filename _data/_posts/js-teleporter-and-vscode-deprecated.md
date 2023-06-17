@@ -23,7 +23,7 @@ description:
 
 [JS Teleporter - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=sa2taka.js-teleporter)
 
-まず、以前書いたときには無かった機能として、テストファイルが無かったらファイルを作成するかどうか聞かれ、作成する場合はいい感じの場所にファイルを作成するようになりました
+まず、以前書いたときには無かった機能として、テストファイルが無かったらファイルを作成するかどうか聞かれ、作成する場合はいい感じの場所にファイルを作成するようになりました。
 
 また、Storybookに対しても同様に行き来できる機能を追加しました。
 
