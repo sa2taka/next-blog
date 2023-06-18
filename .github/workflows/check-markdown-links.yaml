@@ -1,9 +1,6 @@
 name: Check Markdown links
 
 on:
-  push:
-    paths:
-      - '_data/_posts/**'
   workflow_dispatch:
   schedule:
     - cron: '0 0 */7 * *'

@@ -19,7 +19,7 @@
       "replacement": "https://blog.sa2taka.com/"
     },
     {
-      "pattern": "）.+$",
+      "pattern": "）.*$",
       "replacement": ""
     }
   ],
