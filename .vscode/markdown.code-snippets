@@ -35,10 +35,10 @@
       "updatedAt:   $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
       "latex:       false",
       "description:",
-      "  初めてのポエミーな記事。転職について日記レベルのことを書きました。  ",
+      "  $4 ",
       "---",
       "",
-      "$4"
+      "$5"
     ]
   },
   "current-date": {
