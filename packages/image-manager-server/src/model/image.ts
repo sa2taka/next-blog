@@ -20,7 +20,7 @@ export const getMeta = (
   filepath: string,
   metaDataList: Meta[]
 ): Meta | undefined => {
-  const input = path.basename(filepath);
+  const input = path.basename(filepath.normalize());
 
   return metaDataList.find(({ filename }) => {
     return input === filename;

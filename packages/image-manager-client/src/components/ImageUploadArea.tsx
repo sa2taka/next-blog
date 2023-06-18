@@ -17,6 +17,7 @@ const uploadFiles = async (files: File[]) => {
   );
 
   console.log(uploadToLocalResponse);
+  location.reload();
 };
 
 export const ImageUploadArea: React.FC = () => {

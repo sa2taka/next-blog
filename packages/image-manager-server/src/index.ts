@@ -49,7 +49,7 @@ app.get('/image/:filename', async (req, res) => {
 
 app.get('/api/images', async (req, res) => {
   const data = await fetchAllImages();
-  res.json({ result: data });
+  res.setHeader('Cache-Control', 'no-store').json({ result: data });
 });
 
 app.post('/api/upload-to-local', upload.array('images[]'), async (req, res) => {

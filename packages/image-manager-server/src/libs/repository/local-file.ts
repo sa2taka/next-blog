@@ -33,8 +33,8 @@ export async function fetchImage(
   const { width, height } = imageSize(imageContent);
 
   return {
-    filepath,
-    filename: path.basename(filepath),
+    filepath: filepath.normalize(),
+    filename: path.basename(filepath).normalize(),
     width: width ?? 0,
     height: height ?? 0,
     minifyImageUrl: getMeta(filepath, meta)?.imageUrl ?? undefined,
