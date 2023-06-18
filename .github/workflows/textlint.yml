@@ -13,7 +13,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/yarn-prepare
       - run: yarn lint:post >> ./.textlint.log
-      - if: ${{ failure() }}
+      - name: put textlint result
+        if: failure()
         run: gh pr comment --body-file ./.textlint.log "${URL}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
