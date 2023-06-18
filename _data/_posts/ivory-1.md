@@ -409,8 +409,7 @@ $ yarn build
 $ yarn start
 ```
 
-![empty electron](https://i.imgur.com/xsacL4I.png)
-
+![empty electron](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/empty%20electron.png)
 
 まだ何も設定してないので空のままですね。
 

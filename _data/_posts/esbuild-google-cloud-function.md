@@ -18,7 +18,7 @@ description:
 
 Go製のバンドラーであり、特に**高速であること**を特徴にしています。上記Githubの公式ページから画像を引用しますが、他と比べると**100倍以上のスピード**でビルドされることがわかります。
 
-![ESBuildの速度](https://i.imgur.com/0uTVNNK.png)
+![ESBuildの速度](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/ESBuild%E3%81%AE%E9%80%9F%E5%BA%A6.png)
 
 2020/6/23の時点で「v0.5.11」と、まだ発展途上のライブラリですが、今回はGoogle Cloud FunctionでESBuildでビルドしたものを実行してみました。
 
@@ -108,7 +108,7 @@ $ gcloud functions deploy test --entry-point helloHttp --runtime nodejs12 --trig
 
 しばらくするとデプロイが完了します。今回は`--triger-http`を利用しているので、httpで関数を呼び出すことが可能です。呼んでみましょう。
 
-![Hello sa2taka](https://i.imgur.com/2vASigY.png)
+![Hello sa2taka](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Hello%20sa2taka.png)
 ※ URLは実在しません。
 
 というわけで実際に動くのが確認できました。

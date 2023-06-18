@@ -168,7 +168,7 @@ export function LayoutHeader() {
 
 実際にビルドして表示してみるとこんな感じ。
 
-![electron haeder](https://i.imgur.com/yZNDAeY.png)
+![electron header](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/electron%20header.png)
 
 ではこれをStorybookへ登録していきましょう。
 
@@ -193,7 +193,7 @@ $ yarn storybook
 
 しかし、実行してみると下記の用になります。
 
-![before storybook header](https://i.imgur.com/NqgZJqX.png)
+![before storybook header](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/before%20storybook%20header.png)
 
 なんか色々突っ込みどころはありますが、これはおそらくtailwind.cssのcssが効いてない気がします。
 これはtailwind.cssをimportできてないので発生します。
@@ -204,8 +204,7 @@ $ yarn storybook
 import '@/style/tailwind.css';
 ```
 
-![after storybook header](https://i.imgur.com/GFme1zc.png)
-
+![after storybook header](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/after%20storybook%20header.png)
 OKですね！
 
 # Test
@@ -358,8 +357,7 @@ VSCodeのスニペット機能は、特定の入力をすることで事前に�
 
 百聞は一見に如かずというので、実際に動いているのを見ていただいたほうが早いと思います。
 
-![ES7 React/Redux/GraphQL/React-Native snippets
-のスニペット機能](https://i.imgur.com/9JH6YUI.gif)
+![ES7 React/Redux/GraphQL/React-Native snippetsの動作](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/ES7%20React%3ARedux%3AGraphQL%3AReact-Native%20snippets%E3%81%AE%E5%8B%95%E4%BD%9C.gif)
 
 これは[ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)のスニペットの1つである`rfc`を入力した際の動きです。この場合はReactのFunctional Componentを入力してくれるスニペットですね。
 
@@ -386,7 +384,7 @@ VSCodeのスニペットでは**様々な変数が利用できます**。例え�
 
 今回利用したサイトは[Regexper](https://regexper.com/#.*%5B%5C%2F%5C%5C%5D%28%5B%5E%5C%2F%5C%5C%5D%2B%29%5B%5C%2F%5C%5C%5Dindex%5C.tsx%24%7C.*%5B%5C%2F%5C%5C%5D%28.*%3F%29%28%3F%3A%5C.%5B%5E.%5D*%29%24)です。
 
-![Regexperの結果](https://i.imgur.com/M4Jc1f7.png)
+![Regexperの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Regexper%E3%81%AE%E7%B5%90%E6%9E%9C.png)
 
 まぁ簡単に行ってしまえば、末尾がindex.tsxであれば上に、そうでなければ下にマッチする正規表現です。
 
@@ -420,13 +418,13 @@ VSCodeではグループを`$1`、`$2`という感じで利用できます。そ
 
 まずはindex.tsxで上記スニペットを実行した様子です。
 
-![index.tsxでreafuncを実行した結果](https://i.imgur.com/o3wckDx.gif)
+![index.tsxでreafuncを実行した結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/index.tsx%E3%81%A7reafunc%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E7%B5%90%E6%9E%9C.gif)
 
 名前がLayoutHeaderになっていますね。
 
 次に`LayoutHeader/TitleLogo.tsx`でreafuncを実行した結果です。
 
-![TitleLogo.tsxでreafuncを実行した結果](https://i.imgur.com/K3O6XEv.gif)
+![TitleLogo.tsxでreafuncを実行した結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/TitleLogo.tsx%E3%81%A7reafunc%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E7%B5%90%E6%9E%9C.gif)
 
 今度は名前がTItleLogoになっています。良いね。
 

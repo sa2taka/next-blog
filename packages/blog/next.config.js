@@ -11,11 +11,6 @@ const withPWA = require('next-pwa')({
       method: 'GET',
     },
     {
-      urlPattern: '^https?://i.imgur.com/.*.(gif|png|jpg|webp)',
-      handler: 'CacheFirst',
-      method: 'GET',
-    },
-    {
       urlPattern: '^https://fonts.googleapis.com/.*',
       handler: 'CacheFirst',
       method: 'GET',

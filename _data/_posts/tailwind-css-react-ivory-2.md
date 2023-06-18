@@ -95,7 +95,7 @@ ReactDOM.render(<p className="text-6xl">Hello, World!</p>, app);
 
 後はビルドして開くだけ。
 
-![big size hello world](https://i.imgur.com/THZDbut.png)
+![big size hello world](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/big%20size%20hello%20world.png)
 
 `text-6xl`クラスはtailwind.cssのクラスの1つで、文字の大きさをすげぇでかくしてくれます。tailwind.cssがインストールできましたね。
 

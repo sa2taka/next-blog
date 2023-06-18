@@ -30,23 +30,23 @@ description:
 
 まずは下記画面で「ログイン」ボタンを押し、ログインをしましょう。Lineアカウントを持っていれば普通にログインを行うだけで大丈夫です。
 
-![Lineログイン画面](https://i.imgur.com/4CQOckL.png)
+![Lineログイン画面](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Line%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E7%94%BB%E9%9D%A2.png)
 
 ログイン後、Line Developersのトップページへ遷移するので、ここから「Create」ボタンを押しましょう。すると下記のように新しいProviderの作成フォームが出てくるので、Providerの名前を入れて「Create」ボタンを押しましょう。今回のProvider nameは「彼械」です。
 
 ちなみにすでに作成したあとなので、今回は「彼械2」とします。
 
-![Createボタン押下後](https://i.imgur.com/bjQ7M6R.png)
+![Createボタン押下後](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Create%E3%83%9C%E3%82%BF%E3%83%B3%E6%8A%BC%E4%B8%8B%E5%BE%8C.png)
 
 作成後は下記のような画面になるので、「Create a Messaging API channel」と書かれた部分をクリックしましょう。分かりづらいですが、リンクになっています。ホバーすればわかります。
 
-![作成後の画面](https://i.imgur.com/fiAqsvw.png)
+![作成後の画面](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E4%BD%9C%E6%88%90%E5%BE%8C%E3%81%AE%E7%94%BB%E9%9D%A2.png)
 
 クリック後はチャンネルの名前やアイコンなどを記載して作成しましょう。特に迷う部分はありませんでした。
 
 これでチャンネルが作成できました。
 
-![チャンネル作成後の画面](https://i.imgur.com/CUdxEg8.png)
+![チャンネル作成後の画面](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%AB%E4%BD%9C%E6%88%90%E5%BE%8C%E3%81%AE%E7%94%BB%E9%9D%A2.png)
 
 ここのQRコードを利用して友達登録も可能です。
 
@@ -56,13 +56,13 @@ description:
 
 チャンネル作成後の画面から「Messaging API」タブに移り、「Auto-Reply messages」、「Greeting messages」の設定を変更しましょう。
 
-![不要な設定](https://i.imgur.com/TV2oeGj.png)
+![不要な設定](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E4%B8%8D%E8%A6%81%E3%81%AA%E8%A8%AD%E5%AE%9A.png)
 
 先程の画面の右側の「Edit」ボタンを押すと、Line Official Account Managerは遷移するので、そこで設定を変更します。
 
 基本的に必要なければあいさつメッセージ、応答メッセージはオフで問題ないです。
 
-![Editボタン押下後の画面](https://i.imgur.com/ZRM72LH.png)
+![Editボタン押下後の画面](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Edit%E3%83%9C%E3%82%BF%E3%83%B3%E6%8A%BC%E4%B8%8B%E5%BE%8C%E3%81%AE%E7%94%BB%E9%9D%A2.png)
 
 ## アクセストークンの取得
 
@@ -72,7 +72,7 @@ description:
 
 アクセストークンはMessaging APIの下部に発行画面があります。「Issue」ボタンを押して発行しましょう。
 
-![アクセストークン発行画面](https://i.imgur.com/0GPIoJ6.png)
+![アクセストークン発行画面](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E7%99%BA%E8%A1%8C%E7%94%BB%E9%9D%A2.png)
 
 正直ここでの設定は、あとはWebhook URLの設定ぐらいでしょうか。
 
@@ -257,7 +257,7 @@ $ gcloud functions deploy MorningCall --entry-point morningCall --runtime nodejs
 
 Cloud Schedulerで「ジョブを作成」ボタンを押し、色々設定していきましょう。
 
-![Cloud Scheduler](https://i.imgur.com/DQuA9Et.png)
+![Cloud Scheduler](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Cloud%20Scheduler.png)
 
 「頻度」はcron形式です[^cron]。今回は月曜日から金曜日の7:40に実行する感じですね。
 

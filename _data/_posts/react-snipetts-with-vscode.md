@@ -120,9 +120,9 @@ export const Other: React.FC<Props> = (props) => {
 
 実際に動作しているのはこんな感じ。
 
-![React用のスニペット、indexバージョン](https://i.imgur.com/agjBDEE.gif)
+![React用のスニペット、indexバージョン](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/React%E7%94%A8%E3%81%AE%E3%82%B9%E3%83%8B%E3%83%9A%E3%83%83%E3%83%88%E3%80%81index%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3.gif)
 
-![React用のスニペット、Otherバージョン](https://i.imgur.com/2u7GqCx.gif)
+![React用のスニペット、Otherバージョン](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/React%E7%94%A8%E3%81%AE%E3%82%B9%E3%83%8B%E3%83%9A%E3%83%83%E3%83%88%E3%80%81Other%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3.gif)
 
 上側は`index.tsx`、下側は`Other.tsx`で行っていますが、エクスポートの部分がちゃんと想定通りになっていますね。
 
@@ -145,7 +145,7 @@ VSCodeのスニペットでは**様々な変数が利用可能**です。[具体
 
 今回利用したサイトは[Regexper](https://regexper.com/#.*%5B%5C%2F%5C%5C%5D%28%5B%5E%5C%2F%5C%5C%5D%2B%29%5B%5C%2F%5C%5C%5Dindex%5C.tsx%24%7C.*%5B%5C%2F%5C%5C%5D%28.*%3F%29%28%3F%3A%5C.%5B%5E.%5D*%29%24)です。
 
-![Regexperの結果](https://i.imgur.com/M4Jc1f7.png)
+![Regexperの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Regexper%E3%81%AE%E7%B5%90%E6%9E%9C.png)
 
 まぁ簡単に行ってしまえば、末尾がindex.tsxであれば上に、そうでなければ下にマッチする正規表現です。
 
