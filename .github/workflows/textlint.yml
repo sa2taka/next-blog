@@ -1,0 +1,23 @@
+name: textlint
+on:
+  push:
+    paths:
+      - '_data/_posts/**'
+  pull_request_target:
+    types: [opened, synchronize]
+    paths:
+      - '_data/_posts/**'
+jobs:
+  textlint:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/yarn-prepare
+      - run: yarn lint:post >> ./.textlint.log
+      - if: ${{ failure() }} && github.event.pull_request.html_url != null
+        run: gh pr comment --body-file ./.textlint.log "${URL}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          URL: ${{ github.event.pull_request.html_url }}
