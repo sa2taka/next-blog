@@ -1,7 +1,7 @@
 import { getMeta, Image, Meta } from '@image-manager-server/model/image';
 
 import * as path from 'path';
-import { readFile, stat, writeFile } from 'fs/promises';
+import { readFile, stat, writeFile, rename } from 'fs/promises';
 import { glob } from 'glob';
 import imageSize from 'image-size';
 
@@ -78,6 +78,50 @@ export async function updateImageMeta(
         return m;
       })
     : [...meta, { filename: path.basename(filepath), imageUrl, webpImageUrl }];
+  await updateImageMetaList(updated);
+  return updated;
+}
+
+export async function renameImage(
+  beforeFilePath: string,
+  afterFilePath: string
+) {
+  return rename(beforeFilePath, afterFilePath);
+}
+
+export async function renameImageMeta(
+  beforeFilePath: string,
+  afterFilePath: string,
+  afterImageUrl: string,
+  afterWebpImageUrl: string
+): Promise<Meta[]> {
+  const meta = await fetchImageMeta();
+
+  const removed = meta.filter(
+    (m) => m.filename !== path.basename(beforeFilePath)
+  );
+
+  const updated = removed.find(
+    (m) => m.filename === path.basename(afterFilePath)
+  )
+    ? meta.map((m) => {
+        if (m.filename === path.basename(afterFilePath)) {
+          return {
+            ...m,
+            imageUrl: afterImageUrl,
+            webpImageUrl: afterWebpImageUrl,
+          };
+        }
+        return m;
+      })
+    : [
+        ...removed,
+        {
+          filename: path.basename(afterFilePath),
+          imageUrl: afterImageUrl,
+          webpImageUrl: afterWebpImageUrl,
+        },
+      ];
   await updateImageMetaList(updated);
   return updated;
 }
