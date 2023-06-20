@@ -1,12 +1,13 @@
 import { PostPagination } from '@blog/components/organisms/PostPagination';
 import { Posts } from '@blog/components/organisms/Posts';
 import { POSTS_LIMIT } from '@blog/libs/const';
+import { omitBodyFromPost } from '@blog/libs/omitBodyFromPost';
 import { Post } from '@blog/types/entry';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
 interface Props {
-  posts: Post[];
+  posts: Omit<Post, 'body'>[];
   page: number;
   count: number;
 }
@@ -53,7 +54,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   return {
     props: {
       page,
-      posts,
+      posts: posts.map(omitBodyFromPost),
       count,
     },
   };

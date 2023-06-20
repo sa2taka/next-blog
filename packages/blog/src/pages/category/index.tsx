@@ -4,7 +4,6 @@ import {
   CategoryWithCount,
 } from '@blog/components/organisms/CategoryArea';
 import { generateCategoriesBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
-import { Category } from '@blog/types/entry';
 import { styled } from '@linaria/react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';

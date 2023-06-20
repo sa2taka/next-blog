@@ -4,7 +4,7 @@ import { styled } from '@linaria/react';
 import { PostItem } from '@blog/components/organisms/Posts/PostItem';
 
 interface Props {
-  posts: Post[];
+  posts: Omit<Post, 'body'>[];
 }
 
 export const Posts: React.FC<Props> = ({ posts }) => {

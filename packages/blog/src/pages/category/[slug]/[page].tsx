@@ -3,13 +3,14 @@ import { PostPagination } from '@blog/components/organisms/PostPagination';
 import { Posts } from '@blog/components/organisms/Posts';
 import { generateCategoryBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
 import { POSTS_LIMIT } from '@blog/libs/const';
+import { omitBodyFromPost } from '@blog/libs/omitBodyFromPost';
 import { Category, Post } from '@blog/types/entry';
 import { styled } from '@linaria/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
 interface Props {
-  posts: Post[];
+  posts: Omit<Post, 'body'>[];
   page: number;
   count: number;
   category: Category;
@@ -81,7 +82,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   return {
     props: {
       page,
-      posts,
+      posts: posts.map(omitBodyFromPost),
       slug: categorySlug,
       category,
       count,

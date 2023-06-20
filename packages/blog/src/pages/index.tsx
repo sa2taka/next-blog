@@ -6,9 +6,10 @@ import type { NextPage } from 'next';
 import { AppContext } from 'next/app';
 import Head from 'next/head';
 import { Post } from '@blog/types/entry';
+import { omitBodyFromPost } from '@blog/libs/omitBodyFromPost';
 
 type Props = {
-  posts: Post[];
+  posts: Omit<Post, 'body'>[];
   page: number;
   count: number;
 };
@@ -31,7 +32,7 @@ export const getStaticProps = async (
   return {
     props: {
       page,
-      posts,
+      posts: posts.map(omitBodyFromPost),
       count,
     },
   };

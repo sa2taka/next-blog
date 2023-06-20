@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { formatDate, formatDateForMachine } from '../../../libs/formatDate';
 
 interface Props {
-  post: Post;
+  post: Omit<Post, 'body'>;
 }
 
 const PostLi = styled.li`
