@@ -573,7 +573,7 @@ describe("fetchTweetWithMedia", () => {
         expect(tweets[0].viewsCount).toBe(1);
         // addViewTweetLogという関数が有り、ソレをjestの機能でモックしている。
         // モックされた関数は、toBeCalledWithなどで引数をテストできる
-        expect(addViewTweetLog).toEqual(tweetWithMedia);
+        expect(addViewTweetLog).toBeCalledWith(tweetWithMedia);
     });
 ```
 
