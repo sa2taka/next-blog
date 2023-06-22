@@ -245,7 +245,7 @@ RSpecでは `let` や `subject`および `before` を多用します（するイ
 
 経験則として、基本Arrangeがテストコードをほとんど圧迫します。なので、`beforeAll` などの処理にこのArrangeが記載されていることがあります[^assert]。
 
-[^assert]: ちなみに、時々Assertが圧迫することもありますが、それらが`afterEach`（jestにおいて、テストケースの実行後に都度実行される処理）などに入っているのは多分無いと思います。Assertが圧迫する場合は、テストケースを分離するか、複数のAssertをまとめて1つの関数にする方法がおすすめです。具体的なlintハックですが、eslintを利用している場a合テストケースの中に`exepct`関数がない場合、エラーやwarningになる場合があります。それを回避するテクニックとしてファイル先頭に `/* eslint jest/expect-expect: ["warning", { "assertFunctionNames": ["expectをまとめた関数名"] }] */`を記載するという方法があります。詳細は[lintの説明](https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/expect-expect.md)を参照のこと。
+[^assert]: ちなみに、時々Assertが圧迫することもありますが、それらが`afterEach`（jestにおいて、テストケースの実行後に都度実行される処理）などに入っているのは多分無いと思います。Assertが圧迫する場合は、テストケースを分離するか、複数のAssertをまとめて1つの関数にする方法がおすすめです。具体的なlintハックですが、eslintを利用している場合テストケースの中に`exepct`関数がない場合、エラーやwarningになる場合があります。それを回避するテクニックとしてファイル先頭に `/* eslint jest/expect-expect: ["warning", { "assertFunctionNames": ["expectをまとめた関数名"] }] */`を記載するという方法があります。詳細は[lintの説明](https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/expect-expect.md)を参照のこと。
 
 私はbeforeAllを始めとして「すべてのテストケースで利用するオブジェクトの共通化」には賛成ではありません。
 もちろん変数の定義箇所と利用箇所の物理的距離が離れる・他のテストケースで対象のオブジェクトが変更される可能性があるなど直接的な要因もありますが、どちらかというと概念的に **「テストケースには必ず条件・テスト対象・期待される出力や動作」が記載されているべき** と考えているからです。

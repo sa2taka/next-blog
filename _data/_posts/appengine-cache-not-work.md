@@ -110,7 +110,7 @@ W/"<16進数のファイルサイズ>-<16進数の作成時刻（ミリ秒付き
 
 ETagの後半部分である`49773873e8`を10進数になおして見ると`315,532,801,000`。ミリ秒付きなので`315,532,801`。これをUnix時間として変換すると`1980-01-01 00:00:01`という謎の時刻になります。しかし、なんとなく見えてきましたね。この作成時刻がAppEngineの環境では一定なのでETagが同一になると。
 
-結論として、AppEngineのしようとして、ファイルの作成時刻が `1980-01-01 00:00:01` になるということらしいです（[https://issuetracker.google.com/issues/168399701#comment11](https://issuetracker.google.com/issues/168399701#comment11)）[^why]。
+結論として、AppEngineの仕様として、ファイルの作成時刻が `1980-01-01 00:00:01` になるということらしいです（[https://issuetracker.google.com/issues/168399701#comment11](https://issuetracker.google.com/issues/168399701#comment11)）[^why]。
 
 [^why]: 何故1970年じゃないのか、何故01秒なのか...。
 
