@@ -9,7 +9,7 @@ import { sheet } from '@blog/components/styles/sheet';
 import { DarkThemeSwitch } from '@blog/components/molecules/DarkThemeSwitch';
 
 const TitleText = styled.h1`
-  font-size: 1.2em;
+  font-size: 19px;
   width: 230px;
   margin-left: 8px;
   display: relative;
@@ -34,6 +34,7 @@ const title = css`
     color: #222;
   }
 `;
+
 const LeftSide: React.FC = () => {
   return (
     <Link href="/" className={title}>

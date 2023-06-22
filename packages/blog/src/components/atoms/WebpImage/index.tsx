@@ -17,8 +17,14 @@ export const WebPImage: React.FC<Props> = ({
   height,
 }) => {
   return (
-    <picture>
-      <source srcSet={file} type="image/webp" />
+    <picture style={{ width, height }}>
+      <source
+        srcSet={file}
+        type="image/webp"
+        media={`(max-height: ${height}px)`}
+        width={width}
+        height={height}
+      />
       {/*  eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={altFile}

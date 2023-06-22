@@ -12,6 +12,12 @@ html {
   tab-size: 4;
 }
 
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -47,8 +53,8 @@ a {
 }
 
 .theme--dark {
-  background: #121212;
-  color: #ddd;
+  background: #121218;
+  color: #eee;
 }
 
 .theme--light {
