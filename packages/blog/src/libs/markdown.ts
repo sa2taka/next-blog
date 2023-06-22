@@ -145,7 +145,14 @@ const myWebpConvertPlugin = (md: MarkdownIt) => {
 
     const webp = src.replace(/\.[^.]+$/, '.webp');
     const imgTag = imgRender(tokens, idx, options, env, self);
-    const webpTag = `<source srcset="${webp}" type="image/webp"/>`;
+    // NOTE: markdown-it-imsize fills img width and height.
+    const width = imgTag.match(/width="(\d+)"/)?.[1];
+    const height = imgTag.match(/height="(\d+)"/)?.[1];
+
+    const webpTag =
+      width && height
+        ? `<source srcset="${webp}" type="image/webp" width="${width}" height="${height}"/>`
+        : `<source srcset="${webp}" type="image/webp"/>`;
     return `<picture>${webpTag}${imgTag}</picture>`;
   };
 };
