@@ -47,7 +47,7 @@
     "@types/node": "20.4.2",
     "@types/prismjs": "^1.26.0",
     "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
+    "@types/react-dom": "18.2.7",
     "@types/sync-fetch": "^0.4.0"
   },
   "repository": {
