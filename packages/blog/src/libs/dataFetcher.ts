@@ -151,9 +151,9 @@ export async function fetchPost(slug: string): Promise<Post> {
 }
 
 export async function fetchAllPost(): Promise<Post[]> {
-  const categoryFilePaths = await glob(path.join(DATA_ROOT, '_posts', '*.md'));
+  const postFilePaths = await glob(path.join(DATA_ROOT, '_posts', '*.md'));
 
-  return (await Promise.all(categoryFilePaths.map(getSlug).map(fetchPost)))
+  return (await Promise.all(postFilePaths.map(getSlug).map(fetchTil)))
     .filter((p) => !isProduction || p.public)
     .sort((a, b) => {
       return b.createdAt - a.createdAt;
