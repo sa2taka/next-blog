@@ -1,4 +1,4 @@
-import { Category, categorySchema, Post, postSchema } from '@blog/types/entry';
+import { Category, categorySchema, Post, postSchema, Til, tilSchema } from '@blog/types/entry';
 
 import * as path from 'path';
 import { readFile } from 'fs/promises';
@@ -96,9 +96,20 @@ const convertPostKeyValue = async (key: string, value: string) => {
 
   return value;
 };
+const convertTilKeyValue = async (key: string, value: string) => {
+  if (key === 'createdAt' || key === 'updatedAt') {
+    return new Date(value).getTime();
+  }
+
+  return value;
+};
 const parsePost = async (slug: string, data: string): Promise<Post> => {
   const header = await parseHeader(data, convertPostKeyValue);
   return postSchema.parse({ slug, ...header, body: extractBody(data) });
+};
+const parseTil = async (slug: string, data: string): Promise<Til> => {
+  const header = await parseHeader(data, convertTilKeyValue);
+  return tilSchema.parse({ slug, ...header, body: extractBody(data) });
 };
 
 export async function fetchCategory(slug: string): Promise<Category> {
@@ -153,12 +164,13 @@ export async function fetchPost(slug: string): Promise<Post> {
 export async function fetchAllPost(): Promise<Post[]> {
   const postFilePaths = await glob(path.join(DATA_ROOT, '_posts', '*.md'));
 
-  return (await Promise.all(postFilePaths.map(getSlug).map(fetchTil)))
+  return (await Promise.all(postFilePaths.map(getSlug).map(fetchPost)))
     .filter((p) => !isProduction || p.public)
     .sort((a, b) => {
       return b.createdAt - a.createdAt;
     });
 }
+
 
 export async function fetchPosts(page: number, limit: number): Promise<Post[]> {
   const posts = await fetchAllPost();
@@ -195,4 +207,45 @@ export async function fetchPostsCountInCategory(
   const posts = await fetchAllPost();
 
   return posts.filter((p) => p.category.slug === categorySlug).length;
+}
+
+export async function fetchTil(slug: string): Promise<Til> {
+  const tilFilePath = path.join(DATA_ROOT, '_til', `${slug}.md`);
+
+  const file = await readFile(tilFilePath);
+
+  if (!file || !file?.toString()) {
+    throw new ParseError(`[Parse Error]: post "${tilFilePath}" cannot parse.`);
+  }
+
+  return parseTil(getSlug(tilFilePath), file?.toString()).catch((e) => {
+    throw new ParseError(
+      `[Parse Error]: til "${tilFilePath}" cannot parse.`,
+      { cause: e }
+    );
+  });
+}
+
+export async function fetchAllTil(): Promise<Til[]> {
+  const tilFilePaths = await glob(path.join(DATA_ROOT, '_til', '*.md'));
+
+  return (await Promise.all(tilFilePaths.map(getSlug).map(fetchTil)))
+    .sort((a, b) => {
+      return b.createdAt - a.createdAt;
+    });
+}
+
+export async function fetchTils(page: number, limit: number): Promise<Til[]> {
+  const posts = await fetchAllTil();
+  return posts
+    .sort((a, b) => {
+      return b.createdAt - a.createdAt;
+    })
+    .slice(page * limit, (page + 1) * limit);
+}
+
+
+
+export async function fetchTilsCount(): Promise<number> {
+  return (await fetchAllTil()).length;
 }
