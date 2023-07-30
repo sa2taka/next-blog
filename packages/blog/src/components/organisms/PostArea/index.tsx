@@ -1,10 +1,10 @@
 import { Information } from '@blog/components/organisms/PostArea/Information';
-import { PostBody } from '@blog/components/organisms/PostArea/PostBody';
 import { PostIndex } from '@blog/components/organisms/PostArea/PostIndex';
 import { styled } from '@linaria/react';
 import React from 'react';
 import { Post } from '../../../types/entry';
 import { PostIndexItem } from '../../../types/postIndex';
+import { MarkdownBody } from '@blog/components/molecules/MarkdownBody';
 
 interface Props {
   post: Post;
@@ -37,7 +37,7 @@ export const PostArea: React.FC<Props> = ({ post, index, rawHtml }) => {
     <Article>
       <Information post={post} />
       <PostIndex index={index} />
-      <PostBody rawHtml={rawHtml} />
+      <MarkdownBody rawHtml={rawHtml} />
     </Article>
   );
 };
