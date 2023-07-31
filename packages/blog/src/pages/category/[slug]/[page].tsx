@@ -1,5 +1,5 @@
 import { Breadcrumbs } from '@blog/components/molecules/Breadcrumbs';
-import { PostPagination } from '@blog/components/organisms/PostPagination';
+import { Pagination } from '@blog/components/organisms/Pagination';
 import { Posts } from '@blog/components/organisms/Posts';
 import { generateCategoryBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
 import { POSTS_LIMIT } from '@blog/libs/const';
@@ -105,7 +105,7 @@ const Page: NextPage<Props> = ({ count, page, posts, slug, category }) => {
         <meta name="robots" content="noindex,nofollow" />
       </Head>
       <Breadcrumbs list={breadcrumbsList} />
-      <PostPagination
+      <Pagination
         baseUrl={`/category/${slug}`}
         currentPage={page}
         limit={POSTS_LIMIT}

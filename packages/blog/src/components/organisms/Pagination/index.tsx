@@ -17,7 +17,7 @@ interface Props {
 const PaginationItem = styled.li`
   width: 32px;
 `;
-const Pagination = styled.ul`
+const PaginationList = styled.ul`
   align-items: center;
   display: inline-flex;
   list-style-type: none;
@@ -36,7 +36,7 @@ const Pagination = styled.ul`
   }
 `;
 
-export const PostPagination: React.FC<Props> = ({
+export const Pagination: React.FC<Props> = ({
   currentPage,
   limit,
   postsCount,
@@ -70,7 +70,7 @@ export const PostPagination: React.FC<Props> = ({
 
   return (
     <nav aria-label="ページネーションナビゲーション">
-      <Pagination>
+      <PaginationList>
         {!isFirstPage ? (
           <PaginationItem>
             <Button icon xSmall href={generatePageLink(currentPage - 1)}>
@@ -103,7 +103,7 @@ export const PostPagination: React.FC<Props> = ({
         ) : (
           <PaginationItem aria-label="empty area" />
         )}
-      </Pagination>
+      </PaginationList>
     </nav>
   );
 };

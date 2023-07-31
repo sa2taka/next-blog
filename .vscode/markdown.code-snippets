@@ -46,5 +46,17 @@
     "body": [
       "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
     ]
-  }
+  },
+  "til": {
+    "prefix": "til",
+    "body": [
+      "---",
+      "layout:      til",
+      "title:       $1",
+      "category:    $2",
+      "createdAt:   $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "updatedAt:   $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "---",
+    ],
+  },
 }

@@ -1,5 +1,5 @@
-import { postBodyStyle } from '@blog/components/organisms/PostArea/postStyle';
-import { prismTheme } from '@blog/components/organisms/PostArea/prismTheme';
+import { postBodyStyle } from './postStyle';
+import { prismTheme } from './prismTheme';
 import React from 'react';
 
 import '@blog/libs/prism';
@@ -8,7 +8,7 @@ interface Props {
   rawHtml: string;
 }
 
-export const PostBody: React.FC<Props> = ({ rawHtml }) => {
+export const MarkdownBody: React.FC<Props> = ({ rawHtml }) => {
   return (
     <div
       className={`${prismTheme} ${postBodyStyle} post-body`}

@@ -1,10 +1,9 @@
-import { PostPagination } from '@blog/components/organisms/PostPagination';
+import { Pagination } from '@blog/components/organisms/Pagination';
 import { Posts } from '@blog/components/organisms/Posts';
 import { POSTS_LIMIT } from '@blog/libs/const';
 
 import type { NextPage } from 'next';
 import { AppContext } from 'next/app';
-import Head from 'next/head';
 import { Post } from '@blog/types/entry';
 import { omitBodyFromPost } from '@blog/libs/omitBodyFromPost';
 
@@ -41,7 +40,7 @@ export const getStaticProps = async (
 const Home: NextPage<Props> = ({ count, page, posts }) => {
   return (
     <>
-      <PostPagination
+      <Pagination
         baseUrl="/page"
         currentPage={page}
         limit={POSTS_LIMIT}

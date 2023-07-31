@@ -1,4 +1,4 @@
-import { PostPagination } from '@blog/components/organisms/PostPagination';
+import { Pagination } from '@blog/components/organisms/Pagination';
 import { Posts } from '@blog/components/organisms/Posts';
 import { POSTS_LIMIT } from '@blog/libs/const';
 import { omitBodyFromPost } from '@blog/libs/omitBodyFromPost';
@@ -67,7 +67,7 @@ const Page: NextPage<Props> = ({ count, page, posts }) => {
         <title> {page} ページ目</title>
         <meta name="robots" content="noindex,nofollow" />
       </Head>
-      <PostPagination
+      <Pagination
         baseUrl="/page"
         currentPage={page}
         limit={POSTS_LIMIT}
