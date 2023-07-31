@@ -74,6 +74,9 @@ const RightSide: React.FC = () => {
         <AnimationLink href="/category" className={rightSideLink}>
           Category
         </AnimationLink>
+        <AnimationLink href="/til" className={rightSideLink}>
+          TIL
+        </AnimationLink>
       </RightSideNav>
       <DarkThemeSwitch />
     </RightSideRoot>
