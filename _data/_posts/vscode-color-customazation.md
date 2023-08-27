@@ -56,7 +56,7 @@ One Dark Pro DarkerではコメントやMarkdownの引用部分が非常に色�
 
 [`Editor syntax highlighting`](https://code.visualstudio.com/docs/getstarted/themes#_editor-syntax-highlighting)に記載されていますが、`tokenColorCustomizations` にて設定します。
 
-私は下記のような設定になっています[^commend]。
+私は下記のような設定になっています[^comment]。
 
 [^comment]: `name` などは [OneDarkの設定](https://github.com/Binaryify/OneDark-Pro/blob/master/src/themes/themeData.ts)からコピペしているため付いてきています。不要だとは思います。
 
