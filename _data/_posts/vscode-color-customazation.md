@@ -16,12 +16,12 @@ description:
 
 VSCodeを始めとして、エディタにはテーマ（色）を変えることが出来ます。VSCodeは特に様々なテーマがありますね。
 
-私自身は長年 [`One Dark Pro Darker`](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme) を利用しています。Atomが比較的好きだったのと、単純に色の見た目が好みだからです。
+私自身は長年 [One Dark Pro Darker](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme) を利用しています。Atomが比較的好きだったのと、単純に色の見た目が好みだからです。
 
 一方で `Darker` と名乗る割には背景が白っぽいのが最近気になり（目が悪くなったからでしょうか）、ここをカスタマイズできないかを調べたので備忘録的なまとめです。
 
 # 色を変える方法
-ix
+
 `setting.json` に記載することで色を変えることが出来ます。どの項目がどれに対応しているかは下記に記載されています。
 
 [Theme Color](https://code.visualstudio.com/api/references/theme-color#color-formats)
@@ -54,7 +54,7 @@ ix
 
 One Dark Pro DarkerではコメントやMarkdownの引用部分が非常に色が薄いです。そのため、それらのようなコード上の色もカスタマイズしたいですが、この場合は上記のような `colorCustomizations` は使えません。
 
-[`Editor syntax highlighting`](https://code.visualstudio.com/docs/getstarted/themes#_editor-syntax-highlighting)に記載されていますが、`tokenColorCustomizations` にて設定します。
+[Editor syntax highlighting](https://code.visualstudio.com/docs/getstarted/themes#_editor-syntax-highlighting)に記載されていますが、`tokenColorCustomizations` にて設定します。
 
 私は下記のような設定になっています[^comment]。
 
