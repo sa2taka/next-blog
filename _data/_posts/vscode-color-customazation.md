@@ -4,7 +4,7 @@ title:       VSCodeで既存のテーマの色をカスタマイズする
 category:    lifehack-and-tool
 author:      sa2taka
 tags:        vscode
-public:      false
+public:      true
 createdAt:   2023-08-27
 updatedAt:   2023-08-27
 latex:       false
@@ -21,7 +21,7 @@ VSCodeを始めとして、エディタにはテーマ（色）を変えるこ�
 一方で `Darker` と名乗る割には背景が白っぽいのが最近気になり（目が悪くなったからでしょうか）、ここをカスタマイズできないかを調べたので備忘録的なまとめです。
 
 # 色を変える方法
-
+ix
 `setting.json` に記載することで色を変えることが出来ます。どの項目がどれに対応しているかは下記に記載されています。
 
 [Theme Color](https://code.visualstudio.com/api/references/theme-color#color-formats)
