@@ -10,7 +10,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/yarn-prepare
       - run: yarn lint:post >> ./.textlint.log
       - name: put textlint result
