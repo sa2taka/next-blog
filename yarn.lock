@@ -2496,9 +2496,9 @@
     "@types/node" "*"
 
 "@types/sync-fetch@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@types/sync-fetch/-/sync-fetch-0.4.0.tgz#b86e919ed490328480316590ebf3e0d34132d209"
-  integrity sha512-kUhMgk1Es/vKdwC27O29j2Y3KM52Z/k1c1sBUfNJoI8fr0WNRRFaMmq7oJ18xkiN08cNBsgNA86CV030JthgOA==
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@types/sync-fetch/-/sync-fetch-0.4.1.tgz#b97ba47d77209e80c43f9e3f90e3f6e753bff7fd"
+  integrity sha512-M6YXEkVtFtKlDk9uu3PYNFQ2x4yACR0c86x1kzONJrRdGotKDSp1+33IbNYat65OEonRs7zSttIa3SFNkYw1Ng==
   dependencies:
     "@types/node-fetch" "*"
 
