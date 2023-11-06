@@ -4,7 +4,7 @@ title:       git commit --amendを使わずに特定のコミットの内容を�
 category:    git
 author:      sa2taka
 tags:        git
-public:      false
+public:      true
 createdAt:   2023-11-04
 updatedAt:   2023-11-04
 latex:       false
