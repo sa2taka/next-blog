@@ -1,5 +1,5 @@
 import { sheet } from '@blog/components/styles/sheet';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
@@ -42,13 +42,13 @@ export const Footer: React.FC = () => {
           className={footerLink}
         >
           <FontAwesomeIcon
-            icon={faTwitter}
-            color="#1DA1F2"
-            width={16}
+            icon={faXTwitter}
+            color="#fff"
+            width={18}
             // detail style
-            style={{ paddingBottom: '3px' }}
+            style={{ paddingRight: '3px' }}
           />
-          <span>筆者Twitterアカウント</span>
+          <span>筆者Xアカウント</span>
         </AnimationLink>
         <AnimationLink href="/guide" className={footerLink}>
           <span>当サイト利用について</span>
