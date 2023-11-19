@@ -36,7 +36,7 @@ export const PostArea: React.FC<Props> = ({ post, index, rawHtml }) => {
   return (
     <Article>
       <Information post={post} />
-      <PostIndex index={index} />
+      {index.length > 0 && <PostIndex index={index} />}
       <MarkdownBody rawHtml={rawHtml} />
     </Article>
   );
