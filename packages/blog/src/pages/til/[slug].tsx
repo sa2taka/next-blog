@@ -49,8 +49,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
   const { markdown } = await import('@blog/libs/markdown');
   const rawHtml = markdown.render(til.body);
-;
-
   return {
     props: {
       til: {
@@ -93,16 +91,13 @@ const TilHead: React.FC<{ til: TilWithRawHtml }> = ({ til }) => {
   const router = useRouter();
   const path = router.pathname;
 
-  const description = til.body.length > 200 ? til.body.slice(0, 200) + "..." : til.body;
+  const description =
+    til.body.length > 200 ? til.body.slice(0, 200) + '...' : til.body;
 
   return (
     <Head>
       <title>{til.title}</title>
-      <meta
-        data-hid="description"
-        name="description"
-        content={description}
-      />
+      <meta data-hid="description" name="description" content={description} />
       <meta data-hid="og:title" name="og:title" content={til.title} />
       <meta
         data-hid="og:description"
@@ -119,11 +114,8 @@ const TilHead: React.FC<{ til: TilWithRawHtml }> = ({ til }) => {
   );
 };
 
-const TIlPage: React.FC<Props> = ({ til  }) => {
-  const breadcrumbsList = useMemo(
-    () => generateTilBreadcrumbsList(til),
-    [til]
-  );
+const TIlPage: React.FC<Props> = ({ til }) => {
+  const breadcrumbsList = useMemo(() => generateTilBreadcrumbsList(til), [til]);
   return (
     <>
       <TilHead til={til} />

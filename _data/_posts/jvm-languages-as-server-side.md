@@ -227,7 +227,7 @@ $ mvn spring-boot:run
  :: Spring Boot ::        (v2.2.6.RELEASE)
 ```
 
-![HelloWorld with java-spring](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/HelloWorld%20with%20java-spring.png)
+![HelloWorld with java-spring](../_images/HelloWorld with java-spring.png)
 
 なるほど。
 
@@ -264,7 +264,7 @@ public class DemoApplication {
 
 試しに`name=sa2taka`というクエリストリングをつけてみると、たしかに表示が変わりました。
 
-![Hello sa2taka with java-spring](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Hello%20sa2taka%20with%20java-spring.png)
+![Hello sa2taka with java-spring](../_images/Hello sa2taka with java-spring.png)
 
 ### Springとは? 
 
@@ -335,7 +335,7 @@ $ cd scala-play-seed
 $ sbt run
 ```
 
-![play with scala](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/play%20with%20scala.png)
+![play with scala](../_images/play with scala.png)
 
 動きましたね。
 
@@ -439,7 +439,7 @@ KotlinというとAndroidのイメージがありますが、サーバーサイ�
 公式にこれだけ記載があるとどれを選べばいいのか迷ってしまいますね。
 Google検索の人気度で調べてみましょう。
 
-![Kotlin Frameworks](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Kotlin%20Frameworks.png)
+![Kotlin Frameworks](../_images/Kotlin Frameworks.png)
 
 （スクショで申し訳ないですが）こんな感じ。SpringとMicronautはJavaのフレームワークの側面が強かったのでKotlinと入れています。Micronaut単独では最近出たということもあり人気度は高かったのですが、Kotlinとの組み合わせはあまり人気がないようです。
 
@@ -463,7 +463,7 @@ CLIのドキュメントがなかったので、 IntelliJをインストール�
 [Quick Start](https://ktor.io/quickstart/)をみて作ってみます。と言ってもそんなに難しくはないですが。
 
 ちなみにビルドが失敗する場合Gradleの設定からjavaのバージョンを変更します。
-![動かない場合](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88.png)
+![動かない場合](../_images/動かない場合.png)
 
 と思ったら、ビルドが失敗
 
@@ -490,11 +490,11 @@ zipStorePath=wrapper/dists
 
 実行のやり方がわからない！　一応色々触ってみてやったのが、main関数の左側にある実行ボタンをクリックして、`Run 'ApplicationKt'`をクリックすることで実行できました。
 
-![run ktor](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/run%20ktor.png)
+![run ktor](../_images/run ktor.png)
 
 というわけで、Hello World!
 
-![Hello world with ktor](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Hello%20world%20with%20ktor.png)
+![Hello world with ktor](../_images/Hello world with ktor.png)
 
 やっぱJavaScriptを普段から書いてると、そのimportは何に効いているのか、ぱっとわからないのが辛いですね。
 
@@ -588,7 +588,7 @@ suspend inline fun ApplicationCall.respondCss(builder: CSSBuilder.() -> Unit) {
 
 まずGradleプロジェクトを作っていきましょう。
 
-![Initial with intelliJ](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Initial%20with%20intelliJ.png)
+![Initial with intelliJ](../_images/Initial with intelliJ.png)
 
 完全初心者の私には実行するまでもが結構難しかったです。
 
@@ -625,7 +625,7 @@ fun main(args: Array<String>) {
 
 ちなみに`fun main()`だとIntelliJでは動かなかったので、引数を付けてあげましょう。
 
-![Hello sa2taka from http4k](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Hello%20sa2taka%20from%20http4k.png)
+![Hello sa2taka from http4k](../_images/Hello sa2taka from http4k.png)
 
 頑張りました。動きました。
 

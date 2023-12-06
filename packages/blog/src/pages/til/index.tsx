@@ -21,15 +21,13 @@ const Title = styled.h1`
 `;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { fetchTils, fetchTilsCount } = await import(
-    '@blog/libs/dataFetcher'
-  );
+  const { fetchTils, fetchTilsCount } = await import('@blog/libs/dataFetcher');
 
   const page = 1;
   const limit = TIL_LIMIT;
 
   const { markdown } = await import('@blog/libs/markdown');
-  
+
   const tils = (await fetchTils(page - 1, limit)).map((til) => {
     return { ...til, rawHtml: markdown.render(til.body) };
   });
@@ -61,7 +59,7 @@ const Page: NextPage<Props> = ({ count, page, tils }) => {
         postsCount={count}
       />
       <Title>TIL</Title>
-      <Tils tils={tils}/>
+      <Tils tils={tils} />
     </>
   );
 };

@@ -38,7 +38,7 @@ PrintScreenキー、非常に押しづらいですよね。
 
 また、保存場所などはある程度カスタマイズ可能です。正直.NETでのプログラムは殆ど経験がなく、特に見た目がどうしようもないです。CSSとHTMLが欲しいですね。
 
-![Avaloの設定画面](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Avalo-Setting.png)
+![Avaloの設定画面](../_images/Avalo-Setting.png)
 
 # スクリーンショットを撮る
 

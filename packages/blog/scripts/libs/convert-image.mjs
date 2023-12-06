@@ -4,9 +4,12 @@ import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminWebp from 'imagemin-webp';
 import imageminGifsicle from 'imagemin-gifsicle';
 
-export const convertImage = async (
-  image: Buffer
-): Promise<{ minifyImage: Buffer; webpImage: Buffer }> => {
+/**
+ * Convert an image to minified and webp formats.
+ * @param {Buffer} image - The image buffer to convert.
+ * @returns {Promise<{ minifyImage: Buffer; webpImage: Buffer }>} The minified and webp images.
+ */
+export const convertImage = async (image) => {
   try {
     const minifyImage = await imagemin.buffer(image, {
       plugins: [

@@ -38,7 +38,7 @@ description:
 
 リッチリザルトの表示は先程の[検索ギャラリーを見る](https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=ja)にまとまっていますが、例えばgoogleで検索すると下記の様な表示がされることがあります。
 
-![Googleによるオムライスの検索結果(2020年12月27日)](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Google%E3%81%AB%E3%82%88%E3%82%8B%E3%82%AA%E3%83%A0%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C_20201227.png)
+![Googleによるオムライスの検索結果(2020年12月27日)](../_images/Googleによるオムライスの検索結果_20201227.png)
 
 「オムライス」を検索した結果様々なレシピが表示されます。また作り方の動画が表示されたりするかもしれません。これらがリッチリザルトです。こうすることで通常の検索結果より、より高いクリック率が得られる可能性が増えます（多分）。
 

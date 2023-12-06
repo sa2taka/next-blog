@@ -47,7 +47,7 @@ VSCodeを始めとして、エディタにはテーマ（色）を変えるこ�
 
 | before | after |
 | -- | -- |
-| ![VSCodeで色のカスタマイズをした前](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/VSCode%E3%81%A7%E8%89%B2%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%82%92%E3%81%97%E3%81%9F%E5%89%8D.png) | ![VSCodeで色のカスタマイズをした後](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/VSCode%E3%81%A7%E8%89%B2%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%82%92%E3%81%97%E3%81%9F%E5%BE%8C.png) |
+| ![VSCodeで色のカスタマイズをした前](../_images/VSCodeで色のカスタマイズをした前.png) | ![VSCodeで色のカスタマイズをした後](../_images/VSCodeで色のカスタマイズをした後.png) |
 
 
 # コード上の色を変える方法
@@ -89,4 +89,4 @@ One Dark Pro DarkerではコメントやMarkdownの引用部分が非常に色�
 
 | before | after |
 | -- | -- |
-| ![VSCode上でコード上の色をカスタマイズした前](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/VSCode%E4%B8%8A%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E4%B8%8A%E3%81%AE%E8%89%B2%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%97%E3%81%9F%E5%89%8D.png) | ![VSCode上でコード上の色をカスタマイズした後](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/VSCode%E4%B8%8A%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E4%B8%8A%E3%81%AE%E8%89%B2%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%97%E3%81%9F%E5%BE%8C.png) |
+| ![VSCode上でコード上の色をカスタマイズした前](../_images/VSCode上でコード上の色をカスタマイズした前.png) | ![VSCode上でコード上の色をカスタマイズした後](../_images/VSCode上でコード上の色をカスタマイズした後.png) |
