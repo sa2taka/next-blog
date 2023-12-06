@@ -10,25 +10,32 @@ export const SeoHead: React.FC<Props> = ({}) => {
   const currentPath = router.asPath;
   const sitePath = `${BASE_URL}${currentPath}`;
 
+  const isContentPage =
+    currentPath.startsWith('/post/') || currentPath.match('^/til/.+ ');
+
   return (
     <Head>
       <meta data-hid="charset" charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta
-        name="description"
-        content="sa2taka/t0p_l1ghtの独断と偏見が混じった、エンジニア、プログラマーのためのニッチな記事を残すブログです。"
-      />
+      {!isContentPage && (
+        <>
+          <meta
+            name="description"
+            content="sa2taka/t0p_l1ghtの独断と偏見が混じった、エンジニア、プログラマーのためのニッチな記事を残すブログです。"
+          />
+          <meta
+            data-hid="og:title"
+            property="og:title"
+            content="言葉の向こうに世界を見る | sa2taka blog"
+          />
+          <meta
+            data-hid="og:description"
+            property="og:description"
+            content="sa2taka/t0p_l1ghtの独断と偏見が混じった、エンジニア、プログラマーのためのニッチな記事を残すブログです。"
+          />
+        </>
+      )}
       <meta data-hid="og:type" property="og:type" content="website" />
-      <meta
-        data-hid="og:title"
-        property="og:title"
-        content="言葉の向こうに世界を見る | sa2taka blog"
-      />
-      <meta
-        data-hid="og:description"
-        property="og:description"
-        content="sa2taka/t0p_l1ghtの独断と偏見が混じった、エンジニア、プログラマーのためのニッチな記事を残すブログです。"
-      />
       <meta
         data-hid="og:image"
         property="og:image"
@@ -51,6 +58,7 @@ export const SeoHead: React.FC<Props> = ({}) => {
         content="言葉の向こうに世界を見る"
       />
       <meta data-hid="og:url" property="og:url" content={sitePath} />
+
       <link rel="canonical" href={sitePath} />
     </Head>
   );
