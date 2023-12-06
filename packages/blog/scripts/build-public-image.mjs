@@ -21,6 +21,7 @@ const images = glob.sync(`${srcDir}/**/*.{gif,png,jpg}`);
 
 await Promise.all(
   images.map(async (imageSrc) => {
+    console.log(imageSrc);
     const dest = imageSrc.replace(srcDir, destDir);
     const webpDest = dest.replace(/\.(gif|png|jpg)$/, '.webp');
 
