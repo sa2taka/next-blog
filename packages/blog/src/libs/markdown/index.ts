@@ -179,7 +179,7 @@ const containerRender = {
             '"': '&quot;',
             '<': '&lt;',
             '>': '&gt;',
-          }[match] || '')
+          })[match] || ''
       );
     };
 

@@ -33,9 +33,7 @@ export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const { fetchTils, fetchTilsCount } = await import(
-    '@blog/libs/dataFetcher'
-  );
+  const { fetchTils, fetchTilsCount } = await import('@blog/libs/dataFetcher');
   if (!context.params || !context.params.page || context.params.page === '') {
     return {
       notFound: true,
@@ -45,7 +43,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const limit = TIL_LIMIT;
 
   const { markdown } = await import('@blog/libs/markdown');
-  
+
   const tils = (await fetchTils(page - 1, limit)).map((til) => {
     return { ...til, rawHtml: markdown.render(til.body) };
   });
@@ -77,7 +75,7 @@ const Page: NextPage<Props> = ({ count, page, tils }) => {
         postsCount={count}
       />
 
-      <Tils tils={tils}/>
+      <Tils tils={tils} />
     </>
   );
 };
