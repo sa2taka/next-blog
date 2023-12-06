@@ -46,7 +46,7 @@ XML Schemaではこの「要素型」を継承したりすることで定義で�
 下記図のうち`Complex Type Definition` および `Simple Type Definition` が要素型と考えると、要素の定義である `Element Declaration` は要素系と紐付いています（`Identifiy−constraint` というのはありますが、SAMLの定義では出てないと思います）。
 一方でXML Schemaの主人公とも呼べる存在は`Complex Type`です。これは`Element`を複数持ったもの（図中では`particle`と名前が付いています）と`Attribute Use`つまり属性などから作成されており、要素型は要素を持ち（必ずではない）、要素もまた）要素型を持っている（これもまた必ずではない）という関係になっています。
 
-![XML Schema Part1 Schema Components Diagram(normative)から引用。XMLの構造のクラス図](../_images/Schema_Components-Diagram%20_non-normative_.gif)
+![XML Schema Part1 Schema Components Diagram(normative)から引用。XMLの構造のクラス図](../_images/Schema_Components-Diagram__non-normative_.gif)
 
 # XML Schemaの基本
 
