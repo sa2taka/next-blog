@@ -169,7 +169,7 @@ GAEは未だにNode v12で実行できないのが痛いですが、デプロイ
 
 # Lighthouseのパフォーマンスの対応
 
-![Lighthouseのパフォーマンスの結果](../_images/Lighthouseのパフォーマンスの結果.png)
+![Lighthouseのパフォーマンスの結果](../_images/Lighthouseのパフォーマンスの結果.png)
 
 Lighthouseのパフォーマンスですが、実はあまり大したことはやってません。おそらくNuxtがデフォルトでよしなにやってくれるのとGAEがそれなりに早いこと、そしてあまり複雑な処理がまだないためだと考えられます。
 
@@ -193,7 +193,7 @@ Lighthouseのパフォーマンスですが、実はあまり大したことは�
 
 まずは何もしない場合、`yarn build --analyze`を行った結果です[^nuxt-analyze]。
 
-![highlight.jsが占める割合が大きい](../_images/highlight.jsが占める割合が大きい.png)
+![highlight.jsが占める割合が大きい](../_images/highlight.jsが占める割合が大きい.png)
 
 少し小さくて見づらいですが、なんとhighlight.jsだけで1.04MBあります。でかすぎる。Gzipで圧縮しても245kB。
 流石にこれは考えたほうがいいですね。今後mathematicaやisbl、gmlを使ったブログを書く気はおそらくありませんもの。
@@ -249,7 +249,7 @@ import hljs from './hljs';
 
 #### 結果
 
-![改善した結果highlight.jsを97%削減](../_images/改善した結果highlight.jsのサイズを大幅削減.png)
+![改善した結果highlight.jsを97%削減](../_images/改善した結果highlight.jsのサイズを大幅削減.png)
 
 58.65kB、gzipで圧縮すると7.98kBまで圧縮されました！ 
 元のファイルから97%程削減した、と考えると凄まじい効果ですね。

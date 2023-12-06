@@ -23,7 +23,7 @@ let cnt = 0;
 for (const imageSrc of images) {
   cnt++;
   console.log(`${imageSrc}(${cnt}/${images.length})`);
-  const dest = imageSrc.replace(srcDir, destDir);
+  const dest = imageSrc.replace(srcDir, destDir).normalize();
   const webpDest = dest.replace(/\.(gif|png|jpg)$/, '.webp');
 
   if (fs.existsSync(dest) && fs.existsSync(webpDest)) {

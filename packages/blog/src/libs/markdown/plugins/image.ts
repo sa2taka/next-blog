@@ -52,7 +52,9 @@ export const webpConvertPlugin = (md: MarkdownIt) => {
  */
 const fetchImageBuffer = (src: string): ArrayBuffer => {
   if (src.startsWith('../_images')) {
-    const fileName = decodeURIComponent(src.replace('./images/', ''));
+    const fileName = decodeURIComponent(
+      src.replace('./images/', '').normalize()
+    );
     const projectRoot = process
       .cwd()
       // NOTE: the directory structure in the ci is /home/runner/work/next-blog/next-blog/_data/_images/...
