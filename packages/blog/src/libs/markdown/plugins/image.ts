@@ -22,7 +22,6 @@ export const webpConvertPlugin = (md: MarkdownIt) => {
       return imgRender(tokens, idx, options, env, self);
     }
 
-    console.log(originSrc);
     const m = originSrc.match(/^\.\.\/_images\/.+$/gi);
     if (!m) {
       return imgRender(tokens, idx, options, env, self);
