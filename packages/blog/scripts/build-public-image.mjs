@@ -18,9 +18,11 @@ if (!fs.existsSync(destDir)) {
 }
 
 const images = glob.sync(`${srcDir}/**/*.{gif,png,jpg}`);
+let cnt = 0;
 
 for (const imageSrc of images) {
-  console.log(imageSrc);
+  cnt++;
+  console.log(`${imageSrc}(${cnt}/${images.length})`);
   const dest = imageSrc.replace(srcDir, destDir);
   const webpDest = dest.replace(/\.(gif|png|jpg)$/, '.webp');
 
@@ -37,3 +39,5 @@ for (const imageSrc of images) {
     fs.writeFileSync(webpDest, webpImage);
   }
 }
+
+console.log('complete');
