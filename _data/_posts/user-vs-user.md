@@ -18,7 +18,7 @@ Windows XPとWindows11。時代が変われば様々なものが変わります�
 
 その中で下記のような表記の違いがあります。
 
-![windows xp computer vs windows 11 computer](../_images/windows xp　computer vs windows 11 computer.png)
+![windows xp computer vs windows 11 computer](../_images/windows_xp　computer_vs_windows_11_computer.png)
 
 Windows XPでは「コンピュー**タ**」であり、Windows 11では「コンピュー**ター**」です。
 これと似た例では「プリンタ」と「プリンター」があります[^windows-displaied-user]。

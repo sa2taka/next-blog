@@ -67,7 +67,7 @@ runs:
 
 Github ActionsのWorkflowではこんな感じです。`current-build`が1.にあたり、`source-build`が2.にあたります。どちらも成功したら3.にあたる`diff`を実行します。
 
-![ビルド結果のDIffを確認するGithub ActionsのWorkflow](../_images/ビルド結果のDIffを確認するGithub ActionsのWorkflow.png)
+![ビルド結果のDIffを確認するGithub ActionsのWorkflow](../_images/ビルド結果のDIffを確認するGithub_ActionsのWorkflow.png)
 
 それぞれの動作は下記になっています。
 

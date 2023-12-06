@@ -44,7 +44,7 @@ description:
 
 一応画像に起こしてみましたが、あまり大した構成ではないですね。
 
-![ブログのアーキテクチャ](../_images/blog architecture.png)
+![ブログのアーキテクチャ](../_images/blog_architecture.png)
 
 ## Nuxt.js
 

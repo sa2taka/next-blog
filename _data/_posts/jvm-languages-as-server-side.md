@@ -227,7 +227,7 @@ $ mvn spring-boot:run
  :: Spring Boot ::        (v2.2.6.RELEASE)
 ```
 
-![HelloWorld with java-spring](../_images/HelloWorld with java-spring.png)
+![HelloWorld with java-spring](../_images/HelloWorld_with_java-spring.png)
 
 なるほど。
 
@@ -264,7 +264,7 @@ public class DemoApplication {
 
 試しに`name=sa2taka`というクエリストリングをつけてみると、たしかに表示が変わりました。
 
-![Hello sa2taka with java-spring](../_images/Hello sa2taka with java-spring.png)
+![Hello sa2taka with java-spring](../_images/Hello_sa2taka_with_java-spring.png)
 
 ### Springとは? 
 
@@ -335,7 +335,7 @@ $ cd scala-play-seed
 $ sbt run
 ```
 
-![play with scala](../_images/play with scala.png)
+![play with scala](../_images/play_with_scala.png)
 
 動きましたね。
 
@@ -439,7 +439,7 @@ KotlinというとAndroidのイメージがありますが、サーバーサイ�
 公式にこれだけ記載があるとどれを選べばいいのか迷ってしまいますね。
 Google検索の人気度で調べてみましょう。
 
-![Kotlin Frameworks](../_images/Kotlin Frameworks.png)
+![Kotlin Frameworks](../_images/Kotlin_Frameworks.png)
 
 （スクショで申し訳ないですが）こんな感じ。SpringとMicronautはJavaのフレームワークの側面が強かったのでKotlinと入れています。Micronaut単独では最近出たということもあり人気度は高かったのですが、Kotlinとの組み合わせはあまり人気がないようです。
 
@@ -490,11 +490,11 @@ zipStorePath=wrapper/dists
 
 実行のやり方がわからない！　一応色々触ってみてやったのが、main関数の左側にある実行ボタンをクリックして、`Run 'ApplicationKt'`をクリックすることで実行できました。
 
-![run ktor](../_images/run ktor.png)
+![run ktor](../_images/run_ktor.png)
 
 というわけで、Hello World!
 
-![Hello world with ktor](../_images/Hello world with ktor.png)
+![Hello world with ktor](../_images/Hello_world_with_ktor.png)
 
 やっぱJavaScriptを普段から書いてると、そのimportは何に効いているのか、ぱっとわからないのが辛いですね。
 
@@ -588,7 +588,7 @@ suspend inline fun ApplicationCall.respondCss(builder: CSSBuilder.() -> Unit) {
 
 まずGradleプロジェクトを作っていきましょう。
 
-![Initial with intelliJ](../_images/Initial with intelliJ.png)
+![Initial with intelliJ](../_images/Initial_with_intelliJ.png)
 
 完全初心者の私には実行するまでもが結構難しかったです。
 
@@ -625,7 +625,7 @@ fun main(args: Array<String>) {
 
 ちなみに`fun main()`だとIntelliJでは動かなかったので、引数を付けてあげましょう。
 
-![Hello sa2taka from http4k](../_images/Hello sa2taka from http4k.png)
+![Hello sa2taka from http4k](../_images/Hello_sa2taka_from_http4k.png)
 
 頑張りました。動きました。
 

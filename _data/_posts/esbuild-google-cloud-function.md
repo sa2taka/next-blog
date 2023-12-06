@@ -108,7 +108,7 @@ $ gcloud functions deploy test --entry-point helloHttp --runtime nodejs12 --trig
 
 しばらくするとデプロイが完了します。今回は`--triger-http`を利用しているので、httpで関数を呼び出すことが可能です。呼んでみましょう。
 
-![Hello sa2taka](../_images/Hello sa2taka.png)
+![Hello sa2taka](../_images/Hello_sa2taka.png)
 ※ URLは実在しません。
 
 というわけで実際に動くのが確認できました。

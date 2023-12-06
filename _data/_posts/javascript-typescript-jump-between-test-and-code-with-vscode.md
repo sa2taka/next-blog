@@ -157,7 +157,7 @@ export function deactivate() { }
 なんとなく、コードがら動作を読めるじゃないでしょうか。
 ここで`F5`、または実行とデバッグで`Run Extension`を実行するとVSCodeが開きます。あとは`Cmd+Shift+P`で`Hello World`とうつと実行できます。（下記GifはWindowsなので`Ctrl+Shift+P`です）
 
-![Hello World!](../_images/Hello World.gif)
+![Hello World!](../_images/Hello_World.gif)
 
 まぁ、だいたい予想通りの動きをしたと思います。が、気になる人は気になる部分で、`Hello World`と打ったら、なんで右下に表示されたんでしょうか。
 上記のコードを見ると、
@@ -331,7 +331,7 @@ function changeSelectedToCamel() {
 
 実際に動かしてみましょう。複数選択していても動作するので、せっかくなら動作させてみました。
 
-![My To Camelの動作](../_images/My To Camel.gif)
+![My To Camelの動作](../_images/My_To_Camel.gif)
 
 `vscode.window`がどうたらこうたらとか、`editor`ってこれ以外にどんなことができるの？というのは[VS Code API](https://code.visualstudio.com/api/references/vscode-api)に記載されていますので、別のこともやる場合は参考になります。
 
@@ -345,7 +345,7 @@ function changeSelectedToCamel() {
 
 Organizationを作成したなら、下記画像の通りPersonal Access Token生成ページへ移動します。
 
-![Microsoft Personal Access Token生成ページへ](../_images/Microsoft Peronal Access Token.png)
+![Microsoft Personal Access Token生成ページへ](../_images/Microsoft_Peronal_Access_Token.png)
 
 ページへ遷移したら`+ New Token`よりトークンを生成します。**このとき`Scopes`を`Custom Defined`として、`Market Place`の`Manage`にチェックを付けましょう**。
 

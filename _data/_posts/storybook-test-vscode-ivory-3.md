@@ -168,7 +168,7 @@ export function LayoutHeader() {
 
 実際にビルドして表示してみるとこんな感じ。
 
-![electron header](../_images/electron header.png)
+![electron header](../_images/electron_header.png)
 
 ではこれをStorybookへ登録していきましょう。
 
@@ -193,7 +193,7 @@ $ yarn storybook
 
 しかし、実行してみると下記の用になります。
 
-![before storybook header](../_images/before storybook header.png)
+![before storybook header](../_images/before_storybook_header.png)
 
 なんか色々突っ込みどころはありますが、これはおそらくtailwind.cssのcssが効いてない気がします。
 これはtailwind.cssをimportできてないので発生します。
@@ -204,7 +204,7 @@ $ yarn storybook
 import '@/style/tailwind.css';
 ```
 
-![after storybook header](../_images/after storybook header.png)
+![after storybook header](../_images/after_storybook_header.png)
 OKですね！
 
 # Test
@@ -357,7 +357,7 @@ VSCodeのスニペット機能は、特定の入力をすることで事前に�
 
 百聞は一見に如かずというので、実際に動いているのを見ていただいたほうが早いと思います。
 
-![ES7 React/Redux/GraphQL/React-Native snippetsの動作](../_images/ES7 React:Redux:GraphQL:React-Native snippetsの動作.gif)
+![ES7 React/Redux/GraphQL/React-Native snippetsの動作](../_images/ES7_React:Redux:GraphQL:React-Native_snippetsの動作.gif)
 
 これは[ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)のスニペットの1つである`rfc`を入力した際の動きです。この場合はReactのFunctional Componentを入力してくれるスニペットですね。
 

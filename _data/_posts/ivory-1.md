@@ -409,7 +409,7 @@ $ yarn build
 $ yarn start
 ```
 
-![empty electron](../_images/empty electron.png)
+![empty electron](../_images/empty_electron.png)
 
 まだ何も設定してないので空のままですね。
 

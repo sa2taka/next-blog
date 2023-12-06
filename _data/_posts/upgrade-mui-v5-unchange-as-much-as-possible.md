@@ -63,7 +63,7 @@ const root = createRoot(container);
 root.render(<App />);
 ```
 
-![Material UI v4の見た目](../_images/Material v4.png)
+![Material UI v4の見た目](../_images/Material_v4.png)
 
 単純に上から、ボタン・テキストフィールド・リンク・チェックボックスを表示しているだけです。
 ただし、Material UI v4はReact v18はサポートされていないので注意が必要です。上記の動作上では特に問題はないです。
@@ -165,10 +165,10 @@ const root = createRoot(container);
 root.render(<App />);
 ```
 
-![何も変更していないMUI v5の見た目](../_images/MUI v5 (old).png)
+![何も変更していないMUI v5の見た目](../_images/MUIv5_old_.png)
 下記のMaterial UI v4の見た目と比べると一目瞭然ですが、import以外同じコードなのに全く見た目が違います。
 
-![Material UI v4の見た目](../_images/Material v4.png)
+![Material UI v4の見た目](../_images/Material_v4.png)
 
 MUI v5にアップグレードして大きく変わった点はいくつかあります。それが[こちらのマイグレーションガイド](https://v5-0-6.mui.com/guides/migration-v4/)に書いてあることではあります。
 
@@ -392,11 +392,11 @@ root.render(<App />);
 
 ```
 
-![v4用の設定を適用したMUI v5の見た目](../_images/MUI v5(new).png)
+![v4用の設定を適用したMUI v5の見た目](../_images/MUIv5_new_.png)
 
 若干余白が狭いですが、下記のMaterial UI v4の見た目と比べるとほとんど変化がありません。
 
-![Material UI v4の見た目](../_images/Material v4.png)
+![Material UI v4の見た目](../_images/Materialv4.png)
 
 このように、Themeを活用することでv4の見た目や使い心地をほぼ維持したままv5にアップグレードできます。
 

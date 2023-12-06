@@ -736,7 +736,7 @@ custom-eslint-demo/src/index.ts
 
 **・・・おや！？ VSCodeのようすが・・・!**
 
-![VSCodeではカスタムルールが読みこめない](../_images/VSCode Custom Lint Error.png)
+![VSCodeではカスタムルールが読みこめない](../_images/VSCode_Custom_Lint_Error.png)
 
 VSCodeはカスタムESLintがいい感じに使えません。ESLintのExtensionですね、正確には。いい感じに設定できるようになればいいんですけど。
 
@@ -806,7 +806,7 @@ custom-eslint-demo/src/index.ts
 
 コマンドは良さそう。
 
-![VSCodeでも正常にエラーが出る](../_images/VSCode Correct Custom Lint Error .png)
+![VSCodeでも正常にエラーが出る](../_images/VSCode_Correct_Custom_Lint_Error_.png)
 VSCodeでもエラー表示されましたね！
 
 更に今回はsuggestionを設定しています。

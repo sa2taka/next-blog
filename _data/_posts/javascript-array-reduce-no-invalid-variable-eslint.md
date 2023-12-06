@@ -192,7 +192,7 @@ arr.reduce(function(acc) { return {} }, {});
 
 ルールを適用した上で、上の`addNames`にlintをかけて見ましょう。
 
-![addNames lint error](../_images/addNames lint error.png)
+![addNames lint error](../_images/addNames_lint_error.png)
 
 # 作成ノート
 

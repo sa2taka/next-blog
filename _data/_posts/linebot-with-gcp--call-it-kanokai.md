@@ -257,7 +257,7 @@ $ gcloud functions deploy MorningCall --entry-point morningCall --runtime nodejs
 
 Cloud Schedulerで「ジョブを作成」ボタンを押し、色々設定していきましょう。
 
-![Cloud Scheduler](../_images/Cloud Scheduler.png)
+![Cloud Scheduler](../_images/Cloud_Scheduler.png)
 
 「頻度」はcron形式です[^cron]。今回は月曜日から金曜日の7:40に実行する感じですね。
 
