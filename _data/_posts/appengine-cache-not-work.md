@@ -39,7 +39,7 @@ AppEngine上にデプロイしたNext.jsのアプリで、キャッシュがう�
 
 next.jsでは`public/`以下のファイルは静的ファイルとして公開できます。実際に`/dummy.html`にアクセスしてみるとちゃんと表示されています。
 
-![dummy.htmlの初回アクセス結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/dummy.html%E3%81%AE%E5%88%9D%E5%9B%9E%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E7%B5%90%E6%9E%9C.png)
+![dummy.htmlの初回アクセス結果](../_images/dummy.htmlの初回アクセス結果.png)
 
 アクセスして気づきました「！じゃなくて？になっている！」と。
 そして、下記のようにファイルを修正してみました。

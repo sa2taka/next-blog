@@ -1,6 +1,8 @@
-import MarkdownIt from 'markdown-it';
-import fetchSync from 'sync-fetch';
+import { readFileSync } from 'fs';
 import sizeOf from 'image-size';
+import MarkdownIt from 'markdown-it';
+import { join } from 'path';
+import fetchSync from 'sync-fetch';
 
 /**
  * 特定のルールの画像をwebpとともにpictureタグに変換するプラグイン。
@@ -12,19 +14,26 @@ export const webpConvertPlugin = (md: MarkdownIt) => {
       return self.renderToken(tokens, idx, options);
     };
   md.renderer.rules.image = (...[tokens, idx, options, env, self]) => {
-    const src = tokens[idx].attrs?.filter((elm) => elm[0] === 'src')[0]?.[1];
-    if (!src) {
+    const origin = tokens[idx];
+    const originSrc = tokens[idx].attrs?.filter(
+      (elm) => elm[0] === 'src'
+    )[0]?.[1];
+    if (!originSrc) {
       return imgRender(tokens, idx, options, env, self);
     }
 
-    const m = src.match(
-      /\/\/storage\.googleapis\.com\/sa2taka-next-blog\.appspot\.com/gi
-    );
+    console.log(originSrc);
+    const m = originSrc.match(/^\.\.\/_images\/.+$/gi);
     if (!m) {
       return imgRender(tokens, idx, options, env, self);
     }
 
-    const webp = src.replace(/\.[^.]+$/, '.webp');
+    const imgSrc = originSrc.replace('../_images/', '/images/');
+    const webpSrc = imgSrc.replace(/\.[^.]+$/, '.webp');
+    origin.attrs &&
+      (origin.attrs = origin.attrs
+        ?.filter((elm) => elm[0] !== 'src')
+        .concat([['src', imgSrc]]));
     const imgTag = imgRender(tokens, idx, options, env, self);
     // NOTE: markdown-it-imsize fills img width and height.
     const width = imgTag.match(/width="(\d+)"/)?.[1];
@@ -32,10 +41,26 @@ export const webpConvertPlugin = (md: MarkdownIt) => {
 
     const webpTag =
       width && height
-        ? `<source srcset="${webp}" type="image/webp" width="${width}" height="${height}"/>`
-        : `<source srcset="${webp}" type="image/webp"/>`;
+        ? `<source srcset="${webpSrc}" type="image/webp" width="${width}" height="${height}"/>`
+        : `<source srcset="${webpSrc}" type="image/webp"/>`;
     return `<picture>${webpTag}${imgTag}</picture>`;
   };
+};
+
+/**
+ * srcがローカルなら _data/_imagesから、そうではない場合はfetchして、Bufferを取得する。
+ * webpConvertPluginの後でuseすること。
+ */
+const fetchImageBuffer = (src: string): ArrayBuffer => {
+  if (src.startsWith('../_images')) {
+    const fileName = decodeURIComponent(src.replace('./images/', ''));
+    const projectRoot = process.cwd().replace(/(?<=\/next-blog\/).+$/, '');
+    const path = join(projectRoot, '_data', '_images', fileName);
+    const data = readFileSync(path);
+    return data;
+  } else {
+    return fetchSync(src).arrayBuffer();
+  }
 };
 
 /**
@@ -50,7 +75,7 @@ export const imageSizeRenderPlugin = (md: MarkdownIt) => {
 
   md.renderer.rules.image = (...[tokens, idx, options, env, self]) => {
     const imgSrc = tokens[idx].attrGet('src') as string;
-    const img = fetchSync(imgSrc).arrayBuffer();
+    const img = fetchImageBuffer(imgSrc);
     const size = sizeOf(Buffer.from(img));
 
     size?.width && tokens[idx].attrPush(['width', size.width.toString()]);

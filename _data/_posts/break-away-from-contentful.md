@@ -94,14 +94,14 @@ Contentfulから脱却し、git管理していることの最大の利点とし�
 私のブログの画像は通常の `.png`, `jpeg`, `.gif`と共に `.webp` 形式を採用しています。しかし[画像ディレクトリ](https://github.com/sa2taka/next-blog/tree/main/_data/_images)には`.webp`形式のデータはありません。
 これはどういうことかというと、gitで管理しているのは元データで、Cloud Storage上に元データと`.wepb`に変換したデータが保存されています。
 
-![CloudStorageにwebpも保存されている](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/CloudStorage%E3%81%ABwebp%E3%82%82%E4%BF%9D%E5%AD%98%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B.png)
+![CloudStorageにwebpも保存されている](../_images/CloudStorageにwebpも保存されている.png)
 
 このブログはfirebase hosting上にホスティングされていますが、Cloud Storage for firebaseではなくCloud Storageを利用しています。
 これには理由があります。[Cloud Storage for Firebaseのレスポンスを爆速化した話](https://qiita.com/qrusadorz/items/4a8e62c20bc788ab0585)や[KomecroアプリでFirebaseからの画像取得を早くした話](https://techlife.cookpad.com/entry/2018/11/02/100000)を参考にさせていただいているのでそちらのほうが詳しいですが本記事でも触れます。
 
 Cloud Storage for firebaseの方は、画像のリクエストのタイミングで認証情報を確認します。当然私のブログは認証系の処理はありませんが、そういう仕組みになっているようです。Cloud Storageの方もおそらく無設定でやればそうなるでしょう。その後パラメーターをくっつけて再度リクエストしてデータを取得する、という動作のようです。
 
-しかし、Cloud Storageの方にはそれ以外に公開アクセスという方法があります。名前の通り、バケットの内容を公開してアクセスできるようになります。このシステムの場合は[https://storage.googleapis.com/sa2taka-next-blog.appspot.com/my keyboard.png](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/my%20keyboard.png)に直接アクセスすると、特に問題なく画像が見られるようになります。
+しかし、Cloud Storageの方にはそれ以外に公開アクセスという方法があります。名前の通り、バケットの内容を公開してアクセスできるようになります。このシステムの場合は[https://storage.googleapis.com/sa2taka-next-blog.appspot.com/my keyboard.png](../_images/my keyboard.png)に直接アクセスすると、特に問題なく画像が見られるようになります。
 こちらを使えば、キャッシュが効きます。とはいえど、デフォルトでは1時間です。
 私のシステムではworkbox（Service Worker）によるキャッシュがあるので、正直この複雑さは不要だったかもしれないです。
 
@@ -111,7 +111,7 @@ Cloud Storage for firebaseの方は、画像のリクエストのタイミング
 Contentfulも画像の登録が若干煩雑だなぁと感じてはいたので、今回更改するにあたり少なくともContentfulよりは便利にはしたかったです。
 そのために画像管理システムを作成しました。と言ってもスーパーシンプルです。
 
-![自作の画像管理システム](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E8%87%AA%E4%BD%9C%E3%81%AE%E7%94%BB%E5%83%8F%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0.png)
+![自作の画像管理システム](../_images/自作の画像管理システム.png)
 
 色々な機能があります。ドラッグアンドドロップで画像をアップロードしたり、Ctrl-vの貼り付けで画像をアップロードしたり、名前を変えたり。コピーボタンで一発でmarkdown用のテキストをコピーできるのが便利です。ただ正直びっくりするぐらい使いづらいですが、これでもContentfulより使いやすいです（ログインしたり、いちいちいろんな設定する必要もないので）。
 

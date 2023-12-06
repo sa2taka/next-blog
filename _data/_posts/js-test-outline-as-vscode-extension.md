@@ -25,7 +25,7 @@ VSCodeでテストを書く時、どんなdescribeがあるか、どんなtest(i
 https://marketplace.visualstudio.com/items?itemName=sa2taka.js-test-outline
 コード： https://github.com/sa2taka/js-test-outline
 
-![JS Test Outlineのプレビュー](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/simple-test-outline.png)
+![JS Test Outlineのプレビュー](../_images/simple-test-outline.png)
 
 JS Test OutlineはJavaScriptのTest(現状はJest)のアウトラインを表示するライブラリです。
 Jestのように実行機能などはなく、本当にシンプルなアウトラインとなっています。

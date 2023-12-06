@@ -16,7 +16,7 @@ description:
 はじめまして。晴れてブログを作成することが出来ました、とっぷらです。
 
 突然ですが、これがトップページのLighthouseの結果だ！
-![全て100点のLighthouseの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E5%85%A8%E3%81%A6100%E7%82%B9%E3%81%AELighthouse%E3%81%AE%E7%B5%90%E6%9E%9C.png)
+![全て100点のLighthouseの結果](../_images/全て100点のLighthouseの結果.png)
 
 本ブログのトップページ画面にて、見事花火を上げることが出来ました！
 
@@ -44,7 +44,7 @@ description:
 
 一応画像に起こしてみましたが、あまり大した構成ではないですね。
 
-![ブログのアーキテクチャ](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/blog%20architecture.png)
+![ブログのアーキテクチャ](../_images/blog architecture.png)
 
 ## Nuxt.js
 
@@ -169,13 +169,13 @@ GAEは未だにNode v12で実行できないのが痛いですが、デプロイ
 
 # Lighthouseのパフォーマンスの対応
 
-![Lighthouseのパフォーマンスの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Lighthouse%E3%81%AE%E3%83%8F%E3%82%9A%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%81%AE%E7%B5%90%E6%9E%9C.png)
+![Lighthouseのパフォーマンスの結果](../_images/Lighthouseのパフォーマンスの結果.png)
 
 Lighthouseのパフォーマンスですが、実はあまり大したことはやってません。おそらくNuxtがデフォルトでよしなにやってくれるのとGAEがそれなりに早いこと、そしてあまり複雑な処理がまだないためだと考えられます。
 
 ちなみに完成直後はこんな感じ。何もしてなくても、結構点数が高いですね。
 
-![改善前のLighthouseの結果](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E6%94%B9%E5%96%84%E5%89%8D%E3%81%AELighthouse%E3%81%AE%E7%B5%90%E6%9E%9C.png)
+![改善前のLighthouseの結果](../_images/改善前のLighthouseの結果.png)
 
 ## ファイル・バンドルサイズの削減
 
@@ -193,7 +193,7 @@ Lighthouseのパフォーマンスですが、実はあまり大したことは�
 
 まずは何もしない場合、`yarn build --analyze`を行った結果です[^nuxt-analyze]。
 
-![highlight.jsが占める割合が大きい](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/highlight.js%E3%81%8B%E3%82%99%E5%8D%A0%E3%82%81%E3%82%8B%E5%89%B2%E5%90%88%E3%81%8B%E3%82%99%E5%A4%A7%E3%81%8D%E3%81%84.png)
+![highlight.jsが占める割合が大きい](../_images/highlight.jsが占める割合が大きい.png)
 
 少し小さくて見づらいですが、なんとhighlight.jsだけで1.04MBあります。でかすぎる。Gzipで圧縮しても245kB。
 流石にこれは考えたほうがいいですね。今後mathematicaやisbl、gmlを使ったブログを書く気はおそらくありませんもの。
@@ -249,7 +249,7 @@ import hljs from './hljs';
 
 #### 結果
 
-![改善した結果highlight.jsを97%削減](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/%E6%94%B9%E5%96%84%E3%81%97%E3%81%9F%E7%B5%90%E6%9E%9Chighlight.js%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%B9%E3%82%99%E3%82%92%E5%A4%A7%E5%B9%85%E5%89%8A%E6%B8%9B.png)
+![改善した結果highlight.jsを97%削減](../_images/改善した結果highlight.jsのサイズを大幅削減.png)
 
 58.65kB、gzipで圧縮すると7.98kBまで圧縮されました！ 
 元のファイルから97%程削減した、と考えると凄まじい効果ですね。

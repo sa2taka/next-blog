@@ -31,7 +31,7 @@ WSLでUbuntuを動かすまでを記載していきます。
 2. 左の"Windowsの機能の有効化または無効化"を開く
 3. Windows Subsystem for Linuxのチェックボックスを入れる
 
-![Windows Subsystem for Linuxの有効化](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/Windows%20Subsystem%20for%20Linux%E3%81%AE%E6%9C%89%E5%8A%B9%E5%8C%96.png)
+![Windows Subsystem for Linuxの有効化](../_images/Windows Subsystem for Linuxの有効化.png)
 
 4. 再起動が必要かも
 

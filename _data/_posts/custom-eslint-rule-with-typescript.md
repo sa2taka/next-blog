@@ -736,7 +736,7 @@ custom-eslint-demo/src/index.ts
 
 **・・・おや！？ VSCodeのようすが・・・!**
 
-![VSCodeではカスタムルールが読みこめない](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/VSCode%20Custom%20Lint%20Error.png)
+![VSCodeではカスタムルールが読みこめない](../_images/VSCode Custom Lint Error.png)
 
 VSCodeはカスタムESLintがいい感じに使えません。ESLintのExtensionですね、正確には。いい感じに設定できるようになればいいんですけど。
 
@@ -806,17 +806,17 @@ custom-eslint-demo/src/index.ts
 
 コマンドは良さそう。
 
-![VSCodeでも正常にエラーが出る](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/VSCode%20Correct%20Custom%20Lint%20Error%20.png)
+![VSCodeでも正常にエラーが出る](../_images/VSCode Correct Custom Lint Error .png)
 VSCodeでもエラー表示されましたね！
 
 更に今回はsuggestionを設定しています。
 Ctrl + .とかで表示してみると。
 
-![提案されました](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/suggestion.png)
+![提案されました](../_images/suggestion.png)
 
 提案が表示されますね。クリックしてみましょう。
 
-![コンバートされました](https://storage.googleapis.com/sa2taka-next-blog.appspot.com/converted.png)
+![コンバートされました](../_images/converted.png)
 
 置き換えられました。すごいぞ！
 
