@@ -19,23 +19,21 @@ if (!fs.existsSync(destDir)) {
 
 const images = glob.sync(`${srcDir}/**/*.{gif,png,jpg}`);
 
-await Promise.all(
-  images.map(async (imageSrc) => {
-    console.log(imageSrc);
-    const dest = imageSrc.replace(srcDir, destDir);
-    const webpDest = dest.replace(/\.(gif|png|jpg)$/, '.webp');
+for (const imageSrc of images) {
+  console.log(imageSrc);
+  const dest = imageSrc.replace(srcDir, destDir);
+  const webpDest = dest.replace(/\.(gif|png|jpg)$/, '.webp');
 
-    if (fs.existsSync(dest) && fs.existsSync(webpDest)) {
-      return;
-    }
-    const buffer = fs.readFileSync(imageSrc);
-    const { minifyImage, webpImage } = await convertImage(buffer);
+  if (fs.existsSync(dest) && fs.existsSync(webpDest)) {
+    continue;
+  }
+  const buffer = fs.readFileSync(imageSrc);
+  const { minifyImage, webpImage } = await convertImage(buffer);
 
-    if (!fs.existsSync(dest)) {
-      fs.writeFileSync(dest, minifyImage);
-    }
-    if (!fs.existsSync(webpDest)) {
-      fs.writeFileSync(webpDest, webpImage);
-    }
-  })
-);
+  if (!fs.existsSync(dest)) {
+    fs.writeFileSync(dest, minifyImage);
+  }
+  if (!fs.existsSync(webpDest)) {
+    fs.writeFileSync(webpDest, webpImage);
+  }
+}
