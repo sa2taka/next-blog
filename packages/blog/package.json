@@ -55,7 +55,7 @@
     "@types/markdown-it": "^13.0.0",
     "@types/node": "20.10.6",
     "@types/prismjs": "^1.26.0",
-    "@types/react": "18.2.46",
+    "@types/react": "18.2.47",
     "@types/react-dom": "18.2.18",
     "@types/sync-fetch": "^0.4.0",
     "npm-watch": "^0.11.0"
