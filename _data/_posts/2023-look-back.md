@@ -27,7 +27,7 @@ VSCode Extensionは去年作った[JS Test Outline](https://marketplace.visualst
 
 2023年も変わらず本は大量に買っており、本棚は去年の段階で埋まっていて、今はベッドの左側にうず高く積まれています。
 
-今年呼んだ本でいくつか良かったものを紹介します。
+今年読んだ本でいくつか良かったものを紹介します。
 
 ## デザインのデザイン
 
@@ -129,7 +129,7 @@ VSCode Extensionは去年作った[JS Test Outline](https://marketplace.visualst
 
 右手にトラックボールがあるタイプの自作キーボードが欲しかったのですが、流石に自作のハードルは高く（3Dプリンターがあってたらやってたかもしれない）、[Keyball 61](https://shop.yushakobo.jp/products/5358)と[Killer Whale](https://shop.yushakobo.jp/products/7948)を購入しました。本当はKeyball61が欲しかったのですが、再販したのがKiller WhaleだったのでKiller Whaleを購入したところ、Keyball61も再販したのでどっちも買ってしまいました。なのでKiller Whaleは作りましたが使ってないです。
 
-また、このタイミングで完全自作キーボード（67キーなので、67年に一度花が咲く孟宗竹の英語であるHeterocyclaと名前をつけています）を落っことしてしまい大変悲しいことになりました（それはもう大変悲しいことに）。Keyball61でゲームをやるには流石に辛かったので、Razerが作っている60%キーボードである[Hutsman-mini](https://www.razer.com/jp-jp/gaming-keyboards/razer-huntsman-mini)を買うことで、1年間で10万円をキーボードに投資することに成功しました。上下左右キーがないので、今やっている音ゲーの曲選択がとでも不ｂんです。あと65%キーボードがあることを知らなかったです。そっち買えばよかったです。
+また、このタイミングで完全自作キーボード（67キーなので、67年に一度花が咲く孟宗竹の英語であるHeterocyclaと名前をつけています）を落っことしてしまい大変悲しいことになりました（それはもう大変悲しいことに）。Keyball61でゲームをやるには流石に辛かったので、Razerが作っている60%キーボードである[Hutsman-mini](https://www.razer.com/jp-jp/gaming-keyboards/razer-huntsman-mini)を買うことで、1年間で10万円をキーボードに投資することに成功しました。上下左右キーがないので、今やっている音ゲーの曲選択がとでも不便です。あと65%キーボードがあることを知らなかったです。そっち買えばよかったです。
 
 # ゲーム
 
