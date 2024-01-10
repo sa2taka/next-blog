@@ -34,7 +34,7 @@
     "imagemin-pngquant": "^9.0.2",
     "imagemin-webp": "^8.0.0",
     "markdown-it": "^14.0.0",
-    "markdown-it-container": "^3.0.0",
+    "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-sanitizer": "^0.4.3",
