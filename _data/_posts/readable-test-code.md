@@ -6,11 +6,13 @@ category:    poem
 tags:        test,jest,TypeScript
 public:      true
 createdAt:   2022-09-18
-updatedAt:   2023-06-18
+updatedAt:   2024-02-11
 latex:       false
 description:
   自分なりに読みやすいテストコードとはなんだろう、自分がテストを書くときに心がけていることはなんだろうか、その点について記載しました。  
 ---
+
+[新たに考えを言語化してみました](/post/readable-test-code-2024)。
 
 趣味のプログラミングならともかく、本番のコード、特にビジネスロジックに関わる場所の単体テストはなくてはならない存在です。
 
