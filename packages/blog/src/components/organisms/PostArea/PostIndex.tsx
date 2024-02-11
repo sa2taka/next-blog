@@ -43,11 +43,10 @@ const PostIndexNav = styled.nav`
 `;
 
 const PostIndexOl = styled.ol`
-  margin-top: 16px;
+  margin-top: -12px;
   margin-bottom: 16px;
-  list-style-type: none !important;
   counter-reset: number;
-  position: relative;
+  padding-left: 32px;
 `;
 
 const IndexLink = styled.a`
@@ -63,33 +62,22 @@ const IndexLink = styled.a`
 `;
 
 const FirstIndex = styled.li`
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+`;
+
+const SubIndexOl = styled.ol`
+  counter-reset: number;
   position: relative;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+`;
 
-  &::before {
-    counter-increment: number;
-    content: counter(number);
-    color: var(--primary-color);
-    font-weight: 600;
-  }
-
-  &::after {
-    position: absolute;
-    content: '' !important;
-    top: 0px;
-    right: auto;
-    left: 18px;
-    bottom: auto;
-    height: 1.5em;
-    width: 2px;
-    border-radius: 1px;
-    background-color: var(--primary-color);
-  }
-
-  & > ${IndexLink} {
-    margin-left: 18px;
-  }
+const SecondIndex = styled.li`
+  margin-top: 8px;
+  margin-bottom: 8px;
+  list-style: none;
+  position: relative;
+  font-weight: 400;
 `;
 
 export const PostIndex: React.FC<Props> = ({ index }) => {
@@ -101,6 +89,18 @@ export const PostIndex: React.FC<Props> = ({ index }) => {
         {formattedPostIndex.map((level1) => (
           <FirstIndex key={`${level1.level}-${level1.title}`}>
             <IndexLink href={`#${level1.title}`}>{level1.title}</IndexLink>
+
+            {level1.child.length !== 0 && (
+              <SubIndexOl>
+                {level1.child.map((level2) => (
+                  <SecondIndex key={`${level2.level}-${level2.title}`}>
+                    <IndexLink href={`#${level2.title}`}>
+                      {level2.title}
+                    </IndexLink>
+                  </SecondIndex>
+                ))}
+              </SubIndexOl>
+            )}
           </FirstIndex>
         ))}
       </PostIndexOl>
