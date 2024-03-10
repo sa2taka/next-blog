@@ -2,7 +2,7 @@
 layout:      post
 title:       読みやすいコードとテストコードは評価軸が違う 〜 読みやすいテストコードのために心がけること
 author:      sa2taka
-category:    poem
+category:    test
 tags:        test,jest,TypeScript
 public:      true
 createdAt:   2022-09-18
