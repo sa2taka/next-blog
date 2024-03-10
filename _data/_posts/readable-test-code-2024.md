@@ -1,7 +1,7 @@
 ---
 layout:      post
 title:       読みやすいテストコードのために心がけること ver 2024.
-category:    poem
+category:    test
 author:      sa2taka
 tags:        test,jest,TypeScript
 public:      true
