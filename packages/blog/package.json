@@ -56,7 +56,7 @@
     "@types/node": "20.11.30",
     "@types/prismjs": "^1.26.0",
     "@types/react": "18.2.73",
-    "@types/react-dom": "18.2.22",
+    "@types/react-dom": "18.2.23",
     "@types/sync-fetch": "^0.4.0",
     "npm-watch": "^0.11.0"
   },
