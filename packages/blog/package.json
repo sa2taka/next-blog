@@ -52,7 +52,7 @@
     "@babel/plugin-proposal-class-static-block": "^7.21.0",
     "@babel/preset-env": "^7.18.2",
     "@types/katex": "^0.16.0",
-    "@types/markdown-it": "^13.0.0",
+    "@types/markdown-it": "^14.0.0",
     "@types/node": "20.12.7",
     "@types/prismjs": "^1.26.0",
     "@types/react": "18.2.75",
