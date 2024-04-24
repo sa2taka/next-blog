@@ -26,7 +26,8 @@
       "no-doubled-joshi": false,
       "no-hankaku-kana": false,
       "ja-unnatural-alphabet": false,
-      "max-comma": false
+      "max-comma": false,
+      "no-mix-dearu-desumasu": false,
     },
     "preset-jtf-style": {
       "max": 200,
