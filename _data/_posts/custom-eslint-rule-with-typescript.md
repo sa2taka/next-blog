@@ -5,14 +5,14 @@ author:      sa2taka
 category:    typescript
 tags:        javascript,typescript,eslint
 public:      true
-createdAt:   2021-12-05
-updatedAt:   2021-12-05
+createdAt:   2021-12-05 
+updatedAt:   2024-04-25
 latex:       false
 description:
   オレオレルールをTypeScriptで作る記事が不足していたので書きました。  
 ---
 
-ハローワールド。
+**2024-04-25 追記**: [Flat Configに関する記事](https://blog.sa2taka.com/post/custom-eslint-rule-with-flat-config)を記載したのでリンクを貼りました。ルールの作成自体は本記事は現在も参考になるはずです。
 
 カスタムESLintルールを作ったことありますか？
 
@@ -741,6 +741,8 @@ custom-eslint-demo/src/index.ts
 VSCodeはカスタムESLintがいい感じに使えません。ESLintのExtensionですね、正確には。いい感じに設定できるようになればいいんですけど。
 
 # VSCodeでも読み込めるように
+
+**移行の記載は、ESLint v9以降で推奨されているFlat Configにて解消されます。詳しくは[ Flat Config時代の自作ESLint#旧方法からの移行](https://blog.sa2taka.com/post/custom-eslint-rule-with-flat-config/#%E6%97%A7%E6%96%B9%E6%B3%95%E3%81%8B%E3%82%89%E3%81%AE%E7%A7%BB%E8%A1%8C) を確認してください。
 
 色々試行錯誤してみましたが、多分VSCodeの設定では無理。じゃあどうするの。
 
