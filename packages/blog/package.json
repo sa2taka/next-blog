@@ -42,7 +42,7 @@
     "next-linaria": "^1.0.1-beta",
     "next-pwa": "^5.5.4",
     "prismjs": "^1.28.0",
-    "react": "18.2.0",
+    "react": "18.3.0",
     "react-dom": "18.2.0",
     "sync-fetch": "^0.5.0",
     "zod": "^3.21.4"
@@ -55,7 +55,7 @@
     "@types/markdown-it": "^14.0.0",
     "@types/node": "20.12.7",
     "@types/prismjs": "^1.26.0",
-    "@types/react": "18.2.79",
+    "@types/react": "18.3.0",
     "@types/react-dom": "18.2.25",
     "@types/sync-fetch": "^0.4.0",
     "npm-watch": "^0.11.0"
