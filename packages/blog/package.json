@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm-watch & next dev",
     "build": "yarn build:main && yarn build:post",
-    "build:main": "yarn build-image && next build && next export",
+    "build:main": "yarn build-image && next build",
     "build:post": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
