@@ -34,7 +34,7 @@ ImportError: dlopen(/Users/sa2taka/.pyenv/versions/3.11.1/lib/python3.11/lib-dyn
   Reason: tried: '/usr/local/opt/openssl@1.1/lib/libssl.1.1.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/openssl@1.1/lib/libssl.1.1.dylib' (no such file), '/usr/local/opt/openssl@1.1/lib/libssl.1.1.dylib' (no such file), '/usr/local/lib/libssl.1.1.dylib' (no such file), '/usr/lib/libssl.1.1.dylib' (no such file, not in dyld cache)
 ```
 
-エラーの上部にs解決策が色々出てるが、原因は `openssl@1.1` がないことだ。どうやら `brew upgrade` を叩いた際に消えたようだ。
+エラーの上部に解決策が色々出てるが、原因は下部のほうにある `openssl@1.1` がないことだ。どうやら `brew upgrade` を叩いた際に消えたようだ。
 とりあえず `openssl@1.1` をダウンロードすることで解決できる。
 
 ```
