@@ -1260,10 +1260,10 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
-"@contentful/content-source-maps@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.5.0.tgz#3561c705f49ec3411aa90ff8a3606ceb5da1fc5b"
-  integrity sha512-Ui14m5QvgFWteAXsv5pmFtbm2deGUJrn1WPHoBa79SK3Z3nV47wQb3/aDZhnXushgpJlk2HmH32Fda/0XZqq1w==
+"@contentful/content-source-maps@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.6.0.tgz#420934abd38522d776227888dd3a1cb5cf8879d3"
+  integrity sha512-REX3kUm4f2tkdfJArqblhKL7SMLfEG18eF3vcQA+8KdBqo+7lNS2W2CuPt2i8uvdgt1aKliGXJeJTgZjYFpCqw==
   dependencies:
     "@vercel/stega" "^0.1.2"
     json-pointer "^0.6.2"
@@ -2646,10 +2646,10 @@ axe-core@^4.6.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.7.2.tgz#040a7342b20765cb18bb50b628394c21bccc17a0"
   integrity sha512-zIURGIS1E1Q4pcrMjp+nnEh+16G56eG/MUllJH8yEvw7asDo7Ac9uhC9KIH5jzpITueEZolfYglnCGIuSBz39g==
 
-axios@~1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.2.tgz#b625db8a7051fbea61c35a3cbb3a1daa7b9c7621"
-  integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
+axios@~1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
+  integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
@@ -3180,13 +3180,13 @@ contentful-sdk-core@^8.1.0:
     p-throttle "^4.1.1"
 
 contentful@^10.1.0:
-  version "10.11.12"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.11.12.tgz#ffcd2782417c8ddebc6d963867395a8536ecb498"
-  integrity sha512-poX56Bu5wpsSlA+kuM6zKaul7BeaPa31iFqkFRCY5V9ZT7S1NeB8M+UG7+TzaVQIRC0S77AZeV67s091fj/Usg==
+  version "10.12.0"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.12.0.tgz#ff2a0c6b1a583b6c51c932eedc6e0bfb2e253728"
+  integrity sha512-jGu15/nY7SQ24pbA3tXSPo5URxnZcBeV6wnH0pF1z/DguCUK2CftjBH4LSHrIevw2RdDuFU9VsAh8kjT1B2dbg==
   dependencies:
-    "@contentful/content-source-maps" "^0.5.0"
+    "@contentful/content-source-maps" "^0.6.0"
     "@contentful/rich-text-types" "^16.0.2"
-    axios "~1.7.2"
+    axios "~1.6.8"
     contentful-resolve-response "^1.8.1"
     contentful-sdk-core "^8.1.0"
     json-stringify-safe "^5.0.1"
