@@ -15,5 +15,6 @@ import 'prismjs/components/prism-regex';
 import 'prismjs/components/prism-csharp';
 import 'prismjs/components/prism-yaml';
 import 'prismjs/components/prism-xml-doc';
+import 'prismjs/components/prism-sql';
 
 export default Prism;
