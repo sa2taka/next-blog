@@ -26,7 +26,7 @@
     "@linaria/shaker": "^4.0.0",
     "@linaria/webpack-loader": "^4.0.0",
     "contentful": "^10.1.0",
-    "glob": "^10.1.0",
+    "glob": "^11.0.0",
     "image-size": "^1.0.2",
     "imagemin": "^8.0.0",
     "imagemin-gifsicle": "^7.0.0",
