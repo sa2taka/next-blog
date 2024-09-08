@@ -1,0 +1,10 @@
+.categories {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categoryButton {
+  margin: 0.5em 8px;
+  padding: 0 8px;
+}

@@ -1,0 +1,28 @@
+.footerRoot {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex: 0 1 auto !important;
+  flex-wrap: wrap;
+  padding: 6px 16px;
+  position: relative;
+  transition-duration: 0.2s;
+  transition-property: background-color, left, right;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 32px;
+  margin-top: 16px;
+  padding-bottom: 32px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footerLink {
+  margin: 8px 12px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,57 @@
+.postLi {
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+}
+
+.postCategory {
+  font-size: 0.9em;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.titleLink {
+  font-size: 1.1em;
+  font-weight: 600;
+  word-break: break-all;
+  margin: 8px 0;
+  text-decoration: none;
+  line-height: 1.4em;
+  position: relative;
+  cursor: pointer;
+}
+
+:global(.theme--dark) .titleLink {
+  color: #ddd;
+}
+
+:global(.theme--light) .titleLink {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.titleLink::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: #009688;
+  transition: 0.3s;
+}
+
+.titleLink:hover::before {
+  width: 80px;
+}
+
+.postCreatedAt {
+  font-size: 0.9em;
+}
+
+:global(.theme--dark) .postCreatedAt {
+  color: #aaa;
+}
+
+:global(.theme--light) .postCreatedAt {
+  color: #444;
+}

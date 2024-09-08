@@ -1,0 +1,28 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
+.mainContainer {
+  display: flex;
+  flex: 1 0 auto;
+  max-width: 100%;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: center;
+  /* for header */
+  padding-top: 72px;
+}
+
+.main {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 12px;
+}
+
+@media (min-width: 960px) {
+  .main {
+    max-width: 864px;
+  }
+}

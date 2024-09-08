@@ -1,0 +1,45 @@
+.informationRoot {
+  padding: 8px 12px;
+  margin-bottom: 0;
+  margin-top: auto;
+  min-width: 80%;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.categoryLink {
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.postTitle {
+  font-size: 2em;
+  text-align: center;
+  margin: 0.4em auto;
+  line-height: 1.4em;
+  overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 768px) {
+  .postTitle {
+    font-size: 1.4em;
+  }
+}
+
+.postDate {
+  font-size: 0.9em;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+:global(.theme--dark) .postDate {
+  color: #ccc;
+}
+
+:global(.theme--light) .postDate {
+  color: #222;
+}

@@ -2,23 +2,18 @@ import { Pagination } from '@blog/components/organisms/Pagination';
 import { Tils } from '@blog/components/organisms/Tils';
 import { TIL_LIMIT } from '@blog/libs/const';
 import { TilWithRawHtml } from '@blog/types/entry';
-import { styled } from '@linaria/react';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import category from '../category';
 import { generateTilsBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
 import { Breadcrumbs } from '@blog/components/molecules/Breadcrumbs';
 import { useMemo } from 'react';
+import titleStyles from '@blog/styles/shared/title.module.css';
 
 interface Props {
   tils: TilWithRawHtml[];
   page: number;
   count: number;
 }
-
-const Title = styled.h1`
-  text-align: center;
-`;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const { fetchTils, fetchTilsCount } = await import('@blog/libs/dataFetcher');
@@ -58,7 +53,7 @@ const Page: NextPage<Props> = ({ count, page, tils }) => {
         limit={TIL_LIMIT}
         postsCount={count}
       />
-      <Title>TIL</Title>
+      <div className={titleStyles.title}>TIL</div>
       <Tils tils={tils} />
     </>
   );

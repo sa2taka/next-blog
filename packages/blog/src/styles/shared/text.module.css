@@ -1,0 +1,6 @@
+.primaryText {
+  color: var(--primary-color) !important;
+}
+.secondaryText {
+  color: var(--secondary-color) !important;
+}

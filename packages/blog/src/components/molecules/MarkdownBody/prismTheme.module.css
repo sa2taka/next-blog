@@ -1,0 +1,207 @@
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+ * General
+ */
+/*
+ * ChatGPT(Claude)を利用して下記は変換している。
+ * > 下記をもとに、prismTheme.module.cssを作成してください。
+ * > .prismThemeというクラスを付与してください。
+ * > .prismTheme以外のクラスにはglobal属性を付けてください
+ */
+.prismTheme pre[class*='language-'],
+.prismTheme code[class*='language-'] {
+  color: #dddddd;
+  font-size: 15px;
+  text-shadow: none;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.prismTheme pre[class*='language-']::selection,
+.prismTheme code[class*='language-']::selection,
+.prismTheme pre[class*='language-']::mozselection,
+.prismTheme code[class*='language-']::mozselection {
+  text-shadow: none;
+  background: #ce9178;
+}
+
+@media print {
+  .prismTheme pre[class*='language-'],
+  .prismTheme code[class*='language-'] {
+    text-shadow: none;
+  }
+}
+
+.prismTheme pre[class*='language-'] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  background: #282c34;
+}
+
+.prismTheme :not(pre) > code[class*='language-'] {
+  padding: 0.1em 0.3em;
+  border-radius: 0.3em;
+  color: #dddddd;
+  background: #282c34;
+}
+
+.prismTheme :global(.namespace) {
+  opacity: 0.7;
+}
+
+.prismTheme :global(.token.comment),
+.prismTheme :global(.token.prolog),
+.prismTheme :global(.token.doctype),
+.prismTheme :global(.token.cdata) {
+  color: #93a1a1;
+}
+
+.prismTheme :global(.token.punctuation) {
+  color: #999999;
+}
+
+.prismTheme :global(.token.boolean) {
+  color: #56b6c2;
+}
+
+.prismTheme :global(.token.property),
+.prismTheme :global(.token.tag),
+.prismTheme :global(.token.number),
+.prismTheme :global(.token.constant),
+.prismTheme :global(.token.symbol),
+.prismTheme :global(.token.deleted) {
+  color: #d19a66;
+}
+
+.prismTheme :global(.token.builtin) {
+  color: #e6c07b;
+}
+
+.prismTheme :global(.token.selector),
+.prismTheme :global(.token.attr-name),
+.prismTheme :global(.token.string),
+.prismTheme :global(.token.char),
+.prismTheme :global(.token.inserted) {
+  color: #98c379;
+}
+
+.prismTheme :global(.token.operator),
+.prismTheme :global(.token.entity),
+.prismTheme :global(.token.url),
+.prismTheme :global(.language-css .token.string),
+.prismTheme :global(.style .token.string) {
+  color: #a67f59;
+  background: #282c34;
+}
+
+.prismTheme :global(.token.atrule),
+.prismTheme :global(.token.attr-value),
+.prismTheme :global(.token.keyword) {
+  color: #569cd6;
+}
+
+.prismTheme :global(.token.function) {
+  color: #dcdcaa;
+}
+
+.prismTheme :global(.token.regex),
+.prismTheme :global(.token.important),
+.prismTheme :global(.token.variable) {
+  color: #ee9900;
+}
+
+.prismTheme :global(.token.important),
+.prismTheme :global(.token.bold) {
+  font-weight: bold;
+}
+
+.prismTheme :global(.token.italic) {
+  font-style: italic;
+}
+
+.prismTheme :global(.token.entity) {
+  cursor: help;
+}
+
+.prismTheme :global(.token.interpolation) {
+  color: #e06c75;
+}
+
+.prismTheme :global(pre[data-line]) {
+  position: relative;
+}
+
+.prismTheme pre[class*='language-'] > code[class*='language-'] {
+  position: relative;
+  z-index: 1;
+}
+
+.prismTheme :global(.lineHighlight) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #484c64;
+  box-shadow: inset 5px 0 0 #686c74;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+.prismTheme :global(.languageRegex) {
+  color: #ddd;
+}
+
+.prismTheme :global(.languageRegex .tokenQuantifier) {
+  color: #58f;
+}
+
+.prismTheme :global(.languageRegex .tokenEscape),
+.prismTheme :global(.languageRegex .tokenSpecialEscape) {
+  color: #c0c;
+}
+
+.prismTheme :global(.languageRegex .tokenCharclass),
+.prismTheme :global(.languageRegex .tokenCharsetPunctuation) {
+  color: #d70;
+}
+
+.prismTheme :global(.languageRegex .tokenAnchor) {
+  color: #840;
+}
+
+.prismTheme :global(.languageRegex .tokenGroup) {
+  color: #0a0;
+}
+
+.prismTheme :global(.languageRegex .tokenBackreference),
+.prismTheme :global(.languageRegex .tokenAlternation) {
+  color: #0a0;
+}
+
+.prismTheme :global(.tokenRegexDelimiter),
+.prismTheme :global(.tokenRegexFlags) {
+  color: #b7bcc0;
+}

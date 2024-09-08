@@ -1,0 +1,16 @@
+.sheet {
+  box-shadow:
+    0 0 0 0 rgb(0 0 0 / 20%),
+    0 0 0 0 rgb(0 0 0 / 14%),
+    0 0 0 0 rgb(0 0 0 / 12%);
+}
+
+:global(.theme--dark) .sheet {
+  background-color: #272727;
+  color: #fff;
+}
+
+:global(.theme--light) .sheet {
+  background-color: #f5f5f5;
+  color: rgba(0, 0, 0, 0.87);
+}
