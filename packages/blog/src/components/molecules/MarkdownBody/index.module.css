@@ -182,34 +182,34 @@
   background: #161624;
 }
 
-.postBody :global(.messageSuccess) {
+.postBody :global(.message_s_uccess) {
   background: #f4f8fa;
   border-left: 4px solid #4caf50;
 }
 
-:global(.theme--dark) .postBody :global(.messageSuccess) {
+:global(.theme--dark) .postBody :global(.message__success) {
   background: #161624;
 }
 
-.postBody :global(.messageError) {
+.postBody :global(.message__error) {
   background: #fdf7f7;
   border-left: 4px solid #f44336;
 }
 
-:global(.theme--dark) .postBody :global(.messageError) {
+:global(.theme--dark) .postBody :global(.message__error) {
   background: #241616;
 }
 
-.postBody :global(.messageWarning) {
+.postBody :global(.message__warning) {
   background: #fcf8f2;
   border-left: 4px solid #ff9800;
 }
 
-:global(.theme--dark) .postBody :global(.messageWarning) {
+:global(.theme--dark) .postBody :global(.message__warning) {
   background: #201612dd;
 }
 
-.postBody :global(.messageIcon) {
+.postBody :global(.message__icon) {
   position: absolute;
   top: 1.2rem;
   left: -16px;
@@ -220,27 +220,27 @@
   border-radius: 50% 50%;
 }
 
-.postBody :global(.messageSuccess) :global(.messageIcon) {
+.postBody :global(.message__success) :global(.message__icon) {
   background-color: #4caf50;
 }
 
-.postBody :global(.messageError) :global(.messageIcon) {
+.postBody :global(.message__error) :global(.message__icon) {
   background-color: #f44336;
 }
 
-.postBody :global(.messageWarning) :global(.messageIcon) {
+.postBody :global(.message__warning) :global(.message__icon) {
   background-color: #ff9800;
 }
 
-.postBody :global(.messageIcon) svg {
+.postBody :global(.message__icon) svg {
   fill: white;
 }
 
-.postBody :global(.alertContent) {
+.postBody :global(.alert__content) {
   margin-left: 1rem;
 }
 
-.postBody :global(.alertContent) p:last-child {
+.postBody :global(.alert__content) p:last-child {
   margin-bottom: 0;
 }
 
