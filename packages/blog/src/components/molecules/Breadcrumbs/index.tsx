@@ -45,14 +45,16 @@ export const Breadcrumbs: React.FC<Props> = ({ list }) => {
           {list.map((item, index) => {
             return (
               <li key={item.href} className={styles.breadcrumbsItem}>
-                {index !== 0 && (
-                  <FontAwesomeIcon
-                    icon={faChevronCircleRight}
-                    className={styles.arrowMargin}
-                    style={{ marginTop: '1px' }}
-                    height={16}
-                  />
-                )}
+                <span className={styles.breadCrumbsSeparator}>
+                  {index !== 0 && (
+                    <FontAwesomeIcon
+                      icon={faChevronCircleRight}
+                      className={styles.arrowMargin}
+                      style={{ marginTop: '1px' }}
+                      height={16}
+                    />
+                  )}
+                </span>
                 <Link href={item.href} className={styles.breadcrumbsLink}>
                   {item.text}
                 </Link>
