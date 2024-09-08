@@ -1,41 +1,65 @@
 {
-  "labels": ["renovate"],
+  "labels": [
+    "renovate"
+  ],
   "automerge": true,
   "packageRules": [
     {
-      "matchUpdateTypes": ["major"],
-      "addLabels": ["major"],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "addLabels": [
+        "major"
+      ],
       "automerge": false
     },
-
     {
-      "matchUpdateTypes": ["minor"],
-      "addLabels": ["minor"]
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "addLabels": [
+        "minor"
+      ]
     },
     {
-      "matchUpdateTypes": ["patch"],
-      "addLabels": ["patch"]
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "addLabels": [
+        "patch"
+      ]
     },
     {
-      "matchDepTypes": ["devDependencies"],
-      "addLabels": ["devDependencies"],
-      "excludePackageNames": ["typescript"]
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "addLabels": [
+        "devDependencies"
+      ],
+      "excludePackageNames": [
+        "typescript"
+      ]
     },
     {
-      "matchDepTypes": ["dependencies"],
-      "addLabels": ["dependencies"]
+      "matchDepTypes": [
+        "dependencies"
+      ],
+      "addLabels": [
+        "dependencies"
+      ]
     },
-
     {
       "groupName": "linters",
-      "packagePatterns": ["^eslint", "^@typescript-eslint", "prettier"]
+      "packagePatterns": [
+        "^eslint",
+        "^@typescript-eslint",
+        "prettier"
+      ]
     },
     {
-      "groupName": "linaria",
-      "packagePatterns": "^@linaria"
-    },
-    {
-      "matchPackageNames": ["husky"],
+      "matchPackageNames": [
+        "husky"
+      ],
       "automerge": false
     }
   ]
