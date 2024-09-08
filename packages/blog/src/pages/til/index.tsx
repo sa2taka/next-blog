@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { generateTilsBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
 import { Breadcrumbs } from '@blog/components/molecules/Breadcrumbs';
 import { useMemo } from 'react';
-import titleStyles from './index.module.css';
+import titleStyles from '@blog/styles/shared/title.module.css';
 
 interface Props {
   tils: TilWithRawHtml[];
