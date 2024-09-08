@@ -16,10 +16,10 @@ description:
 
 # 理由
 
-このブログを作成した頃はCSS-in-JSが潮流、特にZero Runtimeが流行っていたためLinariaを使ってみたく採用してみました。vanilla-extractもそうですが、設定が少し面倒なだけでかなり書き心地は良いと思ってます。
+このブログを作成した頃はCSS-in-JSが潮流、特にZero Runtimeが流行っていたためlinariaを使ってみたく採用してみました。vanilla-extractもそうですが、設定が少し面倒なだけでかなり書き心地は良いと思ってます。
 
-linaria、正確には[WyW-in-JS](https://wyw-in-js.dev/)はTransformerとしてbabelに依存しています[^does-wyw-in-js-depend-on-babel]。
-一方でこのブログはNext.jsのSSGを利用したものとなっています。Next.jsは[v12よりSWCによるコンパイルが有効になっています](https://nextjs.org/docs/architecture/nextjs-compiler)。linariaを利用するためにはbabelが必要となり、SWCの利用ができないです。
+linaria、正確には[WyW-in-JS](https://wyw-in-js.dev/)はTransformerとして**babelに依存**しています[^does-wyw-in-js-depend-on-babel]。
+一方でこのブログはNext.jsのSSGを利用したものとなっています。Next.jsは[v12より**SWCによるコンパイルが有効**になっています](https://nextjs.org/docs/architecture/nextjs-compiler)。linariaを利用するためにはbabelが必要となり、SWCの利用ができないです。
 WyW-in-JSに切り替わったlinaria v6へのアップデートするタイミングでそのあたりのコンセプトの理解も正直ドキュメントが充実しておらず難しく、切り替えを決断しました（決断したのは半年ぐらい前でしたが、面倒だったので放置してました）。
 
 [^does-wyw-in-js-depend-on-babel]: WyW-in-JSのREADMEやサイトを読んでも、いまいちbabelに依存している感はないですが、コードを呼んでみるとbabelを前提としているように見えます。私の解像度の10倍ぐらいでコードリーディングしている方がいたので、気になる方は[WyW-in-JS のコードリーディング](https://zenn.dev/kotarella1110/scraps/26fdd1ecd55da5)を参照してください
@@ -42,9 +42,9 @@ const style = css`
 `;
 ```
 
-これをCSS Modulesに切り替えるためには、少し工夫が必要です。というか、CSS Modulesの基本を知っていたらすぐに分かるのですが、いかんせん雰囲気でやっていたので、1回対応したときは全くうまくいかずに断念してました。
+これをCSS Modulesに切り替えるためには、**少し工夫が必要です**。というか、CSS Modulesの基本を知っていたらすぐに分かるのですが、いかんせん雰囲気でやっていたので、1回対応したときは全くうまくいかずに断念してました。
 
-CSS Modulesにはグローバルスコープと[ローカルスコープ](https://github.com/css-modules/css-modules/blob/master/docs/local-scope.md)があります。ローカルスコープはファイルごとにスコープが生成されるため、他のファイルのスタイルを参照できません。そのためにCSS Modulesではクラス名にハッシュを付与することでスコープを生成しています。逆に言うと、ルートにある `theme-light` クラスを指定したとしても、ローカルスコープで`.theme-light`を指定してしまうと、別のクラス名に変換されてしまうためスタイルが適用されません。
+CSS Modulesには**グローバルスコープ**と**[ローカルスコープ](https://github.com/css-modules/css-modules/blob/master/docs/local-scope.md)**があります。ローカルスコープはファイルごとにスコープが生成されるため、他のファイルのスタイルを参照できません。そのためにCSS Modulesではクラス名にハッシュを付与することでスコープを生成しています。逆に言うと、ルートにある `theme-light` クラスを指定したとしても、ローカルスコープで`.theme-light`を指定してしまうと、**別のクラス名に変換されてしまうためスタイルが適用されません**。
 
 ```css
 -- 実際生成されるのは .theme-light__12345 .title__67890 的な感じ
@@ -53,7 +53,7 @@ CSS Modulesにはグローバルスコープと[ローカルスコープ](https:
 }
 ```
 
-これを回避するためには、`theme-light` をグローバルスコープとして宣言することです。[Exceptions](https://github.com/css-modules/css-modules/blob/master/docs/composition.md#exceptions)にて記載されていますが、 `:global`という疑似属性みたいなものを使うことで、グローバルスコープとして宣言できます。
+これを回避するためには、`theme-light` を**グローバルスコープとして宣言すること**です。[Exceptions](https://github.com/css-modules/css-modules/blob/master/docs/composition.md#exceptions)にて記載されていますが、 `:global`という疑似属性みたいなものを使うことで、**グローバルスコープとして宣言できます**。
 
 ```css
 :global(.theme-light) .title {
