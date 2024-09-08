@@ -4,11 +4,12 @@
   "scripts": {
     "dev": "npm-watch build-image & next dev",
     "build": "yarn build:main && yarn build:post",
-    "build:main": "yarn build-image && next build",
+    "build:main": "yarn create-rss-feed && yarn build-image && next build",
     "build:post": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "build-image": "node ./scripts/build-public-image.mjs"
+    "build-image": "node ./scripts/build-public-image.mjs",
+    "create-rss-feed": "yarn tsx ./scripts/create-rss-feed.mts"
   },
   "watch": {
     "build-image": "../../_data/_images/**/*"
@@ -38,6 +39,7 @@
     "prismjs": "^1.28.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "rss": "1.2.2",
     "sync-fetch": "^0.5.0",
     "zod": "^3.21.4"
   },
@@ -51,7 +53,8 @@
     "@types/sync-fetch": "^0.4.0",
     "eslint-config-next": "14.2.8",
     "nodemon": "3.1.4",
-    "npm-watch": "^0.13.0"
+    "npm-watch": "^0.13.0",
+    "tsx": "4.19.0"
   },
   "repository": {
     "type": "git",
