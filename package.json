@@ -31,5 +31,6 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "packageManager": "yarn@4.4.1"
 }

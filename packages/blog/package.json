@@ -1,7 +1,6 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "private": "true",
   "scripts": {
     "dev": "npm-watch & next dev",
     "build": "yarn build:main && yarn build:post",
