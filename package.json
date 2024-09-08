@@ -9,7 +9,7 @@
     "dev": "yarn workspace blog run dev",
     "build": "yarn workspace blog run build",
     "start": "yarn workspace blog run start",
-    "lint": "yarn workspaces -A run lint",
+    "lint": "yarn workspaces foreach -A run lint",
     "lint:post": "yarn textlint _data/_posts",
     "build:all": "yarn workspaces run build",
     "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
