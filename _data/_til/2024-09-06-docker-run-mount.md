@@ -1,6 +1,6 @@
 ---
 layout:      til
-title:       DockerでCOPYを用いずにsrcをビルドする
+title:       DockerでCOPYを用いずにpackage.jsonを使ってyarn installする（RUN実行時に一時的にマウントする）
 category:    docker
 createdAt:   2024-09-06
 updatedAt:   2024-09-06
