@@ -1,0 +1,152 @@
+.base {
+  border-radius: 4px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.28s;
+  transition-property: box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  height: 48px;
+  border: none;
+}
+
+.base::before {
+  border-radius: inherit;
+  bottom: 0;
+  color: inherit;
+  content: '';
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+:global(.theme--dark) .base::before {
+  background-color: white;
+}
+
+:global(.theme--light) .base::before {
+  background-color: black;
+}
+
+.base:hover::before {
+  opacity: 0.08;
+}
+
+a.base {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+.default {
+  box-shadow:
+    0 3px 1px -2px rgb(0 0 0 / 20%),
+    0 2px 2px 0 rgb(0 0 0 / 14%),
+    0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+
+:global(.theme--dark) .default,
+:global(.theme--light) .default {
+  background: white;
+}
+
+.default::before {
+  background-color: black;
+  opacity: 0.08;
+}
+
+.outlined {
+  background: transparent;
+}
+
+.outlined:hover::before {
+  opacity: 0.12;
+}
+
+:global(.theme--dark) .outlined {
+  border: thin solid white;
+}
+
+:global(.theme--dark) .outlined .content {
+  color: white;
+}
+
+:global(.theme--light) .outlined {
+  border: thin solid black;
+}
+
+:global(.theme--light) .outlined .content {
+  color: black;
+}
+
+.icon {
+  background: transparent;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+}
+
+.icon .content {
+  height: 36px;
+  width: 36px;
+}
+
+:global(.theme--dark) .icon .content {
+  color: white;
+}
+
+:global(.theme--light) .icon .content {
+  color: black;
+}
+
+.xSmall {
+  width: 24px;
+  height: 24px;
+}
+
+.xSmall .content {
+  font-size: 9px;
+  height: 16px;
+  width: 16px;
+}
+
+.small {
+  width: 32px;
+  height: 32px;
+}
+
+.small .content {
+  font-size: 12px;
+  height: 24px;
+  width: 24px;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+:global(.theme--dark) .disabled .content {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+:global(.theme--light) .disabled .content {
+  color: rgba(0, 0, 0, 0.6);
+}

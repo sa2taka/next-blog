@@ -1,0 +1,22 @@
+.paginationItem {
+  width: 32px;
+}
+
+.paginationList {
+  align-items: center;
+  display: inline-flex;
+  list-style-type: none;
+  justify-content: center;
+  margin: 0;
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.paginationList > li {
+  margin: 0 4px;
+}
+
+.paginationList > li > a {
+  font-size: 14px;
+}

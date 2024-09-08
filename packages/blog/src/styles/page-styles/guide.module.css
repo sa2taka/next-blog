@@ -1,0 +1,33 @@
+.guideRoot p {
+  text-align: left;
+}
+
+.guideRoot h1,
+.guideRoot h2 {
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.guideRoot h3,
+.guideRoot h4 {
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+.guideRoot th:nth-of-type(n + 2),
+.guideRoot td:nth-of-type(n + 2) {
+  padding-left: 8px;
+}
+
+.guideRoot table {
+  margin: auto auto;
+}
+
+.guideRoot caption {
+  margin: 1em auto;
+}
+
+.guideRoot ul {
+  margin: 1em;
+}

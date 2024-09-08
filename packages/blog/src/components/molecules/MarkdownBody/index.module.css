@@ -1,0 +1,249 @@
+.postBody {
+  line-height: 1.75;
+  letter-spacing: 0.025em;
+  margin-top: 32px;
+}
+
+.postBody * {
+  word-wrap: break-word;
+}
+
+.paddingForFilename {
+  padding-top: 2.6em !important;
+}
+
+.filename {
+  color: #eee;
+  display: inline-block;
+  position: absolute;
+  background-color: #444;
+  word-break: break-all;
+  border-radius: 0 0 5px 0;
+  font-size: 0.9em;
+  padding: 3px 6px;
+}
+
+:global(.theme--dark) .postBody strong {
+  background: linear-gradient(transparent 80%, var(--secondary-color) 0%);
+}
+
+:global(.theme--light) .postBody strong {
+  background: linear-gradient(transparent 80%, var(--secondary-color) 0%);
+}
+
+.postBody blockquote {
+  padding: 0.6em 1em;
+  margin: 2em auto;
+  border-left: 3px solid rgba(128, 128, 128, 0.8);
+}
+
+.postBody p {
+  margin-bottom: 1.8em;
+}
+
+.postBody blockquote blockquote {
+  padding: 0.4em 1em;
+  margin: 1.2em auto 0.7em;
+  border-left: 3px solid rgba(128, 128, 128, 0.8);
+}
+
+:global(.theme--dark) .postBody blockquote {
+  color: #aaa;
+}
+
+:global(.theme--light) .postBody blockquote {
+  color: #333;
+}
+
+.postBody :where(ul, ol) {
+  margin-bottom: 1.8em;
+}
+
+.postBody li > :is(ul, ol) {
+  margin-bottom: 0.5em;
+}
+
+.postBody blockquote p.author {
+  text-align: right;
+}
+
+.postBody blockquote p.author::before {
+  content: '―― ';
+}
+
+.postBody picture,
+.postBody img,
+.postBody source[type='image/webp'] {
+  display: block;
+  width: auto;
+  max-width: min(100%, 800px);
+  height: auto;
+  max-height: 640px;
+  margin: 0.6em auto;
+}
+
+.postBody h2 {
+  font-size: 2em;
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+
+:global(.theme--dark) .postBody h2,
+:global(.theme--dark) .postBody h3 {
+  border-bottom: 1px solid #222;
+}
+
+:global(.theme--light) .postBody h2,
+:global(.theme--light) .postBody h3 {
+  border-bottom: 1px solid #eee;
+}
+
+.postBody h3 {
+  margin-top: 58px;
+  margin-bottom: 18px;
+}
+
+.postBody h4,
+.postBody h5 {
+  margin-top: 52px;
+  margin-bottom: 20px;
+}
+
+.postBody hr.footnotesSep {
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.postBody code {
+  margin: auto auto 1.5em;
+  word-wrap: normal;
+  white-space: pre;
+  padding: 0.8em 0.6em;
+  display: block;
+  overflow-x: auto;
+  color: #ddd;
+  background: #282c34;
+  font-weight: 500;
+}
+
+.postBody code .token.prompt {
+  user-select: none;
+  color: #777;
+}
+
+:global(.theme--light) .postBody a {
+  color: #006256;
+}
+
+.postBody blockquote p {
+  margin-bottom: 0px !important;
+}
+
+.postBody code.hljsspan {
+  display: inline;
+  overflow-x: initial;
+  overflow-wrap: break-word;
+  color: #ddd;
+  background: #282c34;
+  padding: 0.1em 0.4em;
+  margin-left: 4px;
+  margin-right: 4px;
+  white-space: normal;
+}
+
+:global(.theme--light) .postBody code.hljsspan {
+  color: #222;
+  background: #e0e0e4;
+}
+
+.postBody code::before,
+.postBody code::after {
+  content: none;
+}
+
+.postBody code .hljsComment {
+  color: #acb3c0;
+}
+
+.postBody ul,
+.postBody ol {
+  margin-left: 1.2em;
+}
+
+.postBody .message {
+  padding: 1.2rem 0.8rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid #2196f3;
+  background: #f4f8fa;
+  position: relative;
+}
+
+:global(.theme--dark) .postBody .message {
+  background: #161624;
+}
+
+.postBody .messageSuccess {
+  background: #f4f8fa;
+  border-left: 4px solid #4caf50;
+}
+
+:global(.theme--dark) .postBody .messageSuccess {
+  background: #161624;
+}
+
+.postBody .messageError {
+  background: #fdf7f7;
+  border-left: 4px solid #f44336;
+}
+
+:global(.theme--dark) .postBody .messageError {
+  background: #241616;
+}
+
+.postBody .messageWarning {
+  background: #fcf8f2;
+  border-left: 4px solid #ff9800;
+}
+
+:global(.theme--dark) .postBody .messageWarning {
+  background: #201612dd;
+}
+
+.postBody .messageIcon {
+  position: absolute;
+  top: 1.2rem;
+  left: -16px;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  background-color: #2196f3;
+  border-radius: 50% 50%;
+}
+
+.postBody .messageSuccess .messageIcon {
+  background-color: #4caf50;
+}
+
+.postBody .messageError .messageIcon {
+  background-color: #f44336;
+}
+
+.postBody .messageWarning .messageIcon {
+  background-color: #ff9800;
+}
+
+.postBody .messageIcon svg {
+  fill: white;
+}
+
+.postBody .alertContent {
+  margin-left: 1rem;
+}
+
+.postBody .alertContent p:last-child {
+  margin-bottom: 0;
+}
+
+.postBody iframe {
+  width: 100%;
+}

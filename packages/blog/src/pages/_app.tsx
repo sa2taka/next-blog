@@ -1,7 +1,6 @@
 import { ThemeContext } from '@blog/components/contexts/theme';
 import { Footer } from '@blog/components/organisms/Footer';
 import { Header } from '@blog/components/organisms/Header';
-import { styled } from '@linaria/react';
 import type { AppProps } from 'next/app';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ThemeContextProps } from '@blog/components/contexts/theme';
@@ -12,34 +11,7 @@ import { getThemeFromStorage, persistTheme } from '@blog/libs/theme';
 import Head from 'next/head';
 import '../styles/globals.css';
 import { GoogleTagManager } from '@blog/components/organisms/GoogleTagManager';
-
-const Root = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-flow: column;
-`;
-const MainContainer = styled.div`
-  display: flex;
-  flex: 1 0 auto;
-  max-width: 100%;
-  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  justify-content: center;
-  /* for header */
-  padding-top: 72px;
-`;
-
-const Main = styled.main`
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 12px;
-
-  @media (min-width: 960px) {
-    & {
-      max-width: 864px;
-    }
-  }
-`;
+import styles from '@blog/styles/page-styles/_app.module.css';
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
@@ -52,7 +24,6 @@ const DefaultHead = () => {
 };
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  // HACK: fix error
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const saveTheme = useCallback((theme: Theme) => {
     setTheme(theme);
@@ -76,15 +47,17 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
       <DefaultHead />
       <SeoHead />
       <ThemeContext.Provider value={themeProviderValue}>
-        <Root className={theme === 'light' ? 'theme--light' : 'theme--dark'}>
+        <div
+          className={`${styles.root} ${theme === 'light' ? 'theme--light' : 'theme--dark'}`}
+        >
           <Header />
-          <MainContainer>
-            <Main>
+          <div className={styles.mainContainer}>
+            <main className={styles.main}>
               <Component {...pageProps} />
-            </Main>
-          </MainContainer>
+            </main>
+          </div>
           <Footer />
-        </Root>
+        </div>
       </ThemeContext.Provider>
     </>
   );

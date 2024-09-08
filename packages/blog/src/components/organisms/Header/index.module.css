@@ -1,0 +1,64 @@
+.titleText {
+  font-size: 19px;
+  width: 230px;
+  margin-left: 8px;
+  display: relative;
+  bottom: 3px;
+}
+
+@media screen and (max-width: 640px) {
+  .titleText {
+    display: none;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+:global(.theme--dark) .title {
+  color: #ddd;
+}
+
+:global(.theme--light) .title {
+  color: #222;
+}
+
+.rightSideLink {
+  margin: auto 8px;
+  display: flex;
+  align-items: center;
+}
+
+.rightSideNav {
+  display: flex;
+  margin-right: 12px;
+}
+
+.rightSideRoot {
+  display: flex;
+  justify-content: center;
+}
+
+.appBar {
+  height: 64px;
+  margin-top: 0px;
+  transform: translateY(0px);
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  align-items: center;
+  display: flex;
+  z-index: 0;
+  padding: 4px 16px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.alignCenter {
+  align-items: center;
+}

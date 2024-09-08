@@ -1,43 +1,15 @@
 import { WebPImage } from '@blog/components/atoms/WebpImage';
 import Link from 'next/link';
 import React from 'react';
-import { styled } from '@linaria/react';
 import { AnimationLink } from '@blog/components/atoms/AnimationLink';
-import { css } from '@linaria/core';
 import { BothSideBox } from '../../atoms/BothSideBox';
-import { sheet } from '@blog/components/styles/sheet';
+import sheetStyles from '@blog/styles/shared/sheet.module.css';
 import { DarkThemeSwitch } from '@blog/components/molecules/DarkThemeSwitch';
-
-const TitleText = styled.h1`
-  font-size: 19px;
-  width: 230px;
-  margin-left: 8px;
-  display: relative;
-  bottom: 3px;
-
-  @media screen and (max-width: 640px) {
-    & {
-      display: none;
-    }
-  }
-`;
-const title = css`
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-
-  .theme--dark & {
-    color: #ddd;
-  }
-
-  .theme--light & {
-    color: #222;
-  }
-`;
+import styles from './index.module.css';
 
 const LeftSide: React.FC = () => {
   return (
-    <Link href="/" className={title}>
+    <Link href="/" className={styles.title}>
       <WebPImage
         file="/icon.webp"
         altFile="/icon.png"
@@ -45,71 +17,38 @@ const LeftSide: React.FC = () => {
         width={20.88}
         height={36}
       />
-      <TitleText>言葉の向こうに世界を見る</TitleText>
+      <h1 className={styles.titleText}>言葉の向こうに世界を見る</h1>
     </Link>
   );
 };
 
-const rightSideLink = css`
-  margin: auto 8px;
-  display: flex;
-  align-items: center;
-`;
-const RightSideNav = styled.nav`
-  display: flex;
-  margin-right: 12px;
-`;
-
-const RightSideRoot = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 const RightSide: React.FC = () => {
   return (
-    <RightSideRoot>
-      <RightSideNav>
-        <AnimationLink href="/" className={rightSideLink}>
+    <div className={styles.rightSideRoot}>
+      <nav className={styles.rightSideNav}>
+        <AnimationLink href="/" className={styles.rightSideLink}>
           Home
         </AnimationLink>
-        <AnimationLink href="/category" className={rightSideLink}>
+        <AnimationLink href="/category" className={styles.rightSideLink}>
           Category
         </AnimationLink>
-        <AnimationLink href="/til" className={rightSideLink}>
+        <AnimationLink href="/til" className={styles.rightSideLink}>
           TIL
         </AnimationLink>
-      </RightSideNav>
+      </nav>
       <DarkThemeSwitch />
-    </RightSideRoot>
+    </div>
   );
 };
 
-const AppBar = styled.header`
-  height: 64px;
-  margin-top: 0px;
-  transform: translateY(0px);
-  left: 0px;
-  right: 0px;
-  position: absolute;
-  align-items: center;
-  display: flex;
-  z-index: 0;
-  padding: 4px 16px;
-`;
-
-const fullWidth = css`
-  width: 100%;
-`;
-const alignCenter = css`
-  align-items: center;
-`;
 export const Header: React.FC = () => {
   return (
-    <AppBar className={sheet}>
+    <header className={`${styles.appBar} ${sheetStyles.sheet}`}>
       <BothSideBox
-        className={`${fullWidth} ${alignCenter}`}
+        className={`${styles.fullWidth} ${styles.alignCenter}`}
         start={<LeftSide />}
         end={<RightSide />}
       />
-    </AppBar>
+    </header>
   );
 };

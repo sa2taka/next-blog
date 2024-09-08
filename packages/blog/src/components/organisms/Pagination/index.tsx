@@ -1,4 +1,3 @@
-import { styled } from '@linaria/react';
 import React from 'react';
 import { useMemo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +6,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '@blog/components/atoms/Button';
+import styles from './index.module.css';
 
 interface Props {
   currentPage: number;
@@ -14,27 +14,6 @@ interface Props {
   postsCount: number;
   baseUrl: string;
 }
-const PaginationItem = styled.li`
-  width: 32px;
-`;
-const PaginationList = styled.ul`
-  align-items: center;
-  display: inline-flex;
-  list-style-type: none;
-  justify-content: center;
-  margin: 0;
-  max-width: 100%;
-  width: 100%;
-  padding: 0;
-
-  & > li {
-    margin: 0 4px;
-
-    & > a {
-      font-size: 14px;
-    }
-  }
-`;
 
 export const Pagination: React.FC<Props> = ({
   currentPage,
@@ -70,18 +49,18 @@ export const Pagination: React.FC<Props> = ({
 
   return (
     <nav aria-label="ページネーションナビゲーション">
-      <PaginationList>
+      <ul className={styles.paginationList}>
         {!isFirstPage ? (
-          <PaginationItem>
+          <li className={styles.paginationItem}>
             <Button icon xSmall href={generatePageLink(currentPage - 1)}>
               <FontAwesomeIcon icon={faChevronLeft} />
             </Button>
-          </PaginationItem>
+          </li>
         ) : (
-          <PaginationItem aria-label="empty area" />
+          <li className={styles.paginationItem} aria-label="empty area" />
         )}
         {pages.map((page) => (
-          <PaginationItem key={page}>
+          <li key={page} className={styles.paginationItem}>
             <Button
               icon
               outlined
@@ -91,19 +70,19 @@ export const Pagination: React.FC<Props> = ({
             >
               {page}
             </Button>
-          </PaginationItem>
+          </li>
         ))}
 
         {!isLastPage ? (
-          <PaginationItem>
+          <li className={styles.paginationItem}>
             <Button icon xSmall href={generatePageLink(currentPage + 1)}>
               <FontAwesomeIcon icon={faChevronRight} />
             </Button>
-          </PaginationItem>
+          </li>
         ) : (
-          <PaginationItem aria-label="empty area" />
+          <li className={styles.paginationItem} aria-label="empty area" />
         )}
-      </PaginationList>
+      </ul>
     </nav>
   );
 };

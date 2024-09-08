@@ -1,0 +1,11 @@
+.postsUl {
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  padding: 0;
+}
+
+.postsUl > * {
+  margin-top: 32px;
+}

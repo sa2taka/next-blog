@@ -1,6 +1,5 @@
-import { css } from '@linaria/core';
-import { styled } from '@linaria/react';
 import React, { ReactNode } from 'react';
+import styles from './index.module.css';
 
 type Props = {
   start: ReactNode;
@@ -13,16 +12,10 @@ export const BothSideBox: React.FC<Props> = ({
   end,
   className = '',
 }) => {
-  const flex = css`
-    display: flex;
-  `;
-  const Spacer = styled.div`
-    flex-grow: 1;
-  `;
   return (
-    <div className={`${flex} ${className}`}>
+    <div className={`${styles.container} ${className}`}>
       {start}
-      <Spacer />
+      <div className={styles.spacer} />
       {end}
     </div>
   );

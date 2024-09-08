@@ -5,10 +5,9 @@ import { generateCategoryBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator
 import { POSTS_LIMIT } from '@blog/libs/const';
 import { omitBodyFromPost } from '@blog/libs/omitBodyFromPost';
 import { Category, Post } from '@blog/types/entry';
-import { styled } from '@linaria/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-
+import titleStyles from '@blog/styles/shared/title.module.css';
 interface Props {
   posts: Omit<Post, 'body'>[];
   count: number;
@@ -87,10 +86,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   };
 };
 
-const Title = styled.h2`
-  text-align: center;
-`;
-
 const Page: NextPage<Props> = ({ count, posts, slug, category }) => {
   const breadcrumbsList = generateCategoryBreadcrumbsList(category);
   return (
@@ -106,7 +101,7 @@ const Page: NextPage<Props> = ({ count, posts, slug, category }) => {
         limit={POSTS_LIMIT}
         postsCount={count}
       />
-      <Title>{category.name}</Title>
+      <h2 className={titleStyles.title}>{category.name}</h2>
       <Posts posts={posts} />
     </>
   );

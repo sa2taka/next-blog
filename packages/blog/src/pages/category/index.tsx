@@ -4,10 +4,10 @@ import {
   CategoryWithCount,
 } from '@blog/components/organisms/CategoryArea';
 import { generateCategoriesBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
-import { styled } from '@linaria/react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
+import titleStyles from '@blog/styles/shared/title.module.css';
 
 interface Props {
   categories: CategoryWithCount[];
@@ -46,10 +46,6 @@ const CategoryHead: React.FC = () => {
   );
 };
 
-const Title = styled.h2`
-  text-align: center;
-`;
-
 const CategoryPage: React.FC<Props> = ({ categories }) => {
   const breadcrumbsList = generateCategoriesBreadcrumbsList();
 
@@ -57,7 +53,7 @@ const CategoryPage: React.FC<Props> = ({ categories }) => {
     <>
       <CategoryHead />
       <Breadcrumbs list={breadcrumbsList} />
-      <Title>カテゴリ</Title>
+      <h2 className={titleStyles.title}>カテゴリ</h2>
       <CategoryArea categories={categories} />
     </>
   );

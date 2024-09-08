@@ -1,6 +1,7 @@
-import { postBodyStyle } from './postStyle';
-import { prismTheme } from './prismTheme';
 import React from 'react';
+import styles from './index.module.css';
+import prismThemeStyle from './prismTheme.module.css';
+import './prismTheme.module.css';
 
 import '@blog/libs/prism';
 
@@ -11,7 +12,7 @@ interface Props {
 export const MarkdownBody: React.FC<Props> = ({ rawHtml }) => {
   return (
     <div
-      className={`${prismTheme} ${postBodyStyle} post-body`}
+      className={`prismTheme ${prismThemeStyle.prismTheme} ${styles.postBody}`}
       dangerouslySetInnerHTML={{ __html: rawHtml }}
     />
   );

@@ -1,41 +1,6 @@
-import { styled } from '@linaria/react';
 import Head from 'next/head';
 import React from 'react';
-
-const GuideRoot = styled.div`
-  & p {
-    text-align: left;
-  }
-  & h1,
-  & h2 {
-    text-align: center;
-    margin-top: 48px;
-    margin-bottom: 24px;
-  }
-
-  & h3,
-  & h4 {
-    margin-top: 24px;
-    margin-bottom: 18px;
-  }
-
-  & th:nth-of-type(n + 2),
-  & td:nth-of-type(n + 2) {
-    padding-left: 8px;
-  }
-
-  & table {
-    margin: auto auto;
-  }
-
-  & caption {
-    margin: 1em auto;
-  }
-
-  & ul {
-    margin: 1em;
-  }
-`;
+import styles from '@blog/styles/page-styles/guide.module.css';
 
 const Guide = () => {
   return (
@@ -58,7 +23,7 @@ const Guide = () => {
           content="プライバシーポリシー・利用ガイドライン"
         />
       </Head>
-      <GuideRoot>
+      <div className={styles.guideRoot}>
         <h1>当サイト利用について</h1>
         <p>
           本ページはサイト利用にあたって必要となる情報が記載されています。お決まりの文言が多いですが、ご一読をお願いいたします。
@@ -168,7 +133,7 @@ const Guide = () => {
           <br />
           また当サイトからリンクによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任も負いません。
         </p>
-      </GuideRoot>
+      </div>
     </>
   );
 };

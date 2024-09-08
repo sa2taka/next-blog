@@ -1,17 +1,6 @@
 import Link from 'next/link';
-import React, { ComponentProps } from 'react';
-import { useMemo } from 'react';
-import { ReactNode } from 'react';
-import { baseStyle } from './buttonStyles';
-import {
-  iconStyle,
-  smallStyle,
-  xSmallStyle,
-  outlinedStyle,
-  defaultStyle,
-  disabledStyle,
-  Content,
-} from './buttonStyles';
+import React, { ComponentProps, useMemo } from 'react';
+import styles from './index.module.css';
 
 type buttonProps = ComponentProps<'button'>;
 
@@ -26,7 +15,7 @@ interface Props extends buttonProps {
   target?: string;
   rel?: string;
   className?: string;
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export const Button: React.FC<Props> = ({
@@ -43,33 +32,35 @@ export const Button: React.FC<Props> = ({
   ...props
 }) => {
   const className = useMemo(() => {
-    const className: string[] = [customClassName ?? '', baseStyle];
+    const classNames = [styles.base, customClassName];
     if (icon) {
-      className.push(iconStyle);
+      classNames.push(styles.icon);
       if (small) {
-        className.push(smallStyle);
+        classNames.push(styles.small);
       } else if (xSmall) {
-        className.push(xSmallStyle);
+        classNames.push(styles.xSmall);
       }
     } else if (outlined) {
-      className.push(outlinedStyle);
+      classNames.push(styles.outlined);
     } else {
-      className.push(defaultStyle);
+      classNames.push(styles.default);
     }
 
     if (disabled) {
-      className.push(disabledStyle);
+      classNames.push(styles.disabled);
     }
-    return className.filter((c) => c).join(' ');
+    return classNames.filter(Boolean).join(' ');
   }, [customClassName, disabled, icon, outlined, small, xSmall]);
+
+  const content = <span className={styles.content}>{children}</span>;
 
   return href ? (
     <Link href={href} target={target} rel={rel} className={className}>
-      <Content>{children}</Content>
+      {content}
     </Link>
   ) : (
     <button className={className} disabled={disabled} {...props}>
-      <Content>{children}</Content>
+      {content}
     </button>
   );
 };

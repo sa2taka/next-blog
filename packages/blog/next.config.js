@@ -1,4 +1,3 @@
-const withLinaria = require('next-linaria');
 const runtimeCaching = require('next-pwa/cache');
 const withPWA = require('next-pwa')({
   dest: 'public',
@@ -38,13 +37,12 @@ const withPWA = require('next-pwa')({
   ],
 });
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   trailingSlash: true,
 };
-module.exports = withPWA(
-  withLinaria({
-    ...nextConfig,
-  })
-);
+module.exports = withPWA(nextConfig);
