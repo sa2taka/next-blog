@@ -27,10 +27,10 @@ export type Image = {
 };
 
 export const postSchema = z.object({
-  title: z.string().nonempty(),
-  slug: z.string().nonempty(),
+  title: z.string().min(1),
+  slug: z.string().min(1),
   description: z.string(),
-  body: z.string().nonempty(),
+  body: z.string().min(1),
   author: z.string(),
   category: categorySchema,
   tags: z.array(z.string()),
@@ -44,10 +44,10 @@ export const postSchema = z.object({
 export type Post = z.infer<typeof postSchema>;
 
 export const tilSchema = z.object({
-  title: z.string().nonempty(),
-  slug: z.string().nonempty(),
-  body: z.string().nonempty(),
-  category: z.string().nonempty(),
+  title: z.string().min(1),
+  slug: z.string().min(1),
+  body: z.string().min(1),
+  category: z.string().min(1),
   // Next.js のシリアライズの関係で、Date型にせずにgetTimeの値を利用する
   createdAt: z.number(),
   updatedAt: z.number(),
