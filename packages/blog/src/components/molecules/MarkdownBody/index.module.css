@@ -8,11 +8,11 @@
   word-wrap: break-word;
 }
 
-.paddingForFilename {
+.postBody :global(.padding-for-filename) {
   padding-top: 2.6em !important;
 }
 
-.filename {
+.postBody :global(.filename) {
   color: #eee;
   display: inline-block;
   position: absolute;
@@ -63,11 +63,11 @@
   margin-bottom: 0.5em;
 }
 
-.postBody blockquote p.author {
+.postBody blockquote :global(p.author) {
   text-align: right;
 }
 
-.postBody blockquote p.author::before {
+.postBody blockquote :global(p.author)::before {
   content: '―― ';
 }
 
@@ -109,7 +109,7 @@
   margin-bottom: 20px;
 }
 
-.postBody hr.footnotesSep {
+.postBody :global(hr.footnotesSep) {
   margin-top: 12px;
   margin-bottom: 16px;
 }
@@ -126,7 +126,7 @@
   font-weight: 500;
 }
 
-.postBody code .token.prompt {
+.postBody code :global(.token.prompt) {
   user-select: none;
   color: #777;
 }
@@ -139,7 +139,12 @@
   margin-bottom: 0px !important;
 }
 
-.postBody code.hljsspan {
+.postBody code::before,
+.postBody code::after {
+  content: none;
+}
+
+.postBody :global(code.hljsspan) {
   display: inline;
   overflow-x: initial;
   overflow-wrap: break-word;
@@ -151,17 +156,12 @@
   white-space: normal;
 }
 
-:global(.theme--light) .postBody code.hljsspan {
+:global(.theme--light) .postBody :global(code.hljsspan) {
   color: #222;
   background: #e0e0e4;
 }
 
-.postBody code::before,
-.postBody code::after {
-  content: none;
-}
-
-.postBody code .hljsComment {
+.postBody :global(code.hljsComment) {
   color: #acb3c0;
 }
 
@@ -170,7 +170,7 @@
   margin-left: 1.2em;
 }
 
-.postBody .message {
+.postBody :global(.message) {
   padding: 1.2rem 0.8rem;
   margin: 1.5rem 0;
   border-left: 4px solid #2196f3;
@@ -178,38 +178,38 @@
   position: relative;
 }
 
-:global(.theme--dark) .postBody .message {
+:global(.theme--dark) .postBody :global(.message) {
   background: #161624;
 }
 
-.postBody .messageSuccess {
+.postBody :global(.messageSuccess) {
   background: #f4f8fa;
   border-left: 4px solid #4caf50;
 }
 
-:global(.theme--dark) .postBody .messageSuccess {
+:global(.theme--dark) .postBody :global(.messageSuccess) {
   background: #161624;
 }
 
-.postBody .messageError {
+.postBody :global(.messageError) {
   background: #fdf7f7;
   border-left: 4px solid #f44336;
 }
 
-:global(.theme--dark) .postBody .messageError {
+:global(.theme--dark) .postBody :global(.messageError) {
   background: #241616;
 }
 
-.postBody .messageWarning {
+.postBody :global(.messageWarning) {
   background: #fcf8f2;
   border-left: 4px solid #ff9800;
 }
 
-:global(.theme--dark) .postBody .messageWarning {
+:global(.theme--dark) .postBody :global(.messageWarning) {
   background: #201612dd;
 }
 
-.postBody .messageIcon {
+.postBody :global(.messageIcon) {
   position: absolute;
   top: 1.2rem;
   left: -16px;
@@ -220,30 +220,36 @@
   border-radius: 50% 50%;
 }
 
-.postBody .messageSuccess .messageIcon {
+.postBody :global(.messageSuccess) :global(.messageIcon) {
   background-color: #4caf50;
 }
 
-.postBody .messageError .messageIcon {
+.postBody :global(.messageError) :global(.messageIcon) {
   background-color: #f44336;
 }
 
-.postBody .messageWarning .messageIcon {
+.postBody :global(.messageWarning) :global(.messageIcon) {
   background-color: #ff9800;
 }
 
-.postBody .messageIcon svg {
+.postBody :global(.messageIcon) svg {
   fill: white;
 }
 
-.postBody .alertContent {
+.postBody :global(.alertContent) {
   margin-left: 1rem;
 }
 
-.postBody .alertContent p:last-child {
+.postBody :global(.alertContent) p:last-child {
   margin-bottom: 0;
 }
 
 .postBody iframe {
   width: 100%;
+}
+
+.postBody table {
+  display: block;
+  overflow-x: scroll;
+  white-space: nowrap;
 }
