@@ -21,6 +21,7 @@ export async function generatePostFeed() {
       description: post.description,
       date: new Date(post.createdAt),
       url: `${BASE_URL}/post/${post.slug}`,
+      categories: ['Post'],
     });
   });
 
@@ -30,6 +31,7 @@ export async function generatePostFeed() {
       description: extractDescriptionFromBody(til.body),
       date: new Date(til.createdAt),
       url: `${BASE_URL}/til/${til.slug}`,
+      categories: ['TIL'],
     });
   });
 
