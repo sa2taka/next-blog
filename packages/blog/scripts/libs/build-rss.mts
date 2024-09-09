@@ -35,6 +35,10 @@ export async function generatePostFeed() {
     });
   });
 
+  rss.items.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
   return rss.xml();
 }
 
