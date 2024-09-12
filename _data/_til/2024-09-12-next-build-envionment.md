@@ -1,6 +1,6 @@
 ---
 layout:      til
-title:       Next.jsでビルド中かどうかを判定するする（Next.jsのビルド時だけエラーになる処理に対する対応）
+title:       Next.jsでビルド中かどうかを判定する（Next.jsのビルド時だけエラーになる処理に対する対応）
 category:    Next.js
 createdAt:   2024-09-12
 updatedAt:   2024-09-12
