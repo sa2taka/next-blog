@@ -90,7 +90,7 @@ Next.jsでビルド中かどうかを判定するために環境変数が存在�
 
 [NEXT_PHASEについて示唆されているDiscussion](https://github.com/vercel/next.js/discussions/48736)が一番詳細に記載されています。
 
-[実際の定義には](https://github.com/vercel/next.js/blob/5e6b008b561caf2710ab7be63320a3d549474a5b/packages/next/shared/lib/constants.ts#L19-L23)下記の5つの値が存在します。上記で`export`時に実行されると記載されていますが、`NEXT_PHASE`は`phase-export` **ではなく** `phase-production-build` となっていることに**注意です**。
+[NEXT_PHASEの値の定義として](https://github.com/vercel/next.js/blob/5e6b008b561caf2710ab7be63320a3d549474a5b/packages/next/shared/lib/constants.ts#L19-L23)下記の5つの値が存在します。上記で`export`時に実行されると記載されていますが、`NEXT_PHASE`は`phase-export` **ではなく** `phase-production-build` となっていることに**注意です**。
 
 ```typescript
 export const PHASE_EXPORT = 'phase-export'
