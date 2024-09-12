@@ -86,7 +86,7 @@ export const dynamic = "force-dynamic";
 
 ## ビルド時のみエラーにならないようにする
 
-Next.jsでビルド直どうかを判定するために環境変数が存在します。それが `NEXT_PHASE` です。
+Next.jsでビルド中かどうかを判定するために環境変数が存在します。それが `NEXT_PHASE` です。
 
 [NEXT_PHASEについて示唆されているDiscussion](https://github.com/vercel/next.js/discussions/48736)が一番詳細に記載されています。
 
