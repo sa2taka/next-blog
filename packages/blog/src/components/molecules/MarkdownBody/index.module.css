@@ -250,6 +250,6 @@
 
 .postBody table {
   display: block;
-  overflow-x: scroll;
+  overflow-x: auto;
   white-space: nowrap;
 }
