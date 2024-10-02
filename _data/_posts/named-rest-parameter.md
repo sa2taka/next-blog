@@ -4,7 +4,7 @@ title:       残余引数/可変長引数（Rest parameter）のそれぞれの�
 category:    typescript
 author:      sa2taka
 tags:        typescript
-public:      false
+public:      true
 createdAt:   2024-09-27
 updatedAt:   2024-09-27
 latex:       false

@@ -30,7 +30,7 @@
       "category:    $2",
       "author:      sa2taka",
       "tags:        $3",
-      "public:      false",
+      "public:      true",
       "createdAt:   $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
       "updatedAt:   $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
       "latex:       false",
