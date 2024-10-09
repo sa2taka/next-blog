@@ -2008,10 +2008,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-types@npm:^16.0.2":
-  version: 16.2.1
-  resolution: "@contentful/rich-text-types@npm:16.2.1"
-  checksum: 10c0/cabc20796659890f32b7d4aab112682216fda7824a2d87e23456e817fd84609e8e63ab06be02f95f192b9e54776e863dd4ee79b8d4304af726423eb22f218c4f
+"@contentful/rich-text-types@npm:^16.6.1":
+  version: 16.8.5
+  resolution: "@contentful/rich-text-types@npm:16.8.5"
+  checksum: 10c0/0af82d501bb26d854fa3bc68136db1f0738428135066876062370637f219cd51f10abecf8e02a72c2cf9eb012523add21f4a3f72af4981a7ad4c95a9bbcb237f
   languageName: node
   linkType: hard
 
@@ -4187,7 +4187,7 @@ __metadata:
     "@types/react": "npm:18.3.11"
     "@types/react-dom": "npm:18.3.0"
     "@types/sync-fetch": "npm:^0.4.0"
-    contentful: "npm:^10.1.0"
+    contentful: "npm:^11.0.0"
     eslint-config-next: "npm:14.2.15"
     glob: "npm:^11.0.0"
     html-to-text: "npm:9.0.5"
@@ -4808,18 +4808,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful@npm:^10.1.0":
-  version: 10.15.1
-  resolution: "contentful@npm:10.15.1"
+"contentful@npm:^11.0.0":
+  version: 11.0.3
+  resolution: "contentful@npm:11.0.3"
   dependencies:
     "@contentful/content-source-maps": "npm:^0.11.0"
-    "@contentful/rich-text-types": "npm:^16.0.2"
+    "@contentful/rich-text-types": "npm:^16.6.1"
     axios: "npm:^1.7.4"
     contentful-resolve-response: "npm:^1.9.0"
     contentful-sdk-core: "npm:^8.3.1"
     json-stringify-safe: "npm:^5.0.1"
     type-fest: "npm:^4.0.0"
-  checksum: 10c0/09c399b33482c3c1b5c12da9bcba6a1a90707b2f26909dd681a5ad380ae7825ab5c7d07a472081c7ff726d7a2b35382d8c139a0240aacf8bc626e2572b765b1f
+  checksum: 10c0/026737fdde20745f694252509ff5951b3e923605e5f487c5c477f07851bf291fc84ce25f0fa0b923eae219ed07a16396df82434c1f8488785bd1a7d858ac26b1
   languageName: node
   linkType: hard
 
