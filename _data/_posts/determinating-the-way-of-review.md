@@ -1,7 +1,7 @@
 ---
 layout:      post
 title:       コードレビューのやり方を決める
-category:    memo
+category:    criteria
 author:      sa2taka
 tags:        review
 public:      true
