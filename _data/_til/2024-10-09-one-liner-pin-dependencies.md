@@ -1,6 +1,6 @@
 ---
 layout:      til
-title:       package.jsonのdependenciesのバージョンをpinするシェルワンライナー
+title:       package.jsonのdependenciesのバージョンをpinするシェルスクリプト
 category:    javascript
 createdAt:   2024-10-09
 updatedAt:   2024-10-09
@@ -9,7 +9,7 @@ updatedAt:   2024-10-09
 Renovateでは[依存関係をpinすることを推奨していますし](https://docs.renovatebot.com/dependency-pinning/)、yarnでは[defaultSemverRangePrefix](https://yarnpkg.com/configuration/yarnrc#defaultSemverRangePrefix)によりデフォルトでバージョンを固定化出来ます。
 
 しかしこういった設定をする前にあれこれインストールしてしまって、後からpinするの、ちょっと面倒ですよね。renovateが勝手にやってくれるはずなんですが、なんかやってくれないし。
-下記はそれをやってくれるコマンドです。
+下記はそれをやってくれるスクリプトです。
 
 ```bash
 #!/bin/bash
