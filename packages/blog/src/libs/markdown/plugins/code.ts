@@ -26,14 +26,15 @@ export const codePlugin = (md: MarkdownIt) => {
       value = prism.highlight(code, prism.languages[lang], lang);
     } else {
       value = code;
-      // shellで使われるtoken($, #, (%))を選択させないように変更
-      if (lang === 'plaintext' || lang === '' || lang.includes('sh')) {
-        value = value.replace(
-          /^([$#&]\s*)/gm,
-          '<span class="token prompt">$1</span>'
-        );
-      }
       lang = '';
+    }
+
+    // shellで使われるtoken($, #, (%))を選択させないように変更
+    if (lang === 'plaintext' || lang === '' || lang.includes('sh')) {
+      value = value.replace(
+        /^([$#&]\s*)/gm,
+        '<span class="token prompt">$1</span>'
+      );
     }
 
     let fileElement = '';
