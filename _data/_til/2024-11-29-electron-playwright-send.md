@@ -1,7 +1,7 @@
 ---
 layout:      til
 title:       Playwrightで動かすElectron上でipc通信を発火する
-category:    
+category:    Electron
 createdAt:   2024-11-29
 updatedAt:   2024-11-29
 ---
