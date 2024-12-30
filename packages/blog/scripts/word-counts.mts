@@ -78,11 +78,12 @@ type Content = {
   title: string;
   createdAt: string;
   type: string;
+  category: string;
 };
 
 const allItems = [
-  ...posts.map((v) => ({ ...v, type: 'post' })),
-  ...tils.map((v) => ({ ...v, type: 'til' })),
+  ...posts.map((v) => ({ ...v, type: 'post', category: v.category.slug })),
+  ...tils.map((v) => ({ ...v, type: 'til', category: v.category })),
 ].sort(
   (a: Content, b: Content) =>
     new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
@@ -92,9 +93,9 @@ const tsvLines = allItems.map((item: Content) => {
   const { words, chars, sections, wordsPerSection, charsPerSection } = count(
     item.body
   );
-  return `${item.title}\t${item.type}\t${new Date(item.createdAt).toISOString()}\t${words}\t${chars}\t${sections}\t${wordsPerSection}\t${charsPerSection}`;
+  return `${item.title}\t${item.type}\t${item.category}\t${new Date(item.createdAt).toISOString()}\t${words}\t${chars}\t${sections}\t${wordsPerSection}\t${charsPerSection}`;
 });
 
-const tsvContent = `Created\tType\tCreatedAtd\tWords\tChars\tSections\tWordsPerSection\tCharsPerSection\n${tsvLines.join('\n')}`;
+const tsvContent = `Created\tType\tCategory\tCreatedAtd\tWords\tChars\tSections\tWordsPerSection\tCharsPerSection\n${tsvLines.join('\n')}`;
 
 console.log(tsvContent);
