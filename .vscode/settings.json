@@ -18,5 +18,19 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "github.copilot.enable": {
     "markdown": "true"
-  }
+  },
+  "frontMatter.framework.id": "other",
+  "frontMatter.content.publicFolder": "",
+  "frontMatter.content.pageFolders": [
+    {
+      "path": "[[workspace]]/_data/_posts",
+      "title": "_posts"
+    },
+    {
+      "title": "_til",
+      "path": "[[workspace]]/_data/_til"
+    }
+  ],
+  "frontMatter.git.enabled": true,
+  "[markdown]": {}
 }
