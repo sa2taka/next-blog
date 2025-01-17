@@ -5,8 +5,8 @@ category:    look-back
 author:      sa2taka
 tags:        
 public:      true
-createdAt:   2025-12-31
-updatedAt:   2025-12-31
+createdAt:   2024-12-31
+updatedAt:   2024-12-31
 latex:       false
 description:
    裏と書いていますが、とくに意図はないです。今までのやつとは違う振り返り、というだけ。
