@@ -4,14 +4,12 @@ import fs from 'fs';
 import path from 'path';
 import * as glob from 'glob';
 
-import { fileURLToPath } from 'url';
 import { convertImage } from './libs/convert-image.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const dirname = import.meta.dirname;
 
-const srcDir = path.join(__dirname, '../../../_data/_images');
-const destDir = path.join(__dirname, '../public/images');
+const srcDir = path.join(dirname, '../../../_data/_images');
+const destDir = path.join(dirname, '../public/images');
 
 if (!fs.existsSync(destDir)) {
   fs.mkdirSync(destDir);
