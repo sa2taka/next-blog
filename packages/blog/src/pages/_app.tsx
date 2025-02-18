@@ -10,10 +10,7 @@ import { SeoHead } from '@blog/components/organisms/SeoHead';
 import { getThemeFromStorage, persistTheme } from '@blog/libs/theme';
 import Head from 'next/head';
 import '../styles/globals.css';
-import { GoogleTagManager } from '@blog/components/organisms/GoogleTagManager';
 import styles from '@blog/styles/page-styles/_app.module.css';
-
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 const DefaultHead = () => {
   return (
@@ -43,7 +40,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      {gtmId && <GoogleTagManager googleTagManagerId={gtmId} />}
       <DefaultHead />
       <SeoHead />
       <ThemeContext.Provider value={themeProviderValue}>

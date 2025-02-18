@@ -1,8 +1,6 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-
 const Document: React.FC = () => {
   return (
     <Html lang="ja">
@@ -18,17 +16,6 @@ const Document: React.FC = () => {
         <meta name="theme-color" content="#009688" />
       </Head>
       <body>
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `
-              <iframe
-                src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
-                height="0"
-                width="0"
-                style="display:none;visibility:hidden"
-              />`,
-          }}
-        />
         <Main />
         <NextScript />
       </body>
