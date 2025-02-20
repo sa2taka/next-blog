@@ -4159,7 +4159,7 @@ __metadata:
     next-pwa: "npm:^5.5.4"
     next-sitemap: "npm:4.2.3"
     nodemon: "npm:3.1.7"
-    npm-watch: "npm:^0.13.0"
+    npm-watch: "npm:0.13.0"
     prismjs: "npm:^1.28.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
@@ -4564,12 +4564,12 @@ __metadata:
     eslint: "npm:8.57.1"
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-import: "npm:^2.27.5"
-    next-sitemap: "npm:^4.0.0"
+    next-sitemap: "npm:4.2.3"
     prettier: "npm:^3.0.0"
-    textlint: "npm:^14.0.0"
-    textlint-filter-rule-allowlist: "npm:^4.0.0"
-    textlint-rule-preset-ja-technical-writing: "npm:^10.0.0"
-    textlint-rule-preset-jtf-style: "npm:^2.3.13"
+    textlint: "npm:14.4.0"
+    textlint-filter-rule-allowlist: "npm:4.0.0"
+    textlint-rule-preset-ja-technical-writing: "npm:10.0.1"
+    textlint-rule-preset-jtf-style: "npm:2.3.14"
     typescript: "npm:5.6.3"
   languageName: unknown
   linkType: soft
@@ -9097,7 +9097,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-sitemap@npm:4.2.3, next-sitemap@npm:^4.0.0":
+"next-sitemap@npm:4.2.3":
   version: 4.2.3
   resolution: "next-sitemap@npm:4.2.3"
   dependencies:
@@ -9363,7 +9363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-watch@npm:^0.13.0":
+"npm-watch@npm:0.13.0":
   version: 0.13.0
   resolution: "npm-watch@npm:0.13.0"
   dependencies:
@@ -11680,7 +11680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"textlint-filter-rule-allowlist@npm:^4.0.0":
+"textlint-filter-rule-allowlist@npm:4.0.0":
   version: 4.0.0
   resolution: "textlint-filter-rule-allowlist@npm:4.0.0"
   dependencies:
@@ -11917,7 +11917,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"textlint-rule-preset-ja-technical-writing@npm:^10.0.0":
+"textlint-rule-preset-ja-technical-writing@npm:10.0.1":
   version: 10.0.1
   resolution: "textlint-rule-preset-ja-technical-writing@npm:10.0.1"
   dependencies:
@@ -11949,7 +11949,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"textlint-rule-preset-jtf-style@npm:^2.3.13":
+"textlint-rule-preset-jtf-style@npm:2.3.14, textlint-rule-preset-jtf-style@npm:^2.3.13":
   version: 2.3.14
   resolution: "textlint-rule-preset-jtf-style@npm:2.3.14"
   dependencies:
@@ -12027,7 +12027,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"textlint@npm:^14.0.0":
+"textlint@npm:14.4.0":
   version: 14.4.0
   resolution: "textlint@npm:14.4.0"
   dependencies:
