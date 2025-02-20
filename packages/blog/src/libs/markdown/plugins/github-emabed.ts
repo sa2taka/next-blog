@@ -93,7 +93,7 @@ const generateGitHubCodeBlock = ({
   </div>
   <div class="code-area">
     <div class="line-numbers"  onScroll='this.nextElementSibling.scrollTop=this.scrollTop'>${lineNumbers}</div>
-    <code class="${lang !== '' ? `language-${lang}` : ''}"  } onScroll='this.previousElementSibling.scrollTop=this.scrollTop'>${value}</code>
+    <code class="${lang !== '' ? `language-${lang}` : 'language-plaintext'}" onScroll='this.previousElementSibling.scrollTop=this.scrollTop'>${value}</code>
   </div>
 </div>`;
 };
