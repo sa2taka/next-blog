@@ -253,3 +253,95 @@
   overflow-x: auto;
   white-space: nowrap;
 }
+
+.postBody :global(.github-code-block) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'header header'
+    'line-numbers code';
+  margin-bottom: 2em;
+  /* GitHubのfont-family */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+.postBody :global(.github-code-block) :global(.header) {
+  display: grid;
+  column-gap: 0.5em;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'left right-top'
+    'left right-bottom';
+  background-color: #151b23;
+  padding: 0.2em 1em;
+  border-radius: 5px 5px 0 0;
+}
+
+.postBody :global(.github-code-block) :global(.header) {
+  grid-area: header;
+}
+
+.postBody :global(.github-code-block) :global(.header) p {
+  margin-bottom: 0;
+}
+
+.postBody
+  :global(.github-code-block)
+  :global(.header)
+  :global(.github-logo-area) {
+  grid-area: left;
+}
+
+.postBody :global(.github-code-block) :global(.header) :global(.link-area) {
+  grid-area: right-top;
+  font-weight: 600;
+  font-size: 0.8rem;
+  align-self: end;
+}
+
+.postBody :global(.github-code-block) :global(.header) :global(.details-area) {
+  grid-area: right-bottom;
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.postBody :global(.github-code-block) :global(.header) :global(.link-area) a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.postBody :global(.github-code-block) :global(.github-logo) {
+  width: 32px;
+  height: 32px;
+}
+
+.postBody :global(.github-code-block) :global(.line-numbers) {
+  grid-area: line-numbers;
+  color: #717881;
+  display: flex;
+  flex-direction: column;
+  min-width: 4em;
+  padding: 0.1em 0.3em 0.1em 1em;
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  margin: 0;
+  background: #282c34;
+
+  font-family: monospace;
+  text-align: right;
+
+  border-radius: 0 0 0 0.3em;
+}
+
+.postBody :global(.github-code-block) code {
+  grid-area: code;
+  width: 100%;
+  height: auto;
+  border-radius: 0 0 0.3em 0 !important;
+  margin: 0;
+}

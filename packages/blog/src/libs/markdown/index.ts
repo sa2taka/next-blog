@@ -11,6 +11,7 @@ import { codePlugin, inlineCodePlugin } from './plugins/code';
 import { headerPlugin } from './plugins/haeder';
 import { imageSizeRenderPlugin, webpConvertPlugin } from './plugins/image';
 import { containerRenderer } from './plugins/container';
+import { githubPermaLinkEmbedPlugin } from './plugins/github-emabed';
 
 export const markdown = new MarkdownIt({
   html: true,
@@ -27,4 +28,5 @@ export const markdown = new MarkdownIt({
   .use(headerPlugin)
   .use(webpConvertPlugin)
   .use(imageSizeRenderPlugin)
-  .use(markdownItContainer, '', containerRenderer);
+  .use(markdownItContainer, '', containerRenderer)
+  .use(githubPermaLinkEmbedPlugin);

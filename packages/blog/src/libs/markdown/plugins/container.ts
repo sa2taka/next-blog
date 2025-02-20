@@ -1,3 +1,5 @@
+import { escapeHtml } from '@blog/libs/escapeHtml';
+
 /**
  * コンテナ用のレンダリング用。
  * markdownItContainer のレンダリングのための関数
@@ -9,24 +11,6 @@ export const containerRenderer = {
 
   render: (tokens: any, idx: any) => {
     const m = tokens[idx].info.trim().match(/^(.*)$/);
-    const escapeHtml = (str: string) => {
-      if (typeof str !== 'string') {
-        return str;
-      }
-      return str.replace(
-        /[&'`"<>]/g,
-        (match) =>
-          // @ts-ignore
-          ({
-            '&': '&amp;',
-            "'": '&#x27;',
-            '`': '&#x60;',
-            '"': '&quot;',
-            '<': '&lt;',
-            '>': '&gt;',
-          })[match] || ''
-      );
-    };
 
     const svg =
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M 11,4L 13,4L 13,15L 11,15L 11,4 Z M 13,18L 13,20L 11,20L 11,18L 13,18 Z"></path></svg>';
