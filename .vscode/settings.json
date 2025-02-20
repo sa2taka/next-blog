@@ -19,5 +19,8 @@
   "github.copilot.enable": {
     "markdown": "true"
   },
-  "[markdown]": {}
+  "[markdown]": {},
+  "markdown.copyFiles.destination": {
+    "/_data/**/*.md": "/_data/_images/${fileName}"
+  },
 }
