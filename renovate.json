@@ -1,8 +1,12 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices"
+  ],
+  "timezone": "Asia/Tokyo",
   "labels": [
     "renovate"
   ],
-  "automerge": true,
   "packageRules": [
     {
       "matchUpdateTypes": [
@@ -10,8 +14,7 @@
       ],
       "addLabels": [
         "major"
-      ],
-      "automerge": false
+      ]
     },
     {
       "matchUpdateTypes": [
@@ -35,9 +38,19 @@
       ],
       "addLabels": [
         "devDependencies"
+      ]
+    },
+    {
+      "matchDepTypes": [
+        "devDependencies"
       ],
-      "excludePackageNames": [
-        "typescript"
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true,
+      "matchPackageNames": [
+        "!typescript"
       ]
     },
     {
@@ -47,20 +60,30 @@
       "addLabels": [
         "dependencies"
       ]
+    },
+    {
+      "groupName": "type dependencies",
+      "automerge": true,
+      "matchPackageNames": [
+        "/^@types//"
+      ]
+    },
+    {
+      "groupName": "storybook",
+      "matchPackageNames": [
+        "storybook",
+        "/^@storybook//"
+      ],
+      "automerge": true
     },
     {
       "groupName": "linters",
-      "packagePatterns": [
-        "^eslint",
-        "^@typescript-eslint",
-        "prettier"
-      ]
-    },
-    {
+      "automerge": true,
       "matchPackageNames": [
-        "husky"
-      ],
-      "automerge": false
+        "/^eslint/",
+        "/^@typescript-eslint/",
+        "/prettier/"
+      ]
     }
   ]
 }
