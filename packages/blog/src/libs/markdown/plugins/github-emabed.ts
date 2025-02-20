@@ -2,7 +2,6 @@ import fetchSync from 'sync-fetch';
 import MarkdownIt from 'markdown-it';
 import { escapeHtml } from '@blog/libs/escapeHtml';
 import prism from '@blog/libs/prism';
-import { url } from 'inspector';
 
 const fetchPermalink = (
   permalink: string
@@ -46,6 +45,7 @@ const getLineRange = (url: string): { start: number; end: number } | null => {
     end: Number(m[2]),
   };
 };
+
 const generateGitHubCodeBlock = ({
   url,
   lang,
@@ -82,7 +82,7 @@ const generateGitHubCodeBlock = ({
   const filePath = `${owner}/${repo}/${path}`;
 
   const lineNumbers = Array.from({ length: end - start + 1 }, (_, i) => {
-    return `<span class="line-number">${start + i}</span>`;
+    return `<span>${start + i}</span>`;
   }).join('\n');
 
   return `<div class="github-code-block">
@@ -91,8 +91,10 @@ const generateGitHubCodeBlock = ({
     <p class="link-area"><a href="${escapeHtml(url)}">${escapeHtml(filePath)}</a></p>
     <p class="details-area">${hasLineRange ? `Lines ${start} to ${end}` : ''}</p>
   </div>
-  <div class="line-numbers">${lineNumbers}</div>
-  <code class="${lang !== '' ? `language-${lang}` : ''}">${value}</code>
+  <div class="code-area">
+    <div class="line-numbers"  onScroll='this.nextElementSibling.scrollTop=this.scrollTop'>${lineNumbers}</div>
+    <code class="${lang !== '' ? `language-${lang}` : ''}"  } onScroll='this.previousElementSibling.scrollTop=this.scrollTop'>${value}</code>
+  </div>
 </div>`;
 };
 
