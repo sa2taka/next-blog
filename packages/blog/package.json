@@ -55,7 +55,7 @@
     "next-sitemap": "4.2.3",
     "nodemon": "3.1.9",
     "npm-watch": "0.13.0",
-    "tsx": "4.19.2"
+    "tsx": "4.19.3"
   },
   "repository": {
     "type": "git",
