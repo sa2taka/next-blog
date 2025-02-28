@@ -35,14 +35,14 @@ const isGithubPermaLink = (url: string): boolean => {
 };
 
 const getLineRange = (url: string): { start: number; end: number } | null => {
-  const m = url.match(/#L(\d+)(?:C\d+)?-L(\d+)(?:C\d+)?$/);
+  const m = url.match(/#L(\d+)(?:C\d+)?(-L(\d+)(?:C\d+)?)?$/);
   if (!m) {
     return null;
   }
 
   return {
     start: Number(m[1]),
-    end: Number(m[2]),
+    end: m[2] ? Number(m[2]) : Number(m[1]),
   };
 };
 
