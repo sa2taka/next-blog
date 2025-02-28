@@ -15,9 +15,9 @@
     "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "7.11.0",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
-    "@babel/eslint-parser": "7.11.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
