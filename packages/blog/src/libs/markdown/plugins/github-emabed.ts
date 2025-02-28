@@ -35,7 +35,7 @@ const isGithubPermaLink = (url: string): boolean => {
 };
 
 const getLineRange = (url: string): { start: number; end: number } | null => {
-  const m = url.match(/#L(\d+)(?:C\d+)?(-L(\d+)(?:C\d+)?)?$/);
+  const m = url.match(/#L(\d+)(?:C\d+)?(?:-L(\d+)(?:C\d+)?)?$/);
   if (!m) {
     return null;
   }
@@ -89,7 +89,7 @@ const generateGitHubCodeBlock = ({
   <div class="header">
     <div class="github-logo-area"><img src="/github-mark-white.svg" alt="GitHubのMark" class="github-logo" /></div>
     <p class="link-area"><a href="${escapeHtml(url)}">${escapeHtml(filePath)}</a></p>
-    <p class="details-area">${hasLineRange ? `Lines ${start} to ${end}` : ''}</p>
+    <p class="details-area">${hasLineRange ? (start === end ? `Line ${start}` : `Lines ${start} to ${end}`) : ''}</p>
   </div>
   <div class="code-area">
     <div class="line-numbers"  onScroll='this.nextElementSibling.scrollTop=this.scrollTop'>${lineNumbers}</div>
