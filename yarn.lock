@@ -4621,7 +4621,7 @@ __metadata:
     prettier: "npm:3.5.2"
     textlint: "npm:14.4.2"
     textlint-filter-rule-allowlist: "npm:4.0.0"
-    textlint-rule-preset-ja-technical-writing: "npm:10.0.2"
+    textlint-rule-preset-ja-technical-writing: "npm:12.0.2"
     textlint-rule-preset-jtf-style: "npm:3.0.2"
     typescript: "npm:5.6.3"
   languageName: unknown
@@ -12023,9 +12023,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"textlint-rule-preset-ja-technical-writing@npm:10.0.2":
-  version: 10.0.2
-  resolution: "textlint-rule-preset-ja-technical-writing@npm:10.0.2"
+"textlint-rule-preset-ja-technical-writing@npm:12.0.2":
+  version: 12.0.2
+  resolution: "textlint-rule-preset-ja-technical-writing@npm:12.0.2"
   dependencies:
     "@textlint-rule/textlint-rule-no-invalid-control-character": "npm:^3.0.0"
     "@textlint-rule/textlint-rule-no-unmatched-pair": "npm:^2.0.4"
@@ -12051,7 +12051,7 @@ __metadata:
     textlint-rule-no-zero-width-spaces: "npm:^1.0.1"
     textlint-rule-preset-jtf-style: "npm:^3.0.1"
     textlint-rule-sentence-length: "npm:^5.2.0"
-  checksum: 10c0/18d889671f9a6ee18aab1d701112c139a72567009f73cf6bed4ad3aa5c836bba34ed55816043e67e65173fdd27194bb861cfed207af2304f6d2d93f37cabaf70
+  checksum: 10c0/be221c6e9be6c962b6109336c1a35df59255ab40306c2c739ba9f1e41cb242c41b181f77d5b386a47c5bbd8547223f5467207c11648ffc6a0976ec75ea042c1c
   languageName: node
   linkType: hard
 
