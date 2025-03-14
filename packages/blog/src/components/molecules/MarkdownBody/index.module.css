@@ -109,6 +109,11 @@
   margin-bottom: 20px;
 }
 
+.postBody hr {
+  margin-top: 12px;
+  margin-bottom: 2em;
+}
+
 .postBody :global(hr.footnotesSep) {
   margin-top: 12px;
   margin-bottom: 16px;

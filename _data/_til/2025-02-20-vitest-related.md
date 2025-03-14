@@ -6,7 +6,7 @@ createdAt:   2025-02-20
 updatedAt:   2025-02-20
 ---
 
-タイトルの方法は `vitest related` という命令により可能です（[vitest relatedのドキュメント](https://vitest.dev/guide/cli#vitest-related)）。これはファイルを指定すると、そのファイルに関連したテストを実行するものです。
+タイトルの方法は `vitest related` という命令により可能です（[vitest relatedのドキュメント](https://vitest.dev/guide/cli#vitest-related)）。これはファイルを指定すると、そのファイルに関連したテストを実行するものです。ちなみにJestでは [--findRelatedTests](https://jestjs.io/ja/docs/cli#--findrelatedtests-spaceseparatedlistofsourcefiles)というオプションで同様の動作ができます。
 
 関連というのはドキュメント上であまり明示されていませんが、基本的には該当のファイルをimportしたテスト、さらにimportした別のファイルをimportしたテスト、さらにimportしたやつをimportしたやつをimportしたテスト...みたいな感じで再帰的になんかいい感じに引っ張って来るようなイメージがあります。ですのでファイルによっては1ファイル指定しただけなのに何十ファイルもテスト対象になります。
 
