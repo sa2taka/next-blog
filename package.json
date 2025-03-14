@@ -15,18 +15,18 @@
     "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.11.0",
+    "@babel/eslint-parser": "7.26.8",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
     "next-sitemap": "4.2.3",
-    "prettier": "3.4.2",
+    "prettier": "3.5.3",
     "textlint": "14.4.2",
     "textlint-filter-rule-allowlist": "4.0.0",
     "textlint-rule-preset-ja-technical-writing": "10.0.2",
-    "textlint-rule-preset-jtf-style": "3.0.1",
+    "textlint-rule-preset-jtf-style": "3.0.2",
     "typescript": "5.6.3"
   },
   "workspaces": [

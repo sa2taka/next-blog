@@ -122,17 +122,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:7.11.0":
-  version: 7.11.0
-  resolution: "@babel/eslint-parser@npm:7.11.0"
+"@babel/eslint-parser@npm:7.26.8":
+  version: 7.26.8
+  resolution: "@babel/eslint-parser@npm:7.26.8"
   dependencies:
-    eslint-scope: "npm:5.1.0"
-    eslint-visitor-keys: "npm:^1.3.0"
-    semver: "npm:^6.3.0"
+    "@nicolo-ribaudo/eslint-scope-5-internals": "npm:5.1.1-v1"
+    eslint-visitor-keys: "npm:^2.1.0"
+    semver: "npm:^6.3.1"
   peerDependencies:
-    "@babel/core": ">=7.11.0"
-    eslint: ">=7.5.0"
-  checksum: 10c0/eb8384db365fb2b197dec525ed7dd5c5591dc43c9d911711337fb8fe08a8038d53daa16102a8c34806edab51617cc219ddbf4fda9ff7fb8619db1b76a9e43bab
+    "@babel/core": ^7.11.0
+    eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
+  checksum: 10c0/00678fef68b7352b717d622398bd04a69d8472aa3d9c81bd1d3213d606abb2b84ea3f398c645dc9c451c1d2665f301aea541acd7b47291ed167d26133ca411d7
   languageName: node
   linkType: hard
 
@@ -2509,6 +2509,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1":
+  version: 5.1.1-v1
+  resolution: "@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1"
+  dependencies:
+    eslint-scope: "npm:5.1.1"
+  checksum: 10c0/75dda3e623b8ad7369ca22552d6beee337a814b2d0e8a32d23edd13fcb65c8082b32c5d86e436f3860dd7ade30d91d5db55d4ef9a08fb5a976c718ecc0d88a74
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -3182,12 +3191,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.13.4":
-  version: 22.13.4
-  resolution: "@types/node@npm:22.13.4"
+"@types/node@npm:22.13.9":
+  version: 22.13.9
+  resolution: "@types/node@npm:22.13.9"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10c0/3a234fa7766a3efc382cf81f66f474c26cdab2f54f43f757634c81c0444eb2160c2dabbde9741e4983078a318a88515b65416b5f1ab5478548579d7b3ead1d95
+  checksum: 10c0/eb6acd04169a076631dcaab712128d492cd17a1b3f10daae4a377f3d439c860c3cd3e32f4ef221671f56183b976ac7c4089f4193457314a88675ead4663438a4
   languageName: node
   linkType: hard
 
@@ -4138,7 +4147,7 @@ __metadata:
     "@types/html-to-text": "npm:9.0.4"
     "@types/katex": "npm:0.16.7"
     "@types/markdown-it": "npm:14.1.2"
-    "@types/node": "npm:22.13.4"
+    "@types/node": "npm:22.13.9"
     "@types/prismjs": "npm:1.26.5"
     "@types/react": "npm:18.3.18"
     "@types/react-dom": "npm:18.3.5"
@@ -4602,18 +4611,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "client@workspace:."
   dependencies:
-    "@babel/eslint-parser": "npm:7.11.0"
+    "@babel/eslint-parser": "npm:7.26.8"
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
     "@typescript-eslint/parser": "npm:7.18.0"
     eslint: "npm:8.57.1"
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-import: "npm:2.31.0"
     next-sitemap: "npm:4.2.3"
-    prettier: "npm:3.4.2"
+    prettier: "npm:3.5.3"
     textlint: "npm:14.4.2"
     textlint-filter-rule-allowlist: "npm:4.0.0"
     textlint-rule-preset-ja-technical-writing: "npm:10.0.2"
-    textlint-rule-preset-jtf-style: "npm:3.0.1"
+    textlint-rule-preset-jtf-style: "npm:3.0.2"
     typescript: "npm:5.6.3"
   languageName: unknown
   linkType: soft
@@ -5872,13 +5881,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:5.1.0":
-  version: 5.1.0
-  resolution: "eslint-scope@npm:5.1.0"
+"eslint-scope@npm:5.1.1":
+  version: 5.1.1
+  resolution: "eslint-scope@npm:5.1.1"
   dependencies:
-    esrecurse: "npm:^4.1.0"
+    esrecurse: "npm:^4.3.0"
     estraverse: "npm:^4.1.1"
-  checksum: 10c0/764d8a47aa2f665ba82feb5ba7dcf088fd2d3b9a52809ada09afb3ab8d629269534b1c35cd7cb120574cb5bd2b842752f0e1ab822c16ef42fc680d4e99c6ded8
+  checksum: 10c0/d30ef9dc1c1cbdece34db1539a4933fe3f9b14e1ffb27ecc85987902ee663ad7c9473bbd49a9a03195a373741e62e2f807c4938992e019b511993d163450e70a
   languageName: node
   linkType: hard
 
@@ -5892,10 +5901,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "eslint-visitor-keys@npm:1.3.0"
-  checksum: 10c0/10c91fdbbe36810dd4308e57f9a8bc7177188b2a70247e54e3af1fa05ebc66414ae6fd4ce3c6c6821591f43a556e9037bc6b071122e099b5f8b7d2f76df553e3
+"eslint-visitor-keys@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "eslint-visitor-keys@npm:2.1.0"
+  checksum: 10c0/9f0e3a2db751d84067d15977ac4b4472efd6b303e369e6ff241a99feac04da758f46d5add022c33d06b53596038dbae4b4aceb27c7e68b8dfc1055b35e495787
   languageName: node
   linkType: hard
 
@@ -5984,7 +5993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esrecurse@npm:^4.1.0, esrecurse@npm:^4.3.0":
+"esrecurse@npm:^4.3.0":
   version: 4.3.0
   resolution: "esrecurse@npm:4.3.0"
   dependencies:
@@ -10161,12 +10170,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.4.2":
-  version: 3.4.2
-  resolution: "prettier@npm:3.4.2"
+"prettier@npm:3.5.3":
+  version: 3.5.3
+  resolution: "prettier@npm:3.5.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/99e076a26ed0aba4ebc043880d0f08bbb8c59a4c6641cdee6cdadf2205bdd87aa1d7823f50c3aea41e015e99878d37c58d7b5f0e663bba0ef047f94e36b96446
+  checksum: 10c0/3880cb90b9dc0635819ab52ff571518c35bd7f15a6e80a2054c05dbc8a3aa6e74f135519e91197de63705bcb38388ded7e7230e2178432a1468005406238b877
   languageName: node
   linkType: hard
 
@@ -12046,7 +12055,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"textlint-rule-preset-jtf-style@npm:3.0.1, textlint-rule-preset-jtf-style@npm:^3.0.1":
+"textlint-rule-preset-jtf-style@npm:3.0.2":
+  version: 3.0.2
+  resolution: "textlint-rule-preset-jtf-style@npm:3.0.2"
+  dependencies:
+    analyze-desumasu-dearu: "npm:^2.1.2"
+    japanese-numerals-to-number: "npm:^1.0.2"
+    match-index: "npm:^1.0.3"
+    moji: "npm:^0.5.1"
+    regexp.prototype.flags: "npm:^1.5.3"
+    regx: "npm:^1.0.4"
+    textlint-rule-helper: "npm:^2.3.1"
+    textlint-rule-prh: "npm:^6.0.0"
+  checksum: 10c0/f1cf08f9d31fc467ecc86154ad40c2d48fb8a0910b4c93254f9a20af68eef007f4d9cd2b8b48001ffcffdb67cd9a4899f51da951b364857cb0df33e206e368fc
+  languageName: node
+  linkType: hard
+
+"textlint-rule-preset-jtf-style@npm:^3.0.1":
   version: 3.0.1
   resolution: "textlint-rule-preset-jtf-style@npm:3.0.1"
   dependencies:
