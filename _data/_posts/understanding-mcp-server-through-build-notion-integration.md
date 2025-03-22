@@ -70,10 +70,10 @@ MCPには大きく分けて現時点で5つ、実質3つの機能があります
 
 特に動的引数を受け入れる点が重要で、引数によってプロンプトを書き換えることができるわけです。
 
-MCPにおいて基本的に最も利用されであろうものが[Tools](https://modelcontextprotocol.io/docs/concepts/tools)です。Toolsは圧倒的な汎用性があり、言ってしまえば何でもできてしまいます。
+MCPにおいて基本的に最も利用されるであろうものが[Tools](https://modelcontextprotocol.io/docs/concepts/tools)です。Toolsは圧倒的な汎用性があり、言ってしまえば何でもできてしまいます。
 例えば公式のMCP Server実装である[GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/github)はIssueの取得（`list_issues`）などもResourcesではなくToolsにて提供しています。
 
-ResourcesおよびPromptsは主に人向けであるのに対し、Toolsは適宜AIがどのToolを利用するかを判断し選択するものであるため、自ずとToolsに集約するのだと思います。
+ResourcesおよびPromptsは主に人向けであるのに対し（正確にはResourcesなんかはクライアント側が適宜決める場合もあると記載があります。Roo Codeなんかはどうやらその動きっぽい）、Toolsは適宜AIがどのToolを利用するかを判断し選択するものであるため、自ずとToolsに集約するのだと思います。
 
 # MCP Serverを使ってみる
 
@@ -285,7 +285,7 @@ export const fetchPages = async () => {
 
 最後に、`index.ts`を改めて書き直します。Notionの型定義が変な感じだったので変な感じの書き方になっています。
 
-```typescript index.ts
+```typescript:index.ts
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { NOTION_DATABASE_ID } from "./env.js";
