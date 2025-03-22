@@ -509,26 +509,26 @@ GitHubコードブロックの`.link-area`が、横に長いとはみ出して�
 
 現在のCSSでは、`.link-area`に以下のスタイルが適用されています：
 
-```css
+\`\`\`css
 .postBody :global(.github-code-block) :global(.header) :global(.link-area) {
   grid-area: right-top;
   font-weight: 600;
   font-size: 0.8rem;
   align-self: end;
 }
-```
+\`\`\`
 
 親要素の`.header`はグリッドレイアウトを使用していますが、`.link-area`自体には横幅の制限やオーバーフロー処理が設定されていません。
 
 ## 修正案
 `packages/blog/src/components/molecules/MarkdownBody/index.module.css`ファイルの`.link-area`に以下のCSSプロパティを追加することで解決できます：
 
-```css
+\`\`\`css
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
 max-width: 100%;
-```
+\`\`\`
 
 これにより：
 - `overflow: hidden` - はみ出した部分を非表示にする
@@ -549,8 +549,7 @@ https://www.notion.so/sa2taka/GitHub-1be5590daa4581369559ff2a1abc0cd9?pvs=4  を
 
 `get-notion-page` の引数を `uri` としたからか、URLをそのまま渡すのではなく変な感じにしてしまうようです。が、まぁ上手く動いたので良しとします。修正はサクッと終わりましたね。 `white-space: nowrap;` はいらなかったりするけど。
 
-![MCP経由でNotionから読み取った情報で修正されたコード](../_images/mac-fix-code.png)
-
+![MCP経由でNotionから読み取った情報で修正されたコード](../_images/mcp-fix-code.png)
 # まとめ
 
 Notion用のMCP Serverを作成してみて色々と解像度が上がりました。Toolに関しては正直ほぼ設定していないのに勝手に判断してAIが実行してくれるのはなかなか良い体験です。一方で似たようなツールを大量にいれると命令のコンフリクトが発生しそうだったり、Notionのように複雑なAPIを持つようなものや、そもそもAPIを持たないようなものではかなりインターフェースのバインドが難しいような感想も得ました。
