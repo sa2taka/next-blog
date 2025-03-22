@@ -491,7 +491,7 @@ server.tool(
 
 そこで作成されたのが下記のページ。Slackと違いいい感じにMarkdownを展開してくれるわけではないので、プレーンテキストで表現されています。
 
-![MCPサーバー経由で作成したNotionページ](../_images/mcp-creating-page.tsx)
+![MCPサーバー経由で作成したNotionページ](../_images/mcp-creating-page.png)
 
 実際の文書が下記。
 
