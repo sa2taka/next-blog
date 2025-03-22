@@ -295,6 +295,8 @@
   font-weight: 600;
   font-size: 0.8rem;
   align-self: end;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .postBody :global(.github-code-block) :global(.header) :global(.details-area) {
