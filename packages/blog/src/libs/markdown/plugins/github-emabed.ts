@@ -2,31 +2,150 @@ import fetchSync from 'sync-fetch';
 import MarkdownIt from 'markdown-it';
 import { escapeHtml } from '@blog/libs/escapeHtml';
 import prism from '@blog/libs/prism';
+import crypto from 'crypto';
+import fs from 'fs';
+import path from 'path';
 
-const fetchPermalink = (
-  permalink: string
-): {
+// fetchSyncの同時実行数を制限するための設定
+const FETCH_SYNC_INTERVAL = 100; // ミリ秒
+const FETCH_SYNC_MAX_RETRIES = 100; // 最大リトライ回数
+const MAX_CONCURRENT_FETCHES = 1; // 同時に実行可能なfetchSyncの最大数
+
+// 現在実行中のfetchSyncの数
+let currentFetchCount = 0;
+
+// キャッシュディレクトリのパス
+const CACHE_DIR = path.resolve(
+  __dirname,
+  '../../../../../_data/_caches/github'
+);
+
+const generateHashFromUrl = (url: string): string => {
+  return crypto.createHash('sha256').update(url).digest('hex');
+};
+
+const getCacheFilePath = (url: string): string => {
+  const hash = generateHashFromUrl(url);
+  return path.join(CACHE_DIR, `${hash}.json`);
+};
+
+const cacheExists = (url: string): boolean => {
+  const cacheFilePath = getCacheFilePath(url);
+  return fs.existsSync(cacheFilePath);
+};
+
+// キャッシュに保存するデータの型定義
+type GitHubEmbedCache = {
   lines: string[];
   language: string;
   path: string;
   owner: string;
   repo: string;
-} => {
-  const response = fetchSync(permalink, {
-    headers: {
-      Accept: 'application/json',
-    },
-  });
-  const data = response.json();
+};
 
-  const { payload } = data;
-  return {
-    lines: payload.blob.rawLines,
-    language: payload.blob.language,
-    path: payload.path,
-    owner: payload.repo.ownerLogin,
-    repo: payload.repo.name,
-  };
+const readFromCache = (url: string): GitHubEmbedCache | null => {
+  try {
+    const cacheFilePath = getCacheFilePath(url);
+    const cacheData = fs.readFileSync(cacheFilePath, 'utf-8');
+    return JSON.parse(cacheData) as GitHubEmbedCache;
+  } catch (error) {
+    console.error(`[GitHub Embed] Failed to read from cache: ${error}`);
+    return null;
+  }
+};
+
+const writeToCache = (url: string, data: GitHubEmbedCache): boolean => {
+  try {
+    const cacheFilePath = getCacheFilePath(url);
+    fs.writeFileSync(cacheFilePath, JSON.stringify(data, null, 2), 'utf-8');
+    return true;
+  } catch (error) {
+    console.error(`[GitHub Embed] Failed to write to cache: ${error}`);
+    return false;
+  }
+};
+
+const acquireFetchPermission = (): boolean => {
+  if (currentFetchCount < MAX_CONCURRENT_FETCHES) {
+    currentFetchCount++;
+    return true;
+  }
+  return false;
+};
+
+const releaseFetchPermission = (): void => {
+  if (currentFetchCount > 0) {
+    currentFetchCount--;
+  }
+};
+
+const waitForFetchPermission = (): void => {
+  let retries = 0;
+
+  while (retries < FETCH_SYNC_MAX_RETRIES) {
+    if (acquireFetchPermission()) {
+      return;
+    }
+
+    const startTime = Date.now();
+    while (Date.now() - startTime < FETCH_SYNC_INTERVAL) {
+      // ビジーウェイト（同期的な待機）
+    }
+
+    retries++;
+  }
+
+  currentFetchCount++;
+};
+
+const fetchPermalink = (permalink: string): GitHubEmbedCache => {
+  if (cacheExists(permalink)) {
+    const cachedData = readFromCache(permalink);
+
+    if (!cachedData) {
+      throw new Error('Invalid cache data');
+    }
+
+    return cachedData;
+  }
+
+  try {
+    waitForFetchPermission();
+
+    if (cacheExists(permalink)) {
+      const cachedData = readFromCache(permalink);
+      if (cachedData) {
+        releaseFetchPermission();
+        return cachedData;
+      }
+    }
+
+    const response = fetchSync(permalink, {
+      headers: { Accept: 'application/json' },
+    });
+    const data = response.json();
+
+    if (!data || !data.payload) {
+      throw new Error('Invalid response from GitHub');
+    }
+
+    const { payload } = data;
+    const result: GitHubEmbedCache = {
+      lines: payload.blob.rawLines,
+      language: payload.blob.language,
+      path: payload.path,
+      owner: payload.repo.ownerLogin,
+      repo: payload.repo.name,
+    };
+
+    writeToCache(permalink, result);
+
+    return result;
+  } finally {
+    if (!cacheExists(permalink)) {
+      releaseFetchPermission();
+    }
+  }
 };
 
 const githubPermalinkRegexp = /^https:\/\/github.com\/[^/]+\/[^/]+\/blob\/.+/i;
@@ -40,10 +159,7 @@ const getLineRange = (url: string): { start: number; end: number } | null => {
     return null;
   }
 
-  return {
-    start: Number(m[1]),
-    end: m[2] ? Number(m[2]) : Number(m[1]),
-  };
+  return { start: Number(m[1]), end: m[2] ? Number(m[2]) : Number(m[1]) };
 };
 
 const generateGitHubCodeBlock = ({
@@ -122,10 +238,7 @@ export const githubPermaLinkEmbedPlugin = (md: MarkdownIt) => {
 
     const { lines, language, owner, repo, path } = fetchPermalink(url);
     const lineRange = getLineRange(url);
-    const { start, end } = lineRange ?? {
-      start: 1,
-      end: lines.length,
-    };
+    const { start, end } = lineRange ?? { start: 1, end: lines.length };
     return generateGitHubCodeBlock({
       url,
       lang: language,

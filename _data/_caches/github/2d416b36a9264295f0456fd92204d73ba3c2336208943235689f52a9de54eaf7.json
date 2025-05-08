@@ -1,0 +1,11 @@
+{
+  "lines": [
+    "import { createCLI } from './cli/cac'",
+    "",
+    "createCLI().parse()"
+  ],
+  "language": "TypeScript",
+  "path": "packages/vitest/src/node/cli.ts",
+  "owner": "vitest-dev",
+  "repo": "vitest"
+}

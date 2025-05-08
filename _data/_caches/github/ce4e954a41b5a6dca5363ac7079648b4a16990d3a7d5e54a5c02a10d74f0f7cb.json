@@ -1,0 +1,10 @@
+{
+  "lines": [
+    "#!/usr/bin/env node",
+    "import './dist/cli.js'"
+  ],
+  "language": "JavaScript",
+  "path": "packages/vitest/vitest.mjs",
+  "owner": "vitest-dev",
+  "repo": "vitest"
+}

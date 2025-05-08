@@ -1,0 +1,26 @@
+{
+  "lines": [
+    "{",
+    "  \"extends\": \"../../tsconfig.json\",",
+    "  \"compilerOptions\": {",
+    "    \"paths\": {",
+    "      \"@blog/*\": [",
+    "        \"packages/blog/src/*\"",
+    "      ]",
+    "    }",
+    "  },",
+    "  \"include\": [",
+    "    \"next-env.d.ts\",",
+    "    \"**/*.ts\",",
+    "    \"**/*.tsx\"",
+    "  ],",
+    "  \"exclude\": [",
+    "    \"node_modules\"",
+    "  ]",
+    "}"
+  ],
+  "language": "JSON with Comments",
+  "path": "packages/blog/tsconfig.json",
+  "owner": "sa2taka",
+  "repo": "next-blog"
+}
