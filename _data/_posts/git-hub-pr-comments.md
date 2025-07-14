@@ -132,3 +132,7 @@ $ pr-comments
 ```  
 
 jqとawkは、結局細かい記法を理解しないままAIに書かせるツールになりそうですね。
+
+# P.S.
+
+書いた後に、そういや[GitHub MCP Server](https://github.com/github/github-mcp-server)があったなと思いました。`get_pull_request_reviews` 使えば良さそうですね。そっち使いましょう。
