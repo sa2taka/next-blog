@@ -49,7 +49,7 @@ const imgApi = () => {
 そもそも `TypedArrays` ってなんでしょうかね。
 
 
-[MDNのドキュメント](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)を見てみると、TypedArrayは「バイナリデータバッファの配列のようなビュー」と説明されています。まぁ、簡単に言うと**メモリ上の生のバイナリデータを、JavaScriptで扱いやすくするための型付き配列**という感じですね。
+[MDNのドキュメント](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)を見てみると、TypedArrayは「バイナリデータバッファの配列のようなビュー」と説明されています。まぁ、簡単に言うと**メモリ上の生のバイナリデータを、JavaScriptで扱いやすくするための型付き配列**という感じですね。
 
 JavaScriptの通常の配列（Array）は、どんな型でも格納できて便利ですが、その分メモリ効率は良くありません。一方でTypedArrayは、特定の型（8ビット符号なし整数とか、32ビット浮動小数点数とか）に特化した配列で、メモリ効率が良いという特徴があります。
 
@@ -122,7 +122,7 @@ TypeScript 5.7でTypedArrayに型引数が付与された背景には、**ECMASc
 
 ### ArrayBuffer：排他的アクセス
 
-[MDNのドキュメント](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)によると、ArrayBufferは「汎用的な生のバイナリデータバッファ」です。特徴的なのは、**一度に一つの実行コンテキストからしかアクセスできない**ことです。
+[MDNのドキュメント](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)によると、ArrayBufferは「汎用的な生のバイナリデータバッファ」です。特徴的なのは、**一度に一つの実行コンテキストからしかアクセスできない**ことです。
 
 ```javascript
 // ArrayBufferの作成
@@ -150,10 +150,10 @@ resizableBuffer.resize(32); // サイズを倍に
 
 ### SharedArrayBuffer：共有アクセス
 
-一方で[SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)は、名前の通り**複数の実行コンテキストから同時にアクセスできる**バッファです。これによって、真の並列処理が可能になります[^atomis]。
+一方で[SharedArrayBuffer](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)は、名前の通り**複数の実行コンテキストから同時にアクセスできる**バッファです。これによって、真の並列処理が可能になります[^atomis]。
 
 
-[^atomis]: 同時アクセスできるってことは、**データ競合や競合状態のリスク**があるということでもあります。そのため、SharedArrayBufferを安全に使うためには[Atomics API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)と組み合わせることが推奨されています。
+[^atomis]: 同時アクセスできるってことは、**データ競合や競合状態のリスク**があるということでもあります。そのため、SharedArrayBufferを安全に使うためには[Atomics API](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Atomics)と組み合わせることが推奨されています。
 
 ```javascript
 // SharedArrayBufferの作成
@@ -187,7 +187,7 @@ Cross-Origin-Embedder-Policy: require-corp
 
 これは[Spectre攻撃](https://ja.wikipedia.org/wiki/Spectre_(%E8%84%86%E5%BC%B1%E6%80%A7))などのサイドチャネル攻撃を防ぐための対策で、高精度タイマーと共有メモリの組み合わせが悪用されるのを防いでいるんですね[^security-requirement]。
 
-[^security-requirement]: このセキュリティ要件については、MDNの[SharedArrayBufferのセキュリティ要件](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements)で詳しく説明されています。
+[^security-requirement]: このセキュリティ要件については、MDNの[SharedArrayBufferのセキュリティ要件](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements)で詳しく説明されています。
 
 # 解決策
 
@@ -210,7 +210,7 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/blob/07e47671e94ae694efe0caab
 
 ref: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/72687
 
-これらを利用して `fs` などの型が改善されていいます。そのためnodeの型を最新版に更新すれば治る場合もあると思うので、 `@types/node` を更新してみましょう。
+これらを利用して `fs` などの型が改善されています。そのためnodeの型を最新版に更新すれば治る場合もあると思うので、 `@types/node` を更新してみましょう。
 
 ただ、ライブラリなどによってはまだ型が対応されていないケースもあるでしょうから、とりあえずは型アサーション等で対応すればよいと思います。
 
