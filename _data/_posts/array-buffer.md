@@ -176,8 +176,6 @@ growableShared.grow(32); // 成長は可能
 // growableShared.shrink(16); // 縮小メソッドは存在しない
 ```
 
-### セキュリティの要件
-
 こちらもまた余談の余談ですが、SharedArrayBufferを使うには、Webブラウザで特定のセキュリティヘッダーが必要です：
 
 ```http
