@@ -53,6 +53,7 @@ export const inlineCodePlugin = (md: MarkdownIt) => {
   md.renderer.rules.code_inline = (...[tokens, idx]) => {
     const tag = tokens[idx].tag;
     const content = tokens[idx].content;
-    return `<${tag} class="hljsspan">${content}</${tag}>`;
+    const escapedContent = content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return `<${tag} class="hljsspan">${escapedContent}</${tag}>`;
   };
 };
