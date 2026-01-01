@@ -4178,7 +4178,7 @@ __metadata:
     next: "npm:14.2.35"
     next-pwa: "npm:^5.5.4"
     next-sitemap: "npm:4.2.3"
-    nodemon: "npm:3.1.9"
+    nodemon: "npm:3.1.11"
     npm-watch: "npm:0.13.0"
     prismjs: "npm:^1.28.0"
     react: "npm:18.3.1"
@@ -9354,9 +9354,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemon@npm:3.1.9":
-  version: 3.1.9
-  resolution: "nodemon@npm:3.1.9"
+"nodemon@npm:3.1.11":
+  version: 3.1.11
+  resolution: "nodemon@npm:3.1.11"
   dependencies:
     chokidar: "npm:^3.5.2"
     debug: "npm:^4"
@@ -9370,7 +9370,7 @@ __metadata:
     undefsafe: "npm:^2.0.5"
   bin:
     nodemon: bin/nodemon.js
-  checksum: 10c0/dbd6fab40e6be18929ac02366bfdc2203c1688f45186d9468f6bdeb192f0666d044500dfb729d825526715196456e6a17509a13de019b058cbce428d72d04eb5
+  checksum: 10c0/f3c17897146f680eaf93f5e1f53b1fd4acbd61e4f7526ec6cbcc993d1c14cee8c722c41b30aa8b101447f672d38e6d7b17c97e77540df191d724826bb16ce474
   languageName: node
   linkType: hard
 
