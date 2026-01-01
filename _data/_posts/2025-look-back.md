@@ -1,7 +1,7 @@
 ---
 layout:      post
 title:       2025年を振り返る
-category:    sa2taka
+category:    look-back
 author:      sa2taka
 tags:        
 public:      true
