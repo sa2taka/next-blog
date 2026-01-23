@@ -8,6 +8,7 @@ public:      true
 createdAt:   2026-01-24
 updatedAt:   2026-01-24
 latex:       false
+ogImage:     ../_images/わびさびわさびの順位_3971点で5th.png
 description:
    SWIMMER OSINT CTF 2026に参加しました。チームでのWriteupです。
 ---
