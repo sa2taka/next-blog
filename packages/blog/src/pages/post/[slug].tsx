@@ -8,6 +8,7 @@ import { PostArea } from '@blog/components/organisms/PostArea';
 import Head from 'next/head';
 import Script from 'next/script';
 import { AUTHOR, BASE_URL } from '@blog/libs/const';
+import { resolveOgImageUrl } from '@blog/libs/ogImage';
 import { useRouter } from 'next/router';
 
 interface Props {
@@ -66,7 +67,9 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 };
 
 const getSeoStructureData = (post: Post, path: string) => {
-  const image = BASE_URL + '/logo.png';
+  const image = post.ogImage
+    ? resolveOgImageUrl(post.ogImage)
+    : BASE_URL + '/logo.png';
 
   return {
     '@context': 'https://schema.org',
@@ -96,6 +99,7 @@ const getSeoStructureData = (post: Post, path: string) => {
 const PostHead: React.FC<{ post: Post }> = ({ post }) => {
   const router = useRouter();
   const path = router.pathname;
+  const ogImageUrl = resolveOgImageUrl(post.ogImage);
 
   return (
     <Head>
@@ -111,6 +115,19 @@ const PostHead: React.FC<{ post: Post }> = ({ post }) => {
         name="og:description"
         content={post.description}
       />
+      <meta data-hid="og:image" property="og:image" content={ogImageUrl} />
+      <meta
+        data-hid="twitter:image"
+        property="twitter:image"
+        content={ogImageUrl}
+      />
+      {post.ogImage && (
+        <meta
+          data-hid="twitter:card"
+          property="twitter:card"
+          content="summary_large_image"
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

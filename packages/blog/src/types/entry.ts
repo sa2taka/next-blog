@@ -39,7 +39,8 @@ export const postSchema = z.object({
   // Next.js のシリアライズの関係で、Date型にせずにgetTimeの値を利用する
   createdAt: z.number(),
   updatedAt: z.number(),
-});
+  ogImage: z.string().optional(),
+});;
 
 export type Post = z.infer<typeof postSchema>;
 
@@ -51,7 +52,8 @@ export const tilSchema = z.object({
   // Next.js のシリアライズの関係で、Date型にせずにgetTimeの値を利用する
   createdAt: z.number(),
   updatedAt: z.number(),
-});
+  ogImage: z.string().optional(),
+});;
 
 export type Til = z.infer<typeof tilSchema>;
 export type TilWithRawHtml = Til & { rawHtml: string };

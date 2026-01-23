@@ -2,6 +2,7 @@ import { Breadcrumbs } from '@blog/components/molecules/Breadcrumbs';
 import { TilItem } from '@blog/components/organisms/Tils/TilItem';
 import { generateTilBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
 import { AUTHOR, BASE_URL } from '@blog/libs/const';
+import { resolveOgImageUrl } from '@blog/libs/ogImage';
 import { TilWithRawHtml } from '@blog/types/entry';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -60,7 +61,9 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 };
 
 const getSeoStructureData = (til: TilWithRawHtml, path: string) => {
-  const image = BASE_URL + '/logo.png';
+  const image = til.ogImage
+    ? resolveOgImageUrl(til.ogImage)
+    : BASE_URL + '/logo.png';
 
   return {
     '@context': 'https://schema.org',
@@ -90,6 +93,7 @@ const getSeoStructureData = (til: TilWithRawHtml, path: string) => {
 const TilHead: React.FC<{ til: TilWithRawHtml }> = ({ til }) => {
   const router = useRouter();
   const path = router.pathname;
+  const ogImageUrl = resolveOgImageUrl(til.ogImage);
 
   const description =
     til.body.length > 200 ? til.body.slice(0, 200) + '...' : til.body;
@@ -104,6 +108,19 @@ const TilHead: React.FC<{ til: TilWithRawHtml }> = ({ til }) => {
         name="og:description"
         content={description}
       />
+      <meta data-hid="og:image" property="og:image" content={ogImageUrl} />
+      <meta
+        data-hid="twitter:image"
+        property="twitter:image"
+        content={ogImageUrl}
+      />
+      {til.ogImage && (
+        <meta
+          data-hid="twitter:card"
+          property="twitter:card"
+          content="summary_large_image"
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
