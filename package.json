@@ -22,7 +22,7 @@
     "eslint-config-prettier": "9.1.2",
     "eslint-plugin-import": "2.32.0",
     "next-sitemap": "4.2.3",
-    "prettier": "3.7.4",
+    "prettier": "3.8.1",
     "textlint": "14.4.2",
     "textlint-filter-rule-allowlist": "4.0.0",
     "textlint-rule-preset-ja-technical-writing": "12.0.2",
