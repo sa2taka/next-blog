@@ -17,7 +17,7 @@ let currentFetchCount = 0;
 // キャッシュディレクトリのパス
 const CACHE_DIR = path.resolve(
   __dirname,
-  '../../../../../_data/_caches/github'
+  '../../../../../../_data/_caches/github'
 );
 
 const generateHashFromUrl = (url: string): string => {
@@ -43,6 +43,13 @@ type GitHubEmbedCache = {
   repo: string;
 };
 
+type ParsedGitHubBlobUrl = {
+  owner: string;
+  repo: string;
+  ref: string;
+  path: string;
+};
+
 const readFromCache = (url: string): GitHubEmbedCache | null => {
   try {
     const cacheFilePath = getCacheFilePath(url);
@@ -57,6 +64,7 @@ const readFromCache = (url: string): GitHubEmbedCache | null => {
 const writeToCache = (url: string, data: GitHubEmbedCache): boolean => {
   try {
     const cacheFilePath = getCacheFilePath(url);
+    fs.mkdirSync(path.dirname(cacheFilePath), { recursive: true });
     fs.writeFileSync(cacheFilePath, JSON.stringify(data, null, 2), 'utf-8');
     return true;
   } catch (error) {
@@ -98,6 +106,61 @@ const waitForFetchPermission = (): void => {
   currentFetchCount++;
 };
 
+const parseGitHubBlobUrl = (permalink: string): ParsedGitHubBlobUrl => {
+  const url = new URL(permalink);
+  const segments = url.pathname.split('/').filter(Boolean);
+
+  if (segments.length < 5 || segments[2] !== 'blob') {
+    throw new Error(`Unsupported GitHub blob URL: ${permalink}`);
+  }
+
+  const [owner, repo, , ref, ...filePathSegments] = segments;
+
+  if (filePathSegments.length === 0) {
+    throw new Error(`GitHub blob URL does not contain a file path: ${permalink}`);
+  }
+
+  return {
+    owner,
+    repo,
+    ref,
+    path: filePathSegments.join('/'),
+  };
+};
+
+const detectLanguageFromFilePath = (filePath: string): string => {
+  const extension = path.extname(filePath).slice(1).toLowerCase();
+
+  const languageByExtension: Record<string, string> = {
+    cjs: 'javascript',
+    cs: 'csharp',
+    html: 'markup',
+    java: 'java',
+    js: 'javascript',
+    json: 'json',
+    jsx: 'jsx',
+    kt: 'kotlin',
+    kts: 'kotlin',
+    md: 'markdown',
+    mjs: 'javascript',
+    mts: 'typescript',
+    rb: 'ruby',
+    regex: 'regex',
+    scala: 'scala',
+    scss: 'scss',
+    sh: 'bash',
+    sql: 'sql',
+    svg: 'markup',
+    ts: 'typescript',
+    tsx: 'tsx',
+    xml: 'xml-doc',
+    yml: 'yaml',
+    yaml: 'yaml',
+  };
+
+  return languageByExtension[extension] ?? extension;
+};
+
 const fetchPermalink = (permalink: string): GitHubEmbedCache => {
   if (cacheExists(permalink)) {
     const cachedData = readFromCache(permalink);
@@ -109,40 +172,44 @@ const fetchPermalink = (permalink: string): GitHubEmbedCache => {
     return cachedData;
   }
 
+  let hasFetchPermission = false;
+
   try {
     waitForFetchPermission();
+    hasFetchPermission = true;
 
     if (cacheExists(permalink)) {
       const cachedData = readFromCache(permalink);
       if (cachedData) {
-        releaseFetchPermission();
         return cachedData;
       }
     }
 
-    const response = fetchSync(permalink, {
-      headers: { Accept: 'application/json' },
-    });
-    const data = response.json();
+    const { owner, repo, ref, path: filePath } = parseGitHubBlobUrl(permalink);
+    const rawFileUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${ref}/${filePath}`;
+    const response = fetchSync(rawFileUrl);
 
-    if (!data || !data.payload) {
-      throw new Error('Invalid response from GitHub');
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch GitHub blob contents: ${response.status} ${response.statusText}`
+      );
     }
 
-    const { payload } = data;
+    const fileContents = response.text();
+
     const result: GitHubEmbedCache = {
-      lines: payload.blob.rawLines,
-      language: payload.blob.language,
-      path: payload.path,
-      owner: payload.repo.ownerLogin,
-      repo: payload.repo.name,
+      lines: fileContents.split(/\r?\n/),
+      language: detectLanguageFromFilePath(filePath),
+      path: filePath,
+      owner,
+      repo,
     };
 
     writeToCache(permalink, result);
 
     return result;
   } finally {
-    if (!cacheExists(permalink)) {
+    if (hasFetchPermission) {
       releaseFetchPermission();
     }
   }
@@ -236,7 +303,15 @@ export const githubPermaLinkEmbedPlugin = (md: MarkdownIt) => {
       return defaultTextRender(tokens, idx, options, env, self);
     }
 
-    const { lines, language, owner, repo, path } = fetchPermalink(url);
+    let data: GitHubEmbedCache;
+    try {
+      data = fetchPermalink(url);
+    } catch (error) {
+      console.error(`[GitHub Embed] Failed to expand permalink ${url}: ${error}`);
+      return defaultTextRender(tokens, idx, options, env, self);
+    }
+
+    const { lines, language, owner, repo, path } = data;
     const lineRange = getLineRange(url);
     const { start, end } = lineRange ?? { start: 1, end: lines.length };
     return generateGitHubCodeBlock({
