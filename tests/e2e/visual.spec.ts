@@ -11,17 +11,19 @@ const waitForVisualStability = async (page: Page) => {
 test('blog post visual snapshot stays stable', async ({ page }) => {
   await page.goto('/post/what-is-vitest-related/');
   await waitForVisualStability(page);
+  await expect(
+    page.getByRole('heading', { level: 1, name: 'Vitestのrelated/JestのfindRelatedTestsを深ぼる' })
+  ).toBeVisible();
 
-  await expect(page).toHaveScreenshot('post-what-is-vitest-related.png', {
-    fullPage: true,
-  });
+  await expect(page).toHaveScreenshot('post-what-is-vitest-related.png');
 });
 
 test('til page visual snapshot stays stable', async ({ page }) => {
   await page.goto('/til/2025-05-06-diff-on-github/');
   await waitForVisualStability(page);
+  await expect(
+    page.getByRole('heading', { level: 2, name: 'GitHubのmarkdownでdiffを表示する' })
+  ).toBeVisible();
 
-  await expect(page).toHaveScreenshot('til-2025-05-06-diff-on-github.png', {
-    fullPage: true,
-  });
+  await expect(page).toHaveScreenshot('til-2025-05-06-diff-on-github.png');
 });
