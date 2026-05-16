@@ -47,10 +47,10 @@ export const webpConvertPlugin = (md: MarkdownIt) => {
 };
 
 /**
- * srcがローカルなら _data/_imagesから、そうではない場合はfetchして、Bufferを取得する。
+ * srcがローカルなら _data/_imagesから、そうではない場合はfetchして、画像バイト列を取得する。
  * webpConvertPluginの後でuseすること。
  */
-const fetchImageBuffer = (src: string): ArrayBuffer => {
+const fetchImageBuffer = (src: string): Uint8Array => {
   if (src.startsWith('../_images')) {
     const fileName = decodeURIComponent(
       src.replace('./images/', '').normalize()
@@ -59,10 +59,9 @@ const fetchImageBuffer = (src: string): ArrayBuffer => {
       .cwd()
       .replace(/(.+?)\/packages\/blog\/?.*$/, '$1');
     const path = join(projectRoot, '_data', '_images', fileName);
-    const data = readFileSync(path);
-    return data;
+    return readFileSync(path);
   } else {
-    return fetchSync(src).arrayBuffer();
+    return new Uint8Array(fetchSync(src).arrayBuffer());
   }
 };
 
