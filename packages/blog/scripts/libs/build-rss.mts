@@ -1,21 +1,9 @@
+import { fetchAllPost, fetchAllTil } from '../../src/libs/dataFetcher';
+import { BASE_URL, BLOG_TITLE } from '../../src/libs/const';
 import RSS from 'rss';
 import { join } from 'path';
+import { markdown } from '../../src/libs/markdown';
 import { convert } from 'html-to-text';
-
-const loadCjsCompatibleModule = async <T>(path: string) => {
-  const mod = (await import(path)) as T & { default?: T };
-  return mod.default ?? mod;
-};
-
-const { fetchAllPost, fetchAllTil } = await loadCjsCompatibleModule<
-  typeof import('../../src/libs/dataFetcher')
->('../../src/libs/dataFetcher');
-const { BASE_URL, BLOG_TITLE } = await loadCjsCompatibleModule<
-  typeof import('../../src/libs/const')
->('../../src/libs/const');
-const { markdown } = await loadCjsCompatibleModule<
-  typeof import('../../src/libs/markdown')
->('../../src/libs/markdown');
 
 export async function generatePostFeed() {
   const posts = await fetchAllPost();

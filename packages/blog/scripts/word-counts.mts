@@ -1,16 +1,6 @@
 import code from 'markdown-it/lib/rules_block/code.mjs';
-
-const loadCjsCompatibleModule = async <T>(path: string) => {
-  const mod = (await import(path)) as T & { default?: T };
-  return mod.default ?? mod;
-};
-
-const { fetchAllPost, fetchAllTil } = await loadCjsCompatibleModule<
-  typeof import('../src/libs/dataFetcher')
->('../src/libs/dataFetcher');
-const { markdown } = await loadCjsCompatibleModule<
-  typeof import('../src/libs/markdown')
->('../src/libs/markdown');
+import { fetchAllPost, fetchAllTil } from '../src/libs/dataFetcher';
+import { markdown } from '../src/libs/markdown';
 
 const posts = await fetchAllPost();
 const tils = await fetchAllTil();
