@@ -7,7 +7,7 @@
     "build:main": "yarn create-rss-feed && yarn build-image && next build",
     "build:post": "next-sitemap",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "build-image": "node ./scripts/build-public-image.mjs",
     "create-rss-feed": "yarn tsx ./scripts/create-rss-feed.mts"
   },
@@ -50,10 +50,11 @@
     "@types/react": "18.3.28",
     "@types/react-dom": "18.3.7",
     "@types/sync-fetch": "0.4.3",
-    "eslint-config-next": "14.2.35",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
     "html-to-text": "9.0.5",
     "next-sitemap": "4.2.3",
-    "nodemon": "3.1.14",
+    "nodemon": "3.1.11",
     "npm-watch": "0.13.0",
     "tsx": "4.21.0"
   },
