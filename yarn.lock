@@ -2592,12 +2592,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.19.11":
-  version: 22.19.11
-  resolution: "@types/node@npm:22.19.11"
+"@types/node@npm:22.19.19":
+  version: 22.19.19
+  resolution: "@types/node@npm:22.19.19"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/4b274acf27ec31aa83b50ef22088f83c783e6bcd7dcb40b4834f64f44868b6bf68725214220f15a0c776928f7c0f7f26f03c05cd5868f0526340af3f4af4b58b
+  checksum: 10c0/402e0f088c94cabda3cd721546bd8e4e75e098e0b342f6e03b90ca1e19c28986f9650112c64fcfd09fc8cebc0f8b20291a513153e90489331cf666e1e5503e16
   languageName: node
   linkType: hard
 
@@ -2652,12 +2652,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sync-fetch@npm:0.4.3":
-  version: 0.4.3
-  resolution: "@types/sync-fetch@npm:0.4.3"
+"@types/sync-fetch@npm:0.4.4":
+  version: 0.4.4
+  resolution: "@types/sync-fetch@npm:0.4.4"
   dependencies:
     "@types/node-fetch": "npm:*"
-  checksum: 10c0/1cb48e8e2fb58701029b6da39c35429bed6445a9df31d14ddb2160b91f90e991aa40b93df251e38421daad03ea1f651967f516f5cc7cfed4815d803502754792
+  checksum: 10c0/3624d6e08b569fe618b83d903eaa9d7c75c6fb5fb7e5fea99ed72984ee92f9fe413477d9d9f31721bc3767b54bfa60fce1ff027549e148c3c1c96f1b5641fb80
   languageName: node
   linkType: hard
 
@@ -3582,11 +3582,11 @@ __metadata:
     "@types/html-to-text": "npm:9.0.4"
     "@types/katex": "npm:0.16.8"
     "@types/markdown-it": "npm:14.1.2"
-    "@types/node": "npm:22.19.11"
+    "@types/node": "npm:22.19.19"
     "@types/prismjs": "npm:1.26.6"
     "@types/react": "npm:18.3.28"
     "@types/react-dom": "npm:18.3.7"
-    "@types/sync-fetch": "npm:0.4.3"
+    "@types/sync-fetch": "npm:0.4.4"
     eslint: "npm:9.39.4"
     eslint-config-next: "npm:16.2.6"
     glob: "npm:^11.0.0"
