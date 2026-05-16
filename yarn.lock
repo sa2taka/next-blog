@@ -4598,7 +4598,7 @@ __metadata:
     "@types/react": "npm:18.3.28"
     "@types/react-dom": "npm:18.3.7"
     "@types/sync-fetch": "npm:0.4.3"
-    eslint: "npm:^9"
+    eslint: "npm:9.39.4"
     eslint-config-next: "npm:16.2.6"
     glob: "npm:^11.0.0"
     html-to-text: "npm:9.0.5"
@@ -5190,7 +5190,7 @@ __metadata:
     "@playwright/test": "npm:1.60.0"
     "@typescript-eslint/eslint-plugin": "npm:8.59.3"
     "@typescript-eslint/parser": "npm:8.59.3"
-    eslint: "npm:^9"
+    eslint: "npm:9.39.4"
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-import: "npm:2.32.0"
     next-sitemap: "npm:4.2.3"
@@ -6874,7 +6874,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9":
+"eslint@npm:9.39.4":
   version: 9.39.4
   resolution: "eslint@npm:9.39.4"
   dependencies:
