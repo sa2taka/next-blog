@@ -2,7 +2,7 @@ import { ThemeContext } from '@blog/components/contexts/theme';
 import { Footer } from '@blog/components/organisms/Footer';
 import { Header } from '@blog/components/organisms/Header';
 import type { AppProps } from 'next/app';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { ThemeContextProps } from '@blog/components/contexts/theme';
 import { Theme } from '@blog/types/theme';
 
@@ -21,7 +21,7 @@ const DefaultHead = () => {
 };
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => getThemeFromStorage());
   const saveTheme = useCallback((theme: Theme) => {
     setTheme(theme);
     persistTheme(theme);
@@ -33,10 +33,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
     }),
     [saveTheme, theme]
   );
-
-  useEffect(() => {
-    setTheme(getThemeFromStorage());
-  }, []);
 
   return (
     <>

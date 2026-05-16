@@ -24,7 +24,6 @@ export const WebPImage: React.FC<Props> = ({
         width={width}
         height={height}
       />
-      {/*  eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={altFile}
         width={width}
