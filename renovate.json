@@ -62,6 +62,18 @@
       ]
     },
     {
+      "matchDepTypes": [
+        "dependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": true
+    },
+    {
       "groupName": "type dependencies",
       "automerge": true,
       "matchPackageNames": [
