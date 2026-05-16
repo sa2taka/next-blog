@@ -11,20 +11,26 @@ import imageminGifsicle from 'imagemin-gifsicle';
  */
 export const convertImage = async (image) => {
   try {
-    const minifyImage = await imagemin.buffer(image, {
-      plugins: [
-        imageminPngquant({
-          quality: [0.6, 0.8],
-        }),
-        imageminMozjpeg({
-          quality: 60,
-        }),
-        imageminGifsicle(),
-      ],
-    });
-    const webpImage = await imagemin.buffer(minifyImage, {
-      plugins: [imageminWebp({ quality: 70 })],
-    });
+    const minifyImage = Buffer.from(
+      await imagemin.buffer(image, {
+        plugins: [
+          imageminPngquant({
+            quality: [0.6, 0.8],
+          }),
+          imageminMozjpeg({
+            quality: 60,
+          }),
+          imageminGifsicle(),
+        ],
+      })
+    );
+    const webpImage = Buffer.from(
+      await imagemin.buffer(minifyImage, {
+        plugins: [
+          imageminWebp({ quality: 70 }),
+        ],
+      })
+    );
     return { minifyImage, webpImage };
   } catch (e) {
     console.error(e);
