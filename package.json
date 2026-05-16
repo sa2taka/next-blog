@@ -11,11 +11,15 @@
     "start": "yarn workspace blog run start",
     "lint": "yarn workspaces foreach -A run lint",
     "lint:post": "yarn textlint _data/_posts",
+    "serve:blog-static": "serve packages/blog/out -l 4173",
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots",
     "build:all": "yarn workspaces run build",
     "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
+    "@playwright/test": "1.60.0",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "eslint": "8.57.1",
@@ -23,6 +27,7 @@
     "eslint-plugin-import": "2.32.0",
     "next-sitemap": "4.2.3",
     "prettier": "3.8.1",
+    "serve": "14.2.6",
     "textlint": "14.8.4",
     "textlint-filter-rule-allowlist": "4.0.0",
     "textlint-rule-preset-ja-technical-writing": "12.0.2",
