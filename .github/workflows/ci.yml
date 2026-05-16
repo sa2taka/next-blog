@@ -29,6 +29,11 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - uses: ./.github/actions/yarn-prepare
+      - name: Install VRT fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-noto-core fonts-noto-mono
+          fc-cache -f
       - name: Install Playwright browsers
         run: yarn playwright install --with-deps chromium
       - name: Run E2E and VRT
