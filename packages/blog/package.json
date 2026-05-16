@@ -2,9 +2,9 @@
   "name": "blog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npm-watch build-image & next dev",
+    "dev": "npm-watch build-image & next dev --webpack",
     "build": "yarn build:main && yarn build:post",
-    "build:main": "yarn create-rss-feed && yarn build-image && next build",
+    "build:main": "yarn create-rss-feed && yarn build-image && next build --webpack",
     "build:post": "next-sitemap",
     "start": "next start",
     "lint": "eslint .",
