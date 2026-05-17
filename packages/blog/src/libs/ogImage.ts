@@ -1,7 +1,11 @@
-import { BASE_URL } from './const';
+import { BASE_URL, BLOG_TITLE } from './const';
 
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/logo-for-facebook.png`;
 export const DEFAULT_TWITTER_IMAGE = `${BASE_URL}/logo-for-twitter.png`;
+export const DEFAULT_OG_IMAGE_ALT = `${BLOG_TITLE} の OGP 画像`;
+export const DEFAULT_OG_IMAGE_HEIGHT = 630;
+export const DEFAULT_OG_IMAGE_TYPE = 'image/png';
+export const DEFAULT_OG_IMAGE_WIDTH = 1200;
 
 /**
  * ogImageの値を絶対URLに変換する

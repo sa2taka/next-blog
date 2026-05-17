@@ -8,18 +8,18 @@ const Guide = () => {
       <Head>
         <title>プライバシーポリシー・利用ガイドライン</title>
         <meta
-          data-hid="description"
+          key="description"
           name="description"
           content="プライバシーポリシー・利用ガイドライン"
         />
         <meta
-          data-hid="og:title"
-          name="og:title"
+          key="og:title"
+          property="og:title"
           content="プライバシーポリシー・利用ガイドライン"
         />
         <meta
-          data-hid="og:description"
-          name="og:description"
+          key="og:description"
+          property="og:description"
           content="プライバシーポリシー・利用ガイドライン"
         />
       </Head>

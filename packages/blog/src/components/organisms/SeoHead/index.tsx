@@ -1,4 +1,19 @@
-import { BASE_URL } from '@blog/libs/const';
+import {
+  BASE_URL,
+  BLOG_DEFAULT_TITLE,
+  BLOG_DESCRIPTION,
+  BLOG_TITLE,
+  OG_LOCALE,
+  TWITTER_SITE,
+} from '@blog/libs/const';
+import {
+  DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_ALT,
+  DEFAULT_OG_IMAGE_HEIGHT,
+  DEFAULT_OG_IMAGE_TYPE,
+  DEFAULT_OG_IMAGE_WIDTH,
+  DEFAULT_TWITTER_IMAGE,
+} from '@blog/libs/ogImage';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -7,59 +22,81 @@ interface Props {}
 
 export const SeoHead: React.FC<Props> = ({}) => {
   const router = useRouter();
-  const currentPath = router.asPath;
-  const sitePath = `${BASE_URL}${currentPath}`;
-
-  const isContentPage =
-    currentPath.startsWith('/post/') || currentPath.match('^/til/.+ ');
+  const currentPath = router.asPath.split('#')[0]?.split('?')[0] || '/';
+  const sitePath = new URL(currentPath, BASE_URL).toString();
 
   return (
     <Head>
-      <meta data-hid="charset" charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      {!isContentPage && (
-        <>
-          <meta
-            name="description"
-            content="sa2taka/t0p_l1ghtの独断と偏見が混じった、エンジニア、プログラマーのためのニッチな記事を残すブログです。"
-          />
-          <meta
-            data-hid="og:title"
-            property="og:title"
-            content="言葉の向こうに世界を見る | sa2taka blog"
-          />
-          <meta
-            data-hid="og:description"
-            property="og:description"
-            content="sa2taka/t0p_l1ghtの独断と偏見が混じった、エンジニア、プログラマーのためのニッチな記事を残すブログです。"
-          />
-        </>
-      )}
-      <meta data-hid="og:type" property="og:type" content="website" />
+      <meta key="charset" data-hid="charset" charSet="utf-8" />
       <meta
-        data-hid="og:image"
-        property="og:image"
-        content="https://blog.sa2taka.com/logo-for-facebook.png"
-      />
-      <meta data-hid="twitter:card" property="twitter:card" content="summary" />
-      <meta
-        data-hid="twitter:image"
-        property="twitter:image"
-        content="https://blog.sa2taka.com/logo-for-twitter.png"
+        key="viewport"
+        name="viewport"
+        content="width=device-width, initial-scale=1"
       />
       <meta
-        data-hid="twitter:site"
-        property="twitter:site"
-        content="@t0p_l1ght"
+        key="description"
+        name="description"
+        content={BLOG_DESCRIPTION}
+      />
+      <meta key="og:title" property="og:title" content={BLOG_DEFAULT_TITLE} />
+      <meta
+        key="og:description"
+        property="og:description"
+        content={BLOG_DESCRIPTION}
+      />
+      <meta key="og:type" property="og:type" content="website" />
+      <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
+      <meta
+        key="og:image:secure_url"
+        property="og:image:secure_url"
+        content={DEFAULT_OG_IMAGE}
       />
       <meta
-        data-hid="og:site_name"
-        property="og:site_name"
-        content="言葉の向こうに世界を見る"
+        key="og:image:type"
+        property="og:image:type"
+        content={DEFAULT_OG_IMAGE_TYPE}
       />
-      <meta data-hid="og:url" property="og:url" content={sitePath} />
-
-      <link rel="canonical" href={sitePath} />
+      <meta
+        key="og:image:width"
+        property="og:image:width"
+        content={DEFAULT_OG_IMAGE_WIDTH.toString()}
+      />
+      <meta
+        key="og:image:height"
+        property="og:image:height"
+        content={DEFAULT_OG_IMAGE_HEIGHT.toString()}
+      />
+      <meta
+        key="og:image:alt"
+        property="og:image:alt"
+        content={DEFAULT_OG_IMAGE_ALT}
+      />
+      <meta key="og:locale" property="og:locale" content={OG_LOCALE} />
+      <meta key="og:site_name" property="og:site_name" content={BLOG_TITLE} />
+      <meta key="og:url" property="og:url" content={sitePath} />
+      <meta key="twitter:card" name="twitter:card" content="summary" />
+      <meta
+        key="twitter:title"
+        name="twitter:title"
+        content={BLOG_DEFAULT_TITLE}
+      />
+      <meta
+        key="twitter:description"
+        name="twitter:description"
+        content={BLOG_DESCRIPTION}
+      />
+      <meta
+        key="twitter:image"
+        name="twitter:image"
+        content={DEFAULT_TWITTER_IMAGE}
+      />
+      <meta
+        key="twitter:image:alt"
+        name="twitter:image:alt"
+        content={DEFAULT_OG_IMAGE_ALT}
+      />
+      <meta key="twitter:site" name="twitter:site" content={TWITTER_SITE} />
+      <link key="canonical" rel="canonical" href={sitePath} />
     </Head>
   );
 };
