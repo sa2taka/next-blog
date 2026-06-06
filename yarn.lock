@@ -4095,7 +4095,7 @@ __metadata:
     react-dom: "npm:19.2.6"
     rss: "npm:1.2.2"
     sync-fetch: "npm:^0.6.0"
-    tsx: "npm:4.22.2"
+    tsx: "npm:4.22.4"
     zod: "npm:^3.21.4"
   languageName: unknown
   linkType: soft
@@ -12171,9 +12171,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:4.22.2":
-  version: 4.22.2
-  resolution: "tsx@npm:4.22.2"
+"tsx@npm:4.22.4":
+  version: 4.22.4
+  resolution: "tsx@npm:4.22.4"
   dependencies:
     esbuild: "npm:~0.28.0"
     fsevents: "npm:~2.3.3"
@@ -12182,7 +12182,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10c0/5e9a9b5577642b6084bac14450379bdb72567a9bf47b3508470f3ccd530693358ab0c5eb86c57c249260f2ffa0549e2e4cedc93cbe526bbae5ef4d215e1d57a3
+  checksum: 10c0/3df31eb4929ff501b40b122163705b201ea57a492581e14312ae95d21eb015b33ded46a3fd564f9c89a0e8083186987fc4f10dd38182c4ad6241605974f6c927
   languageName: node
   linkType: hard
 
