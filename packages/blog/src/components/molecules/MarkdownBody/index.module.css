@@ -128,7 +128,6 @@
   overflow-x: auto;
   color: #ddd;
   background: #282c34;
-  font-weight: 500;
   /* 閲覧者のブラウザ設定の等幅フォントに委ねる。サイズはremで指定し、
      総称monospace時に相対サイズが等幅既定(13px)基準で縮む挙動を避ける */
   font-family: monospace;
