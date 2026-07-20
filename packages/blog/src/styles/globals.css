@@ -33,6 +33,8 @@ body {
   /* 和文と英数字の間の四分アキと、連続する約物の詰め(対応ブラウザのみ) */
   text-autospace: normal;
   text-spacing-trim: normal;
+  /* イタリック体を持たない和文フォントの機械的な傾き(合成斜体)を禁止する */
+  font-synthesis-style: none;
 }
 
 a {

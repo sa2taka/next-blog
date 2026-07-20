@@ -31,6 +31,12 @@
   background: linear-gradient(transparent 80%, var(--secondary-color) 0%);
 }
 
+/* 和文にイタリック体がないため、強調はウェイトで表現する */
+.postBody em {
+  font-style: normal;
+  font-weight: 600;
+}
+
 .postBody blockquote {
   padding: 0.6em 1em;
   margin: 2em auto;
