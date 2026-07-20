@@ -92,6 +92,14 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 
 const Page: NextPage<Props> = ({ count, page, posts, slug, category }) => {
   const breadcrumbsList = generateCategoryBreadcrumbsList(category);
+  const pagination = (
+    <Pagination
+      baseUrl={`/category/${slug}`}
+      currentPage={page}
+      limit={POSTS_LIMIT}
+      postsCount={count}
+    />
+  );
   return (
     <>
       <Head>
@@ -101,14 +109,10 @@ const Page: NextPage<Props> = ({ count, page, posts, slug, category }) => {
         <meta name="robots" content="noindex,nofollow" />
       </Head>
       <Breadcrumbs list={breadcrumbsList} />
-      <Pagination
-        baseUrl={`/category/${slug}`}
-        currentPage={page}
-        limit={POSTS_LIMIT}
-        postsCount={count}
-      />
+      {pagination}
       <h2 className={titleStyles.title}>{category.name}</h2>
       <Posts posts={posts} />
+      {pagination}
     </>
   );
 };

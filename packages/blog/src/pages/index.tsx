@@ -38,15 +38,19 @@ export const getStaticProps = async (
 };
 
 const Home: NextPage<Props> = ({ count, page, posts }) => {
+  const pagination = (
+    <Pagination
+      baseUrl="/page"
+      currentPage={page}
+      limit={POSTS_LIMIT}
+      postsCount={count}
+    />
+  );
   return (
     <>
-      <Pagination
-        baseUrl="/page"
-        currentPage={page}
-        limit={POSTS_LIMIT}
-        postsCount={count}
-      />
+      {pagination}
       <Posts posts={posts} />
+      {pagination}
     </>
   );
 };

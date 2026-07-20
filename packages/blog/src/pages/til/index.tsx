@@ -40,6 +40,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 const Page: NextPage<Props> = ({ count, page, tils }) => {
   const breadcrumbsList = useMemo(() => generateTilsBreadcrumbsList(), []);
+  const pagination = (
+    <Pagination
+      baseUrl="/til/page"
+      currentPage={page}
+      limit={TIL_LIMIT}
+      postsCount={count}
+    />
+  );
 
   return (
     <>
@@ -47,14 +55,10 @@ const Page: NextPage<Props> = ({ count, page, tils }) => {
         <title> TIL </title>
       </Head>
       <Breadcrumbs list={breadcrumbsList} />
-      <Pagination
-        baseUrl="/til/page"
-        currentPage={page}
-        limit={TIL_LIMIT}
-        postsCount={count}
-      />
+      {pagination}
       <div className={titleStyles.title}>TIL</div>
       <Tils tils={tils} />
+      {pagination}
     </>
   );
 };
