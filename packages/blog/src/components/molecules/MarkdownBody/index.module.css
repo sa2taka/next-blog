@@ -129,6 +129,10 @@
   color: #ddd;
   background: #282c34;
   font-weight: 500;
+  /* 閲覧者のブラウザ設定の等幅フォントに委ねる。サイズはremで指定し、
+     総称monospace時に相対サイズが等幅既定(13px)基準で縮む挙動を避ける */
+  font-family: monospace;
+  font-size: 0.9375rem;
 }
 
 .postBody code :global(.token.prompt) {
@@ -329,7 +333,7 @@
   min-width: 5em;
   padding: 0.1em 0.3em 0.1em 1em;
 
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.5;
 
   margin: 0;
