@@ -109,6 +109,18 @@
   margin-bottom: 20px;
 }
 
+.postBody h2,
+.postBody h3,
+.postBody h4,
+.postBody h5 {
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  /* paltで約物・仮名を詰める。auto-phrase/balanceで文節単位の自然な折り返しにする */
+  font-feature-settings: 'palt';
+  text-wrap: balance;
+  word-break: auto-phrase;
+}
+
 .postBody hr {
   margin-top: 12px;
   margin-bottom: 2em;
@@ -132,6 +144,9 @@
      総称monospace時に相対サイズが等幅既定(13px)基準で縮む挙動を避ける */
   font-family: monospace;
   font-size: 0.9375rem;
+  /* コードは桁揃えを保つため、和欧間アキ・約物詰めを無効にする */
+  text-autospace: no-autospace;
+  text-spacing-trim: space-all;
 }
 
 .postBody code :global(.token.prompt) {
