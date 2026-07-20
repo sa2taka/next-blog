@@ -63,10 +63,15 @@
 
 .postBody :where(ul, ol) {
   margin-bottom: 1.8em;
+  padding-left: 1.6em;
+}
+
+.postBody li {
+  margin-bottom: 0.4em;
 }
 
 .postBody li > :is(ul, ol) {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 
 .postBody blockquote :global(p.author) {
@@ -199,11 +204,6 @@
 
 .postBody :global(code.hljsComment) {
   color: #acb3c0;
-}
-
-.postBody ul,
-.postBody ol {
-  margin-left: 1.2em;
 }
 
 .postBody :global(.message) {
