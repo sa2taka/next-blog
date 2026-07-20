@@ -154,6 +154,13 @@
   color: #777;
 }
 
+.postBody a {
+  text-decoration: underline;
+  /* 和文の字面や欧文ディセンダに下線が重ならない位置まで下げる */
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
 :global(.theme--light) .postBody a {
   color: #006256;
 }
