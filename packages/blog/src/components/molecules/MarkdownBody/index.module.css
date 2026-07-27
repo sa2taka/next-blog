@@ -31,6 +31,12 @@
   background: linear-gradient(transparent 80%, var(--secondary-color) 0%);
 }
 
+/* 和文にイタリック体がないため、強調はウェイトで表現する */
+.postBody em {
+  font-style: normal;
+  font-weight: 600;
+}
+
 .postBody blockquote {
   padding: 0.6em 1em;
   margin: 2em auto;
@@ -57,10 +63,15 @@
 
 .postBody :where(ul, ol) {
   margin-bottom: 1.8em;
+  padding-left: 1.6em;
+}
+
+.postBody li {
+  margin-bottom: 0.4em;
 }
 
 .postBody li > :is(ul, ol) {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 
 .postBody blockquote :global(p.author) {
@@ -109,6 +120,18 @@
   margin-bottom: 20px;
 }
 
+.postBody h2,
+.postBody h3,
+.postBody h4,
+.postBody h5 {
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  /* paltで約物・仮名を詰める。auto-phrase/balanceで文節単位の自然な折り返しにする */
+  font-feature-settings: 'palt';
+  text-wrap: balance;
+  word-break: auto-phrase;
+}
+
 .postBody hr {
   margin-top: 12px;
   margin-bottom: 2em;
@@ -128,12 +151,25 @@
   overflow-x: auto;
   color: #ddd;
   background: #282c34;
-  font-weight: 500;
+  /* 閲覧者のブラウザ設定の等幅フォントに委ねる。サイズはremで指定し、
+     総称monospace時に相対サイズが等幅既定(13px)基準で縮む挙動を避ける */
+  font-family: monospace;
+  font-size: 0.9375rem;
+  /* コードは桁揃えを保つため、和欧間アキ・約物詰めを無効にする */
+  text-autospace: no-autospace;
+  text-spacing-trim: space-all;
 }
 
 .postBody code :global(.token.prompt) {
   user-select: none;
   color: #777;
+}
+
+.postBody a {
+  text-decoration: underline;
+  /* 和文の字面や欧文ディセンダに下線が重ならない位置まで下げる */
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
 }
 
 :global(.theme--light) .postBody a {
@@ -168,11 +204,6 @@
 
 .postBody :global(code.hljsComment) {
   color: #acb3c0;
-}
-
-.postBody ul,
-.postBody ol {
-  margin-left: 1.2em;
 }
 
 .postBody :global(.message) {
@@ -329,7 +360,7 @@
   min-width: 5em;
   padding: 0.1em 0.3em 0.1em 1em;
 
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.5;
 
   margin: 0;

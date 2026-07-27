@@ -61,19 +61,23 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 };
 
 const Page: NextPage<Props> = ({ count, page, posts }) => {
+  const pagination = (
+    <Pagination
+      baseUrl="/page"
+      currentPage={page}
+      limit={POSTS_LIMIT}
+      postsCount={count}
+    />
+  );
   return (
     <>
       <Head>
         <title> {page} ページ目</title>
         <meta name="robots" content="noindex,nofollow" />
       </Head>
-      <Pagination
-        baseUrl="/page"
-        currentPage={page}
-        limit={POSTS_LIMIT}
-        postsCount={count}
-      />
+      {pagination}
       <Posts posts={posts} />
+      {pagination}
     </>
   );
 };
