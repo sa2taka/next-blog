@@ -4,7 +4,7 @@ title: DIVER OSINT CTF 2026 Writeup
 category: writeup
 author: sa2taka
 tags: osint,ctf,claude-code
-public: false
+public: true
 createdAt: 2026-07-31
 updatedAt: 2026-07-31
 latex: false
