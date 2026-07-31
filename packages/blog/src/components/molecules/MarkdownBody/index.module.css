@@ -288,6 +288,14 @@
   display: block;
   overflow-x: auto;
   white-space: nowrap;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.8em auto;
+}
+
+.postBody th,
+.postBody td {
+  padding: 0.4em 0.8em;
 }
 
 .postBody :global(.github-code-block) {
