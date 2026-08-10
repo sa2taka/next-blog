@@ -18,8 +18,8 @@
     "image-manager": "yarn workspace image-manager-server dev & yarn workspace image-manager-client dev"
   },
   "devDependencies": {
-    "@babel/core": "7.29.7",
-    "@babel/eslint-parser": "7.29.7",
+    "@babel/core": "8.0.1",
+    "@babel/eslint-parser": "8.0.1",
     "@next/eslint-plugin-next": "16.3.0",
     "@playwright/test": "1.62.1",
     "@typescript-eslint/eslint-plugin": "8.66.0",
