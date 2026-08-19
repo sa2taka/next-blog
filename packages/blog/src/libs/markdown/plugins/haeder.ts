@@ -14,7 +14,7 @@ export const headerPlugin = (md: MarkdownIt) => {
     if (m) {
       const headerIndex = Number(m[1]);
       const newIndex = headerIndex < 6 ? headerIndex + 1 : 6;
-      return `<h${newIndex} id="${content}">`;
+      return `<h${newIndex} id="${content.replace(/`/g, '')}">`;
     } else {
       return self.renderToken(tokens, idx, options);
     }
