@@ -53,7 +53,7 @@ export const webpConvertPlugin = (md: MarkdownIt) => {
 const fetchImageBuffer = (src: string): Uint8Array => {
   if (src.startsWith('../_images')) {
     const fileName = decodeURIComponent(
-      src.replace('./images/', '').normalize()
+      src.replace('../_images/', '').normalize()
     );
     const projectRoot = process
       .cwd()
