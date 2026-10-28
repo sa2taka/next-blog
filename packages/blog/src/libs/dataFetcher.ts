@@ -8,7 +8,7 @@ const DATA_ROOT = path.join(process.cwd(), '..', '..', '_data');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const extractHeaderRegexp = /-{3,}\n([\s\S]*?)\n-{3,}/;
+const extractHeaderRegexp = /-{3,}\r?\n([\s\S]*?)\r?\n-{3,}/;
 
 const categoryMemorized: Record<string, Category | undefined> = {};
 const postMemorized: Record<string, Post | undefined> = {};
@@ -39,7 +39,7 @@ const parseHeader = async (
   if (!header) {
     throw new ParseError();
   }
-  const lines = header.split('\n');
+  const lines = header.split(/\r?\n/);
 
   const result: any = {};
 
