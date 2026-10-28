@@ -8,7 +8,7 @@ const DATA_ROOT = path.join(process.cwd(), '..', '..', '_data');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const extractHeaderRegexp = /-{3,}\n([\s\S]*?)\n-{3,}/;
+const extractHeaderRegexp = /-{3,}\r?\n([\s\S]*?)\r?\n-{3,}/;
 
 const categoryMemorized: Record<string, Category | undefined> = {};
 const postMemorized: Record<string, Post | undefined> = {};
@@ -39,7 +39,7 @@ const parseHeader = async (
   if (!header) {
     throw new ParseError();
   }
-  const lines = header.split('\n');
+  const lines = header.split(/\r?\n/);
 
   const result: any = {};
 
@@ -135,9 +135,9 @@ export async function fetchCategory(slug: string): Promise<Category> {
 }
 
 export async function fetchCategories(): Promise<Category[]> {
-  const categoryFilePaths = await glob(
-    path.join(DATA_ROOT, '_categories', '*.md')
-  );
+  const categoryFilePaths = await glob('*.md', {
+    cwd: path.join(DATA_ROOT, '_categories'),
+  });
 
   return (
     await Promise.all(categoryFilePaths.map(getSlug).map(fetchCategory))
@@ -162,7 +162,9 @@ export async function fetchPost(slug: string): Promise<Post> {
 }
 
 export async function fetchAllPost(): Promise<Post[]> {
-  const postFilePaths = await glob(path.join(DATA_ROOT, '_posts', '*.md'));
+  const postFilePaths = await glob('*.md', {
+    cwd: path.join(DATA_ROOT, '_posts'),
+  });
 
   return (await Promise.all(postFilePaths.map(getSlug).map(fetchPost)))
     .filter((p) => !isProduction || p.public)
@@ -227,7 +229,9 @@ export async function fetchTil(slug: string): Promise<Til> {
 }
 
 export async function fetchAllTil(): Promise<Til[]> {
-  const tilFilePaths = await glob(path.join(DATA_ROOT, '_til', '*.md'));
+  const tilFilePaths = await glob('*.md', {
+    cwd: path.join(DATA_ROOT, '_til'),
+  });
 
   return (await Promise.all(tilFilePaths.map(getSlug).map(fetchTil)))
     .sort((a, b) => {
