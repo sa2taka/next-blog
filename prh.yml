@@ -1,0 +1,41 @@
+version: 1
+rules:
+  - expected: JavaScript
+    pattern: '/(?<![A-Za-z0-9-])[Jj]ava[Ss]cript(?![A-Za-z0-9-])/'
+    specs:
+      - from: Javascript
+        to: JavaScript
+      - from: javascript
+        to: JavaScript
+      - from: JavaScript
+        to: JavaScript
+      - from: javascript-typescript
+        to: javascript-typescript
+
+  - expected: TypeScript
+    pattern: '/(?<![A-Za-z0-9-])[Tt]ype[Ss]cript(?![A-Za-z0-9-])/'
+    specs:
+      - from: Typescript
+        to: TypeScript
+      - from: typescript
+        to: TypeScript
+      - from: TypeScript
+        to: TypeScript
+      - from: typescript-eslint
+        to: typescript-eslint
+
+  - expected: GitHub
+    pattern: '/(?<![A-Za-z0-9./-])[Gg]it[Hh]ub(?![A-Za-z0-9.-])/'
+    specs:
+      - from: Github
+        to: GitHub
+      - from: github
+        to: GitHub
+      - from: GitHub
+        to: GitHub
+      - from: github.com
+        to: github.com
+      - from: github.io
+        to: github.io
+      - from: https://github.com/textlint/textlint
+        to: https://github.com/textlint/textlint
