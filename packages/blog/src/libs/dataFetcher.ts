@@ -135,9 +135,9 @@ export async function fetchCategory(slug: string): Promise<Category> {
 }
 
 export async function fetchCategories(): Promise<Category[]> {
-  const categoryFilePaths = await glob(
-    path.join(DATA_ROOT, '_categories', '*.md')
-  );
+  const categoryFilePaths = await glob('*.md', {
+    cwd: path.join(DATA_ROOT, '_categories'),
+  });
 
   return (
     await Promise.all(categoryFilePaths.map(getSlug).map(fetchCategory))
@@ -162,7 +162,9 @@ export async function fetchPost(slug: string): Promise<Post> {
 }
 
 export async function fetchAllPost(): Promise<Post[]> {
-  const postFilePaths = await glob(path.join(DATA_ROOT, '_posts', '*.md'));
+  const postFilePaths = await glob('*.md', {
+    cwd: path.join(DATA_ROOT, '_posts'),
+  });
 
   return (await Promise.all(postFilePaths.map(getSlug).map(fetchPost)))
     .filter((p) => !isProduction || p.public)
@@ -227,7 +229,9 @@ export async function fetchTil(slug: string): Promise<Til> {
 }
 
 export async function fetchAllTil(): Promise<Til[]> {
-  const tilFilePaths = await glob(path.join(DATA_ROOT, '_til', '*.md'));
+  const tilFilePaths = await glob('*.md', {
+    cwd: path.join(DATA_ROOT, '_til'),
+  });
 
   return (await Promise.all(tilFilePaths.map(getSlug).map(fetchTil)))
     .sort((a, b) => {

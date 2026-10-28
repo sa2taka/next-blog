@@ -15,13 +15,14 @@ if (!fs.existsSync(destDir)) {
   fs.mkdirSync(destDir);
 }
 
-const images = glob.sync(`${srcDir}/**/*.{gif,png,jpg}`);
+const images = glob.sync('**/*.{gif,png,jpg}', { cwd: srcDir });
 let cnt = 0;
 
-for (const imageSrc of images) {
+for (const image of images) {
   cnt++;
-  console.log(`${imageSrc}(${cnt}/${images.length})`);
-  const dest = imageSrc.replace(srcDir, destDir).normalize();
+  console.log(`${image}(${cnt}/${images.length})`);
+  const imageSrc = path.join(srcDir, image);
+  const dest = path.join(destDir, image).normalize();
   const webpDest = dest.replace(/\.(gif|png|jpg)$/, '.webp');
 
   if (fs.existsSync(dest) && fs.existsSync(webpDest)) {

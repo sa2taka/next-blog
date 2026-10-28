@@ -57,7 +57,7 @@ const fetchImageBuffer = (src: string): Uint8Array => {
     );
     const projectRoot = process
       .cwd()
-      .replace(/(.+?)\/packages\/blog\/?.*$/, '$1');
+      .replace(/[\\/]packages[\\/]blog([\\/].*)?$/, '');
     const path = join(projectRoot, '_data', '_images', fileName);
     return readFileSync(path);
   } else {
