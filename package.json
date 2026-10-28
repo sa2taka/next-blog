@@ -11,6 +11,7 @@
     "start": "yarn workspace blog run start",
     "lint": "yarn workspaces foreach -A run lint",
     "lint:post": "yarn textlint _data/_posts",
+    "lint:links": "yarn textlint --config .textlintrc.links.json _data/_posts",
     "serve:blog-static": "serve packages/blog/out -l 4173",
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
@@ -22,6 +23,7 @@
     "@babel/eslint-parser": "7.29.9",
     "@next/eslint-plugin-next": "16.3.0",
     "@playwright/test": "1.62.1",
+    "@textlint-ja/textlint-rule-preset-ai-writing": "1.7.0",
     "@typescript-eslint/eslint-plugin": "8.66.0",
     "@typescript-eslint/parser": "8.66.0",
     "eslint": "10.8.0",
@@ -32,8 +34,10 @@
     "serve": "14.2.6",
     "textlint": "15.8.0",
     "textlint-filter-rule-allowlist": "4.0.0",
+    "textlint-rule-no-dead-link": "6.2.3",
     "textlint-rule-preset-ja-technical-writing": "12.0.2",
     "textlint-rule-preset-jtf-style": "3.0.3",
+    "textlint-rule-prh": "6.1.1",
     "typescript": "6.0.3"
   },
   "workspaces": [

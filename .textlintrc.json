@@ -35,6 +35,19 @@
       "1.2.1.句点(。)と読点(、)": false,
       "4.1.3.ピリオド(.)、カンマ(,)": false,
       "4.3.2.大かっこ［］": false
+    },
+    "@textlint-ja/preset-ai-writing": {
+      "no-ai-list-formatting": {
+        "disableBoldListItems": true
+      },
+      "no-ai-hype-expressions": {
+        "allows": ["/完全に/", "/大幅に/"]
+      },
+      // このルールは report 時に severity を見ず、常に error になる
+      "ai-tech-writing-guideline": false
+    },
+    "prh": {
+      "rulePaths": ["./prh.yml"]
     }
   },
   "filters": {

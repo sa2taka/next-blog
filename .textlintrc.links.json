@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "no-dead-link": {
+      // 記事の相対パスはサイト上のパスで、Markdown の隣に実ファイルがあるとは限らない
+      "checkRelative": false,
+      // 転送（http→https や末尾スラッシュ）は生存しているリンクとして扱う
+      "ignoreRedirects": true
+    }
+  }
+}
