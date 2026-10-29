@@ -1,0 +1,45 @@
+---
+import Breadcrumbs from '@blog/components/Breadcrumbs.astro';
+import Pagination from '@blog/components/Pagination.astro';
+import Posts from '@blog/components/Posts.astro';
+import BaseLayout from '@blog/layouts/BaseLayout.astro';
+import { generateCategoryBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
+import { POSTS_LIMIT } from '@blog/libs/const';
+import {
+  fetchCategoriesWithCount,
+  fetchPostInCategory,
+} from '@blog/libs/dataFetcher';
+import type { Category } from '@blog/types/entry';
+
+export async function getStaticPaths() {
+  const categories = await fetchCategoriesWithCount();
+
+  return categories.flatMap(({ element: category, count }) => {
+    const allPage = Math.ceil(count / POSTS_LIMIT);
+
+    return Array.from({ length: allPage }, (_, index) => ({
+      params: { slug: category.slug, page: String(index + 1) },
+      props: { category },
+    }));
+  });
+}
+
+interface Props {
+  category: Category;
+}
+
+const { category } = Astro.props;
+const page = Number(Astro.params.page);
+const posts = await fetchPostInCategory(category.slug, page - 1, POSTS_LIMIT);
+const count = posts.length;
+const breadcrumbsList = generateCategoryBreadcrumbsList(category);
+const baseUrl = `/category/${category.slug}`;
+---
+
+<BaseLayout title={`${category.name} カテゴリ ${page} ページ目`} noindex>
+  <Breadcrumbs list={breadcrumbsList} />
+  <Pagination baseUrl={baseUrl} currentPage={page} limit={POSTS_LIMIT} postsCount={count} />
+  <h2 class="page-title">{category.name}</h2>
+  <Posts posts={posts} />
+  <Pagination baseUrl={baseUrl} currentPage={page} limit={POSTS_LIMIT} postsCount={count} />
+</BaseLayout>

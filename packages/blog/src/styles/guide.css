@@ -1,0 +1,33 @@
+.guide p {
+  text-align: left;
+}
+
+.guide h1,
+.guide h2 {
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.guide h3,
+.guide h4 {
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+.guide th:nth-of-type(n + 2),
+.guide td:nth-of-type(n + 2) {
+  padding-left: 8px;
+}
+
+.guide table {
+  margin: auto auto;
+}
+
+.guide caption {
+  margin: 1em auto;
+}
+
+.guide ul {
+  margin: 1em;
+}

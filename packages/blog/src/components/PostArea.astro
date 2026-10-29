@@ -1,0 +1,22 @@
+---
+import type { Post } from '@blog/types/entry';
+import type { PostIndexItem } from '@blog/types/postIndex';
+import Information from './Information.astro';
+import MarkdownBody from './MarkdownBody.astro';
+import PostIndex from './PostIndex.astro';
+import './PostArea.css';
+
+interface Props {
+  post: Post;
+  rawHtml: string;
+  index: PostIndexItem[];
+}
+
+const { post, rawHtml, index } = Astro.props;
+---
+
+<article class="article">
+  <Information post={post} />
+  {index.length > 0 && <PostIndex index={index} />}
+  <MarkdownBody rawHtml={rawHtml} />
+</article>

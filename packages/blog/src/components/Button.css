@@ -1,0 +1,152 @@
+.btn {
+  border-radius: 4px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.28s;
+  transition-property: box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  height: 48px;
+  border: none;
+}
+
+.btn::before {
+  border-radius: inherit;
+  bottom: 0;
+  color: inherit;
+  content: '';
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.theme--dark .btn::before {
+  background-color: white;
+}
+
+.theme--light .btn::before {
+  background-color: black;
+}
+
+.btn:hover::before {
+  opacity: 0.08;
+}
+
+a.btn {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.btn__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+.btn--default {
+  box-shadow:
+    0 3px 1px -2px rgb(0 0 0 / 20%),
+    0 2px 2px 0 rgb(0 0 0 / 14%),
+    0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+
+.theme--dark .btn--default,
+.theme--light .btn--default {
+  background: white;
+}
+
+.btn--default::before {
+  background-color: black;
+  opacity: 0.08;
+}
+
+.btn--outlined {
+  background: transparent;
+}
+
+.btn--outlined:hover::before {
+  opacity: 0.12;
+}
+
+.theme--dark .btn--outlined {
+  border: thin solid white;
+}
+
+.theme--dark .btn--outlined .btn__content {
+  color: white;
+}
+
+.theme--light .btn--outlined {
+  border: thin solid black;
+}
+
+.theme--light .btn--outlined .btn__content {
+  color: black;
+}
+
+.btn--icon {
+  background: transparent;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+}
+
+.btn--icon .btn__content {
+  height: 36px;
+  width: 36px;
+}
+
+.theme--dark .btn--icon .btn__content {
+  color: white;
+}
+
+.theme--light .btn--icon .btn__content {
+  color: black;
+}
+
+.btn--x-small {
+  width: 24px;
+  height: 24px;
+}
+
+.btn--x-small .btn__content {
+  font-size: 9px;
+  height: 16px;
+  width: 16px;
+}
+
+.btn--small {
+  width: 32px;
+  height: 32px;
+}
+
+.btn--small .btn__content {
+  font-size: 12px;
+  height: 24px;
+  width: 24px;
+}
+
+.btn--disabled {
+  pointer-events: none;
+}
+
+.theme--dark .btn--disabled .btn__content {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.theme--light .btn--disabled .btn__content {
+  color: rgba(0, 0, 0, 0.6);
+}

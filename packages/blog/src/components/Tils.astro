@@ -1,0 +1,15 @@
+---
+import type { TilWithRawHtml } from '@blog/types/entry';
+import TilItem from './TilItem.astro';
+import './Tils.css';
+
+interface Props {
+  tils: TilWithRawHtml[];
+}
+
+const { tils } = Astro.props;
+---
+
+<ul class="tils">
+  {tils.map((til) => <TilItem til={til} />)}
+</ul>

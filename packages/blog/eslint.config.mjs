@@ -1,37 +1,18 @@
 import tsParser from '@typescript-eslint/parser';
-import nextPlugin from '@next/eslint-plugin-next';
-
-const nextRules = {
-  ...nextPlugin.configs.recommended.rules,
-  ...nextPlugin.configs['core-web-vitals'].rules,
-  '@next/next/no-html-link-for-pages': 'off',
-};
+import eslintPluginAstro from 'eslint-plugin-astro';
 
 export default [
   {
-    ignores: ['.next/**', 'out/**', 'public/**', 'node_modules/**'],
+    ignores: ['out/**', 'public/**', 'node_modules/**', '.astro/**'],
   },
+  ...eslintPluginAstro.configs['flat/recommended'],
   {
-    files: ['**/*.{js,mjs,cjs,ts,tsx}'],
+    files: ['**/*.{js,mjs,cjs,ts,mts}'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    plugins: {
-      '@next/next': nextPlugin,
-    },
-    rules: {
-      ...nextRules,
-    },
-    settings: {
-      next: {
-        rootDir: '.',
       },
     },
   },

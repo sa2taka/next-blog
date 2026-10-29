@@ -1,0 +1,35 @@
+.theme--light .theme-switch__to-light {
+  display: none;
+}
+
+html:not(.theme--light) .theme-switch__to-dark {
+  display: none;
+}
+
+.theme-switch__label {
+  white-space: nowrap;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip__content {
+  position: absolute;
+  right: 0;
+  padding: 0.2em 0.4em;
+  opacity: 0;
+  background: rgba(97, 97, 97, 0.9);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: none;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out 0.5s;
+}
+
+.tooltip:hover .tooltip__content,
+.tooltip:focus-within .tooltip__content {
+  opacity: 1;
+}

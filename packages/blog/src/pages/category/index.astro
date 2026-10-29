@@ -1,0 +1,16 @@
+---
+import Breadcrumbs from '@blog/components/Breadcrumbs.astro';
+import CategoryArea from '@blog/components/CategoryArea.astro';
+import BaseLayout from '@blog/layouts/BaseLayout.astro';
+import { generateCategoriesBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
+import { fetchCategoriesWithCount } from '@blog/libs/dataFetcher';
+
+const categories = await fetchCategoriesWithCount();
+const breadcrumbsList = generateCategoriesBreadcrumbsList();
+---
+
+<BaseLayout title="カテゴリ" noindex>
+  <Breadcrumbs list={breadcrumbsList} />
+  <h2 class="page-title">カテゴリ</h2>
+  <CategoryArea categories={categories} />
+</BaseLayout>

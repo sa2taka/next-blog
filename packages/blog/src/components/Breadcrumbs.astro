@@ -1,0 +1,42 @@
+---
+import type { BreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
+import { breadcrumbListJsonLd } from '@blog/libs/seo';
+import { withTrailingSlash } from '@blog/libs/url';
+import Icon from './Icon.astro';
+import './Breadcrumbs.css';
+
+interface Props {
+  list: BreadcrumbsList;
+}
+
+const { list } = Astro.props;
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(breadcrumbListJsonLd(list))}
+/>
+<nav class="breadcrumbs">
+  <ul class="breadcrumbs__list">
+    {
+      list.map((item, index) => (
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__separator">
+            {index !== 0 && (
+              <Icon
+                name="circleChevronRight"
+                class="breadcrumbs__arrow"
+                style="margin-top:1px"
+                height={16}
+              />
+            )}
+          </span>
+          <a href={withTrailingSlash(item.href)} class="breadcrumbs__link">
+            {item.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

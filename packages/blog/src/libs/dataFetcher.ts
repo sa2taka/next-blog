@@ -3,8 +3,7 @@ import { Category, categorySchema, Post, postSchema, Til, tilSchema } from '@blo
 import * as path from 'path';
 import { readFile } from 'fs/promises';
 import { glob } from 'glob';
-
-const DATA_ROOT = path.join(process.cwd(), '..', '..', '_data');
+import { DATA_ROOT } from '@blog/libs/projectRoot';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -252,4 +251,21 @@ export async function fetchTils(page: number, limit: number): Promise<Til[]> {
 
 export async function fetchTilsCount(): Promise<number> {
   return (await fetchAllTil()).length;
+}
+
+export type CategoryWithCount = {
+  element: Category;
+  count: number;
+};
+
+export async function fetchCategoriesWithCount(): Promise<CategoryWithCount[]> {
+  const categories = await fetchCategories();
+  const categoriesWithCount = await Promise.all(
+    categories.map(async (category) => ({
+      element: category,
+      count: await fetchPostsCountInCategory(category.slug),
+    }))
+  );
+
+  return categoriesWithCount.filter(({ count }) => count > 0);
 }

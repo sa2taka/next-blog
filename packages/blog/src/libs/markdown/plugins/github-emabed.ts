@@ -1,6 +1,7 @@
 import fetchSync from 'sync-fetch';
 import MarkdownIt from 'markdown-it';
 import { escapeHtml } from '@blog/libs/escapeHtml';
+import { DATA_ROOT } from '@blog/libs/projectRoot';
 import prism from '@blog/libs/prism';
 import crypto from 'crypto';
 import fs from 'fs';
@@ -15,10 +16,7 @@ const MAX_CONCURRENT_FETCHES = 1; // 同時に実行可能なfetchSyncの最大�
 let currentFetchCount = 0;
 
 // キャッシュディレクトリのパス
-const CACHE_DIR = path.resolve(
-  __dirname,
-  '../../../../../../_data/_caches/github'
-);
+const CACHE_DIR = path.join(DATA_ROOT, '_caches', 'github');
 
 const generateHashFromUrl = (url: string): string => {
   return crypto.createHash('sha256').update(url).digest('hex');

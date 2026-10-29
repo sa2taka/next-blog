@@ -1,0 +1,22 @@
+---
+import { BASE_URL } from '@blog/libs/const';
+import AnimationLink from './AnimationLink.astro';
+import Icon from './Icon.astro';
+import './Footer.css';
+---
+
+<footer class="site-footer sheet">
+  <div class="site-footer__center">
+    <AnimationLink href="https://twitter.com/t0p_l1ght" class="site-footer__link">
+      <Icon name="xTwitter" class="site-footer__x-icon" width={18} style="padding-right:3px" />
+      <span>筆者Xアカウント</span>
+    </AnimationLink>
+    <AnimationLink href="/guide/" class="site-footer__link">
+      <span>当サイト利用について</span>
+    </AnimationLink>
+    <AnimationLink href={`${BASE_URL}/rss.xml`} class="site-footer__link">
+      <Icon name="rss" color="#f26522" width={18} style="padding-right:3px" />
+      <span>RSS</span>
+    </AnimationLink>
+  </div>
+</footer>

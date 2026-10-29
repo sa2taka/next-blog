@@ -36,7 +36,7 @@ export const postSchema = z.object({
   tags: z.array(z.string()),
   public: z.boolean(),
   latex: z.boolean(),
-  // Next.js のシリアライズの関係で、Date型にせずにgetTimeの値を利用する
+  // 日時は epoch ミリ秒で保持する
   createdAt: z.number(),
   updatedAt: z.number(),
   ogImage: z.string().optional(),
@@ -49,7 +49,7 @@ export const tilSchema = z.object({
   slug: z.string().min(1),
   body: z.string().min(1),
   category: z.string().min(1),
-  // Next.js のシリアライズの関係で、Date型にせずにgetTimeの値を利用する
+  // 日時は epoch ミリ秒で保持する
   createdAt: z.number(),
   updatedAt: z.number(),
   ogImage: z.string().optional(),
