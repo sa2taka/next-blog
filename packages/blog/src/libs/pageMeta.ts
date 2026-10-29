@@ -35,7 +35,8 @@ export const articlePageMeta = (
     description,
     ogTitle: entry.title,
     ogType: 'article',
-    ogImage: resolveOgImageUrl(entry.ogImage),
+    // 記事固有の画像がないときは既定値に任せ、X には正方形の既定画像を出す
+    ogImage: hasCustomOgImage ? resolveOgImageUrl(entry.ogImage) : undefined,
     ogImageAlt: hasCustomOgImage
       ? `${entry.title} の OGP 画像`
       : DEFAULT_OG_IMAGE_ALT,
