@@ -3,8 +3,7 @@ import { Category, categorySchema, Post, postSchema, Til, tilSchema } from '@blo
 import * as path from 'path';
 import { readFile } from 'fs/promises';
 import { glob } from 'glob';
-
-const DATA_ROOT = path.join(process.cwd(), '..', '..', '_data');
+import { DATA_ROOT } from '@blog/libs/projectRoot';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
