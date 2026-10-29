@@ -63,6 +63,18 @@ const fetchImageBuffer = (src: string): Uint8Array => {
   } else {
     return new Uint8Array(fetchSync(src).arrayBuffer());
   }
+/**
+ * 画像のサイズを返す。取得できない場合(ローカルに存在しない等)はundefined。
+ */
+const measureImage = (src: string) => {
+  try {
+    return sizeOf(Buffer.from(fetchImageBuffer(src)));
+  } catch (e) {
+    console.warn(`[image-size] skip "${src}": ${(e as Error).message}`);
+    return undefined;
+  }
+};
+
 };
 
 /**
@@ -77,8 +89,7 @@ export const imageSizeRenderPlugin = (md: MarkdownIt) => {
 
   md.renderer.rules.image = (...[tokens, idx, options, env, self]) => {
     const imgSrc = tokens[idx].attrGet('src') as string;
-    const img = fetchImageBuffer(imgSrc);
-    const size = sizeOf(Buffer.from(img));
+    const size = measureImage(imgSrc);
 
     size?.width && tokens[idx].attrPush(['width', size.width.toString()]);
     size?.height && tokens[idx].attrPush(['height', size.height.toString()]);
