@@ -1,0 +1,38 @@
+---
+import { formatPostIndex } from '@blog/libs/formatPostIndex';
+import type { PostIndexItem } from '@blog/types/postIndex';
+import './PostArea.css';
+
+interface Props {
+  index: PostIndexItem[];
+}
+
+const { index } = Astro.props;
+const formattedPostIndex = formatPostIndex(index);
+---
+
+<nav class="post-index">
+  <span class="post-index__title">目次</span>
+  <ol class="post-index__list">
+    {
+      formattedPostIndex.map((level1) => (
+        <li class="post-index__first">
+          <a href={`#${level1.title}`} class="post-index__link">
+            {level1.title}
+          </a>
+          {level1.child.length !== 0 && (
+            <ol class="post-index__sub-list">
+              {level1.child.map((level2) => (
+                <li class="post-index__second">
+                  <a href={`#${level2.title}`} class="post-index__link">
+                    {level2.title}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

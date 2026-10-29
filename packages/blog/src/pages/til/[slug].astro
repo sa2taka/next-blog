@@ -1,0 +1,36 @@
+---
+import Breadcrumbs from '@blog/components/Breadcrumbs.astro';
+import TilItem from '@blog/components/TilItem.astro';
+import BaseLayout from '@blog/layouts/BaseLayout.astro';
+import { generateTilBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
+import { fetchAllTil } from '@blog/libs/dataFetcher';
+import { markdown } from '@blog/libs/markdown';
+import { articlePageMeta } from '@blog/libs/pageMeta';
+import { blogPostingJsonLd } from '@blog/libs/seo';
+import type { Til } from '@blog/types/entry';
+
+export async function getStaticPaths() {
+  const tils = await fetchAllTil();
+
+  return tils.map((til) => ({
+    params: { slug: til.slug },
+    props: { til },
+  }));
+}
+
+interface Props {
+  til: Til;
+}
+
+const { til } = Astro.props;
+const tilWithRawHtml = { ...til, rawHtml: markdown.render(til.body) };
+const breadcrumbsList = generateTilBreadcrumbsList(til);
+const description =
+  til.body.length > 200 ? til.body.slice(0, 200) + '...' : til.body;
+const meta = articlePageMeta(til, description);
+---
+
+<BaseLayout {...meta} jsonLd={blogPostingJsonLd(til, Astro.url.pathname)}>
+  <Breadcrumbs list={breadcrumbsList} />
+  <TilItem til={tilWithRawHtml} />
+</BaseLayout>

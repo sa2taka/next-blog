@@ -1,0 +1,26 @@
+---
+import { formatDate, formatDateForMachine } from '@blog/libs/formatDate';
+import type { TilWithRawHtml } from '@blog/types/entry';
+import MarkdownBody from './MarkdownBody.astro';
+import './Tils.css';
+
+interface Props {
+  til: TilWithRawHtml;
+}
+
+const { til } = Astro.props;
+const createdAt = new Date(til.createdAt);
+---
+
+<li class="til-item">
+  <div class="til-item__meta">
+    <time class="til-item__date" datetime={formatDateForMachine(createdAt)}>
+      {formatDate(createdAt)}
+    </time>
+    <span>{til.category}</span>
+  </div>
+  <h2>
+    <a href={`/til/${til.slug}/`} class="til-item__title">{til.title}</a>
+  </h2>
+  <MarkdownBody rawHtml={til.rawHtml} />
+</li>

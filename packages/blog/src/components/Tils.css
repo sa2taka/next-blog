@@ -1,0 +1,69 @@
+.tils {
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  padding: 0;
+}
+
+.tils > * {
+  margin-top: 64px;
+}
+
+.til-item {
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+}
+
+.til-item__meta {
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+}
+
+.til-item__title {
+  font-size: 1.1em;
+  font-weight: 600;
+  word-break: break-all;
+  margin: 8px 0;
+  text-decoration: none;
+  line-height: 1.4em;
+  position: relative;
+  cursor: pointer;
+}
+
+.theme--dark .til-item__title {
+  color: #ddd;
+}
+
+.theme--light .til-item__title {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.til-item__title::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: #009688;
+  transition: 0.3s;
+}
+
+.til-item__title:hover::before {
+  width: 80px;
+}
+
+.til-item__date {
+  font-size: 0.9em;
+}
+
+.theme--dark .til-item__date {
+  color: #aaa;
+}
+
+.theme--light .til-item__date {
+  color: #444;
+}

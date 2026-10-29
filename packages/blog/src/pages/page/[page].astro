@@ -1,0 +1,26 @@
+---
+import Pagination from '@blog/components/Pagination.astro';
+import Posts from '@blog/components/Posts.astro';
+import BaseLayout from '@blog/layouts/BaseLayout.astro';
+import { POSTS_LIMIT } from '@blog/libs/const';
+import { fetchAllPost, fetchPosts, fetchPostsCount } from '@blog/libs/dataFetcher';
+
+export async function getStaticPaths() {
+  const posts = await fetchAllPost();
+  const allPage = Math.ceil(posts.length / POSTS_LIMIT);
+
+  return Array.from({ length: allPage }, (_, index) => ({
+    params: { page: String(index + 1) },
+  }));
+}
+
+const page = Number(Astro.params.page);
+const posts = await fetchPosts(page - 1, POSTS_LIMIT);
+const count = await fetchPostsCount();
+---
+
+<BaseLayout title={`${page} ページ目`} noindex>
+  <Pagination baseUrl="/page" currentPage={page} limit={POSTS_LIMIT} postsCount={count} />
+  <Posts posts={posts} />
+  <Pagination baseUrl="/page" currentPage={page} limit={POSTS_LIMIT} postsCount={count} />
+</BaseLayout>

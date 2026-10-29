@@ -1,0 +1,29 @@
+---
+import type { CategoryWithCount } from '@blog/libs/dataFetcher';
+import Button from './Button.astro';
+import './CategoryArea.css';
+
+interface Props {
+  categories: CategoryWithCount[];
+}
+
+const { categories } = Astro.props;
+---
+
+<nav>
+  <ul class="categories">
+    {
+      categories.map((category) => (
+        <li>
+          <Button
+            href={`/category/${category.element.slug}/1/`}
+            outlined
+            class="category-button"
+          >
+            {category.element.name} ({category.count})
+          </Button>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

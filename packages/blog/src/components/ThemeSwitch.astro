@@ -1,0 +1,38 @@
+---
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import './ThemeSwitch.css';
+---
+
+<div class="tooltip theme-switch__to-light">
+  <div>
+    <Button icon small aria-label="ライトモードへ" data-theme-switch="light">
+      <Icon name="moon" />
+    </Button>
+  </div>
+  <div class="tooltip__content"><span class="theme-switch__label">ライトモードへ</span></div>
+</div>
+<div class="tooltip theme-switch__to-dark">
+  <div>
+    <Button icon small aria-label="ダークモードへ" data-theme-switch="dark">
+      <Icon name="sun" />
+    </Button>
+  </div>
+  <div class="tooltip__content"><span class="theme-switch__label">ダークモードへ</span></div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('[data-theme-switch]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var theme = button.getAttribute('data-theme-switch');
+      var classList = document.documentElement.classList;
+      classList.remove('theme--dark', 'theme--light');
+      classList.add('theme--' + theme);
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (e) {
+        // 保存できない環境では表示の切り替えのみ行う
+      }
+    });
+  });
+</script>
