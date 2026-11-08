@@ -27,7 +27,7 @@
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
     "imagemin-webp": "^8.0.0",
-    "markdown-it": "^14.0.0",
+    "markdown-it": "^15.0.0",
     "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-imsize": "^2.0.1",
