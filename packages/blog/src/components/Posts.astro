@@ -1,0 +1,15 @@
+---
+import type { Post } from '@blog/types/entry';
+import PostItem from './PostItem.astro';
+import './Posts.css';
+
+interface Props {
+  posts: Omit<Post, 'body'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="posts">
+  {posts.map((post) => <PostItem post={post} />)}
+</ul>

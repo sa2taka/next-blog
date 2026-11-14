@@ -1,5 +1,4 @@
 import RSS from 'rss';
-import { join } from 'path';
 import { convert } from 'html-to-text';
 
 const loadCjsCompatibleModule = async <T>(path: string) => {
@@ -24,7 +23,7 @@ export async function generatePostFeed() {
   const rss = new RSS({
     title: BLOG_TITLE,
     site_url: BASE_URL,
-    feed_url: join(BASE_URL, 'rss.xml'),
+    feed_url: `${BASE_URL}/rss.xml`,
   });
 
   posts.forEach((post) => {

@@ -1,0 +1,11 @@
+---
+import '@blog/styles/markdown.css';
+
+interface Props {
+  rawHtml: string;
+}
+
+const { rawHtml } = Astro.props;
+---
+
+<div class="prism-theme post-body" set:html={rawHtml} />

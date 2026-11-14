@@ -1,0 +1,32 @@
+---
+import AnimationLink from './AnimationLink.astro';
+import ThemeSwitch from './ThemeSwitch.astro';
+import './Header.css';
+---
+
+<header class="site-header sheet">
+  <div class="site-header__box">
+    <a class="site-header__title" href="/">
+      <picture style="width:20.88px;height:36px">
+        <source
+          srcset="/icon.webp"
+          type="image/webp"
+          media="(max-height: 36px)"
+          width="20.88"
+          height="36"
+        />
+        <img src="/icon.png" width="20.88" height="36" alt="logo" />
+      </picture>
+      <h1 class="site-header__title-text">言葉の向こうに世界を見る</h1>
+    </a>
+    <div class="site-header__spacer"></div>
+    <div class="site-header__right">
+      <nav class="site-header__nav">
+        <AnimationLink href="/" class="site-header__nav-link">Home</AnimationLink>
+        <AnimationLink href="/category/" class="site-header__nav-link">Category</AnimationLink>
+        <AnimationLink href="/til/" class="site-header__nav-link">TIL</AnimationLink>
+      </nav>
+      <ThemeSwitch />
+    </div>
+  </div>
+</header>

@@ -1,0 +1,40 @@
+---
+import Breadcrumbs from '@blog/components/Breadcrumbs.astro';
+import PostArea from '@blog/components/PostArea.astro';
+import BaseLayout from '@blog/layouts/BaseLayout.astro';
+import { generatePostBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
+import { fetchAllPost } from '@blog/libs/dataFetcher';
+import { generateIndices } from '@blog/libs/generateIndices';
+import { markdown } from '@blog/libs/markdown';
+import { articlePageMeta } from '@blog/libs/pageMeta';
+import { blogPostingJsonLd } from '@blog/libs/seo';
+import type { Post } from '@blog/types/entry';
+
+export async function getStaticPaths() {
+  const posts = await fetchAllPost();
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const rawBodyHtml = markdown.render(post.body);
+const postIndex = generateIndices(post.body);
+const breadcrumbsList = generatePostBreadcrumbsList(post);
+const meta = articlePageMeta(post, post.description);
+---
+
+<BaseLayout
+  {...meta}
+  jsonLd={blogPostingJsonLd(post, Astro.url.pathname)}
+  katex={post.latex}
+>
+  <Breadcrumbs list={breadcrumbsList} />
+  <PostArea post={post} rawHtml={rawBodyHtml} index={postIndex} />
+</BaseLayout>

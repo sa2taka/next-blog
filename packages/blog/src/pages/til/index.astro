@@ -1,0 +1,26 @@
+---
+import Breadcrumbs from '@blog/components/Breadcrumbs.astro';
+import Pagination from '@blog/components/Pagination.astro';
+import Tils from '@blog/components/Tils.astro';
+import BaseLayout from '@blog/layouts/BaseLayout.astro';
+import { generateTilsBreadcrumbsList } from '@blog/libs/breadcrumbsGenerator';
+import { TIL_LIMIT } from '@blog/libs/const';
+import { fetchTils, fetchTilsCount } from '@blog/libs/dataFetcher';
+import { markdown } from '@blog/libs/markdown';
+
+const page = 1;
+const tils = (await fetchTils(page - 1, TIL_LIMIT)).map((til) => ({
+  ...til,
+  rawHtml: markdown.render(til.body),
+}));
+const count = await fetchTilsCount();
+const breadcrumbsList = generateTilsBreadcrumbsList();
+---
+
+<BaseLayout title="TIL">
+  <Breadcrumbs list={breadcrumbsList} />
+  <Pagination baseUrl="/til/page" currentPage={page} limit={TIL_LIMIT} postsCount={count} />
+  <div class="page-title">TIL</div>
+  <Tils tils={tils} />
+  <Pagination baseUrl="/til/page" currentPage={page} limit={TIL_LIMIT} postsCount={count} />
+</BaseLayout>

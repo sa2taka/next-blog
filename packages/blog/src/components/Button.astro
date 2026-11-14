@@ -1,0 +1,38 @@
+---
+import './Button.css';
+
+interface Props {
+  href?: string;
+  icon?: boolean;
+  outlined?: boolean;
+  small?: boolean;
+  xSmall?: boolean;
+  disabled?: boolean;
+  class?: string;
+  'aria-label'?: string;
+  'data-theme-switch'?: string;
+}
+
+const {
+  href,
+  icon,
+  outlined,
+  small,
+  xSmall,
+  disabled,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const variant = icon ? 'btn--icon' : outlined ? 'btn--outlined' : 'btn--default';
+const iconSize = icon ? (small ? 'btn--small' : xSmall ? 'btn--x-small' : '') : '';
+const classes = ['btn', className, variant, iconSize, disabled && 'btn--disabled'];
+---
+
+{
+  href ? (
+    <a href={href} class:list={classes} {...rest}><span class="btn__content"><slot /></span></a>
+  ) : (
+    <button class:list={classes} disabled={disabled} {...rest}><span class="btn__content"><slot /></span></button>
+  )
+}

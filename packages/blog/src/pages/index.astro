@@ -1,0 +1,17 @@
+---
+import Pagination from '@blog/components/Pagination.astro';
+import Posts from '@blog/components/Posts.astro';
+import BaseLayout from '@blog/layouts/BaseLayout.astro';
+import { POSTS_LIMIT } from '@blog/libs/const';
+import { fetchPosts, fetchPostsCount } from '@blog/libs/dataFetcher';
+
+const page = 1;
+const posts = await fetchPosts(page - 1, POSTS_LIMIT);
+const count = await fetchPostsCount();
+---
+
+<BaseLayout>
+  <Pagination baseUrl="/page" currentPage={page} limit={POSTS_LIMIT} postsCount={count} />
+  <Posts posts={posts} />
+  <Pagination baseUrl="/page" currentPage={page} limit={POSTS_LIMIT} postsCount={count} />
+</BaseLayout>

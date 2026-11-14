@@ -1,0 +1,27 @@
+---
+import { formatDate, formatDateForMachine } from '@blog/libs/formatDate';
+import type { Post } from '@blog/types/entry';
+import AnimationLink from './AnimationLink.astro';
+
+interface Props {
+  post: Omit<Post, 'body'>;
+}
+
+const { post } = Astro.props;
+const createdAt = new Date(post.createdAt);
+---
+
+<li class="post-item">
+  <span>
+    <AnimationLink
+      href={`/category/${post.category.slug}/`}
+      class="post-item__category secondary-text"
+    >
+      {post.category.name}
+    </AnimationLink>
+  </span>
+  <a href={`/post/${post.slug}/`} class="post-item__title">{post.title}</a>
+  <time class="post-item__date" datetime={formatDateForMachine(createdAt)}>
+    {formatDate(createdAt)}
+  </time>
+</li>

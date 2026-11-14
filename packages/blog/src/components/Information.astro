@@ -1,0 +1,33 @@
+---
+import { formatDateForMachine, formatDateWithDay } from '@blog/libs/formatDate';
+import type { Post } from '@blog/types/entry';
+import AnimationLink from './AnimationLink.astro';
+import './PostArea.css';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const createdAt = new Date(post.createdAt);
+const updatedAt = new Date(post.updatedAt);
+---
+
+<div class="information">
+  <span>
+    <AnimationLink
+      href={`/category/${post.category.slug}/`}
+      class="secondary-text information__category"
+    >
+      {post.category.name}
+    </AnimationLink>
+  </span>
+
+  <h1 class="information__title">{post.title}</h1>
+  <p class="information__date">
+    作成日: <time datetime={formatDateForMachine(createdAt)}>{formatDateWithDay(createdAt)}</time>
+  </p>
+  <p class="information__date">
+    更新日: <time datetime={formatDateForMachine(updatedAt)}>{formatDateWithDay(updatedAt)}</time>
+  </p>
+</div>

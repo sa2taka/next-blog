@@ -1,0 +1,143 @@
+.article {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  width: 816px;
+}
+
+@media (max-width: 1020px) and (min-width: 768px) {
+  .article {
+    width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .article {
+    width: 99%;
+  }
+}
+
+/* 記事情報 */
+.information {
+  padding: 8px 12px;
+  margin-bottom: 0;
+  margin-top: auto;
+  min-width: 80%;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.information__category {
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.information__title {
+  font-size: 2em;
+  text-align: center;
+  margin: 0.4em auto;
+  line-height: 1.4em;
+  overflow-wrap: anywhere;
+  font-feature-settings: 'palt';
+  text-wrap: balance;
+  word-break: auto-phrase;
+}
+
+@media screen and (max-width: 768px) {
+  .information__title {
+    font-size: 1.4em;
+  }
+}
+
+.information__date {
+  font-size: 0.9em;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.theme--dark .information__date {
+  color: #ccc;
+}
+
+.theme--light .information__date {
+  color: #222;
+}
+
+/* 目次 */
+.post-index {
+  margin-top: 40px;
+  padding-bottom: 24px;
+  position: relative;
+  overflow-x: auto;
+  padding-top: 16px;
+}
+
+.post-index::before,
+.post-index::after {
+  width: 100%;
+  border-top: 1px solid;
+  content: '';
+  position: absolute;
+}
+
+.post-index__title {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -0.65em;
+  left: 10%;
+  width: 10%;
+  text-align: center;
+  z-index: 1;
+  justify-content: center;
+}
+
+.theme--dark .post-index__title {
+  background: #121212;
+}
+
+.theme--light .post-index__title {
+  background: #fff;
+}
+
+.post-index__list {
+  margin-top: -12px;
+  margin-bottom: 16px;
+  counter-reset: number;
+  padding-left: 32px;
+}
+
+.post-index__link {
+  text-decoration: none;
+}
+
+.theme--dark .post-index__link {
+  color: white;
+}
+
+.theme--light .post-index__link {
+  color: black;
+}
+
+.post-index__first {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.post-index__sub-list {
+  counter-reset: number;
+  position: relative;
+}
+
+.post-index__second {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  list-style: none;
+  position: relative;
+  font-weight: 400;
+}

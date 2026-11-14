@@ -12,8 +12,6 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - uses: ./.github/actions/yarn-prepare
       - name: yarn build
-        env:
-          NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
         run: |
           NODE_ENV=production yarn build
   lint:
@@ -37,8 +35,6 @@ jobs:
       - name: Install Playwright browsers
         run: yarn playwright install --with-deps chromium
       - name: Run E2E and VRT
-        env:
-          NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
         run: |
           NODE_ENV=production yarn test:e2e
       - name: Upload Playwright report

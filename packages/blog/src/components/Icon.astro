@@ -1,0 +1,26 @@
+---
+import { icons, type IconName } from '@blog/libs/icons';
+
+interface Props {
+  name: IconName;
+  class?: string;
+  style?: string;
+  width?: number;
+  height?: number;
+  color?: string;
+}
+
+const { name, class: className, ...rest } = Astro.props;
+const icon = icons[name];
+---
+
+<svg
+  aria-hidden="true"
+  focusable="false"
+  data-prefix={icon.prefix}
+  data-icon={icon.iconName}
+  class:list={['svg-inline--fa', `fa-${icon.iconName}`, className]}
+  role="img"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={`0 0 ${icon.width} ${icon.height}`}
+  {...rest}><path fill="currentColor" d={icon.path}></path></svg>

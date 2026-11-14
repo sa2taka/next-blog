@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import sizeOf from 'image-size';
+import { DATA_ROOT } from '@blog/libs/projectRoot';
 import MarkdownIt from 'markdown-it';
 import { join } from 'path';
 import fetchSync from 'sync-fetch';
@@ -55,13 +56,22 @@ const fetchImageBuffer = (src: string): Uint8Array => {
     const fileName = decodeURIComponent(
       src.replace('../_images/', '').normalize()
     );
-    const projectRoot = process
-      .cwd()
-      .replace(/[\\/]packages[\\/]blog([\\/].*)?$/, '');
-    const path = join(projectRoot, '_data', '_images', fileName);
+    const path = join(DATA_ROOT, '_images', fileName);
     return readFileSync(path);
   } else {
     return new Uint8Array(fetchSync(src).arrayBuffer());
+  }
+};
+
+/**
+ * 画像のサイズを返す。取得できない場合(ローカルに存在しない等)はundefined。
+ */
+const measureImage = (src: string) => {
+  try {
+    return sizeOf(Buffer.from(fetchImageBuffer(src)));
+  } catch (e) {
+    console.warn(`[image-size] skip "${src}": ${(e as Error).message}`);
+    return undefined;
   }
 };
 
@@ -77,8 +87,7 @@ export const imageSizeRenderPlugin = (md: MarkdownIt) => {
 
   md.renderer.rules.image = (...[tokens, idx, options, env, self]) => {
     const imgSrc = tokens[idx].attrGet('src') as string;
-    const img = fetchImageBuffer(imgSrc);
-    const size = sizeOf(Buffer.from(img));
+    const size = measureImage(imgSrc);
 
     size?.width && tokens[idx].attrPush(['width', size.width.toString()]);
     size?.height && tokens[idx].attrPush(['height', size.height.toString()]);

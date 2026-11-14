@@ -17,8 +17,8 @@
 /playwright-report
 /test-results
 
-# next.js
-/.next/
+# astro
+/.astro/
 /out/
 
 # production
@@ -45,7 +45,6 @@ yarn-error.log*
 
 .env*
 
-public/sw.js*
 public/workbox-*
 .firebase
 

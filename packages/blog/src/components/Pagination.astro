@@ -1,0 +1,65 @@
+---
+import { withTrailingSlash } from '@blog/libs/url';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+import './Pagination.css';
+
+interface Props {
+  currentPage: number;
+  limit: number;
+  postsCount: number;
+  baseUrl: string;
+}
+
+const { currentPage, limit, postsCount, baseUrl } = Astro.props;
+
+const maxPage = Math.ceil(postsCount / limit);
+const isFirstPage = currentPage === 1;
+const isLastPage = currentPage === maxPage;
+const pages = Array.from({ length: maxPage }, (_, i) => i + 1);
+
+const pageLink = (page: number) =>
+  withTrailingSlash(`${withTrailingSlash(baseUrl)}${page}`);
+---
+
+<nav aria-label="ページネーションナビゲーション">
+  <ul class="pagination">
+    {
+      !isFirstPage ? (
+        <li class="pagination__item">
+          <Button icon xSmall href={pageLink(currentPage - 1)}>
+            <Icon name="chevronLeft" />
+          </Button>
+        </li>
+      ) : (
+        <li class="pagination__item" aria-label="empty area" />
+      )
+    }
+    {
+      pages.map((page) => (
+        <li class="pagination__item">
+          <Button
+            icon
+            outlined
+            small
+            disabled={page === currentPage}
+            href={pageLink(page)}
+          >
+            {page}
+          </Button>
+        </li>
+      ))
+    }
+    {
+      !isLastPage ? (
+        <li class="pagination__item">
+          <Button icon xSmall href={pageLink(currentPage + 1)}>
+            <Icon name="chevronRight" />
+          </Button>
+        </li>
+      ) : (
+        <li class="pagination__item" aria-label="empty area" />
+      )
+    }
+  </ul>
+</nav>
