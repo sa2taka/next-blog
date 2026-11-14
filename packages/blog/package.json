@@ -44,7 +44,7 @@
     "@types/sync-fetch": "0.4.4",
     "eslint": "10.8.0",
     "eslint-plugin-astro": "3.2.1",
-    "html-to-text": "10.0.0",
+    "html-to-text": "10.0.1",
     "nodemon": "3.1.14",
     "npm-watch": "0.13.0",
     "tsx": "4.23.9",
